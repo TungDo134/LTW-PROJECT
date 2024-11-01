@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100%;
+    border-bottom: solid 1px black;
+}
+
+.mau {
+    background-color: black;
+    height: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; 
+}
+
+.logo img {
+    height: 40px;
+}
+
+.header_menu {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.header_menu ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.header_menu ul li {
+    position: relative;
+}
+
+.header_menu ul li a {
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.drop {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    z-index: 1000;
+    min-width: 200px;
+    border-radius: 10px;
+}
+
+.header_menu ul li .drop {
+    display: none;
+}
+
+.header_menu ul li:hover > .drop {
+    display: block; 
+}
+
+.drop li {
+    padding: 5px 15px;
+}
+
+.drop li a {
+    color: black;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 5px 0;
+    text-decoration: none;
+    display: block;
+}
+
+.drop li a:hover {
+    color: red;
+}
+
+.col_icon {
+    display: flex;
+    gap: 15px;
+    align-items: center; 
+}
+
+.col_icon a i {
+    font-size: 18px; 
+    color: #333;
+    transition: color 0.3s;
+}
+
+.col_icon a:hover i {
+    color: #007bff;
+}
