@@ -1,53 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/css/styleHeader.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Home</title>
-  </head>
-  <body>
-    <div class="header">
-      <div class="mau"></div>
-      <div class="container">
-        <div class="logo">
-          <a href="#">
-            <img src="/assets/pic/images.jpg" alt="logo" />
-          </a>
-        </div>
-        <div class="menubar">
-          <nav class="header_menu">
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Shop</a></li>
-              <li>
-                <a href="#">Pages</a>
-                <ul class="drop">
-                  <li><a href="#">Abouts </a></li>
-                  <li><a href="#">Shop Details</a></li>
-                  <li><a href="#">Shop Cart</a></li>
-                  <li><a href="#">Check Out</a></li>
-                  <li><a href="#">Blogs Details</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contacts</a></li>
+<!-- Link FontAwesome -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<!-- Link GG Icon -->
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_bag"
+/>
+<!-- Link jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/assets/css/styleHeader.css" />
+
+<title>Home</title>
+
+<div id="header">
+  <div class="mau">
+    <div class="top-message">
+      <span>HALLOWEEN SALE! 🎃</span>
+      <span>20% OFF WITH CODE: <a href="#" style="display: ">FLASH20</a></span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="logo">
+      <a href="#">
+        <img src="/assets/pic/logo.png" alt="logo" />
+      </a>
+    </div>
+    <!-- Menu Bar -->
+    <div class="menubar">
+      <nav class="header_menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li>
+            <a href="#">Pages</a>
+            <ul class="drop">
+              <li><a href="#">Shop Details</a></li>
+              <li><a href="#">Shop Cart</a></li>
+              <li><a href="#">Check Out</a></li>
+              <li><a href="#">Blogs Details</a></li>
             </ul>
-          </nav>
-        </div>
-        <div class="col_icon">
-          <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-          <a href="#"><i class="fa-solid fa-heart"></i></a>
-          <a href="#"><i class="fa-solid fa-shopping-bag"></i></a>
+          </li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contacts</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col_icon">
+      <!-- <a href="#"
+            ><i
+              class="fa-solid fa-magnifying-glass icon-search"
+              style="position: relative"
+            ></i
+          ></a> -->
+
+      <!-- Search input -->
+      <div class="search">
+        <button class="btn-search">
+          <img
+            src="https://theme.hstatic.net/1000348721/1000449307/14/pic-search.png?v=652"
+            alt=""
+          />
+        </button>
+        <div class="ct" id="search">
+          <form
+            action="search-control"
+            method="post"
+            class="form-search my-3 ms-2"
+          >
+            <div class="form-input">
+              <input name="txt" type="text" placeholder="Tìm kiếm..." />
+              <button type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
+
+      <!-- Admin -->
+      <div class="col_icon col_icon-user">
+        <a href="#"><i class="fa-regular fa-user"></i></a>
+        <div class="show">
+          <ul class="show-option">
+            <li class="items"><a href="" style="color: #000">Đăng nhập</a></li>
+            <li class="items"><a href="" style="color: #000">Đăng ký</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Shopping bag -->
+      <a href="#"
+        ><span
+          class="material-symbols-outlined"
+          style="line-height: normal; color: #333333cc"
+        >
+          shopping_bag
+        </span></a
+      >
     </div>
-  </body>
-</html>
+    <!-- Menu Bar -->
+  </div>
+</div>
+<script src="/assets/js/header.js"></script>
