@@ -16,6 +16,7 @@ a {
 
 #header {
   width: 100%;
+  transition: top 0.3s ease-in-out; /* Add this line for smooth transition */
 }
 
 #header .mau {
@@ -58,20 +59,40 @@ a {
   border-radius: 5px;
 }
 
+.fixed {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  animation: fadeInDown 1s ease-out;
+  transition: top 0.3s ease-in-out;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
 #header .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 15px 30px;
-  max-width: 1200px;
-  margin: 0 auto;
   width: 100%;
+  flex-wrap: wrap;
+  background-color: #fff;
+  box-shadow: 0 0 5px 0 rgba(102, 102, 102, 0.4);
+  border-radius: 5px;
+}
+
+#header .container .menubar {
+  margin-right: 3rem;
 }
 
 #header .logo {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
 }
 
 #header .logo img {
@@ -117,10 +138,16 @@ a {
 #header .header_menu ul li .drop {
   display: none;
 }
+
 #header .header_menu > ul > li > a {
   display: block;
   position: relative;
 }
+
+#header .header_menu ul li a.active::after {
+  transform: scale(1);
+}
+
 #header .header_menu > ul > li > a::after {
   content: "";
   position: absolute;
@@ -151,7 +178,7 @@ a {
 }
 
 #header .header_menu .drop li a {
-  color: #4b4b4b;
+  color: #111111;
   /* font-size: 14px; */
   font-weight: normal;
   padding: 5px 0;
@@ -160,7 +187,7 @@ a {
 }
 
 #header .drop li a:hover {
-  /* color: #e53637; */
+  /* color: #b9b594; */
   color: #de94a5;
 }
 
