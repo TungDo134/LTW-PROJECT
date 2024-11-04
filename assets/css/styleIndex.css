@@ -1,0 +1,54 @@
+#home-container .why-choose-section {
+  margin: 5rem 0;
+}
+
+#home-container .why-choose-container {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+
+#home-container .why-choose-container .wh-col-left {
+  background-color: antiquewhite;
+}
+#home-container .why-choose-container .wh-col-left .wh-title {
+  color: #2f2f2f;
+  font-size: 32px;
+}
+
+#home-container .why-choose-container .wh-col-left p {
+  max-width: 500px;
+}
+
+#home-container .why-choose-container .wh-col-left-content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+#home-container .wh-col-right {
+  display: flex;
+}
+
+#home-container .wh-col-right .img-wrap {
+  position: relative;
+  margin: auto;
+}
+
+#home-container .wh-col-right .img-wrap::before {
+  position: absolute;
+  content: "";
+  width: 255px;
+  height: 217px;
+  background-image: url(https://themewagon.github.io/furni/images/dots-yellow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
+}
+
+#home-container .wh-col-right .img-fluid {
+  width: 500px;
+  max-height: 500px;
+  margin-left: 100px;
+  margin-top: 100px;
+  border-radius: 20px;
+}

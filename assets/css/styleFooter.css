@@ -65,7 +65,7 @@ a {
 }
 
 #footer .footer_widget {
-  margin-bottom: 10px;
+  margin: 10px auto;
 }
 
 #footer .footer_widget h3 {
@@ -91,7 +91,7 @@ a {
 }
 
 #footer .overrall_4 {
-  max-width: 500px;
+  min-width: 500px;
   /* margin-right: 4rem; */
   display: flex;
   flex-direction: column;
