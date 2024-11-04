@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#about-us-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.background-split {
+  padding: 20px;
+  text-align: left;
+  height: 100vh; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; 
+  padding: 0 20%;
+}
+
+.background-split h1 {
+  font-size: 50px;
+  margin-bottom: 10px;
+  font-weight: bolder;
+}
+
+.background-split p {
+  font-size: 16px; 
+  line-height: 1.6;
+}
+
+#about-us-container .back-1 {
+  background-color: #faf1db;
+}
+
+#about-us-container .back-2 {
+  background-image: url(/assets/pic/back_2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#about-us-container .back-3 {
+  background-image: url(/assets/pic/back5.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#about-us-container .back-4 {
+  background-color: #faf1db;
+}
+
+#about-us-container .back-5 {
+  background-color: #faf1db;
+}
+
+#about-us-container .back-6 {
+  background-image: url(/assets/pic/back_3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.back_ground_aboutUS {
+  grid-column: 1 / -1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(/assets/pic/backEnd.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 40px;
+  color: #ffffff; 
+  text-align: center;
+}
+
+.back_ground_aboutUS h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.frame_element {
+  margin-left: 50%; 
+  width: 50%;
+
+  transform: translateX(-50%);
+  text-align: center; 
+}
+
+.icon-3-background {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.icon-3-background .icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-3-background .icon i {
+  font-size: 40px;
+  color: #fff; 
+}
+
+.icon-3-background .icon p {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.subscription-description {
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 20px;
+  max-width: 500px; 
+}
+
+.subscribe-button {
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-button:hover {
+  background-color: #ffffff;
+}
+.back_ground_aboutUS h2,
+.back_ground_aboutUS .icon-3-background,
+.back_ground_aboutUS .subscription-description,
+.back_ground_aboutUS .subscribe-button {
+  margin-left: 50%; 
+  transform: translateX(-50%); 
+}
+
