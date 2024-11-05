@@ -75,29 +75,28 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(/assets/pic/backEnd.jpg);
+  justify-content: center;
+  background-image: url(/assets/pic/back_End.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 40px;
   color: #ffffff; 
   text-align: center;
 }
 
 .back_ground_aboutUS h2 {
-  font-size: 24px;
+  font-size: 40px;
   font-weight: bold;
   margin-bottom: 20px;
   color: #fff;
 }
 
-.frame_element {
-  margin-left: 50%; 
-  width: 50%;
-
-  transform: translateX(-50%);
-  text-align: center; 
+.back_ground_aboutUS .frame_element {
+  background-color: rgba(0, 0, 0, 0.3); /* Lớp phủ màu đen với độ mờ 50% */
+  padding: 20px;
+  border-radius: 10px;
 }
+
 
 .icon-3-background {
   display: flex;
@@ -119,39 +118,25 @@ body {
 }
 
 .icon-3-background .icon p {
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: bold;
   margin-top: 10px;
   color: #fff;
 }
 
 .subscription-description {
-  font-size: 14px;
+  font-size: 20px;
   color: #fff;
   margin-bottom: 20px;
-  max-width: 500px; 
-}
-
-.subscribe-button {
-  text-align: center;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #000000;
-  background-color: #ffffff;
-  border: 1px solid #000;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  max-width: 650px; 
 }
 
 .subscribe-button:hover {
-  background-color: #ffffff;
+  background-color: #504e4e;
+  color: #ffffff;
 }
-.back_ground_aboutUS h2,
-.back_ground_aboutUS .icon-3-background,
-.back_ground_aboutUS .subscription-description,
-.back_ground_aboutUS .subscribe-button {
-  margin-left: 50%; 
-  transform: translateX(-50%); 
+.icon-3-background, .subscription-description{
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
