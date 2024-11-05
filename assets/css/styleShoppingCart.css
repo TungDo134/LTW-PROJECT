@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*breadcrumb điều hướng*/
+.breadcrumb-frame h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.breadcrumb-frame {
+    min-width: 100%;
+    height: 150px;
+    background-color: #F3F2EE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.breadcrumb {
+    width: 1200px;
+    margin: auto;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #000;
+}
+
+.breadcrumb span {
+    color: #9e9e9e;
+}
+/*giỏ hàng chính*/
+.main-cart {
+    display: grid;
+    grid-template-columns: 69% 29%;
+    gap: 20px;
+    width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+/*tiêu đề*/
+.cart-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 50px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding: 15px 0;
+    text-align: left;
+}
+/*các item*/
+.cart-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 50px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/*sản phẩm*/
+.product-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.product-info img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/*phiếu thanh toán*/
+.cart-summary {
+    background-color: #f7f7f7;
+    padding: 40px;
+    text-align: left;
+    border-radius: 4px;
+    color: #333;
+}
+
+.cart-summary h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cart-summary .cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.cart-summary .subtotal,
+.cart-summary .total {
+    color: #ff3333;
+}
+
+
+.checkout-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.checkout-button:hover {
+    background-color: #444;
+}
+
+
+.continue-shopping {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+    width: 300px;
+}
+
+.continue-shopping:hover {
+    background-color: #f7f7f7;
+}
+
+
+.update-cart {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+    margin-left: 10px;
+    width: 250px;
+}
+
+.update-cart:hover {
+    background-color: #444;
+}
+
+
+.discount-section {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.discount-section input {
+    flex-grow: 1;
+    padding: 10px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    margin-bottom: 40px;
+}
+
+.discount-section button {
+    margin-bottom: 40px;
+    height: 50px;
+    padding: 0 20px;
+    border:1px solid #000;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    font-weight: bold;
+    width: 100px;
+}
+
+.discount-section button:hover {
+    background-color: #444;
+}
+.cart-controls {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
+    margin-top: 20px;
+}
+.decrease , .increase{
+    border: none;
+    background-color: transparent;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.i-container {
+    display: inline-flex; 
+    justify-content: center;
+    align-items: center;
+    width: 40px; 
+    height: 40px; 
+    background-color: rgba(0, 0, 0, 0.2); 
+    border-radius: 50%; 
+    text-align: center;
+}
+
+i {
+    color: #000; 
+    font-size: 20px; 
+}
+.price{
+    font-size: 20px;
+    font-weight: 600;
+}
