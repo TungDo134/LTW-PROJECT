@@ -1,12 +1,12 @@
 $(document).ready(function () {
   $(document).on("click", ".btn-search", function () {
-    $("#search").slideToggle("slow");
-    $(".show").slideUp("slow");
+    $("#search").slideToggle("normal");
+    $(".show").slideUp("normal");
   });
 
   $(document).on("click", ".col_icon-user", function () {
-    $(".show").slideToggle("slow");
-    $("#search").slideUp("slow");
+    $(".show").slideToggle("normal");
+    $("#search").slideUp("normal");
   });
 
   $("#header .header_menu ul li a").click(function () {

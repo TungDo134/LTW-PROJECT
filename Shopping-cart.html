@@ -1,107 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/assets/css/styleShoppingCart.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="header-container"></div>
     <main id="shopping-cart-container">
-        <!-- Navigation Path -->
-        <div class="breadcrumb-frame">
-            <nav class="breadcrumb">
-                <h1>Shopping Cart</h1>
-                <a href="#">Home</a> &gt; 
-                <a href="#">Shop</a> &gt; 
-                <span>Shopping Cart</span>
-            </nav>
-        </div>
-        <!-- Shopping Cart Table -->
-        <div class="main-cart"> 
-            <div class="cart-table left">
-                <div class="cart-header">
-                    <span>Product</span>
-                    <span>Quantity</span>
-                    <span>Total</span>                  
-                </div>
-                   <!-- Product Rows -->
-                <div class="cart-item">
-                    <div class="product-info">
-                        <img src="/assets/pic/but-ki-ten.jpg" alt="T-shirt Contrast Pocket">
-                        <div>
-                            <p>Bút Kí Tên Chuyên Dụng</p>
-                            <p class="price">65.000đ</p>
-                        </div>
-                    </div>
-                    <div class="quantity">
-                        <button class="decrease"><</button>
-                        <span>1</span>
-                        <button class="increase">></button>
-                    </div>
-                    <div class="total-price">$30.00</div>
-                    <div class="remove-item">
-                        <div class="i-container">
-                            <i class="fa fa-times"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="cart-item">
-                    <div class="product-info">
-                        <img src="/assets/pic/but-chi-mau.jpg" alt="Diagonal Textured Cap">
-                        <div>
-                            <p>Bộ Bút Chì Màu 48 Cây</p>
-                            <p class="price">300.000đ</p>
-                        </div>
-                    </div>
-                    <div class="quantity">
-                        <button class="decrease"><</button>
-                        <span>1</span>
-                        <button class="increase">></button>
-                    </div>
-                    <div class="total-price">$32.50</div>
-                    <div class="remove-item">
-                        <div class="i-container">
-                            <i class="fa fa-times"></i>
-                        </div>
-                    </div>
-                </div>            
-                <!-- Cart Controls -->
-                <div class="cart-controls">
-                    <button class="continue-shopping ">Continue Shopping</button>
-                    <button class="update-cart">Update Cart</button>
-                </div>
+      <!-- Navigation Path -->
+      <div class="breadcrumb-frame">
+        <nav class="breadcrumb">
+          <h1>Shopping Cart</h1>
+          <a href="#">Home</a> &gt; <a href="#">Shop</a> &gt;
+          <span>Shopping Cart</span>
+        </nav>
+      </div>
+      <!-- Shopping Cart Table -->
+      <div class="main-cart">
+        <div class="cart-table left">
+          <div class="cart-header">
+            <span>Product</span>
+            <span>Quantity</span>
+            <span>Total</span>
+          </div>
+          <!-- Product Rows -->
+          <div class="cart-item">
+            <div class="product-info">
+              <img
+                src="/assets/pic/but-ki-ten.jpg"
+                alt="T-shirt Contrast Pocket"
+              />
+              <div>
+                <p>Bút Kí Tên Chuyên Dụng</p>
+                <p class="price">65.000đ</p>
+              </div>
             </div>
-            <div class="cart-table right">
-                <div class="cart-header">
-                    <span>Discount code</span>
-                </div>
-                                     
-                
-                <!-- Discount Code Section -->
-                <div class="discount-section">
-                    <input type="text" placeholder="Coupon code">
-                    <button class="apply-discount">Apply</button>
-                </div>
+            <div class="quantity">
+              <button class="decrease"><</button>
+              <span>1</span>
+              <button class="increase">></button>
+            </div>
+            <div class="total-price">$30.00</div>
+            <div class="remove-item">
+              <div class="i-container">
+                <i class="fa fa-times"></i>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div class="product-info">
+              <img
+                src="/assets/pic/but-chi-mau.jpg"
+                alt="Diagonal Textured Cap"
+              />
+              <div>
+                <p>Bộ Bút Chì Màu 48 Cây</p>
+                <p class="price">300.000đ</p>
+              </div>
+            </div>
+            <div class="quantity">
+              <button class="decrease"><</button>
+              <span>1</span>
+              <button class="increase">></button>
+            </div>
+            <div class="total-price">$32.50</div>
+            <div class="remove-item">
+              <div class="i-container">
+                <i class="fa fa-times"></i>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div class="product-info">
+              <img
+                src="/assets/pic/but-chi-mau.jpg"
+                alt="Diagonal Textured Cap"
+              />
+              <div>
+                <p>Bộ Bút Chì Màu 48 Cây</p>
+                <p class="price">300.000đ</p>
+              </div>
+            </div>
+            <div class="quantity">
+              <button class="decrease"><</button>
+              <span>1</span>
+              <button class="increase">></button>
+            </div>
+            <div class="total-price">$32.50</div>
+            <div class="remove-item">
+              <div class="i-container">
+                <i class="fa fa-times"></i>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div class="product-info">
+              <img
+                src="/assets/pic/but-chi-mau.jpg"
+                alt="Diagonal Textured Cap"
+              />
+              <div>
+                <p>Bộ Bút Chì Màu 48 Cây</p>
+                <p class="price">300.000đ</p>
+              </div>
+            </div>
+            <div class="quantity">
+              <button class="decrease"><</button>
+              <span>1</span>
+              <button class="increase">></button>
+            </div>
+            <div class="total-price">$32.50</div>
+            <div class="remove-item">
+              <div class="i-container">
+                <i class="fa fa-times"></i>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div class="product-info">
+              <img
+                src="/assets/pic/but-chi-mau.jpg"
+                alt="Diagonal Textured Cap"
+              />
+              <div>
+                <p>Bộ Bút Chì Màu 48 Cây</p>
+                <p class="price">300.000đ</p>
+              </div>
+            </div>
+            <div class="quantity">
+              <button class="decrease"><</button>
+              <span>1</span>
+              <button class="increase">></button>
+            </div>
+            <div class="total-price">$32.50</div>
+            <div class="remove-item">
+              <div class="i-container">
+                <i class="fa fa-times"></i>
+              </div>
+            </div>
+          </div>
+          <!-- Cart Controls -->
+          <div class="cart-controls">
+            <button class="continue-shopping">Continue Shopping</button>
+            <button class="update-cart">Update Cart</button>
+          </div>
+        </div>
+        <div class="cart-table right">
+          <div class="cart-header">
+            <span>Discount code</span>
+          </div>
 
-                <!-- Cart Summary Section -->
-                <div class="cart-summary">
-                    <h2>Cart Total</h2>
-                    <div class="cart-total-row">
-                        <span>Subtotal:</span>
-                        <span class="subtotal">$169.50</span>
-                    </div>
-                    <div class="cart-total-row">
-                        <span>Total:</span>
-                        <span class="total">$169.50</span>
-                    </div>
-                    <button class="checkout-button">Proceed to Checkout</button>
-                </div>
-                
+          <!-- Discount Code Section -->
+          <div class="discount-section">
+            <input type="text" placeholder="Coupon code" />
+            <button class="apply-discount">Apply</button>
+          </div>
+
+          <!-- Cart Summary Section -->
+          <div class="cart-summary">
+            <h2>Cart Total</h2>
+            <div class="cart-total-row">
+              <span>Subtotal:</span>
+              <span class="subtotal">$169.50</span>
             </div>
+            <div class="cart-total-row">
+              <span>Total:</span>
+              <span class="total">$169.50</span>
+            </div>
+            <button class="checkout-button">Proceed to Checkout</button>
+          </div>
         </div>
+      </div>
     </main>
-</body>
+    <div id="footer-container"></div>
+    <script src="/assets/js/loadHF.js"></script>
+  </body>
 </html>

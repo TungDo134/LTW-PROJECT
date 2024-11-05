@@ -8,6 +8,7 @@ body {
 }
 
 #about-us-container {
+  margin-top: 9rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
@@ -16,12 +17,12 @@ body {
 .background-split {
   padding: 20px;
   text-align: left;
-  height: 100vh; 
+  height: 100vh;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; 
+  align-items: flex-start;
   padding: 0 20%;
 }
 
@@ -32,7 +33,7 @@ body {
 }
 
 .background-split p {
-  font-size: 16px; 
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -80,7 +81,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  color: #ffffff; 
+  color: #ffffff;
   text-align: center;
 }
 
@@ -96,7 +97,6 @@ body {
   padding: 20px;
   border-radius: 10px;
 }
-
 
 .icon-3-background {
   display: flex;
@@ -114,7 +114,7 @@ body {
 
 .icon-3-background .icon i {
   font-size: 40px;
-  color: #fff; 
+  color: #fff;
 }
 
 .icon-3-background .icon p {
@@ -128,15 +128,15 @@ body {
   font-size: 20px;
   color: #fff;
   margin-bottom: 20px;
-  max-width: 650px; 
+  max-width: 650px;
 }
 
 .subscribe-button:hover {
   background-color: #504e4e;
   color: #ffffff;
 }
-.icon-3-background, .subscription-description{
+.icon-3-background,
+.subscription-description {
   margin-top: 40px;
   margin-bottom: 40px;
 }
-
