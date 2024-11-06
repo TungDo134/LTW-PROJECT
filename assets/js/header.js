@@ -14,18 +14,21 @@ $(document).ready(function () {
     $(this).addClass("active"); // Thêm class 'active' cho thẻ <a> vừa nhấp
   });
 
-  // // Xử lý cuộn trang
-  // var lastScrollTop = 0;
-  // var header = $("#header");
+  // Xử lý cuộn trang (slide)
+  var lastScrollTop = 0;
+  var $header = $("#header");
 
-  // $(window).scroll(function () {
-  //   var scrollTop = $(this).scrollTop();
+  $(window).scroll(function () {
+    var scrollTop = $(this).scrollTop();
 
-  //   if (scrollTop > lastScrollTop) {
-  //     // Cuộn xuống
-  //     header.addClass("fixed");
-  //   }
+    if (scrollTop === 0) {
+      $header.show();
+    } else if (scrollTop > lastScrollTop) {
+      $header.slideUp("3000");
+    } else {
+      $header.slideDown("1000");
+    }
 
-  //   lastScrollTop = scrollTop;
-  // });
+    lastScrollTop = scrollTop;
+  });
 });

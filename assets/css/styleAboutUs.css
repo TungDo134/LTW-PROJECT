@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 #about-us-container {
@@ -70,7 +70,7 @@ body {
   background-position: center;
 }
 
-.back_ground_aboutUS {
+#about-us-container .back_ground_aboutUS {
   grid-column: 1 / -1;
   height: 100vh;
   display: flex;
@@ -85,20 +85,20 @@ body {
   text-align: center;
 }
 
-.back_ground_aboutUS h2 {
+#about-us-container .back_ground_aboutUS h2 {
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 20px;
   color: #fff;
 }
 
-.back_ground_aboutUS .frame_element {
+#about-us-container .back_ground_aboutUS .frame_element {
   background-color: rgba(0, 0, 0, 0.3); /* Lớp phủ màu đen với độ mờ 50% */
   padding: 20px;
   border-radius: 10px;
 }
 
-.icon-3-background {
+#about-us-container .icon-3-background {
   display: flex;
   justify-content: center;
   gap: 60px;
@@ -106,37 +106,82 @@ body {
   text-align: center;
 }
 
-.icon-3-background .icon {
+#about-us-container .icon-3-background .icon {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.icon-3-background .icon i {
+#about-us-container .icon-3-background .icon i {
   font-size: 40px;
   color: #fff;
 }
 
-.icon-3-background .icon p {
+#about-us-container .icon-3-background .icon p {
   font-size: 20px;
   font-weight: bold;
   margin-top: 10px;
   color: #fff;
 }
 
-.subscription-description {
+#about-us-container .subscription-description {
   font-size: 20px;
   color: #fff;
   margin-bottom: 20px;
   max-width: 650px;
 }
 
-.subscribe-button:hover {
+#about-us-container .subscribe-button:hover {
   background-color: #504e4e;
   color: #ffffff;
 }
-.icon-3-background,
-.subscription-description {
+#about-us-container .icon-3-background,
+#about-us-container .subscription-description {
   margin-top: 40px;
   margin-bottom: 40px;
+}
+
+#intro-team {
+  margin: 2rem 0;
+}
+
+#intro-team .my-team {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+#intro-team > h2 {
+  padding: 1rem;
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 2.4rem;
+}
+
+/* Mỗi item */
+#intro-team .item {
+  text-align: center;
+  width: 200px;
+  margin: 10px;
+}
+
+#intro-team .item > img {
+  width: 100%;
+  /* width: 260px;
+  height: 250px; */
+  border-radius: 5px;
+}
+
+#intro-team .item > h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  text-align: left;
+}
+
+#intro-team .item > p {
+  font-size: 1rem;
+  color: #555;
+  text-align: left;
 }

@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+body,
+html {
+  font-family: "Nunito Sans", sans-serif;
+}
+
 #shopping-cart-container {
   margin: 8rem 0px;
 }
@@ -20,7 +25,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  #shopping-cart-container;
 }
 
 #shopping-cart-container .breadcrumb {
@@ -31,16 +35,18 @@
 #shopping-cart-container .breadcrumb a {
   text-decoration: none;
   color: #000;
+  margin: 0 4px;
 }
 
 #shopping-cart-container .breadcrumb span {
   color: #9e9e9e;
+  margin-left: 4px;
 }
 /*giỏ hàng chính*/
 #shopping-cart-container .main-cart {
   display: grid;
   grid-template-columns: 69% 29%;
-  gap: 20px;
+  gap: 2rem;
   width: 1200px;
   margin: auto;
   padding: 20px;
@@ -53,11 +59,13 @@
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 50px;
   font-weight: bold;
-  color: #333;
+  text-transform: uppercase;
+  /* color: #333; */
   border-bottom: 2px solid #eee;
   padding: 15px 0;
   text-align: left;
 }
+
 /*các item*/
 #shopping-cart-container .cart-item {
   display: grid;
@@ -90,7 +98,7 @@
 /*phiếu thanh toán*/
 #shopping-cart-container .cart-summary {
   background-color: #f7f7f7;
-  padding: 40px;
+  padding: 2rem;
   text-align: left;
   border-radius: 4px;
   color: #333;
@@ -116,73 +124,86 @@
 
 #shopping-cart-container .checkout-button {
   width: 100%;
-  padding: 10px;
+  padding: 15px 10px;
   background-color: #333;
   color: #fff;
-  border: none;
+  border: 1px solid #000;
+  border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.7s;
   margin-top: 20px;
+  font-family: inherit;
+  text-transform: uppercase;
 }
 
 #shopping-cart-container .checkout-button:hover {
-  background-color: #444;
+  background: transparent;
+  color: #000;
+  border: 1px solid #000;
 }
 
 #shopping-cart-container .continue-shopping {
   background-color: #fff;
   border: 1px solid #ccc;
   color: #333;
-  padding: 10px 20px;
+  padding: 15px 35px;
   font-weight: bold;
+  text-transform: uppercase;
+  font-family: inherit;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
   border-radius: 4px;
-  width: 300px;
 }
 
 #shopping-cart-container .continue-shopping:hover {
-  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  color: #fff;
+  background: #000;
+}
+
+#shopping-cart-container .continue-shopping a {
+  color: #000;
 }
 
 #shopping-cart-container .update-cart {
   background-color: #333;
   color: #fff;
-  padding: 10px 20px;
-  border: none;
+  text-transform: uppercase;
+  font-family: inherit;
+  padding: 15px 50px;
+  border: 1px solid #000;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
   border-radius: 4px;
-  margin-left: 10px;
-  width: 250px;
 }
 
 #shopping-cart-container .update-cart:hover {
-  background-color: #444;
+  background: transparent;
+  color: #000;
+  border: 1px solid #000;
 }
 
 #shopping-cart-container .discount-section {
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  margin: 20px 0 42px 0;
 }
 
 #shopping-cart-container .discount-section input {
   flex-grow: 1;
-  padding: 15px 10px;
+  padding: 12px 10px;
   border: 1px solid #ccc;
   border-radius: 4px 0 0 4px;
-  font-size: 16px;
+  font-size: 14px;
   color: #333;
   background-color: #fff;
-  margin-bottom: 40px;
+  outline: none;
 }
 
 #shopping-cart-container .discount-section button {
-  margin-bottom: 40px;
-  height: 50px;
+  height: 44px;
   padding: 0 20px;
   border: 1px solid #000;
   background-color: #333;
@@ -194,6 +215,10 @@
   width: 100px;
 }
 
+#shopping-cart-container .cart-table.right {
+  max-width: 360px;
+}
+
 #shopping-cart-container .discount-section button:hover {
   background-color: #444;
 }
@@ -201,8 +226,9 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 2rem;
 }
+
 #shopping-cart-container .decrease,
 #shopping-cart-container .increase {
   border: none;
@@ -210,22 +236,29 @@
   margin-right: 10px;
   margin-left: 10px;
 }
+
 #shopping-cart-container .i-container {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(0, 0, 0, 0.2);
+  width: 35px;
+  height: 35px;
+  background-color: #f3f2ee;
+  /* background-color: rgba(0, 0, 0, 0.2); */
   border-radius: 50%;
   text-align: center;
 }
 
 #shopping-cart-container i {
   color: #000;
-  font-size: 20px;
+  font-size: 17px;
 }
 #shopping-cart-container .price {
-  font-size: 20px;
+  font-size: 18px;
+  margin-top: 4px;
   font-weight: 600;
+}
+
+#shopping-cart-container .currency {
+  vertical-align: super;
 }

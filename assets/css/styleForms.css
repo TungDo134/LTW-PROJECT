@@ -6,7 +6,7 @@
 
 body,
 html {
-  font-family: "Poppins", sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 a {
@@ -60,8 +60,7 @@ a {
   }
 }
 
-.signin-form,
-.signup-form {
+.signin-up-form {
   margin-right: 90px;
   margin-left: 80px;
 }
@@ -125,6 +124,7 @@ img {
 
 .checkbox {
   display: flex;
+  justify-content: space-between;
   gap: 12px;
 }
 
@@ -189,4 +189,45 @@ img {
   width: 20px;
   height: 20px;
   font-size: 16px;
+}
+
+/* Form 3-4 */
+.forget-container,
+.changeP-container {
+  border-radius: 10px;
+  width: 500px;
+  background: #fff;
+  background: transparent;
+  margin: 2rem auto;
+  box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  animation: slideIn 0.8s ease-in;
+}
+
+.forget-container .form-title,
+.changeP-container .form-title {
+  text-align: center;
+}
+
+.forget-content,
+.changeP-content {
+  display: flex;
+}
+
+.forget-form,
+.changeP-form {
+  width: 100%;
+  margin: 20px;
+}
+
+#form-3 .btn-blue,
+#form-4 .btn-blue {
+  margin-top: -2rem;
+}
+#form-3 .btn-blue > button,
+#form-4 .btn-blue > button {
+  width: 100%;
+}
+.forget-container .signup-image-link,
+.changeP-container .signup-image-link {
+  text-align: center;
 }

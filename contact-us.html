@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us</title>
+    <!-- Link FontAwsome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
     <!-- Link jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/assets/css/styleContactUs.css" />
@@ -19,19 +24,25 @@
                 <div class="section-title">
                   <span>Information</span>
                   <h2>Contact Us</h2>
-                  <p>As you might expect of a company that begin as a high-end interiors contractor, we pay strict attention</p>
+                  <p>
+                    Chúng tôi sẽ đáp ứng những tốt nhất như bạn mong đợi, chúng
+                    tôi đặc biệt chú ý đến trải nghiệm cũng như chất lượng sản
+                    phẩm
+                  </p>
                 </div>
                 <ul>
                   <li>
-                    <h4>America</h4>
-                    <p>195 E Parker Square Dr, Parker, CO 801
-                      <br>+43 982-314-0958
+                    <h4>TP.Hồ Chí Minh</h4>
+                    <p>
+                      23 Phạm Văn Đồng, Phường Hiệp Bình Chánh, Quận Thủ Đức
+                      <br />+89 982-314-0958
                     </p>
                   </li>
                   <li>
-                    <h4>France</h4>
-                    <p>109 Avenue Leson, 63 Clermont-Frerrand
-                      <br>+12 345-423-9893
+                    <h4>Hà Nội</h4>
+                    <p>
+                      19 Nguyễn Trãi, Phường Thanh Xuân Trung, Quận Thanh Xuân
+                      <br />+89 345-423-9893
                     </p>
                   </li>
                 </ul>
@@ -42,12 +53,16 @@
                 <form action="#">
                   <div class="row_second">
                     <div class="col_contact_3">
-                      <input type="text" placeholder="Name">
-                      <input type="text" placeholder="Email">
+                      <input type="text" placeholder="Tên của bạn" />
+                      <input type="text" placeholder="Email" />
                     </div>
                     <div class="col_contact_5">
-                      <textarea placeholder="Message"></textarea>
-                      <button type="submit" class="site-btn">Send Message</button>
+                      <textarea
+                        placeholder="Bạn muốn nói gì với chúng tôi"
+                      ></textarea>
+                      <button type="submit" class="site-btn">
+                        Send Message
+                      </button>
                     </div>
                   </div>
                 </form>
@@ -56,8 +71,93 @@
           </div>
         </div>
       </div>
+      <div class="faq">
+        <div class="head-title-faq">
+          <p class="content-title-faq" style="font-size: 2rem !important">
+            FREQUENTLY ASKED QUESTIONS
+          </p>
+        </div>
+        <!--  -->
+
+        <div class="faq-content">
+          <!--  -->
+          <div class="ques-as" onclick="toggleFAQ(this)">
+            <div class="question-content">
+              <p>How can I contact TVK?</p>
+              <i
+                class="fa-solid fa-chevron-down icon-down"
+                style="transform: rotateX(0deg)"
+              ></i>
+            </div>
+            <div class="answer">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Pariatur, repellendus!
+              </p>
+            </div>
+          </div>
+
+          <!--  -->
+          <div class="ques-as" onclick="toggleFAQ(this)">
+            <div class="question-content">
+              <p>
+                How quickly can I expect a reply if I contact TVK Client
+                Service?
+              </p>
+              <i
+                class="fa-solid fa-chevron-down icon-down"
+                style="transform: rotateX(0deg)"
+              ></i>
+            </div>
+            <div class="answer">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Pariatur, repellendus!
+              </p>
+            </div>
+          </div>
+          <!--  -->
+
+          <div class="ques-as" onclick="toggleFAQ(this)">
+            <div class="question-content">
+              <p>How do I get in touch with a specific boutique?</p>
+              <i
+                onclick="toggleFAQ(this)"
+                class="fa-solid fa-chevron-down icon-down"
+                style="transform: rotateX(0deg)"
+              ></i>
+            </div>
+            <div class="answer" onclick="toggleFAQ(this)">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Pariatur, repellendus!
+              </p>
+            </div>
+          </div>
+          <!--  -->
+
+          <div class="ques-as" onclick="toggleFAQ(this)">
+            <div class="question-content">
+              <p>Do you offer customer service in multiple languages?</p>
+              <i
+                onclick="toggleFAQ(this)"
+                class="fa-solid fa-chevron-down icon-down"
+                style="transform: rotateX(0deg)"
+              ></i>
+            </div>
+            <div class="answer">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Pariatur, repellendus!
+              </p>
+            </div>
+          </div>
+          <!--  -->
+        </div>
+      </div>
     </main>
     <div id="footer-container"></div>
     <script src="/assets/js/loadHF.js"></script>
+    <script src="/assets/js/main.js"></script>
   </body>
 </html>
