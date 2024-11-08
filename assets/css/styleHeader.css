@@ -93,6 +93,7 @@ a {
 }
 
 #header .logo {
+  margin-top: 5px;
 }
 
 #header .logo img {
@@ -120,7 +121,7 @@ a {
   color: #111111;
   font-weight: 600;
   text-decoration: none;
-  padding: 5px 0;
+  padding: 8px 0;
 }
 
 #header .drop {
@@ -225,6 +226,13 @@ a {
 
 #header .col_icon-user .show .items:hover > a {
   text-decoration: underline;
+}
+
+.col_icon.col_icon-user > button {
+  border: none;
+  background: #fff;
+  font-size: 18px;
+  outline: none;
 }
 
 #header .icon {

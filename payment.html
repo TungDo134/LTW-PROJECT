@@ -15,131 +15,202 @@
     <div id="header-container"></div>
     <!-- Phần Thông tin giao hàng -->
     <main id="checkout-container">
-        <div class="column shipping-info">
-            <!-- Phần Thông tin giao hàng -->
-            <h2>THÔNG TIN GIAO HÀNG</h2>
-            <div class="form-group">
-                <input type="text"name="name" placeholder="Họ và Tên" required>
-            </div>
-            <div class="form-group">
-                <input type="email" name="email" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-                <input type="number" naem="numberPhone" placeholder="Số Điện Thoại" required>
-            </div>
-            <div class="form-group">
-                <select id="city">
-                    <option value="">Chọn Tỉnh/Thành Phố</option>
-                    <option value="hcm">Hồ Chí Minh</option>
-                    <option value="hn">Hà Nội</option>
-                    <!-- Thêm các tỉnh/thành phố khác -->
-                </select>
-            </div>
-            <div class="form-group">
-                <select id="district">
-                    <option value="">Chọn Quận/Huyện</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <select id="ward">
-                    <option value="">Chọn Phường/Xã</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <input type="text" placeholder="Số Nhà, Tên Đường">
-            </div>
+      <div class="column shipping-info">
+        <!-- Phần Thông tin giao hàng -->
+        <h2>THÔNG TIN GIAO HÀNG</h2>
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Họ và Tên" required />
         </div>
-    
-        <div class="column payment-method">
-            <!-- Phần Phương thức thanh toán -->
-            <h2>PHƯƠNG THỨC THANH TOÁN</h2>
-            <div class="method">
-                <input type="radio" id="atm" name="payment" value="ATM">
-                <label for="atm">
-                    <img src="/assets/pic/ATM.png" alt="ATM icon"> Thanh toán thẻ (ATM, Visa)
-                </label>
-            </div>
-            <div class="method">
-                <input type="radio" id="momo" name="payment" value="MoMo">
-                <label for="momo">
-                    <img src="/assets/pic/momo.webp" alt="MoMo icon"> Thanh toán bằng MoMo
-                </label>
-            </div>
-            <div class="method">
-                <input type="radio" id="cod" name="payment" value="COD">
-                <label for="cod">
-                    <img src="/assets/pic/truck.svg" alt="COD icon"> Thanh toán khi nhận hàng (COD)
-                </label>
-            </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email" required />
         </div>
-    
-        <div class="column order-summary">
-            <!-- Phần Chi tiết sản phẩm và tổng thanh toán -->
-            <div class="product-list">
-                <div class="product">
-                    <img src="/assets/pic/notebook-flower.avif" alt="Product Image" class="img-product">
-                    <div class="product-info">
-                        <h3>Sổ tay hình bông hoa</h3>
-                        <p>109,000đ</p>
-                        <div class="quantity">
-                            <p class="quantity-name">Số Lượng: <button class="lose-quantity">-</button> 1 <button class="increase-quantity">+</button></p>
-                        </div>
-                        <p>Màu: Be</p>
-                        <p>Size: 2</p>
-                        <p>Tổng: 499,000</p>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="/assets/pic/notebook-flower.avif" alt="Product Image" class="img-product">
-                    <div class="product-info">
-                        <h3>Sổ tay hình bông hoa</h3>
-                        <p>109,000đ</p>
-                        <div class="quantity">
-                            <p class="quantity-name">Số Lượng: <button class="lose-quantity">-</button> 1 <button class="increase-quantity">+</button></p>
-                        </div>
-                        <p>Màu: Be</p>
-                        <p>Size: 2</p>
-                        <p>Tổng: 499,000</p>
-                    </div>
-                </div>
-                <div class="product">
-                    <img src="/assets/pic/notebook-flower.avif" alt="Product Image" class="img-product">
-                    <div class="product-info">
-                        <h3>Sổ tay hình bông hoa</h3>
-                        <p>109,000đ</p>
-                        <div class="quantity">
-                            <p class="quantity-name">Số Lượng: <button class="lose-quantity">-</button> 1 <button class="increase-quantity">+</button></p>
-                        </div>
-                        <p>Màu: Be</p>
-                        <p>Size: 2</p>
-                        <p>Tổng: 499,000</p>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Voucher Section -->
-                <div class="voucher-section">
-                    <span>Voucher</span>
-                    <button class="voucher-button">Ấn vào đây để chọn code</button>
-                    <button class="apply-voucher-btn">ÁP DỤNG</button>
-                </div>
+        <div class="form-group">
+          <input
+            type="tel"
+            naem="numberPhone"
+            placeholder="Số Điện Thoại"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <select id="city" aria-label=".form-select-sm">
+            <option value="" selected>Chọn tỉnh thành</option>
+            <!-- Thêm các tỉnh/thành phố khác -->
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="district" aria-label=".form-select-sm">
+            <option value="" selected>Chọn quận huyện</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select id="ward" aria-label=".form-select-sm">
+            <option value="" selected>Chọn phường xã</option>
+          </select>
+        </div>
 
-    
-            <div class="total">
-                <p>Tổng đơn: 499,000</p>
-                <p>Ưu đãi (voucher / thành viên): -0</p>
-                <p>Phí ship: 30,000</p>
-                <p><strong>THÀNH TIỀN: 529,000</strong></p>
-                <button class="checkout-btn">HOÀN TẤT ĐƠN HÀNG</button>
-            </div>
+        <div class="form-group">
+          <input type="text" placeholder="Số Nhà, Tên Đường" />
         </div>
+      </div>
+
+      <div class="column payment-method">
+        <!-- Phần Phương thức thanh toán -->
+        <h2>PHƯƠNG THỨC THANH TOÁN</h2>
+        <div class="method">
+          <input type="radio" id="atm" name="payment" value="ATM" />
+          <label for="atm">
+            <img src="/assets/pic/ATM.png" alt="ATM icon" /> Thanh toán thẻ
+            (ATM, Visa)
+          </label>
+        </div>
+        <div class="method">
+          <input type="radio" id="momo" name="payment" value="MoMo" />
+          <label for="momo">
+            <img src="/assets/pic/momo.webp" alt="MoMo icon" /> Thanh toán bằng
+            MoMo
+          </label>
+        </div>
+        <div class="method">
+          <input type="radio" id="cod" name="payment" value="COD" />
+          <label for="cod">
+            <img src="/assets/pic/truck.svg" alt="COD icon" /> Thanh toán khi
+            nhận hàng (COD)
+          </label>
+        </div>
+      </div>
+
+      <div class="column order-summary">
+        <!-- Phần Chi tiết sản phẩm và tổng thanh toán -->
+        <div class="product-list">
+          <div class="product">
+            <img
+              src="/assets/pic/notebook-flower.avif"
+              alt="Product Image"
+              class="img-product"
+            />
+            <div class="product-info">
+              <h3>Sổ tay hình bông hoa</h3>
+              <p>109,000đ</p>
+              <div class="quantity">
+                <p class="quantity-name">
+                  Số Lượng: <button class="lose-quantity">-</button> 1
+                  <button class="increase-quantity">+</button>
+                </p>
+              </div>
+              <p>Màu: Be</p>
+              <p>Size: 2</p>
+              <p>Tổng: 499,000</p>
+            </div>
+          </div>
+          <div class="product">
+            <img
+              src="/assets/pic/notebook-flower.avif"
+              alt="Product Image"
+              class="img-product"
+            />
+            <div class="product-info">
+              <h3>Sổ tay hình bông hoa</h3>
+              <p>109,000đ</p>
+              <div class="quantity">
+                <p class="quantity-name">
+                  Số Lượng: <button class="lose-quantity">-</button> 1
+                  <button class="increase-quantity">+</button>
+                </p>
+              </div>
+              <p>Màu: Be</p>
+              <p>Size: 2</p>
+              <p>Tổng: 499,000</p>
+            </div>
+          </div>
+          <div class="product">
+            <img
+              src="/assets/pic/notebook-flower.avif"
+              alt="Product Image"
+              class="img-product"
+            />
+            <div class="product-info">
+              <h3>Sổ tay hình bông hoa</h3>
+              <p>109,000đ</p>
+              <div class="quantity">
+                <p class="quantity-name">
+                  Số Lượng: <button class="lose-quantity">-</button> 1
+                  <button class="increase-quantity">+</button>
+                </p>
+              </div>
+              <p>Màu: Be</p>
+              <p>Size: 2</p>
+              <p>Tổng: 499,000</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voucher Section -->
+        <div class="voucher-section">
+          <span>Voucher</span>
+          <button class="voucher-button">Ấn vào đây để chọn code</button>
+          <button class="apply-voucher-btn">ÁP DỤNG</button>
+        </div>
+
+        <div class="total">
+          <p>Tổng đơn: 499,000</p>
+          <p>Ưu đãi (voucher / thành viên): -0</p>
+          <p>Phí ship: 30,000</p>
+          <p><strong>THÀNH TIỀN: 529,000</strong></p>
+          <button class="checkout-btn">HOÀN TẤT ĐƠN HÀNG</button>
+        </div>
+      </div>
     </main>
-    
-      <div id="footer-container"></div>
-  
-      <script src="/assets/js/loadHF.js"></script>
-   
+    <div id="footer-container"></div>
 
-</body>
+    <script src="/assets/js/loadHF.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script>
+      var citis = document.getElementById("city");
+      var districts = document.getElementById("district");
+      var wards = document.getElementById("ward");
+      var Parameter = {
+        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+        method: "GET",
+        responseType: "application/json",
+      };
+      var promise = axios(Parameter);
+      promise.then(function (result) {
+        renderCity(result.data);
+      });
+
+      function renderCity(data) {
+        for (const x of data) {
+          citis.options[citis.options.length] = new Option(x.Name, x.Id);
+        }
+        citis.onchange = function () {
+          district.length = 1;
+          ward.length = 1;
+          if (this.value != "") {
+            const result = data.filter((n) => n.Id === this.value);
+
+            for (const k of result[0].Districts) {
+              district.options[district.options.length] = new Option(
+                k.Name,
+                k.Id
+              );
+            }
+          }
+        };
+        district.onchange = function () {
+          ward.length = 1;
+          const dataCity = data.filter((n) => n.Id === citis.value);
+          if (this.value != "") {
+            const dataWards = dataCity[0].Districts.filter(
+              (n) => n.Id === this.value
+            )[0].Wards;
+
+            for (const w of dataWards) {
+              wards.options[wards.options.length] = new Option(w.Name, w.Id);
+            }
+          }
+        };
+      }
+    </script>
+  </body>
 </html>
