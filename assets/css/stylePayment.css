@@ -1,0 +1,180 @@
+/* Container chính */
+#checkout-container {
+    display: grid;
+    grid-template-columns: 3fr 3fr 4fr; /* Tỉ lệ các cột */
+    width: 100%;
+    margin: 10rem 0 ;
+    gap: 20px;
+}
+
+#checkout-container .column {
+    padding: 40px;
+}
+
+/* Tiêu đề */
+#checkout-container .column h2 {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-bottom: 25px;
+    color: #515151;
+}
+
+/* Form thông tin giao hàng */
+#checkout-container .shipping-info .form-group input,
+#checkout-container .shipping-info .form-group select {
+    width: 100%; /* Điều chỉnh lại độ dài */
+    padding: 20px 0;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 1px solid #909090;
+    font-size: 0.9em;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+/* Phương thức thanh toán */
+#checkout-container .payment-method .method {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#checkout-container .payment-method .method img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+#checkout-container .payment-method input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Thông tin đơn hàng */
+#checkout-container .order-summary .product-list {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+#checkout-container .order-summary .product {
+    display: flex;
+    align-items: start;
+    gap: 15px;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd; /* Đường viền ở phía dưới mỗi product */
+}
+
+
+
+#checkout-container .order-summary .product .img-product{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    
+}
+
+#checkout-container .order-summary .product-info h3 {
+    margin: 0;
+    font-size: 1em;
+    color: #333;
+    text-align: justify;
+}
+
+/* Khu vực voucher */
+#checkout-container .order-summary .voucher-section {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#checkout-container .order-summary .voucher-section .voucher-button {
+    flex: 1;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+#checkout-container .order-summary .voucher-section .voucher-button:hover {
+    background-color: #fff; /* Background trắng khi hover */
+    color: #000; /* Chữ đen khi hover */
+    border: 1px solid #000; /* Border đen khi hover */
+}
+
+/* Nút áp dụng voucher */
+#checkout-container .order-summary .voucher-section .apply-voucher-btn {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+#checkout-container .order-summary .voucher-section .apply-voucher-btn:hover {
+    background-color: #fff; /* Background trắng khi hover */
+    color: #000; /* Chữ đen khi hover */
+    border: 1px solid #000; /* Border đen khi hover */
+}
+
+/* Tổng kết và nút hoàn tất */
+#checkout-container .order-summary .total {
+    text-align: right;
+    margin-top: 20px;
+}
+
+#checkout-container .order-summary .total p {
+    margin: 5px 0;
+    font-size: 1em;
+    display: flex;
+    justify-content: space-between; /* Căn đều tiêu đề và số lượng */
+}
+
+#checkout-container .order-summary .total .checkout-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+#checkout-container .order-summary .total .checkout-btn:hover {
+    background-color: #fff; /* Background trắng khi hover */
+    color: #000; /* Chữ đen khi hover */
+    border: 1px solid #000; /* Border đen khi hover */
+}
+
+/* Điều chỉnh số lượng */
+#checkout-container .order-summary .product .quantity {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#checkout-container .order-summary .product .quantity .quantity-name button {
+    border: none;
+    background: none;
+    font-size: 1em;
+    cursor: pointer;
+}

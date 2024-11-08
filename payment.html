@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/stylePayment.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="header-container"></div>
+    <!-- Phần Thông tin giao hàng -->
+    <main id="checkout-container">
+        <div class="column shipping-info">
+            <!-- Phần Thông tin giao hàng -->
+            <h2>THÔNG TIN GIAO HÀNG</h2>
+            <div class="form-group">
+                <input type="text"name="name" placeholder="Họ và Tên" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="number" naem="numberPhone" placeholder="Số Điện Thoại" required>
+            </div>
+            <div class="form-group">
+                <select id="city">
+                    <option value="">Chọn Tỉnh/Thành Phố</option>
+                    <option value="hcm">Hồ Chí Minh</option>
+                    <option value="hn">Hà Nội</option>
+                    <!-- Thêm các tỉnh/thành phố khác -->
+                </select>
+            </div>
+            <div class="form-group">
+                <select id="district">
+                    <option value="">Chọn Quận/Huyện</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select id="ward">
+                    <option value="">Chọn Phường/Xã</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" placeholder="Số Nhà, Tên Đường">
+            </div>
+        </div>
+    
+        <div class="column payment-method">
+            <!-- Phần Phương thức thanh toán -->
+            <h2>PHƯƠNG THỨC THANH TOÁN</h2>
+            <div class="method">
+                <input type="radio" id="atm" name="payment" value="ATM">
+                <label for="atm">
+                    <img src="/assets/pic/ATM.png" alt="ATM icon"> Thanh toán thẻ (ATM, Visa)
+                </label>
+            </div>
+            <div class="method">
+                <input type="radio" id="momo" name="payment" value="MoMo">
+                <label for="momo">
+                    <img src="/assets/pic/momo.webp" alt="MoMo icon"> Thanh toán bằng MoMo
+                </label>
+            </div>
+            <div class="method">
+                <input type="radio" id="cod" name="payment" value="COD">
+                <label for="cod">
+                    <img src="/assets/pic/truck.svg" alt="COD icon"> Thanh toán khi nhận hàng (COD)
+                </label>
+            </div>
+        </div>
+    
+        <div class="column order-summary">
+            <!-- Phần Chi tiết sản phẩm và tổng thanh toán -->
+            <div class="product-list">
+                <div class="product">
+                    <img src="/assets/pic/notebook-flower.avif" alt="Product Image" class="img-product">
+                    <div class="product-info">
+                        <h3>Sổ tay hình bông hoa</h3>
+                        <p>109,000đ</p>
+                        <div class="quantity">
+                            <p class="quantity-name">Số Lượng: <button class="lose-quantity">-</button> 1 <button class="increase-quantity">+</button></p>
+                        </div>
+                        <p>Màu: Be</p>
+                        <p>Size: 2</p>
+                        <p>Tổng: 499,000</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/assets/pic/notebook-flower.avif" alt="Product Image" class="img-product">
+                    <div class="product-info">
+                        <h3>Sổ tay hình bông hoa</h3>
+                        <p>109,000đ</p>
+                        <div class="quantity">
+                            <p class="quantity-name">Số Lượng: <button class="lose-quantity">-</button> 1 <button class="increase-quantity">+</button></p>
+                        </div>
+                        <p>Màu: Be</p>
+                        <p>Size: 2</p>
+                        <p>Tổng: 499,000</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/assets/pic/notebook-flower.avif" alt="Product Image" class="img-product">
+                    <div class="product-info">
+                        <h3>Sổ tay hình bông hoa</h3>
+                        <p>109,000đ</p>
+                        <div class="quantity">
+                            <p class="quantity-name">Số Lượng: <button class="lose-quantity">-</button> 1 <button class="increase-quantity">+</button></p>
+                        </div>
+                        <p>Màu: Be</p>
+                        <p>Size: 2</p>
+                        <p>Tổng: 499,000</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Voucher Section -->
+                <div class="voucher-section">
+                    <span>Voucher</span>
+                    <button class="voucher-button">Ấn vào đây để chọn code</button>
+                    <button class="apply-voucher-btn">ÁP DỤNG</button>
+                </div>
+
+    
+            <div class="total">
+                <p>Tổng đơn: 499,000</p>
+                <p>Ưu đãi (voucher / thành viên): -0</p>
+                <p>Phí ship: 30,000</p>
+                <p><strong>THÀNH TIỀN: 529,000</strong></p>
+                <button class="checkout-btn">HOÀN TẤT ĐƠN HÀNG</button>
+            </div>
+        </div>
+    </main>
+    
+      <div id="footer-container"></div>
+  
+      <script src="/assets/js/loadHF.js"></script>
+   
+
+</body>
+</html>
