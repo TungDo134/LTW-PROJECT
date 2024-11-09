@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shopping Cart</title>
+    <title>Giỏ hàng</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link
       rel="stylesheet"
@@ -26,17 +26,16 @@
       <div class="main-cart">
         <div class="cart-table left">
           <div class="cart-header">
-            <span>Product</span>
-            <span>Quantity</span>
-            <span>Total</span>
+            <span>Sản phẩm</span>
+            <span>Số lượng</span>
+            <span>Tổng</span>
           </div>
           <!-- Product Rows -->
           <div class="cart-item">
             <div class="product-info">
-              <img
-                src="/assets/pic/but-ki-ten.jpg"
-                alt="T-shirt Contrast Pocket"
-              />
+              <a href=""
+                ><img src="/assets/pic/pen" alt="T-shirt Contrast Pocket"
+              /></a>
               <div>
                 <p>Bút Kí Tên Chuyên Dụng</p>
                 <p class="price">65.000đ</p>
@@ -56,10 +55,11 @@
           </div>
           <div class="cart-item">
             <div class="product-info">
-              <img
-                src="./assets/pic/notebook-flower.avif"
-                alt="Diagonal Textured Cap"
-              />
+              <a href="">
+                <img
+                  src="./assets/pic/notebook-flower.avif"
+                  alt="Diagonal Textured Cap"
+              /></a>
               <div>
                 <p>Sổ tay hình bông hoa</p>
                 <p class="price">109.000đ</p>
@@ -81,10 +81,11 @@
           </div>
           <div class="cart-item">
             <div class="product-info">
-              <img
-                src="./assets/pic/notebook-flower.avif"
-                alt="Diagonal Textured Cap"
-              />
+              <a href="">
+                <img
+                  src="./assets/pic/notebook-flower.avif"
+                  alt="Diagonal Textured Cap"
+              /></a>
               <div>
                 <p>Sổ tay hình bông hoa</p>
                 <p class="price">109.000đ</p>
@@ -106,10 +107,11 @@
           </div>
           <div class="cart-item">
             <div class="product-info">
-              <img
-                src="./assets/pic/notebook-flower.avif"
-                alt="Diagonal Textured Cap"
-              />
+              <a href="">
+                <img
+                  src="./assets/pic/notebook-flower.avif"
+                  alt="Diagonal Textured Cap"
+              /></a>
               <div>
                 <p>Sổ tay hình bông hoa</p>
                 <p class="price">109.000đ</p>
@@ -131,10 +133,11 @@
           </div>
           <div class="cart-item">
             <div class="product-info">
-              <img
-                src="./assets/pic/notebook-flower.avif"
-                alt="Diagonal Textured Cap"
-              />
+              <a href="">
+                <img
+                  src="./assets/pic/notebook-flower.avif"
+                  alt="Diagonal Textured Cap"
+              /></a>
               <div>
                 <p>Sổ tay hình bông hoa</p>
                 <p class="price">109.000đ</p>
@@ -154,43 +157,46 @@
               </div>
             </div>
           </div>
+
           <!-- Cart Controls -->
           <div class="cart-controls">
-            <a class="continue-shopping" href="">Continue Shopping</a>
-            <button class="update-cart">Update Cart</button>
+            <a class="continue-shopping" href="product.html"
+              >Tiếp tục mua sắm</a
+            >
+            <!-- <button class="update-cart">Update Cart</button> -->
           </div>
         </div>
         <div class="cart-table right">
           <div class="cart-header">
-            <span>Discount</span>
+            <span>Khuyến mãi</span>
           </div>
 
           <!-- Discount Code Section -->
           <div class="discount-section">
             <form action="" style="display: flex" class="form-coupon">
-              <input type="text" placeholder="Coupon code" />
-              <button class="apply-discount">Apply</button>
+              <input type="text" placeholder="Mã giảm giá" />
+              <button class="apply-discount">Áp dụng</button>
             </form>
           </div>
 
           <!-- Cart Summary Section -->
           <form action="payment.html" class="form-checkout">
             <div class="cart-summary">
-              <h2>Cart Total</h2>
+              <h2>Tổng đơn</h2>
               <div class="cart-total-row">
-                <span>Subtotal:</span>
+                <span>Tính trước:</span>
                 <span class="subtotal"
-                  >100.000<span class="currency">đ</span></span
+                  >501.000<span class="currency">đ</span></span
                 >
               </div>
               <div class="cart-total-row">
-                <span>Total:</span>
+                <span>Tổng:</span>
                 <span class="total"
-                  >100.000<span class="currency">đ</span></span
+                  >501.000<span class="currency">đ</span></span
                 >
               </div>
               <button type="submit" class="checkout-button">
-                Proceed to Checkout
+                Tiến hành thanh toán
               </button>
             </div>
           </form>

@@ -76,7 +76,7 @@ a {
   }
 }
 
-#header .container {
+#header .header-container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -88,7 +88,7 @@ a {
   border-radius: 5px;
 }
 
-#header .container .menubar {
+#header .header-container .menubar {
   margin-right: 3rem;
 }
 

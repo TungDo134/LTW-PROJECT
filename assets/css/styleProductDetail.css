@@ -44,12 +44,15 @@ li {
 }
 
 #product-detail .slider-image {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 10px;
 }
 
-#product-detail .slider-image .flexslider > img {
+#product-detail .slider-image .flexslider > a {
+  background-color: #f4eee0;
+  display: block;
+  max-height: 629px;
+}
+
+#product-detail .slider-image .flexslider a img {
   width: 100%;
   height: auto;
   border-radius: 5px;
@@ -62,6 +65,11 @@ li {
 #product-detail .carousel .sub-pic {
   display: grid;
   grid-template-columns: repeat(5, 100px);
+}
+
+#product-detail .carousel .sub-pic > li {
+  background-color: #f4eee0;
+  width: fit-content;
 }
 
 #product-detail .carousel img {
@@ -118,7 +126,7 @@ li {
 #product-detail .col_product_2 .cate {
   font-size: 14px;
   color: #555;
-  margin: 10px 0;
+  /* margin: 10px 0; */
   display: flex;
   gap: 10px;
 }
@@ -131,7 +139,7 @@ li {
 #product-detail .col_product_2 .shortDesc p {
   font-size: 14px;
   color: #666;
-  margin-top: 15px;
+  /* margin-top: 15px; */
   max-width: 400px;
   text-align: justify;
 }
@@ -173,9 +181,11 @@ li {
 }
 
 #product-detail .col_product_2 .qty-cart .btn_add {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
   padding: 10px 15px;
   border: 1px solid #000;
-  border-radius: 5px;
   color: #fff;
   background-color: #000;
   text-transform: uppercase;
@@ -186,4 +196,17 @@ li {
   background-color: #fff;
   color: #111;
   transition: all 0.5s;
+}
+
+/* Custom bootstrap */
+#product-detail .btn-custom {
+  background: url("../pic/button_modal.webp") top left no-repeat;
+  position: absolute;
+  right: -20px;
+  top: -12px;
+  width: 35px;
+  border-radius: 50%;
+}
+#product-detail .btn-custom:focus {
+  box-shadow: none;
 }

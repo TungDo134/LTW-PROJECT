@@ -82,6 +82,12 @@ html {
   gap: 15px;
 }
 
+#shopping-cart-container .product-info > a {
+  max-height: 80px;
+  background-color: #f4eee0;
+  border-radius: 4px;
+}
+
 #shopping-cart-container .product-info img {
   width: 80px;
   height: 80px;
@@ -142,7 +148,7 @@ html {
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.7s;
+  transition: all 0.5s;
   margin-top: 20px;
   font-family: inherit;
   text-transform: uppercase;
@@ -155,6 +161,7 @@ html {
 }
 
 #shopping-cart-container .continue-shopping {
+  font-size: 14px;
   background-color: #fff;
   border: 1px solid #ccc;
   color: #333;
@@ -163,7 +170,7 @@ html {
   text-transform: uppercase;
   font-family: inherit;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.5s;
   border-radius: 4px;
 }
 
@@ -177,7 +184,7 @@ html {
   color: #000;
 }
 
-#shopping-cart-container .update-cart {
+/* #shopping-cart-container .update-cart {
   background-color: #333;
   color: #fff;
   text-transform: uppercase;
@@ -194,7 +201,7 @@ html {
   background: transparent;
   color: #000;
   border: 1px solid #000;
-}
+} */
 
 #shopping-cart-container .discount-section {
   display: flex;
@@ -218,20 +225,25 @@ html {
   border: 1px solid #000;
   background-color: #333;
   color: #fff;
-  border: none;
   cursor: pointer;
   border-radius: 0 4px 4px 0;
+  transition: all 0.5s;
   font-weight: bold;
-  width: 100px;
+  width: 100%;
+  font-family: inherit;
+  text-transform: uppercase;
 }
 
 #shopping-cart-container .cart-table.right {
   max-width: 360px;
 }
 
-#shopping-cart-container .discount-section button:hover {
-  background-color: #444;
+#shopping-cart-container .discount-section .apply-discount:hover {
+  border: 1px solid #ccc;
+  color: #000;
+  background: #fff;
 }
+
 #shopping-cart-container .cart-controls {
   display: flex;
   justify-content: space-between;
