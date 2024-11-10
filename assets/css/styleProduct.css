@@ -1,0 +1,146 @@
+.bg-body {
+  background-color: #faf7f0 !important;
+}
+
+#product-container .container .ms--15 {
+  margin-left: -15px;
+}
+
+#product-container .container h5 {
+  font-size: 16px;
+}
+
+#product-container .container .me--15 {
+  margin-right: -15px;
+}
+
+#product-container .currency {
+  vertical-align: super;
+}
+
+#product-container .container .fs-7 {
+  font-size: 14px;
+}
+
+#product-container .container .card-header-cus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#product-container .container .text-justify {
+  text-align: justify;
+}
+
+#product-container .container .col .card-img-top {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+}
+
+#product-container .container .col .wrapper-img {
+  overflow: hidden;
+}
+
+#product-container .container .col a:hover > div > .card-img-top {
+  transform: scale(1.025); /* phóng to ảnh lên 10% */
+  background-color: #f0e8d5 !important;
+}
+
+#product-container .container .forward-img {
+  position: relative;
+}
+
+#product-container .container .add-to-cart {
+  position: absolute;
+  right: 20px;
+  bottom: 16px;
+}
+
+#product-container .container .add-to-cart .icon-p {
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+#product-container .container .add-to-cart .icon-p:hover {
+  transform: scale(1.1);
+}
+
+/* CSS thanh sort */
+
+.custom-select {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+}
+
+.custom-select:focus .select-selected {
+  border-color: #000;
+}
+
+.select-selected {
+  background-color: #faf7f0;
+  padding: 6px 8px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.select-options {
+  display: none;
+  position: absolute;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  border: 1px solid #ccc;
+  z-index: 1;
+  /* box-shadow: 0 0 5px 0 rgba(102, 102, 102, 1); */
+}
+
+.select-option {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.select-option:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.custom-select.active .select-options {
+  display: block;
+}
+
+/* CSS thanh sort */
+
+/* Css Bootstrap */
+.btn-custom {
+  background: url(../pic/button_modal.webp) top left no-repeat;
+  position: absolute;
+  right: -20px;
+  top: -12px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.btn-close:focus {
+  box-shadow: none;
+}
+
+.col-6 {
+  width: 78%;
+}
+
+.form-select:focus {
+  border-color: #000;
+  box-shadow: none;
+}
+
+select.form-select-sm option {
+  background-color: #faf7f0; /* Màu nền của option */
+  color: #333; /* Màu chữ */
+}
+
+select.form-select-sm option:hover {
+  background-color: darkred;
+}

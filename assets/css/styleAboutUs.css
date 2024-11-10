@@ -142,7 +142,8 @@ body {
 }
 
 #intro-team {
-  margin: 2rem 0;
+  padding: 2rem 0;
+  background-color: #faf7f0;
 }
 
 #intro-team .my-team {

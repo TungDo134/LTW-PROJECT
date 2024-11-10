@@ -6,11 +6,12 @@
 
 #contact-us-container {
   margin-top: 6rem;
+  background-color: #faf7f0;
 }
+
 #contact-us-container .spad {
   padding-top: 100px;
   padding-bottom: 100px;
-  background: #fff;
 }
 
 #contact-us-container .spad .container {

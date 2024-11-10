@@ -3,14 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
     <title>About Us</title>
+=======
+    <title>Giỏ hàng</title>
+>>>>>>> 280dcd080884327cae1f4c95bbca25b65e167360
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/styleShoppingCart.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="/assets/css/styleShoppingCart.css" />
   </head>
+<<<<<<< HEAD
 <body>
     <main id="cart-container">
         <div class="cart-header">
@@ -77,7 +82,197 @@
                     <textarea id="note" rows="4" placeholder="Bạn muốn mô tả rõ hơn về đơn hàng..."></textarea>
                 </div>  
             </div>
+=======
+  <body>
+    <div id="header-container"></div>
+    <main id="shopping-cart-container">
+      <!-- Shopping Cart Table -->
+      <div class="main-cart">
+        <div class="cart-table left">
+          <div class="cart-header">
+            <span>Sản phẩm</span>
+            <span>Số lượng</span>
+            <span>Tổng</span>
+          </div>
+          <!-- Product Rows -->
+          <div class="cart-item">
+            <div class="product-info">
+              <a href=""
+                ><img src="/assets/pic/pen" alt="T-shirt Contrast Pocket"
+              /></a>
+              <div>
+                <p>Bút Kí Tên Chuyên Dụng</p>
+                <p class="price">65.000đ</p>
+              </div>
+            </div>
+            <div class="quantity">
+              <button class="decrease">-</button>
+              <input type="text" name="" id="" class="p-quantity" value="1" />
+              <button class="increase">+</button>
+            </div>
+            <div class="total-price">65.000<span class="currency">đ</span></div>
+            <div class="remove-item">
+              <div class="i-container">
+                <a href="#"><i class="fa fa-times"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div class="product-info">
+              <a href="">
+                <img
+                  src="./assets/pic/so_2_mau.avif"
+                  alt="Diagonal Textured Cap"
+              /></a>
+              <div>
+                <p>Sổ tay hình bông hoa</p>
+                <p class="price">109.000đ</p>
+              </div>
+            </div>
+            <div class="quantity">
+              <button class="decrease">-</button>
+              <input type="text" name="" id="" class="p-quantity" value="1" />
+              <button class="increase">+</button>
+            </div>
+            <div class="total-price">
+              109.000<span class="currency">đ</span>
+            </div>
+            <div class="remove-item">
+              <div class="i-container">
+                <a href="#"><i class="fa fa-times"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div class="product-info">
+              <a href="">
+                <img
+                  src="./assets/pic/notebook-flower.avif"
+                  alt="Diagonal Textured Cap"
+              /></a>
+              <div>
+                <p>Sổ tay hình bông hoa</p>
+                <p class="price">109.000đ</p>
+              </div>
+            </div>
+            <div class="quantity">
+              <button class="decrease">-</button>
+              <input type="text" name="" id="" class="p-quantity" value="1" />
+              <button class="increase">+</button>
+            </div>
+            <div class="total-price">
+              109.000<span class="currency">đ</span>
+            </div>
+            <div class="remove-item">
+              <div class="i-container">
+                <a href="#"><i class="fa fa-times"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div class="product-info">
+              <a href="">
+                <img
+                  src="./assets/pic/notebook-flower.avif"
+                  alt="Diagonal Textured Cap"
+              /></a>
+              <div>
+                <p>Sổ tay hình bông hoa</p>
+                <p class="price">109.000đ</p>
+              </div>
+            </div>
+            <div class="quantity">
+              <button class="decrease">-</button>
+              <input type="text" name="" id="" class="p-quantity" value="1" />
+              <button class="increase">+</button>
+            </div>
+            <div class="total-price">
+              109.000<span class="currency">đ</span>
+            </div>
+            <div class="remove-item">
+              <div class="i-container">
+                <a href="#"><i class="fa fa-times"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="cart-item">
+            <div class="product-info">
+              <a href="">
+                <img
+                  src="./assets/pic/notebook-flower.avif"
+                  alt="Diagonal Textured Cap"
+              /></a>
+              <div>
+                <p>Sổ tay hình bông hoa</p>
+                <p class="price">109.000đ</p>
+              </div>
+            </div>
+            <div class="quantity">
+              <button class="decrease">-</button>
+              <input type="text" name="" id="" class="p-quantity" value="1" />
+              <button class="increase">+</button>
+            </div>
+            <div class="total-price">
+              109.000<span class="currency">đ</span>
+            </div>
+            <div class="remove-item">
+              <div class="i-container">
+                <a href="#"><i class="fa fa-times"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart Controls -->
+          <div class="cart-controls">
+            <a class="continue-shopping" href="product.html"
+              >Tiếp tục mua sắm</a
+            >
+            <!-- <button class="update-cart">Update Cart</button> -->
+          </div>
+        </div>
+        <div class="cart-table right">
+          <div class="cart-header">
+            <span>Khuyến mãi</span>
+          </div>
+
+          <!-- Discount Code Section -->
+          <div class="discount-section">
+            <form action="" style="display: flex" class="form-coupon">
+              <input type="text" placeholder="Mã giảm giá" />
+              <button class="apply-discount">Áp dụng</button>
+            </form>
+          </div>
+
+          <!-- Cart Summary Section -->
+          <form action="payment.html" class="form-checkout">
+            <div class="cart-summary">
+              <h2>Tổng đơn</h2>
+              <div class="cart-total-row">
+                <span>Tính trước:</span>
+                <span class="subtotal"
+                  >501.000<span class="currency">đ</span></span
+                >
+              </div>
+              <div class="cart-total-row">
+                <span>Tổng:</span>
+                <span class="total"
+                  >501.000<span class="currency">đ</span></span
+                >
+              </div>
+              <button type="submit" class="checkout-button">
+                Tiến hành thanh toán
+              </button>
+            </div>
+          </form>
+>>>>>>> 280dcd080884327cae1f4c95bbca25b65e167360
         </div>
     </main>
+<<<<<<< HEAD
 </body>
+=======
+    <div id="footer-container"></div>
+    <script src="/assets/js/loadHF.js"></script>
+    <script src="/assets/js/main.js"></script>
+  </body>
+>>>>>>> 280dcd080884327cae1f4c95bbca25b65e167360
 </html>
