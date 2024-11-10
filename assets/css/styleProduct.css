@@ -144,3 +144,7 @@ select.form-select-sm option {
 select.form-select-sm option:hover {
   background-color: darkred;
 }
+.custom-tooltip {
+  --bs-tooltip-bg: #000;
+  --bs-tooltip-color: var(--bs-white);
+}
