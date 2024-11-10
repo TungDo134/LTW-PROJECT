@@ -1,264 +1,135 @@
-* {
-  margin: 0;
-  padding: 0;
+#cart-container .cart-header {
+    width: 100%;
+    padding: 30px 0; 
+    background-color: #f4f4f4; 
+    border-bottom: 1px solid #ddd; 
 }
 
-body,
-html {
-  font-family: "Nunito Sans", sans-serif;
+#cart-container .cart-header h1 {
+    font-size: 2.5em; 
+    font-weight: lighter; 
+    color: #333;
+    margin: 0; 
 }
 
-#shopping-cart-container {
-  margin: 8rem 0px;
-}
-/*breadcrumb điều hướng*/
-#shopping-cart-container .breadcrumb-frame h1 {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 10px 0;
+#cart-container .cart-info {
+    display: grid;
+    grid-template-columns: 5fr 3fr; 
+    gap: 40px; 
+    margin-top: 20px; 
 }
 
-#shopping-cart-container .breadcrumb-frame {
-  min-width: 100%;
-  height: 150px;
-  background-color: #f3f2ee;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+#cart-container .cart-info .cart-table {
+    border-collapse: collapse;
+    width: 100%; 
 }
 
-#shopping-cart-container .breadcrumb {
-  width: 1200px;
-  margin: auto;
+
+#cart-container .cart-info .cart-table .cart-table-header .cart-table-header-row th {
+    border-bottom: 1px solid #a1a1a1;
+    padding: 20px 0; 
+    text-align: left;
+    font-weight: bold; 
 }
 
-#shopping-cart-container .breadcrumb a {
-  text-decoration: none;
-  color: #000;
-  margin: 0 4px;
+#cart-container .cart-info .cart-table .cart-table-body .cart-item td {
+    padding: 20px 0;
+    vertical-align: middle;
 }
 
-#shopping-cart-container .breadcrumb span {
-  color: #9e9e9e;
-  margin-left: 4px;
-}
-/*giỏ hàng chính*/
-#shopping-cart-container .main-cart {
-  display: grid;
-  grid-template-columns: 69% 29%;
-  gap: 2rem;
-  width: 1200px;
-  margin: auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
+#cart-container .cart-info .cart-item-info {
+    display: flex;
+    justify-content: left;
+    align-items: center; 
 }
 
-/*tiêu đề*/
-#shopping-cart-container .cart-header {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 50px;
-  font-weight: bold;
-  text-transform: uppercase;
-  /* color: #333; */
-  border-bottom: 2px solid #eee;
-  padding: 15px 0;
-  text-align: left;
+#cart-container .cart-info .cart-item-info img {
+    width: 80px;
+    height: auto;
+    margin-right: 15px; 
 }
 
-/*các item*/
-#shopping-cart-container .cart-item {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 50px;
-  align-items: center;
-  padding: 15px 0;
-  border-bottom: 1px solid #eee;
+#cart-container .cart-info .cart-item-quantity button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 4px;
+    margin: 0 5px; 
 }
 
-/*sản phẩm*/
-#shopping-cart-container .product-info {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+
+#cart-container .cart-info .cart-item-quantity input {
+    width: 40px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    font-size: 1em;
 }
 
-#shopping-cart-container .product-info img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 4px;
+
+#cart-container .cart-info .cart-item {
+    margin-bottom: 20px; 
 }
 
-#shopping-cart-container .quantity {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+
+#cart-container .cart-info .cart-item-remove button {
+    border: none;
+    background-color: #fff;
+    font-size: 1.5em; 
+    cursor: pointer;
 }
 
-/*phiếu thanh toán*/
-#shopping-cart-container .cart-summary {
-  background-color: #f7f7f7;
-  padding: 2rem;
-  text-align: left;
-  border-radius: 4px;
-  color: #333;
+
+#cart-container .cart-info .payment-frame {
+    background-color: #fff;
+    padding: 20px;
 }
 
-#shopping-cart-container .cart-summary h2 {
-  text-align: center;
-  margin-bottom: 20px;
+#cart-container .cart-info .payment-frame .total-price {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px 0;
+    color: #333;
 }
 
-#shopping-cart-container .cart-summary .cart-total-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
+
+#cart-container .cart-info .payment-frame .checkout-btn, 
+#cart-container .cart-info .cart-table .cart-table-body .cart-item .cart-item-btn-continus-buy .continue-shopping-btn {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid #000;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
-#shopping-cart-container .cart-summary .subtotal,
-#shopping-cart-container .cart-summary .total {
-  color: #ff3333;
+#cart-container .checkout-btn:hover, 
+#cart-container .continue-shopping-btn:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
 }
 
-#shopping-cart-container .checkout-button {
-  width: 100%;
-  padding: 15px 10px;
-  background-color: #333;
-  color: #fff;
-  border: 1px solid #000;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.7s;
-  margin-top: 20px;
-  font-family: inherit;
-  text-transform: uppercase;
+
+#cart-container .product-note {
+    margin-top: 30px;
 }
 
-#shopping-cart-container .checkout-button:hover {
-  background: transparent;
-  color: #000;
-  border: 1px solid #000;
-}
-
-#shopping-cart-container .continue-shopping {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  color: #333;
-  padding: 15px 35px;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  border-radius: 4px;
-}
-
-#shopping-cart-container .continue-shopping:hover {
-  border: 1px solid #ccc;
-  color: #fff;
-  background: #000;
-}
-
-#shopping-cart-container .continue-shopping a {
-  color: #000;
-}
-
-#shopping-cart-container .update-cart {
-  background-color: #333;
-  color: #fff;
-  text-transform: uppercase;
-  font-family: inherit;
-  padding: 15px 50px;
-  border: 1px solid #000;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  border-radius: 4px;
-}
-
-#shopping-cart-container .update-cart:hover {
-  background: transparent;
-  color: #000;
-  border: 1px solid #000;
-}
-
-#shopping-cart-container .discount-section {
-  display: flex;
-  align-items: center;
-  margin: 20px 0 42px 0;
-}
-
-#shopping-cart-container .discount-section input {
-  flex-grow: 1;
-  padding: 12px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px 0 0 4px;
-  font-size: 14px;
-  color: #333;
-  background-color: #fff;
-  outline: none;
-}
-
-#shopping-cart-container .discount-section button {
-  height: 44px;
-  padding: 0 20px;
-  border: 1px solid #000;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 0 4px 4px 0;
-  font-weight: bold;
-  width: 100px;
-}
-
-#shopping-cart-container .cart-table.right {
-  max-width: 360px;
-}
-
-#shopping-cart-container .discount-section button:hover {
-  background-color: #444;
-}
-#shopping-cart-container .cart-controls {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 2rem;
-}
-
-#shopping-cart-container .decrease,
-#shopping-cart-container .increase {
-  border: none;
-  background-color: transparent;
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-#shopping-cart-container .i-container {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 35px;
-  height: 35px;
-  background-color: #f3f2ee;
-  /* background-color: rgba(0, 0, 0, 0.2); */
-  border-radius: 50%;
-  text-align: center;
-}
-
-#shopping-cart-container i {
-  color: #000;
-  font-size: 17px;
-}
-#shopping-cart-container .price {
-  font-size: 18px;
-  margin-top: 4px;
-  font-weight: 600;
-}
-
-#shopping-cart-container .currency {
-  vertical-align: super;
+#cart-container .product-note textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    resize: none;
+    font-size: 1em;
+    color: #333;
 }
