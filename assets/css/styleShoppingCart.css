@@ -9,39 +9,10 @@ html {
 }
 
 #shopping-cart-container {
-  margin: 8rem 0px;
-}
-/*breadcrumb điều hướng*/
-#shopping-cart-container .breadcrumb-frame h1 {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 10px 0;
+  padding: 12rem 0px 4rem 0;
+  background-color: #faf7f0;
 }
 
-#shopping-cart-container .breadcrumb-frame {
-  min-width: 100%;
-  height: 150px;
-  background-color: #f3f2ee;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-#shopping-cart-container .breadcrumb {
-  width: 1200px;
-  margin: auto;
-}
-
-#shopping-cart-container .breadcrumb a {
-  text-decoration: none;
-  color: #000;
-  margin: 0 4px;
-}
-
-#shopping-cart-container .breadcrumb span {
-  color: #9e9e9e;
-  margin-left: 4px;
-}
 /*giỏ hàng chính*/
 #shopping-cart-container .main-cart {
   display: grid;
@@ -50,7 +21,7 @@ html {
   width: 1200px;
   margin: auto;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: #faf7f0;
   border-radius: 8px;
 }
 
@@ -104,6 +75,7 @@ html {
 #shopping-cart-container .quantity .p-quantity {
   width: 20px;
   height: 20px;
+  background: transparent;
   border: none;
   color: #333;
   font-size: 18px;
@@ -114,7 +86,7 @@ html {
 
 /*phiếu thanh toán*/
 #shopping-cart-container .cart-summary {
-  background-color: #f7f7f7;
+  background-color: #fffefa;
   padding: 2rem;
   text-align: left;
   border-radius: 4px;

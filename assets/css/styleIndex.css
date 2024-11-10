@@ -6,6 +6,7 @@
 
 #home-container {
   margin-top: 8rem;
+  background-color: #faf7f0;
 }
 
 #home-container .why-choose-section {
@@ -204,8 +205,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 80vw;
-  min-height: 70vh;
+  max-width: 70vw;
+  min-height: 40vh;
+  padding-bottom: 2rem;
 }
 
 .card-wrapper {
@@ -215,24 +217,28 @@
   overflow: hidden;
 }
 
+.section-title {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
 .card-list .card-item .card-link {
   user-select: none;
   display: block;
-  background: #fff;
+  background: #faf7f0;
   padding: 18px;
   border-radius: 12px;
   text-decoration: none;
   border: 2px solid transparent;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
   transition: 0.2s ease;
+  overflow: hidden;
 }
 
 .card-list .card-item .card-link:active {
   cursor: grabbing;
-}
-
-.card-list .card-item .card-link:hover {
-  /* border-color: #5372f0; */
 }
 
 .card-list .card-link .card-image {
@@ -240,6 +246,12 @@
   /* aspect-ratio: 16/9; */
   object-fit: cover;
   border-radius: 10px;
+  background-color: #f4eee0;
+  transition: all 0.3s ease;
+}
+
+.card-list .card-link .card-image:hover {
+  transform: scale(1.02);
 }
 
 .card-list .card-link .badge {
@@ -253,23 +265,6 @@
   text-align: center;
   /* width: fit-content; */
 }
-
-/* .card-list .card-link .badge.designer {
-  color: #b22485;
-  background: #f7dff5;
-}
-.card-list .card-link .badge.marketer {
-  color: #b25a2b;
-  background: #ffe3d2;
-}
-.card-list .card-link .badge.gamer {
-  color: #205c20;
-  background: #d6f8d6;
-}
-.card-list .card-link .badge.editor {
-  color: #856404;
-  background: #fff3cd;
-} */
 
 .card-list .card-link .card-title {
   font-size: 1.19rem;
@@ -326,3 +321,17 @@
 }
 
 /* Swiper */
+
+/* Custom JS */
+.carousel-control-prev-icon {
+  background-image: url(../pic/arrow_back.svg);
+}
+
+.carousel-control-next-icon {
+  background-image: url(../pic/arrow_forward.svg);
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  opacity: 1;
+}

@@ -1,4 +1,4 @@
-// JS cho FAQ
+// JS cho FAQ (Contact Us)
 function toggleFAQ(para) {
   const $answer = $(para).find(".answer");
   const $icon = $(para).find(".icon-down");
@@ -12,7 +12,7 @@ function toggleFAQ(para) {
   }
 }
 
-// JS cho phần giỏ hàng
+// JS cho phần giỏ hàng (Shopping cart)
 $("button").click(function () {
   let upOrDown = $(this).attr("class");
   console.log(upOrDown);
@@ -54,7 +54,7 @@ $("button").click(function () {
   totalSum();
 });
 
-// JS để hiển thị bên mục xác nhận đặt hàng
+// JS để hiển thị bên mục xác nhận đặt hàng (Shopping cart, detail-product, product)
 function totalSum() {
   let totalSum = 0;
 
@@ -75,4 +75,32 @@ function totalSum() {
   $(".total").html(formattedTotal + "<span class='currency'>đ</span>");
 }
 
-//
+// JS cho phần drop down để SORT (product)
+
+$(".select-selected").click(function (e) {
+  e.stopPropagation();
+  $(this).css("border-color", "#000");
+  $(this).next(".select-options").slideToggle("1000");
+  // $(this).parent(".custom-select").toggleClass("active");
+});
+
+// Update selected text and close dropdown on option click
+$(".select-option").click(function () {
+  const selectedText = $(this).text();
+  $(this)
+    .closest(".custom-select")
+    .find(".select-selected")
+    .css("border-color", "#ccc");
+  $(this).closest(".custom-select").find(".select-selected").text(selectedText);
+
+  // Close dropdown with slideToggle
+  $(this).closest(".custom-select").find(".select-options").slideUp("1000");
+  // $(this).closest(".custom-select").removeClass("active");
+});
+
+// Close dropdown if clicking outside
+$(document).click(function () {
+  $(".custom-select").find(".select-selected").css("border-color", "#ccc");
+  $(".custom-select").find(".select-options").slideUp("1000");
+  // $(".custom-select").removeClass("active");
+});

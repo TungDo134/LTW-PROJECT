@@ -16,9 +16,9 @@ new Swiper(".card-wrapper", {
     prevEl: ".swiper-button-prev",
   },
 
-  // autoplay: {
-  //   disableOnInteraction: false,
-  // },
+  autoplay: {
+    disableOnInteraction: true,
+  },
 
   breakpoints: {
     0: {

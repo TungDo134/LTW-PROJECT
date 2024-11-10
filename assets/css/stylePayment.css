@@ -2,6 +2,7 @@
 #checkout-container {
   display: grid;
   grid-template-columns: 3fr 3fr 4fr; /* Tỉ lệ các cột */
+  grid-template-columns: 3fr 3fr; /* Tỉ lệ các dòng */
   width: 100%;
   margin: 10rem 0;
   gap: 20px;
@@ -17,6 +18,36 @@
   font-weight: 500;
   margin-bottom: 25px;
   color: #515151;
+}
+
+/*breadcrumb điều hướng*/
+.breadcrumb-frame h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.breadcrumb-frame {
+  min-width: 100%;
+  height: 150px;
+  background-color: #f3f2ee;
+  grid-column: 1 / span 3;
+}
+
+.breadcrumb {
+  width: 1200px;
+  margin: auto;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #000;
+  margin: 0 4px;
+}
+
+.breadcrumb span {
+  color: #9e9e9e;
+  margin-left: 4px;
 }
 
 /* Form thông tin giao hàng */
