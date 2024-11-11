@@ -35,6 +35,7 @@
 #product-container .container .col .card-img-top {
   transition: all 0.3s ease-in-out;
   transform: scale(1);
+  vertical-align: middle;
 }
 
 #product-container .container .col .wrapper-img {
@@ -144,7 +145,15 @@ select.form-select-sm option {
 select.form-select-sm option:hover {
   background-color: darkred;
 }
+
 .custom-tooltip {
   --bs-tooltip-bg: #000;
   --bs-tooltip-color: var(--bs-white);
+}
+
+.btn_filter {
+  outline: none;
+  border: none;
+  background: transparent;
+  margin-top: 8px;
 }

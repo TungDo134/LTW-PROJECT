@@ -41,7 +41,7 @@
   display: block;
 }
 #contact-us-container .col_contact_1 .section-title h2 {
-  font-size: 48px;
+  font-size: 40px;
   margin-bottom: 18px;
   color: #111;
   font-weight: 700;
@@ -143,6 +143,7 @@
 
 .faq .question-content > p {
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .faq .question-content .icon-down {
@@ -196,6 +197,6 @@
 }
 
 .faq-content .ques-as .answer > p {
-  padding: 20px 0px;
-  color: #464646;
+  padding: 6px 0px 20px 0;
+  color: #1e2525;
 }

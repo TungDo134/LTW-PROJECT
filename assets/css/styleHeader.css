@@ -94,7 +94,7 @@ svg {
 }
 
 #header .header-container .menubar {
-  margin-right: 3rem;
+  /* margin-right: 3rem; */
 }
 
 #header .logo {
@@ -113,7 +113,7 @@ svg {
   list-style: none;
   align-items: center;
   justify-content: center;
-  column-gap: 3.2rem;
+  column-gap: 2.6rem;
 }
 
 #header .header_menu > ul > li {
