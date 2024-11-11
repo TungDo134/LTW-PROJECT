@@ -59,12 +59,6 @@
                 aria-labelledby="offcanvasWithBothOptionsLabel"
               >
                 <div class="offcanvas-header">
-                  <h5
-                    class="offcanvas-title"
-                    id="offcanvasWithBothOptionsLabel"
-                  >
-                    Backdrop with scrolling
-                  </h5>
                   <button
                     type="button"
                     class="btn-close"
@@ -72,11 +66,101 @@
                     aria-label="Close"
                   ></button>
                 </div>
+                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+                  ALL FILTER
+                </h5>
                 <div class="offcanvas-body">
-                  <p>
-                    Try scrolling the rest of the page to see this option in
-                    action.
-                  </p>
+                  <!-- Lọc giá -->
+                  <div class="filter-container">
+                    <div class="filter-title">Filter by</div>
+                    <div class="filter-category">Giá +</div>
+                    <ul class="filter-options">
+                      <li>
+                        <div class="checkbox-circle">
+                          <i class="fa-solid fa-check fa-xl"></i>
+                        </div>
+                        <span class="filter-option-text">Nhỏ hơn 50,000đ</span>
+                      </li>
+                      <li>
+                        <div class="checkbox-circle">
+                          <i class="fa-solid fa-check fa-xl"></i>
+                        </div>
+                        <span class="filter-option-text"
+                          >50,000đ - 100,000đ</span
+                        >
+                      </li>
+                      <li>
+                        <div class="checkbox-circle">
+                          <i class="fa-solid fa-check fa-xl"></i>
+                        </div>
+                        <span class="filter-option-text"
+                          >100,000đ - 200,000đ</span
+                        >
+                      </li>
+                      <li>
+                        <div class="checkbox-circle">
+                          <i class="fa-solid fa-check fa-xl"></i>
+                        </div>
+                        <span class="filter-option-text"
+                          >200,000đ - 500,000đ</span
+                        >
+                      </li>
+                      <li>
+                        <div class="checkbox-circle">
+                          <i class="fa-solid fa-check fa-xl"></i>
+                        </div>
+                        <span class="filter-option-text">Lớn hơn 500,000đ</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Lọc thể loại -->
+                  <div class="filter-container">
+                    <div class="filter-category">Sản phẩm +</div>
+                    <ul class="filter-options">
+                      <li>
+                        <div class="checkbox-circle">
+                          <i class="fa-solid fa-check fa-xl"></i>
+                        </div>
+                        <span class="filter-option-text">Bút</span>
+                      </li>
+                      <li>
+                        <div class="checkbox-circle">
+                          <i class="fa-solid fa-check fa-xl"></i>
+                        </div>
+                        <span class="filter-option-text">Gôm, thước</span>
+                      </li>
+                      <li>
+                        <div class="checkbox-circle">
+                          <i class="fa-solid fa-check fa-xl"></i>
+                        </div>
+                        <span class="filter-option-text">Sổ tay, tập</span>
+                      </li>
+                      <li>
+                        <div class="checkbox-circle">
+                          <i class="fa-solid fa-check fa-xl"></i>
+                        </div>
+                        <span class="filter-option-text">Bìa còng</span>
+                      </li>
+                      <li>
+                        <div class="checkbox-circle">
+                          <i class="fa-solid fa-check fa-xl"></i>
+                        </div>
+                        <span class="filter-option-text"
+                          >Bút lông bản, lông dầu</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="filter-btn-group">
+                    <a class="filter-items delete-btn">Xóa</a>
+                    <a
+                      class="filter-items"
+                      data-bs-toggle="offcanvas"
+                      data-bs-target="#offcanvasWithBothOptions"
+                      aria-controls="offcanvasWithBothOptions"
+                      >Lọc</a
+                    >
+                  </div>
                 </div>
               </div>
             </div>
@@ -326,12 +410,28 @@
     <script src="./assets/js/loadHF.js"></script>
     <script src="./assets/js/main.js"></script>
     <script>
+      // JS cho phần hiện tooltip khi hover vào icon giỏ hàng (bstrap)
       const tooltipTriggerList = document.querySelectorAll(
         '[data-bs-toggle="tooltip"]'
       );
       const tooltipList = [...tooltipTriggerList].map(
         (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
       );
+
+      // JS cho phần check filter
+      $(".filter-options li").click(function () {
+        // Toggle trạng thái dấu tích cho từng tùy chọn
+        const checkboxCircle = $(this).find(".checkbox-circle");
+        checkboxCircle.toggleClass("checked");
+      });
+
+      $(".delete-btn").click(function () {
+        console.log(this);
+
+        // Tìm và xóa class "checked" của tất cả các dấu tích trong checkbox-circle
+        const checkboxCircle = $(".checkbox-circle");
+        checkboxCircle.removeClass("checked");
+      });
     </script>
   </body>
 </html>

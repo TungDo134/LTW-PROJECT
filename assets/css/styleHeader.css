@@ -199,7 +199,7 @@ svg {
 
 #header .col_icon {
   display: flex;
-  gap: 2rem;
+  gap: 1.6rem;
   align-items: center;
 }
 
