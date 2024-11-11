@@ -24,42 +24,40 @@
               <span>Shopping Cart</span>
             </nav>
           </div>
-          <div class="column shipping-info">
+          <form class="column shipping-info">
             <!-- Phần Thông tin giao hàng -->
             <h2>THÔNG TIN GIAO HÀNG</h2>
             <div class="form-group">
               <input type="text" name="name" placeholder="Họ và Tên" required />
             </div>
-            <div class="form-group">
-              <input type="email" name="email" placeholder="Email" required />
+            <div class="email-phone">
+              <div class="form-group">
+                <input class="email" type="email" name="email" placeholder="Email" required />
+              </div>
+              <div class="form-group">
+                <input class="numberPhone" type="tel" name="numberPhone" placeholder="Số Điện Thoại" required />
+              </div>
             </div>
-            <div class="form-group">
-              <input
-                type="tel"
-                naem="numberPhone"
-                placeholder="Số Điện Thoại"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <select id="city" aria-label=".form-select-sm">
-                <option value="" selected>Chọn tỉnh thành</option>
-                <!-- Thêm các tỉnh/thành phố khác -->
-              </select>
-            </div>
-            <div class="form-group">
-              <select id="district" aria-label=".form-select-sm">
-                <option value="" selected>Chọn quận huyện</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <select id="ward" aria-label=".form-select-sm">
-                <option value="" selected>Chọn phường xã</option>
-              </select>
-            </div>
-
             <div class="form-group">
               <input type="text" placeholder="Số Nhà, Tên Đường" />
+            </div>
+            <div class="select-address">
+              <div class="form-group">
+                <select id="city" aria-label=".form-select-sm">
+                  <option value="" selected>Chọn tỉnh thành</option>
+                  <!-- Thêm các tỉnh/thành phố khác -->
+                </select>
+              </div>
+              <div class="form-group">
+                <select id="district" aria-label=".form-select-sm">
+                  <option value="" selected>Chọn quận huyện</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select id="ward" aria-label=".form-select-sm">
+                  <option value="" selected>Chọn phường xã</option>
+                </select>
+              </div>
             </div>
             <div class="column payment-method">
               <!-- Phần Phương thức thanh toán -->
@@ -86,12 +84,13 @@
                 </label>
               </div>
             </div>
-          </div>
-          <div class="finish">
-            <button class="btn-total">
-              <p>Hoàn tất đơn hàng</p>
-            </button>
-          </div>
+            <div class="finish">
+              <button class="btn-total">
+                <p>Hoàn tất đơn hàng</p>
+              </button>
+            </div>
+          </form>
+          
       </div> 
       
 
@@ -132,26 +131,24 @@
         </div>
     
         <!-- Tổng tiền -->
-        <div class="total-section">
+         <div class="provisional">
             <div class="row">
-                <span>Tạm tính</span>
-                <span>1,480,000đ</span>
+              <span>Tạm tính</span>
+              <span>1,480,000đ</span>
             </div>
             <div class="row">
-                <span>Phí vận chuyển</span>
-                <span>—</span>
+              <span>Phí vận chuyển</span>
+              <span>—</span>
             </div>
-            <div class="row total">
-                <span>Tổng cộng</span>
-                <span>1,480,000đ</span>
-            </div>
-        </div>
+         </div>
+          <div class="total-section">
+              <span>Tổng cộng</span>
+              <span>1,480,000đ</span>
+          </div>
     </div>
     
     </main>
-    <div id="footer-container"></div>
-
-    <script src="/assets/js/loadHF.js"></script>
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script>
       var citis = document.getElementById("city");
