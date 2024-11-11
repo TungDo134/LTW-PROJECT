@@ -1,15 +1,17 @@
 /* Container chính */
 #checkout-container {
   display: grid;
-  grid-template-columns: 3fr 3fr 4fr; /* Tỉ lệ các cột */
-  grid-template-columns: 3fr 3fr; /* Tỉ lệ các dòng */
-  width: 100%;
-  margin: 10rem 0;
-  gap: 20px;
+  grid-template-columns: 6fr 4fr; /* Tỉ lệ các dòng */
+  width: 1200px;
+  margin: 0 auto;
+}
+
+#checkout-container .col-right-payment{
+  padding: 60px;
 }
 
 #checkout-container .column {
-  padding: 40px;
+  padding: 40px 0;
 }
 
 /* Tiêu đề */
@@ -24,20 +26,14 @@
 .breadcrumb-frame h1 {
   font-size: 24px;
   font-weight: bold;
-  margin: 10px 0;
 }
 
 .breadcrumb-frame {
   min-width: 100%;
-  height: 150px;
-  background-color: #f3f2ee;
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 2;
 }
 
-.breadcrumb {
-  width: 1200px;
-  margin: auto;
-}
+
 
 .breadcrumb a {
   text-decoration: none;
@@ -84,95 +80,19 @@
   margin-right: 10px;
 }
 
-/* Thông tin đơn hàng */
-#checkout-container .order-summary .product-list {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-}
-
-#checkout-container .order-summary .product {
-  display: flex;
-  align-items: start;
-  gap: 15px;
-  margin-bottom: 40px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #ddd; /* Đường viền ở phía dưới mỗi product */
-}
-
-#checkout-container .order-summary .product .img-product {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-#checkout-container .order-summary .product-info h3 {
-  margin: 0;
-  font-size: 1em;
-  color: #333;
-  text-align: justify;
-}
-
-/* Khu vực voucher */
-#checkout-container .order-summary .voucher-section {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-#checkout-container .order-summary .voucher-section .voucher-button {
-  flex: 1;
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
-}
-
-#checkout-container .order-summary .voucher-section .voucher-button:hover {
-  background-color: #fff; /* Background trắng khi hover */
-  color: #000; /* Chữ đen khi hover */
-  border: 1px solid #000; /* Border đen khi hover */
-}
-
-/* Nút áp dụng voucher */
-#checkout-container .order-summary .voucher-section .apply-voucher-btn {
-  padding: 10px 20px;
-  background-color: #000;
-  color: #fff;
-  border: 1px solid #000;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
-}
-
-#checkout-container .order-summary .voucher-section .apply-voucher-btn:hover {
-  background-color: #fff; /* Background trắng khi hover */
-  color: #000; /* Chữ đen khi hover */
-  border: 1px solid #000; /* Border đen khi hover */
-}
-
 /* Tổng kết và nút hoàn tất */
-#checkout-container .order-summary .total {
+#checkout-container .col-right-payment .finish {
   text-align: right;
   margin-top: 20px;
 }
 
-#checkout-container .order-summary .total p {
+#checkout-container .col-right-payment .finish .btn-total p {
   margin: 5px 0;
   font-size: 1em;
-  display: flex;
-  justify-content: space-between; /* Căn đều tiêu đề và số lượng */
+  text-align: center;
 }
 
-#checkout-container .order-summary .total .checkout-btn {
+#checkout-container .col-right-payment .finish .btn-total {
   width: 100%;
   padding: 15px;
   background-color: #000;
@@ -186,22 +106,92 @@
   transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
 
-#checkout-container .order-summary .total .checkout-btn:hover {
-  background-color: #fff; /* Background trắng khi hover */
-  color: #000; /* Chữ đen khi hover */
-  border: 1px solid #000; /* Border đen khi hover */
+#checkout-container .col-right-payment .finish .btn-total:hover {
+  background-color: #fff; 
+  color: #000; 
+  border: 1px solid #000; 
 }
 
-/* Điều chỉnh số lượng */
-#checkout-container .order-summary .product .quantity {
+/* Thông tin đơn hàng */
+#checkout-container .order-summary{
+  padding:30px 0 0 30px;
+  border-left: 1px solid #dcdbdb;
+  display: flex;
+  flex-direction: column;
+}
+
+#checkout-container .order-summary .product-list {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+
+#checkout-container .order-summary .product-list .body-list .product-item .item-img{
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
+}
+#checkout-container .order-summary .product-list .body-list .product-item .item-img .img-product {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
 }
 
-#checkout-container .order-summary .product .quantity .quantity-name button {
-  border: none;
-  background: none;
-  font-size: 1em;
-  cursor: pointer;
+#checkout-container .order-summary .product-list .body-list .product-item td{
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+  
 }
+
+#checkout-container .order-summary .product-list .body-list .product-item td h2 {
+  font-size: 1em;
+  font-weight: normal;
+  color: #333;
+}
+
+/* Khu vực voucher */
+#checkout-container .order-summary .voucher-section {
+  margin: 20px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dbd8d8;
+}
+
+#checkout-container .order-summary .voucher-section .form-voucher{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Nút áp dụng voucher */
+#checkout-container .order-summary .voucher-section .form-voucher .apply-voucher-btn {
+  padding: 10px 30px;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  
+}
+
+#checkout-container .order-summary .voucher-section .form-voucher .apply-voucher-btn:hover {
+  background-color: #fff; 
+  color: #000; 
+  border: 1px solid #000;
+}
+
+#checkout-container .order-summary .voucher-section .form-voucher .id-voucher{
+  border-radius: 5px;
+  background-color: #f7f5f5 ;
+  width: 70%;
+}
+
+
+
+
+
+
