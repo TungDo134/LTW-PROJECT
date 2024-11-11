@@ -79,14 +79,13 @@
                 <div class="add-to-cart">
                   <button
                     class="icon-p"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
+                    type="button"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Nhấn để thêm vào giỏ hàng."
                   >
-                    <img
-                      src="./assets/pic/shopping_cart_icon.svg"
-                      title="Thêm vào giỏ hàng"
-                      alt="ảnh"
-                    />
+                    <img src="./assets/pic/shopping_cart_icon.svg" alt="ảnh" />
                   </button>
                 </div>
               </a>
@@ -118,14 +117,13 @@
                 <div class="add-to-cart">
                   <button
                     class="icon-p"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
+                    type="button"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Nhấn để thêm vào giỏ hàng."
                   >
-                    <img
-                      src="./assets/pic/shopping_cart_icon.svg"
-                      title="Thêm vào giỏ hàng"
-                      alt="ảnh"
-                    />
+                    <img src="./assets/pic/shopping_cart_icon.svg" alt="ảnh" />
                   </button>
                 </div>
               </a>
@@ -156,14 +154,13 @@
                 <div class="add-to-cart">
                   <button
                     class="icon-p"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
+                    type="button"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Nhấn để thêm vào giỏ hàng."
                   >
-                    <img
-                      src="./assets/pic/shopping_cart_icon.svg"
-                      title="Thêm vào giỏ hàng"
-                      alt="ảnh"
-                    />
+                    <img src="./assets/pic/shopping_cart_icon.svg" alt="ảnh" />
                   </button>
                 </div>
               </a>
@@ -194,14 +191,13 @@
                 <div class="add-to-cart">
                   <button
                     class="icon-p"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
+                    type="button"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Nhấn để thêm vào giỏ hàng."
                   >
-                    <img
-                      src="./assets/pic/shopping_cart_icon.svg"
-                      title="Thêm vào giỏ hàng"
-                      alt="ảnh"
-                    />
+                    <img src="./assets/pic/shopping_cart_icon.svg" alt="ảnh" />
                   </button>
                 </div>
               </a>
@@ -278,5 +274,13 @@
     <!-- Link CUSTOM JS -->
     <script src="./assets/js/loadHF.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script>
+      const tooltipTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="tooltip"]'
+      );
+      const tooltipList = [...tooltipTriggerList].map(
+        (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+      );
+    </script>
   </body>
 </html>
