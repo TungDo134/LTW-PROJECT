@@ -157,3 +157,124 @@ select.form-select-sm option:hover {
   background: transparent;
   margin-top: 8px;
 }
+
+.offcanvas-title {
+  font-size: 24px !important;
+  padding: 16px;
+}
+
+.offcanvas-body h5 {
+  color: #434343;
+  font-weight: 600;
+}
+
+.offcanvas-body .ofcanvas-list .ofcanvas-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.offcanvas-body .ofcanvas-list .ofcanvas-list-item + .ofcanvas-list-item {
+  margin-top: 8px;
+}
+
+.offcanvas-body input {
+  width: 25px;
+  height: 25px;
+}
+
+/* CSS cho Filter */
+.filter-container {
+  font-family: Arial, sans-serif;
+  width: 200px;
+  padding: 10px;
+}
+
+.filter-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.filter-category {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* CSS cho danh sách các tùy chọn */
+.filter-options {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filter-options li {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+/* CSS cho ô tròn và dấu tích */
+.checkbox-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  margin-right: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 12px;
+  color: white;
+}
+
+.checkbox-circle.checked {
+  background-color: #eaeaea;
+  border-color: #eaeaea;
+}
+
+.checkbox-circle.checked i {
+  display: inline-block;
+  color: #000;
+}
+
+.checkbox-circle i {
+  display: none;
+}
+
+/* CSS cho văn bản của các tùy chọn */
+.filter-option-text {
+  font-size: 14px;
+  color: #333;
+}
+
+.fa-check:before {
+  font-size: 16px;
+}
+
+.filter-btn-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 12px 0px;
+}
+
+.filter-btn-group .filter-items {
+  text-align: center;
+  background: #000;
+  padding: 10px 20px;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.filter-btn-group .filter-items.delete-btn {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+}

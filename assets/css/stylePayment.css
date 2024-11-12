@@ -1,4 +1,5 @@
 /* Container chính */
+
 #checkout-container {
   display: grid;
   grid-template-columns: 6fr 4fr; /* Tỉ lệ các dòng */
@@ -8,6 +9,8 @@
 
 #checkout-container .col-right-payment{
   padding: 60px;
+  width: 70%;
+
 }
 
 #checkout-container .column {
@@ -15,8 +18,8 @@
 }
 
 /* Tiêu đề */
-#checkout-container .column h2 {
-  font-size: 1.5em;
+#checkout-container .column h2,  #checkout-container .col-right-payment .shipping-info .payment-method h2{
+  font-size: 1em;
   font-weight: 500;
   margin-bottom: 25px;
   color: #515151;
@@ -47,10 +50,9 @@
 }
 
 /* Form thông tin giao hàng */
-#checkout-container .shipping-info .form-group input,
-#checkout-container .shipping-info .form-group select {
-  width: 100%; /* Điều chỉnh lại độ dài */
-  padding: 20px 10px;
+#checkout-container .shipping-info .form-group input {
+  width: 100%;
+  padding: 16px 10px;
   margin-bottom: 15px;
   border: none;
   border-bottom: 1px solid #909090;
@@ -58,8 +60,35 @@
   background-color: #fff;
 }
 
+#checkout-container .shipping-info .select-address{
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+  gap: 10px;
+}
+
+#checkout-container .shipping-info .select-address .form-group select{
+  padding: 16px 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid #909090;
+  font-size: 0.9em;
+  background-color: #fff;
+  color: #9e9e9e;
+}
+
+#checkout-container .col-right-payment .shipping-info .email-phone{
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 10px;
+}
+
+
+#checkout-container .shipping-info .email-phone .email{
+  width: 95%;
+}
 /* Phương thức thanh toán */
-#checkout-container .payment-method .method {
+#checkout-container .payment-method .method  {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -166,7 +195,7 @@
 
 /* Nút áp dụng voucher */
 #checkout-container .order-summary .voucher-section .form-voucher .apply-voucher-btn {
-  padding: 10px 30px;
+  padding: 6px 20px;
   background-color: #000;
   color: #fff;
   border: 1px solid #000;
@@ -188,8 +217,22 @@
   border-radius: 5px;
   background-color: #f7f5f5 ;
   width: 70%;
+  padding: 0 10px;
 }
 
+/*tạm tính*/
+#checkout-container .order-summary .provisional .row {
+ display: flex;
+ justify-content: space-between;
+ color: #9e9e9e;
+}
+/*thành tiền*/
+#checkout-container .order-summary .total-section {
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+ color: #9e9e9e;
+}
 
 
 
