@@ -37,7 +37,7 @@ $("button").click(function () {
     value++;
   } else {
     value--;
-    if (value < 0) return;
+    if (value < 1) return;
   }
 
   // Cập nhật số lượng

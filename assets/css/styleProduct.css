@@ -183,7 +183,7 @@ select.form-select-sm option:hover {
   height: 25px;
 }
 
-.btn-close {
+.btn-close.btn-close-custom {
   background-image: none;
   opacity: 1;
   padding: 20px 20px 0px 0px !important;
@@ -193,6 +193,58 @@ select.form-select-sm option:hover {
 .btn-close:hover {
   opacity: 1;
 }
+
+/* Nút chuyển trang */
+.page {
+  margin: 2rem 0px;
+}
+
+.pagination {
+  text-align: center !important;
+}
+.page-item {
+  margin-right: 4px;
+}
+
+.page-item:not(:first-child) .page-link {
+  margin-left: 0;
+}
+
+.page-item:last-child {
+  margin: 0;
+}
+
+.page-item .page-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 0 !important;
+  padding: 8px 0;
+  border-color: #000;
+  background: transparent;
+  color: #000;
+}
+
+.page-link.focused {
+  background-color: #000;
+  color: #fff;
+  box-shadow: none;
+}
+
+.page-link:focus {
+  box-shadow: none;
+}
+
+.active > .page-link {
+  background-color: #000;
+  color: #fff;
+}
+
+.fa-solid.fa-chevron-left,
+.fa-solid.fa-chevron-right {
+  font-size: 12px;
+}
+
+/* Css Bootstrap */
 
 /* CSS cho Filter */
 .filter-container {
