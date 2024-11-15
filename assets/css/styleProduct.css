@@ -183,6 +183,17 @@ select.form-select-sm option:hover {
   height: 25px;
 }
 
+.btn-close {
+  background-image: none;
+  opacity: 1;
+  padding: 20px 20px 0px 0px !important;
+  margin-right: 4px !important;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
 /* CSS cho Filter */
 .filter-container {
   font-family: Arial, sans-serif;

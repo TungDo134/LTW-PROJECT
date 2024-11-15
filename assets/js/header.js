@@ -24,8 +24,10 @@ $(document).ready(function () {
     if (scrollTop === 0) {
       $header.show();
     } else if (scrollTop > lastScrollTop) {
+      // $header.addClass("fixed");
       $header.slideUp("3000");
     } else {
+      // $header.removeClass("fixed");
       $header.slideDown("1000");
     }
 
