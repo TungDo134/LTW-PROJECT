@@ -57,14 +57,33 @@
                 tabindex="-1"
                 id="offcanvasWithBothOptions"
                 aria-labelledby="offcanvasWithBothOptionsLabel"
+                style="background-color: #fffefa"
               >
                 <div class="offcanvas-header">
                   <button
                     type="button"
-                    class="btn-close"
+                    class="btn-close btn-close-custom"
                     data-bs-dismiss="offcanvas"
                     aria-label="Close"
-                  ></button>
+                  >
+                    <svg
+                      width="25"
+                      height="25"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="papier-icon icon-close-display fill-current cursor-pointer"
+                      style="height: 24px; width: 24px"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M13.4119 12.001L24.0416 21.9203L21.9203 24.0416L12.0208 13.4331L2.1213 24.0416L-2.36034e-05 21.9203L10.6297 12.001L-3.05176e-05 2.12132L2.12129 2.14577e-06L12.0208 10.6511L21.9203 1.52588e-05L24.0416 2.12134L13.4119 12.001Z"
+                        fill="#1E2525"
+                        style="background: red"
+                      ></path>
+                    </svg>
+                  </button>
                 </div>
                 <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
                   ALL FILTER
@@ -192,7 +211,7 @@
         >
           <div class="col">
             <div class="card border border-0">
-              <a href="#" class="forward-img">
+              <a href="product-detail.html" class="forward-img">
                 <!-- ảnh sản phẩm -->
                 <div class="wrapper-img">
                   <img
@@ -204,18 +223,21 @@
                 </div>
                 <!-- nút thêm nhanh vào giỏ hàng -->
                 <div class="add-to-cart">
-                  <button
-                    class="icon-p"
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Thêm vào giỏ hàng."
-                  >
-                    <img src="./assets/pic/shopping_cart_icon.svg" alt="ảnh" />
-                  </button>
+                  <span data-bs-target="#exampleModal" data-bs-toggle="modal">
+                    <button
+                      class="icon-p"
+                      type="button"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      data-bs-custom-class="custom-tooltip"
+                      data-bs-title="Thêm vào giỏ hàng."
+                    >
+                      <img
+                        src="./assets/pic/shopping_cart_icon.svg"
+                        alt="ảnh"
+                      />
+                    </button>
+                  </span>
                 </div>
               </a>
 
@@ -234,7 +256,7 @@
           </div>
           <div class="col">
             <div class="card border border-0">
-              <a href="#" class="forward-img">
+              <a href="product-detail.html" class="forward-img">
                 <div class="wrapper-img">
                   <img
                     src="./assets/pic/pen"
@@ -244,18 +266,21 @@
                   />
                 </div>
                 <div class="add-to-cart">
-                  <button
-                    class="icon-p"
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Thêm vào giỏ hàng."
-                  >
-                    <img src="./assets/pic/shopping_cart_icon.svg" alt="ảnh" />
-                  </button>
+                  <span data-bs-target="#exampleModal" data-bs-toggle="modal">
+                    <button
+                      class="icon-p"
+                      type="button"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      data-bs-custom-class="custom-tooltip"
+                      data-bs-title="Thêm vào giỏ hàng."
+                    >
+                      <img
+                        src="./assets/pic/shopping_cart_icon.svg"
+                        alt="ảnh"
+                      />
+                    </button>
+                  </span>
                 </div>
               </a>
               <div class="card-body bg-body ms--15">
@@ -273,7 +298,7 @@
           </div>
           <div class="col">
             <div class="card border border-0">
-              <a href="#" class="forward-img">
+              <a href="product-detail.html" class="forward-img">
                 <div class="wrapper-img">
                   <img
                     src="./assets/pic/pen"
@@ -283,18 +308,21 @@
                   />
                 </div>
                 <div class="add-to-cart">
-                  <button
-                    class="icon-p"
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Thêm vào giỏ hàng."
-                  >
-                    <img src="./assets/pic/shopping_cart_icon.svg" alt="ảnh" />
-                  </button>
+                  <span data-bs-target="#exampleModal" data-bs-toggle="modal">
+                    <button
+                      class="icon-p"
+                      type="button"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      data-bs-custom-class="custom-tooltip"
+                      data-bs-title="Thêm vào giỏ hàng."
+                    >
+                      <img
+                        src="./assets/pic/shopping_cart_icon.svg"
+                        alt="ảnh"
+                      />
+                    </button>
+                  </span>
                 </div>
               </a>
               <div class="card-body bg-body ms--15">
@@ -312,7 +340,7 @@
           </div>
           <div class="col">
             <div class="card border border-0">
-              <a href="#" class="forward-img">
+              <a href="product-detail.html" class="forward-img">
                 <div class="wrapper-img">
                   <img
                     src="./assets/pic/pen"
@@ -322,18 +350,21 @@
                   />
                 </div>
                 <div class="add-to-cart">
-                  <button
-                    class="icon-p"
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                    data-bs-toggle="tooltip"
-                    data-bs-placement="top"
-                    data-bs-custom-class="custom-tooltip"
-                    data-bs-title="Thêm vào giỏ hàng."
-                  >
-                    <img src="./assets/pic/shopping_cart_icon.svg" alt="ảnh" />
-                  </button>
+                  <span data-bs-target="#exampleModal" data-bs-toggle="modal">
+                    <button
+                      class="icon-p"
+                      type="button"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      data-bs-custom-class="custom-tooltip"
+                      data-bs-title="Thêm vào giỏ hàng."
+                    >
+                      <img
+                        src="./assets/pic/shopping_cart_icon.svg"
+                        alt="ảnh"
+                      />
+                    </button>
+                  </span>
                 </div>
               </a>
               <div class="card-body bg-body ms--15">
@@ -349,6 +380,31 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="page">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-chevron-left"></i
+                  ></span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#" style="">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true"
+                    ><i class="fa-solid fa-chevron-right"></i
+                  ></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
 
@@ -401,7 +457,6 @@
           </div>
         </div>
       </div>
-      <!-- Modal -->
     </main>
 
     <div id="footer-container"></div>
@@ -414,7 +469,7 @@
       const tooltipTriggerList = document.querySelectorAll(
         '[data-bs-toggle="tooltip"]'
       );
-      
+
       const tooltipList = [...tooltipTriggerList].map(
         (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
       );
@@ -432,6 +487,33 @@
         // Tìm và xóa class "checked" của tất cả các dấu tích trong checkbox-circle
         const checkboxCircle = $(".checkbox-circle");
         checkboxCircle.removeClass("checked");
+      });
+
+      // Ngăn chặn sự kiện click của thẻ span không thực hiện logic của thẻ a
+      $(".add-to-cart span").click(function (event) {
+        event.preventDefault(); // Ngừng hành động mặc định của thẻ a (theo href)
+        event.stopPropagation(); // Ngừng sự kiện nổi bọt tới thẻ a
+      });
+
+      // JS cho phần chọn trang
+      $(".page-link").click(function () {
+        let text = $(this).text();
+        let preButton = $(".page-link[aria-label='Previous']");
+        let nextButton = $(".page-link[aria-label='Next']");
+        console.log(text);
+        console.log(preButton);
+        console.log(nextButton);
+
+        // Loại bỏ class 'active' khỏi tất cả các .page-item
+        $(".page-item").removeClass("active");
+
+        // Loại bỏ class 'focused' khỏi tất cả các .page-link
+        $(".page-link").removeClass("focused");
+
+        // Thêm class 'focused' vào thẻ được click
+        $(this).addClass("focused");
+
+        // Kiểm tra nếu là trang đầu tiên hoặc cuối cùng
       });
     </script>
   </body>
