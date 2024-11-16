@@ -465,7 +465,7 @@
     <script src="./assets/js/loadHF.js"></script>
     <script src="./assets/js/main.js"></script>
     <script>
-      // JS cho phần hiện tooltip khi hover vào icon giỏ hàng (bstrap)
+      //// JS cho phần hiện tooltip khi hover vào icon giỏ hàng (bstrap) ////
       const tooltipTriggerList = document.querySelectorAll(
         '[data-bs-toggle="tooltip"]'
       );
@@ -474,7 +474,7 @@
         (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
       );
 
-      // JS cho phần check filter
+      //// JS cho phần check filter ////
       $(".filter-options li").click(function () {
         // Toggle trạng thái dấu tích cho từng tùy chọn
         const checkboxCircle = $(this).find(".checkbox-circle");
@@ -495,25 +495,35 @@
         event.stopPropagation(); // Ngừng sự kiện nổi bọt tới thẻ a
       });
 
-      // JS cho phần chọn trang
+      //// JS cho phần phân trang ////
+      const preButton = $(".page-link[aria-label='Previous']");
+      const nextButton = $(".page-link[aria-label='Next']");
+      const currentPos = $(".page-item.active").text().trim();
+
+      if (currentPos === "1") {
+        preButton.addClass("disabled");
+      }
+
       $(".page-link").click(function () {
         let text = $(this).text();
-        let preButton = $(".page-link[aria-label='Previous']");
-        let nextButton = $(".page-link[aria-label='Next']");
-        console.log(text);
-        console.log(preButton);
-        console.log(nextButton);
 
-        // Loại bỏ class 'active' khỏi tất cả các .page-item
-        $(".page-item").removeClass("active");
+        $(".page-item").removeClass("active"); // Loại bỏ class 'active' khỏi tất cả các .page-item
 
-        // Loại bỏ class 'focused' khỏi tất cả các .page-link
-        $(".page-link").removeClass("focused");
+        $(".page-link").removeClass("focused"); // Loại bỏ class 'focused' khỏi tất cả các .page-link
 
-        // Thêm class 'focused' vào thẻ được click
-        $(this).addClass("focused");
+        $(this).addClass("focused"); // Thêm class 'focused' vào thẻ được click
 
         // Kiểm tra nếu là trang đầu tiên hoặc cuối cùng
+        if (text === "1") {
+          preButton.addClass("disabled");
+          nextButton.removeClass("disabled");
+        } else if (text === "3") {
+          nextButton.addClass("disabled");
+          preButton.removeClass("disabled");
+        } else {
+          preButton.removeClass("disabled");
+          nextButton.removeClass("disabled");
+        }
       });
     </script>
   </body>

@@ -239,6 +239,10 @@ select.form-select-sm option:hover {
   color: #fff;
 }
 
+.disabled {
+  visibility: hidden;
+}
+
 .fa-solid.fa-chevron-left,
 .fa-solid.fa-chevron-right {
   font-size: 12px;
@@ -325,6 +329,8 @@ select.form-select-sm option:hover {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 10px;
   padding: 12px 0px;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .filter-btn-group .filter-items {
@@ -335,6 +341,7 @@ select.form-select-sm option:hover {
   text-transform: uppercase;
   border-radius: 2px;
   cursor: pointer;
+  border: 1px solid #000;
 }
 .filter-btn-group .filter-items.delete-btn {
   background: #fff;

@@ -80,7 +80,7 @@ function totalSum() {
 $(".select-selected").click(function (e) {
   e.stopPropagation();
   $(this).css("border-color", "#000");
-  $(this).next(".select-options").slideToggle("1000");
+  $(this).next(".select-options").slideToggle("normal");
   // $(this).parent(".custom-select").toggleClass("active");
 });
 
