@@ -25,9 +25,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+
+    <!-- Google Icon -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+
     <link rel="stylesheet" href="/assets/css/styleAdmin.css" />
   </head>
-  <body>
+  <body class="dark-theme">
     <header id="header-dashboard">
       <div class="header-content">
         <div class="header-left">
@@ -52,6 +59,9 @@
           </div>
         </div>
         <div class="header-right">
+          <div class="toggle-theme icon" style="padding: 8px; cursor: pointer">
+            <span class="material-symbols-outlined"> sunny </span>
+          </div>
           <div class="notify icon">
             <i class="fa-regular fa-bell"></i>
           </div>
@@ -141,7 +151,7 @@
       </div>
       <div id="sub-header">
         <div
-          class="offcanvas offcanvas-start"
+          class="offcanvas offcanvas-start show"
           data-bs-scroll="true"
           data-bs-backdrop="false"
           tabindex="-1"
@@ -165,9 +175,111 @@
             </div>
           </div>
           <div class="offcanvas-body">
-            <p>
-              Try scrolling the rest of the page to see this option in action.
-            </p>
+            <div
+              class="wrapper-header"
+              style="padding: 20px 20px 0px 20px; margin-bottom: -1rem"
+            >
+              <h3 class="title">Main Home</h3>
+              <ul class="menu-main-menu">
+                <li class="item item-dropdown">
+                  <div class="d-flex">
+                    <span class="material-symbols-outlined pr-10">
+                      grid_view
+                    </span>
+                    <a href="#">Dash Board</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Item -->
+            <nav id="nav-submenu">
+              <h3 class="title">All Page</h3>
+              <ul class="menu-main-menu">
+                <!-- <li class="item"><a href="#">Dasb Board</a></li> -->
+                <li class="item item-dropdown">
+                  <div class="d-flex">
+                    <span class="material-symbols-outlined pr-10">
+                      shopping_cart
+                    </span>
+                    <a href="#">Ecommerce</a>
+                  </div>
+                  <ul class="sub-menu">
+                    <li class="sub-menu-item" data-target="addProduct.html">
+                      <a href="#">Add Product</a>
+                    </li>
+                    <li class="sub-menu-item" data-target="listProduct.html">
+                      <a href="#">Product List</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="item item-dropdown">
+                  <!-- <i class="fa-solid fa-layer-group pr-10"></i> -->
+                  <div class="d-flex">
+                    <span class="material-symbols-outlined pr-10">
+                      stacks
+                    </span>
+                    <a href="#">Category</a>
+                  </div>
+                  <ul class="sub-menu">
+                    <li class="sub-menu-item">
+                      <a href="#">Category List</a>
+                    </li>
+                    <li class="sub-menu-item">
+                      <a href="#">New Category</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="item item-dropdown">
+                  <div class="d-flex">
+                    <span class="material-symbols-outlined pr-10">
+                      deployed_code
+                    </span>
+                    <a href="#"> Attributes</a>
+                  </div>
+                  <ul class="sub-menu">
+                    <li class="sub-menu-item">
+                      <a href="#">Attributes</a>
+                    </li>
+                    <li class="sub-menu-item">
+                      <a href="#">Add Attributes</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="item item-dropdown">
+                  <div class="d-flex">
+                    <span class="material-symbols-outlined pr-10">
+                      note_add
+                    </span>
+                    <a href="#">Order</a>
+                  </div>
+                  <ul class="sub-menu">
+                    <li class="sub-menu-item">
+                      <a href="#">Order List</a>
+                    </li>
+                    <li class="sub-menu-item">
+                      <a href="#">Order Detail</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="item item-dropdown">
+                  <div class="d-flex">
+                    <span class="material-symbols-outlined pr-10">
+                      person
+                    </span>
+                    <a href="#">User</a>
+                  </div>
+                  <ul class="sub-menu">
+                    <li class="sub-menu-item">
+                      <a href="#">Order List</a>
+                    </li>
+                    <li class="sub-menu-item">
+                      <a href="#">Order Detail</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>

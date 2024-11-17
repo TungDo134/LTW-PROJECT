@@ -1,0 +1,29 @@
+/* Định nghĩa các biến CSS cho Dark theme */
+.dark-theme {
+  --White: #1e293b;
+  --Heading: #94a3b8;
+  --Input: #324055;
+  --Body-Text: #fff;
+  --Note: #95989d;
+  --Stroke: #283548;
+  --Icon: #ccc;
+  --bg-table: #28354852;
+  --bg-table-1: #28354852;
+  --hv-item: #ffffff24;
+  --background: #0f172a;
+}
+
+/* Định nghĩa các biến CSS cho white theme */
+.white-theme {
+  --White: #ffffff; /* Màu nền chính */
+  --Heading: #1e293b; /* Màu chữ cho tiêu đề */
+  --Input: #e2e8f0; /* Màu nền cho các trường đầu vào */
+  --Body-Text: #111827; /* Màu văn bản chính */
+  --Note: #6b7280; /* Màu cho ghi chú hoặc văn bản phụ */
+  --Stroke: #f2f7fb; /* Màu đường viền */
+  --Icon: #000;
+  --bg-table: #f9fafb; /* Màu nền bảng */
+  --bg-table-1: #f3f4f6; /* Màu nền cho dòng xen kẽ trong bảng */
+  --hv-item: #e5e7eb; /* Màu nền khi hover các mục */
+  --background: #f8fafc; /* Màu nền tổng thể cho trang */
+}
