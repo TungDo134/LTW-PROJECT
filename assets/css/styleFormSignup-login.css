@@ -1,4 +1,4 @@
-.form-container{
+.login-signup-container{
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -6,11 +6,9 @@
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-    background: #F4EEE0;
-
-
+	background: #F4EEE0
 }
-.form-container #form-signup-login{
+.login-signup-container .login-signup{
 	width: 350px;
 	height: 500px;
 	background: red;
@@ -19,34 +17,29 @@
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
 }
-.form-container #form-signup-login #chk{
+.login-signup-container .login-signup #chk{
 	display: none;
 }
-.form-container #form-signup-login .signup{
+.login-signup-container .login-signup .signup{
 	position: relative;
 	width:100%;
 	height: 100%;
 }
-/* Hiệu ứng hover cho nhãn */
-.label-agree-term:hover {
-  color: #ddd;
-}
-
-
-.form-container #form-signup-login .signup .form-group .label-Signup{
+.login-signup-container .login-signup .signup form  .form-group .label-Signup, .login-signup-container .login-signup .login form  .label-Login{
 	color: #000;
 	font-size: 2.3em;
 	justify-content: center;
 	display: flex;
-	margin: 30px;
+	margin: 50px;
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
+
 input{
 	width: 60%;
 	height: 10px;
-	background: #ffffff;
+	background: #fff;
 	justify-content: center;
 	display: flex;
 	margin: 20px auto;
@@ -55,80 +48,45 @@ input{
 	outline: none;
 	border-radius: 5px;
 }
-.form-container #form-signup-login .signup .btn-blue {
-    display: flex; /* Để sử dụng `justify-content` */
-    justify-content: center; /* Căn giữa nội dung nút */
-    align-items: center;
-    margin: 20px auto; /* Đặt căn giữa toàn bộ phần tử */
-    width: 60%; /* Đặt cùng chiều rộng với các trường input */
-  }
-  
- .form-container #form-signup-login .signup .btn-blue button {
-    width: 100%; /* Đặt chiều rộng của button bằng với `.btn-blue` */
-    padding: 12px; /* Đặt padding đều */
-    font-size: 1em;
-    font-weight: bold;
-    color: #fff;
-    background-color: #000;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    border: 1px solid #000;
-  }
-  
-  .form-container #form-signup-login .signup .btn-blue button:hover {
-    background: #fff;
-    color: #000;
-    border: 1px solid #000;
-  }
-  
-  .form-container #form-signup-login .login{
+button{
+	width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #000;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 30px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+button:hover{
+	background: #fff;
+  border: 1px solid #000;
+  color: #000;
+}
+.login{
 	height: 460px;
 	background: #fff;
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
 	transition: .8s ease-in-out;
 }
-.form-container #form-signup-login .login label {
-    padding: 20px;
-    color: #000;
-    font-size: 2em;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    transition: transform 0.3s ease;
-  }
-  
-  .form-container #form-signup-login .login button {
-    width: 60%; /* Cùng chiều rộng với các input */
-    padding: 12px;
-    font-size: 1em;
-    font-weight: bold;
-    color: #fff;
-    background-color: #000;
-    border: 1px solid #000;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    margin: 20px auto;
-    display: block; /* Căn giữa button */
-  }
-  
-  .form-container #form-signup-login .login button:hover {
-    background: #fff;
-    border: 1px solid #000;
-    color: #000;
-  }
-  
-  .form-container #form-signup-login  #chk:checked ~ .login{
+.login label{
+	color: #573b8a;
+	transform: scale(.6);
+}
+
+#chk:checked ~ .login{
 	transform: translateY(-500px);
 }
-.form-container #form-signup-login  #chk:checked ~ .login label{
+#chk:checked ~ .login label{
 	transform: scale(1);	
 }
-.form-container #form-signup-login #chk:checked ~ .signup label{
+#chk:checked ~ .signup label{
 	transform: scale(.6);
 }
