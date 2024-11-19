@@ -225,12 +225,13 @@ li {
 #main-content {
   padding-top: 80px;
   padding-left: 300px;
-  /* background-color: var(--background); */
   transition: all 0.3s ease;
+  background-color: var(--background);
+  height: 100vh;
 }
 
 #main-content .main-container {
-  padding: 30px;
+  padding: 30px 20px;
   color: #fff;
 }
 
