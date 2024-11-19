@@ -11,6 +11,9 @@
   --bg-table-1: #28354852;
   --hv-item: #ffffff24;
   --background: #0f172a;
+
+  /* cái --test-cl  để test xem có hoạt động không, có thể xóa */
+  --test-cl: darkred;
 }
 
 /* Định nghĩa các biến CSS cho white theme */
