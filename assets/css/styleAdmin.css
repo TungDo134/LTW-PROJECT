@@ -225,7 +225,8 @@ li {
 #main-content {
   padding-top: 80px;
   padding-left: 300px;
-  /* background-color: var(--background); */
+  background-color: var(--background);
+  height: 100vh;
   transition: all 0.3s ease;
 }
 

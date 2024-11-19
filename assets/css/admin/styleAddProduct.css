@@ -18,3 +18,210 @@ h1,
 h2 {
   color: var(--test-cl);
 }
+ul{
+  padding: 0;
+}
+li{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+}
+.addproduct-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* padding-top: 80px; */
+  /* background: #f2f7fb; */
+  transition: all 0.3s ease;
+}
+.content-inner{
+  padding: 30px;
+}
+.items-center{
+  margin-bottom: 27px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.items-center h3{
+  font-size: 24px;
+  line-height: 37px;
+  color: var(--Heading);
+  font-weight: 700;
+}
+.items-center ul {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.items-center a{
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--Heading);
+}
+.items-center a:hover{
+  color: #93c5fd;
+  transition: all 0.3s;
+}
+.items-center i{
+  font-size: 10px;
+  color: var(--Body-Text);
+}
+.items-center p{
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--Note);
+  display: contents;
+}
+.form-add-product{
+  grid-gap: 30px 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.form-add-product .wg-box{
+  padding: 24px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 12px;
+  background: var(--White);
+}
+.form-add-product .body-title{
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 10px;
+  color: var(--Heading);
+}
+.form-add-product .body-title span{
+  color: #ff5200;
+}
+.form-add-product input{
+  width: 100%;
+  padding: 14px 22px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  background: var(--bg-table);
+  border: 1px solid var(--Input);
+  border-radius: 12px;
+  color: var(--Heading);
+  margin-bottom: 10px;
+}
+.form-add-product .wg-box p{
+  color: var(--Note);
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 0 !important;
+}
+.form-add-product .wg-box .cols{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.form-add-product .wg-box select{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--Heading);
+  cursor: pointer;
+  width: 100%;
+  padding: 14px 22px;
+  border: 1px solid var(--Input);
+  border-radius: 12px;
+}
+.form-add-product .wg-box textarea{
+  margin-bottom: 10px;
+  height: 200px;
+  width: 100%;
+  padding: 14px 22px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  background: var(--bg-table);
+  border: 1px solid var(--Input);
+  border-radius: 12px;
+  color: var(--Heading);
+  overflow: hidden;
+  vertical-align: top;
+}
+.form-add-product .wg-box .upload-img{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.form-add-product .wg-box .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--Input);
+}
+.form-add-product .wg-box .item img{
+  width: 156px;
+  height: 180px;
+}
+.form-add-product .wg-box .item-upload{
+  border: 1px dashed var(--Note);
+  border-radius: 12px;
+  min-height: 208px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.form-add-product .upload-img .uploadfile{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  gap: 10px;
+}
+.form-add-product .upload-img .item-upload i{
+  font-size: 40px;
+  color: var(--bs-blue);
+}
+.form-add-product .upload-img .item-upload p{
+  font-size: 12px;
+  line-height: 15px;
+  max-width: 177px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0 !important;
+}
+.form-add-product .upload-img .item-upload span{
+  color: var(--bs-blue);
+}
+.form-add-product .body-text p{
+  color: var(--Body-Text);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: justify;
+  margin: 0 !important;
+}
+.form-add-product .cols .list-box-value{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.form-add-product .cols .list-box-value .value-item{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 9px;
+  border-radius: 8px;
+  border: 1px solid var(--Input);
+  background: var(--bg-table);
+  text-align: center;
+}
