@@ -1,5 +1,102 @@
-<link rel="stylesheet" href="/assets/css/admin/styleListProduct.css" />
+<!-- 
 <div class="addproduct-container">
   <h1>List Product</h1>
   <h2>This is the content for List Product.</h2>
-</div>
+</div> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List</title>
+    <link rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous">
+      <link rel="stylesheet" href="/assets/css/admin/styleListProduct.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1>Product List</h1>
+      <button class="btn btn-primary">+ Add New</button>
+    </div>
+
+    <div class="container my-4">
+        <!-- Column Titles -->
+        <div class="row bg-light fw-bold py-2 border">
+            <div class="col-1">Image</div>
+            <div class="col-2">Product Name</div>
+            <div class="col-2">Product ID</div>
+            <div class="col-2">Price</div>
+            <div class="col-1">Quantity</div>
+            <div class="col-1">Sale</div>
+            <div class="col-1">Stock</div>
+            <div class="col-2">Actions</div>
+        </div>
+
+        <!-- Example Product Row -->
+        <div class="row align-items-center py-2 border-bottom">
+            <!-- Product Image -->
+            <div class="col-1">
+                <img src="https://via.placeholder.com/80" alt="Product Image" class="img-fluid rounded">
+            </div>
+            <!-- Product Details -->
+            <div class="col-2">Dog Food, Chicken & Liver Recipe</div>
+            <div class="col-2">#7712309</div>
+            <div class="col-2">$1,452.50</div>
+            <div class="col-1">1,638</div>
+            <div class="col-1">20%</div>
+            <div class="col-1"><span class="text-danger">Out of Stock</span></div>
+
+            <!-- Actions -->
+            <div class="col-2 icon-action d-flex justify-content-around">
+                <i class="fa-regular fa-eye" style="color: #2377fc"></i>
+                <i
+                  class="fa-regular fa-pen-to-square"
+                  style="color: #22c55e"
+                ></i>
+                <i class="fa-regular fa-trash-can" style="color: #ff5200"></i>
+            </div>
+        </div>
+        <!-- Duplicate for More Products -->
+        <div class="row align-items-center py-2 border-bottom">
+            <div class="col-1">
+                <img src="https://via.placeholder.com/80" alt="Product Image" class="img-fluid rounded">
+            </div>
+            <div class="col-2">Grain Free Dry Dog Food</div>
+            <div class="col-2">#7712310</div>
+            <div class="col-2">$1,252.50</div>
+            <div class="col-1">2,000</div>
+            <div class="col-1">15%</div>
+            <div class="col-1"><span class="text-success">In Stock</span></div>
+            <!-- Actions -->
+            <div class="col-2 icon-action d-flex justify-content-around">
+              <i class="fa-regular fa-eye" style="color: #2377fc"></i>
+              <i
+                class="fa-regular fa-pen-to-square"
+                style="color: #22c55e"
+              ></i>
+              <i class="fa-regular fa-trash-can" style="color: #ff5200"></i>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+
+</html>
