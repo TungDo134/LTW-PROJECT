@@ -1,0 +1,318 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:wght@300..800&display=swap");
+
+/* Import các biến màu từ dark-theme.css */
+@import url("/assets/css/admin/styleTheme.css");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+h1,
+h2 {
+  color: var(--test-cl);
+}
+ul {
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+.addproduct-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* padding-top: 80px; */
+  /* background: #f2f7fb; */
+  transition: all 0.3s ease;
+}
+.content-inner {
+  /* padding: 30px; */
+}
+.items-center {
+  margin-bottom: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.items-center h3 {
+  font-size: 24px;
+  line-height: 37px;
+  color: var(--Heading);
+  font-weight: 700;
+}
+.items-center ul {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.items-center a {
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--Body-Text);
+}
+.items-center a:hover {
+  color: #93c5fd;
+  transition: all 0.3s;
+}
+.items-center i {
+  font-size: 10px;
+  color: var(--Body-Text);
+}
+.items-center p {
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--Note);
+  display: contents;
+}
+.wg-box {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+    border-radius: 12px;
+    background: var(--White);
+}
+.flex-wrap{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
+.wg-filter{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px 30px;
+    flex-grow: 1;
+}
+.wg-filter form{
+    width: 100%;
+    max-width: 458px;
+    display: flex;
+    align-items: center;
+    background: var(--bg-table);
+    border: 1px solid var(--Input);
+    border-radius: 12px;
+}
+.wg-filter form > input{
+    width: 100%;
+    padding: 14px 22px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    background: var(--bg-table);
+    border: none;
+    /* border-radius: 12px; */
+}
+.wg-filter .button-submit{
+    position: relative;
+    top: 2px;
+    right: 10px;
+}
+.wg-filter .button-submit button{
+    font-size: 17px;
+    color: var(--Heading);
+    font-weight: 400;
+    line-height: 20px;
+    background: var(--bg-table);
+    border-radius: 12px;
+    border: none;
+}
+.wg-filter .button-submit button:hover{
+    color: var(--bs-blue);
+    transition: all 0.5s;
+}
+.tf-button{
+    width: 180px;
+    color: var(--bs-blue);
+    background-color: var(--White);
+    height: 50px;
+    padding: 15px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    border: 1px solid var(--bs-blue);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.tf-button:hover{
+    color: var(--Body-Text);
+    background: var(--bs-blue);
+    transition: all 0.5s;
+}
+
+.wg-table ul.table-title{
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--bg-table);
+    display: flex;
+    align-items: center;
+    min-width: 1237px;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    gap: 20px;
+}
+
+.wg-table ul.table-title p{
+    font-size: 14px;
+    color: var(--Heading);
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 0 !important;
+}
+.wg-table .flex{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.wg-table .flex .user-item{
+    background: var(--bg-table);
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 12px;
+    justify-content: center;
+    gap: 14px;
+}
+.wg-table .flex .user-item img{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+.wg-table .flex .user-item .flex-grow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-grow: 1;
+}
+.wg-table .flex .user-item .flex-grow .name{
+    width: 298px;
+    flex-shrink: 0;
+}
+.wg-table .flex .user-item .flex-grow .name a{
+    color: var(--Heading);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+}
+
+.wg-table .flex .user-item 
+.flex-grow .name a:hover{
+    color: var(--bs-blue);
+    transition: all 0.5s;
+}
+.text-tiny {
+    color: var(--Note);
+    font-size: 12px;
+    margin-top: 3px;
+    line-height: 20px;
+}
+.body-text{
+    width: 100%;
+    color: var(--Heading);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.list-icon{
+    width: 110px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+}
+.list-icon .item-eye{
+    color: var(--bs-blue);
+    font-size: 20px;
+    cursor: pointer;
+}
+.list-icon .item-edit{
+    color: var(--bs-form-valid-color);
+    font-size: 20px;
+    cursor: pointer;
+}
+.list-icon .item-trash{
+    color: var(--bs-red);
+    font-size: 20px;
+    cursor: pointer;
+}
+.divider{
+    height: 1px;
+    align-self: stretch;
+    background: #edf1f5;
+}
+.flex-wrap .wg-pagination{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 0 !important;
+}
+.flex-wrap .wg-pagination li {
+    min-width: 40px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+}
+.flex-wrap .wg-pagination li.active > a {
+    background: var(--bs-blue);
+    color: var(--Body-Text);
+}
+.wg-pagination li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    gap: 10px;
+    border: 1px solid var(--Stroke);
+    border-radius: 50%;
+    color: var(--Body-Text);
+}
+.wg-pagination li a:hover{
+    color: var(--Body-Text);
+    background: var(--bs-blue);
+    transition: all 0.5s;
+}
+.addproduct-container .bottom-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 8px 24px 24px;
+  gap: 10px;
+  background: var(--White);
+}
+.addproduct-container .bottom-page .body-text {
+  color: var(--Body-Text);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.addproduct-container .bottom-page i {
+  font-size: 16px;
+  color: var(--bs-danger);
+}
+.addproduct-container .bottom-page .body-text p {
+  display: contents;
+  color: var(--bs-blue);
+}
