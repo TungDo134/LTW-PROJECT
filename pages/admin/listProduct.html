@@ -1,80 +1,195 @@
 <link rel="stylesheet" href="/assets/css/admin/styleListProduct.css" />
-<!-- Header -->
-<div class="d-flex justify-content-between align-items-center mb-4">
-  <h1>Product List</h1>
-  <button class="btn btn-primary">+ Add New</button>
+<div class="header">
+  <h1>List Product</h1>
 </div>
-
-<div class="container my-4">
-  <!-- Column Titles -->
-  <div class="row bg-light fw-bold py-2 border">
-    <div class="col-1">Image</div>
-    <div class="col-2">Product Name</div>
-    <div class="col-2">Product ID</div>
-    <div class="col-2">Price</div>
-    <div class="col-1">Quantity</div>
-    <div class="col-1">Sale</div>
-    <div class="col-1">Stock</div>
-    <div class="col-2">Actions</div>
+<div id="list-product-container">
+  <div class="product-list">
+    <!-- Header -->
+    <div class="header-show-product">
+      <div class="row align-items-center flex-wrap">
+        <div class="col-8">
+          <div class="row row-cols-2 align-items-center">
+            <div class="col" style="width: 160px">
+              <div
+                class="show-search d-flex align-items-center justify-content-between"
+              >
+                <div class="text-tiny">Hiển thị</div>
+                <div class="select">
+                  <select name="" id="">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col" style="position: relative">
+              <input
+                class="mini-search"
+                type="text"
+                placeholder="Tìm kiếm..."
+              />
+              <div class="btn-submit">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 text-end">
+          <a
+            class="add-btn d-inline-block bg-white text-center text-decoration-none"
+            ><i class="fa-solid fa-plus" style="padding-right: 4px"></i> Add
+            new</a
+          >
+        </div>
+      </div>
+    </div>
+    <!-- Content -->
+    <div class="content-show-product">
+      <div class="header-title">
+        <div class="row">
+          <div class="col-4">Product</div>
+          <div class="col">Product ID</div>
+          <div class="col">Price</div>
+          <div class="col">Quantity</div>
+          <div class="col">Sale</div>
+          <div class="col">Stock</div>
+          <div class="col">Action</div>
+        </div>
+      </div>
+      <ul class="list-product">
+        <li>
+          <div class="row align-items-center">
+            <div class="col-4 d-flex align-items-center">
+              <img src="/assets/pic/pen" alt="" />
+              <p class="text-product">Bút bi</p>
+            </div>
+            <div class="col">#111111</div>
+            <div class="col">100.000đ</div>
+            <div class="col">2</div>
+            <div class="col">10%</div>
+            <div class="col">Out of stock</div>
+            <div class="col">
+              <div class="icon-action d-flex justify-content-around">
+                <i class="fa-regular fa-eye" style="color: #2377fc"></i>
+                <i
+                  class="fa-regular fa-pen-to-square"
+                  style="color: #22c55e"
+                ></i>
+                <i class="fa-regular fa-trash-can" style="color: #ff5200"></i>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row align-items-center">
+            <div class="col-4 d-flex align-items-center">
+              <img src="/assets/pic/pen" alt="" />
+              <p class="text-cate">Bút bi</p>
+            </div>
+            <div class="col">#111111</div>
+            <div class="col">100.000đ</div>
+            <div class="col">2</div>
+            <div class="col">10%</div>
+            <div class="col">Out of stock</div>
+            <div class="col">
+              <div class="icon-action d-flex justify-content-around">
+                <i class="fa-regular fa-eye" style="color: #2377fc"></i>
+                <i
+                  class="fa-regular fa-pen-to-square"
+                  style="color: #22c55e"
+                ></i>
+                <i class="fa-regular fa-trash-can" style="color: #ff5200"></i>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row align-items-center">
+            <div class="col-4 d-flex align-items-center">
+              <img src="/assets/pic/pen" alt="" />
+              <p class="text-cate">Bút bi</p>
+            </div>
+            <div class="col">#111111</div>
+            <div class="col">100.000đ</div>
+            <div class="col">2</div>
+            <div class="col">10%</div>
+            <div class="col">Out of stock</div>
+            <div class="col">
+              <div class="icon-action d-flex justify-content-around">
+                <i class="fa-regular fa-eye" style="color: #2377fc"></i>
+                <i
+                  class="fa-regular fa-pen-to-square"
+                  style="color: #22c55e"
+                ></i>
+                <i class="fa-regular fa-trash-can" style="color: #ff5200"></i>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-
-  <!-- Example Product Row -->
-  <div class="row align-items-center py-2 border-bottom">
-    <!-- Product Image -->
-    <div class="col-1">
-      <img
-        src="https://via.placeholder.com/80"
-        alt="Product Image"
-        class="img-fluid rounded"
-      />
-    </div>
-    <!-- Product Details -->
-    <div class="col-2">Dog Food, Chicken & Liver Recipe</div>
-    <div class="col-2">#7712309</div>
-    <div class="col-2">$1,452.50</div>
-    <div class="col-1">1,638</div>
-    <div class="col-1">20%</div>
-    <div class="col-1"><span class="text-danger">Out of Stock</span></div>
-
-    <!-- Actions -->
-    <div class="col-2 icon-action d-flex justify-content-around">
-      <i class="fa-regular fa-eye" style="color: #2377fc"></i>
-      <i class="fa-regular fa-pen-to-square" style="color: #22c55e"></i>
-      <i class="fa-regular fa-trash-can" style="color: #ff5200"></i>
-    </div>
-  </div>
-  <!-- Duplicate for More Products -->
-  <div class="row align-items-center py-2 border-bottom">
-    <div class="col-1">
-      <img
-        src="https://via.placeholder.com/80"
-        alt="Product Image"
-        class="img-fluid rounded"
-      />
-    </div>
-    <div class="col-2">Grain Free Dry Dog Food</div>
-    <div class="col-2">#7712310</div>
-    <div class="col-2">$1,252.50</div>
-    <div class="col-1">2,000</div>
-    <div class="col-1">15%</div>
-    <div class="col-1"><span class="text-success">In Stock</span></div>
-    <!-- Actions -->
-    <div class="col-2 icon-action d-flex justify-content-around">
-      <i class="fa-regular fa-eye" style="color: #2377fc"></i>
-      <i class="fa-regular fa-pen-to-square" style="color: #22c55e"></i>
-      <i class="fa-regular fa-trash-can" style="color: #ff5200"></i>
+  <div class="row">
+    <div class="col-6">Showing 10 entries</div>
+    <div class="col-6">
+      <div class="page">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-end">
+            <li class="page-item">
+              <a class="page-link arrow" href="#" aria-label="Previous">
+                <span aria-hidden="true"
+                  ><i class="fa-solid fa-chevron-left"></i
+                ></span>
+              </a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link arrow" href="#" aria-label="Next">
+                <span aria-hidden="true"
+                  ><i class="fa-solid fa-chevron-right"></i
+                ></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
-  <!-- Pagination -->
-  <nav aria-label="Page navigation" class="mt-4">
-    <ul class="pagination justify-content-center">
-      <li class="page-item disabled">
-        <a class="page-link" href="#">Previous</a>
-      </li>
-      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-  </nav>
 </div>
+<script>
+  //// JS cho phần phân trang ////
+  const preButton = $(".page-link[aria-label='Previous']");
+  const nextButton = $(".page-link[aria-label='Next']");
+  const currentPos = $(".page-item.active").text().trim();
+
+  if (currentPos === "1") {
+    preButton.addClass("disabled");
+  }
+
+  $(".page-link").click(function () {
+    let text = $(this).text();
+
+    $(".page-item").removeClass("active"); // Loại bỏ class 'active' khỏi tất cả các .page-item
+
+    $(".page-link").removeClass("focused"); // Loại bỏ class 'focused' khỏi tất cả các .page-link
+
+    $(this).addClass("focused"); // Thêm class 'focused' vào thẻ được click
+
+    // Kiểm tra nếu là trang đầu tiên hoặc cuối cùng
+    if (text === "1") {
+      preButton.addClass("disabled");
+      nextButton.removeClass("disabled");
+    } else if (text === "3") {
+      nextButton.addClass("disabled");
+      preButton.removeClass("disabled");
+    } else {
+      preButton.removeClass("disabled");
+      nextButton.removeClass("disabled");
+    }
+  });
+</script>
