@@ -18,16 +18,16 @@ h1,
 h2 {
   color: var(--test-cl);
 }
-ul{
+ul {
   padding: 0;
 }
-li{
+li {
   list-style-type: none;
 }
-a{
+a {
   text-decoration: none;
 }
-.addproduct-container{
+.addproduct-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -35,17 +35,17 @@ a{
   /* background: #f2f7fb; */
   transition: all 0.3s ease;
 }
-.content-inner{
-  padding: 30px;
+.content-inner {
+  /* padding: 30px; */
 }
-.items-center{
-  margin-bottom: 27px;
+.items-center {
+  margin-bottom: 28px;
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: space-between;
 }
-.items-center h3{
+.items-center h3 {
   font-size: 24px;
   line-height: 37px;
   color: var(--Heading);
@@ -56,31 +56,31 @@ a{
   gap: 10px;
   align-items: center;
 }
-.items-center a{
+.items-center a {
   font-size: 12px;
   line-height: 15px;
-  color: var(--Heading);
+  color: var(--Body-Text);
 }
-.items-center a:hover{
+.items-center a:hover {
   color: #93c5fd;
   transition: all 0.3s;
 }
-.items-center i{
+.items-center i {
   font-size: 10px;
   color: var(--Body-Text);
 }
-.items-center p{
+.items-center p {
   font-size: 12px;
   line-height: 15px;
   color: var(--Note);
   display: contents;
 }
-.form-add-product{
+.form-add-product {
   grid-gap: 30px 20px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-.form-add-product .wg-box{
+.form-add-product .wg-box {
   padding: 24px 15px;
   display: flex;
   flex-direction: column;
@@ -88,17 +88,17 @@ a{
   border-radius: 12px;
   background: var(--White);
 }
-.form-add-product .body-title{
+.form-add-product .body-title {
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
   margin-bottom: 10px;
   color: var(--Heading);
 }
-.form-add-product .body-title span{
+.form-add-product .body-title span {
   color: #ff5200;
 }
-.form-add-product input{
+.form-add-product input {
   width: 100%;
   padding: 14px 22px;
   font-size: 14px;
@@ -110,18 +110,18 @@ a{
   color: var(--Heading);
   margin-bottom: 10px;
 }
-.form-add-product .wg-box p{
+.form-add-product .wg-box p {
   color: var(--Note);
   font-size: 12px;
   line-height: 15px;
   margin-bottom: 0 !important;
 }
-.form-add-product .wg-box .cols{
+.form-add-product .wg-box .cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 22px;
 }
-.form-add-product .wg-box select{
+.form-add-product .wg-box select {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -132,7 +132,7 @@ a{
   border: 1px solid var(--Input);
   border-radius: 12px;
 }
-.form-add-product .wg-box textarea{
+.form-add-product .wg-box textarea {
   margin-bottom: 10px;
   height: 200px;
   width: 100%;
@@ -147,7 +147,7 @@ a{
   overflow: hidden;
   vertical-align: top;
 }
-.form-add-product .wg-box .upload-img{
+.form-add-product .wg-box .upload-img {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
@@ -161,11 +161,11 @@ a{
   border-radius: 12px;
   border: 1px solid var(--Input);
 }
-.form-add-product .wg-box .item img{
+.form-add-product .wg-box .item img {
   width: 156px;
   height: 180px;
 }
-.form-add-product .wg-box .item-upload{
+.form-add-product .wg-box .item-upload {
   border: 1px dashed var(--Note);
   border-radius: 12px;
   min-height: 208px;
@@ -174,7 +174,7 @@ a{
   justify-content: center;
   width: 100%;
 }
-.form-add-product .upload-img .uploadfile{
+.form-add-product .upload-img .uploadfile {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -184,11 +184,11 @@ a{
   text-align: center;
   gap: 10px;
 }
-.form-add-product .upload-img .item-upload i{
+.form-add-product .upload-img .item-upload i {
   font-size: 40px;
   color: var(--bs-blue);
 }
-.form-add-product .upload-img .item-upload p{
+.form-add-product .upload-img .item-upload p {
   font-size: 12px;
   line-height: 15px;
   max-width: 177px;
@@ -196,10 +196,10 @@ a{
   margin-right: auto;
   margin-bottom: 0 !important;
 }
-.form-add-product .upload-img .item-upload span{
+.form-add-product .upload-img .item-upload span {
   color: var(--bs-blue);
 }
-.form-add-product .body-text p{
+.form-add-product .body-text p {
   color: var(--Body-Text);
   font-size: 14px;
   font-weight: 400;
@@ -207,14 +207,14 @@ a{
   text-align: justify;
   margin: 0 !important;
 }
-.form-add-product .cols .list-box-value{
+.form-add-product .cols .list-box-value {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   margin-bottom: 10px;
   margin-top: 10px;
 }
-.form-add-product .cols .list-box-value .value-item{
+.form-add-product .cols .list-box-value .value-item {
   display: flex;
   width: 100%;
   align-items: center;
@@ -225,12 +225,12 @@ a{
   background: var(--bg-table);
   text-align: center;
 }
-.form-add-product .col{
+.form-add-product .col {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
-.form-add-product .col button{
+.form-add-product .col button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -245,21 +245,21 @@ a{
   border: 1px solid var(--bs-blue);
   border-radius: 12px;
 }
-.form-add-product .col .btn1:hover{
+.form-add-product .col .btn1:hover {
   color: var(--bs-blue);
   background: var(--bg-table);
   transition: all 0.5s;
 }
-.form-add-product .col .btn2{
+.form-add-product .col .btn2 {
   background: var(--bg-table);
   color: var(--bs-blue);
 }
-.form-add-product .col .btn2:hover{
+.form-add-product .col .btn2:hover {
   color: var(--Body-Text);
   background: var(--bs-blue);
   transition: all 0.5s;
 }
-.form-add-product .col a{
+.form-add-product .col a {
   height: 50px;
   padding: 15px 22px;
   display: flex;
@@ -273,12 +273,12 @@ a{
   font-weight: 700;
   line-height: 20px;
 }
-.form-add-product .col a:hover{
+.form-add-product .col a:hover {
   color: var(--Body-Text);
   background: var(--bs-blue);
   transition: all 0.5s;
 }
-.addproduct-container .bottom-page{
+.addproduct-container .bottom-page {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -286,17 +286,17 @@ a{
   gap: 10px;
   background: var(--White);
 }
-.addproduct-container .bottom-page .body-text{
+.addproduct-container .bottom-page .body-text {
   color: var(--Body-Text);
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
 }
-.addproduct-container .bottom-page i{
+.addproduct-container .bottom-page i {
   font-size: 16px;
   color: var(--bs-danger);
 }
-.addproduct-container .bottom-page .body-text p{
+.addproduct-container .bottom-page .body-text p {
   display: contents;
   color: var(--bs-blue);
 }
