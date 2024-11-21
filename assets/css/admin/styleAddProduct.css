@@ -89,7 +89,6 @@ a {
   background: var(--White);
 }
 .form-add-product .body-title {
-  font-size: 14px;
   font-weight: 700;
   line-height: 20px;
   margin-bottom: 10px;
@@ -112,8 +111,8 @@ a {
 }
 .form-add-product .wg-box p {
   color: var(--Note);
-  font-size: 12px;
-  line-height: 15px;
+  font-size: 14px;
+  line-height: 20px;
   margin-bottom: 0 !important;
 }
 .form-add-product .wg-box .cols {
@@ -122,6 +121,7 @@ a {
   gap: 22px;
 }
 .form-add-product .wg-box select {
+  background: transparent;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -129,6 +129,7 @@ a {
   cursor: pointer;
   width: 100%;
   padding: 14px 22px;
+  margin-bottom: 8px;
   border: 1px solid var(--Input);
   border-radius: 12px;
 }
@@ -162,8 +163,8 @@ a {
   border: 1px solid var(--Input);
 }
 .form-add-product .wg-box .item img {
-  width: 156px;
-  height: 180px;
+  max-width: 100%;
+  height: auto;
 }
 .form-add-product .wg-box .item-upload {
   border: 1px dashed var(--Note);
@@ -227,7 +228,7 @@ a {
 }
 .form-add-product .col {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 .form-add-product .col button {
