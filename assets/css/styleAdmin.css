@@ -359,3 +359,30 @@ li {
 .item-dropdown.rotate::after {
   transform: rotate(180deg); /* Xoay 180 độ */
 }
+/* Đặt cho phần tử cần tùy chỉnh thanh cuộn */
+#main-content {
+  overflow-y: scroll; /* Cho phép cuộn dọc */
+}
+
+/* Tùy chỉnh thanh cuộn trên các trình duyệt Webkit (Chrome, Safari, Edge) */
+#main-content::-webkit-scrollbar {
+  width: 12px; /* Độ rộng của thanh cuộn */
+}
+
+/* Đặt kiểu cho đường cuộn */
+#main-content::-webkit-scrollbar-track {
+  background: transparent; /* Màu nền của đường cuộn */
+}
+
+/* Đặt kiểu cho thanh cuộn */
+#main-content::-webkit-scrollbar-thumb {
+  background-color: #d1d1d1; /* Màu của thanh cuộn */
+  border-radius: 10px; /* Bo góc cho thanh cuộn */
+  border: 2px solid transparent; /* Tạo khoảng cách giữa thanh cuộn và track */
+  background-clip: padding-box; /* Đảm bảo thanh cuộn không vượt qua border */
+}
+
+#main-content .main-container {
+  padding: 30px 30px 30px 10px;
+  color: #fff;
+}	
