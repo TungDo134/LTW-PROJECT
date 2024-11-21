@@ -1,0 +1,63 @@
+.header > h1 {
+  font-size: 24px;
+  color: var(--Heading);
+  margin-bottom: 28px;
+  font-weight: 700;
+}
+
+#addNewCate-container {
+  background-color: var(--White);
+  padding: 24px;
+  border-radius: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+#addNewCate-container .add-cate {
+  border-bottom: 1px solid #283548;
+  min-width: 1130px;
+}
+
+#addNewCate-container input {
+  padding: 14px 22px;
+  border: 1px solid var(--Input);
+  background-color: transparent;
+  width: 100%;
+  border-radius: 12px;
+}
+
+#addNewCate-container .row {
+  margin-bottom: 1rem;
+}
+
+#addNewCate-container .col {
+  max-width: 500px;
+}
+
+#addNewCate-container .col.col-input {
+  max-width: 1000px;
+}
+
+#addNewCate-container .col-upload {
+  height: 248px;
+}
+
+#addNewCate-container .col-upload .content-addNew {
+  border: 1px dashed #2275fc;
+  height: 100%;
+  position: relative;
+}
+
+#addNewCate-container .col-upload .content-addNew > label {
+  width: 100%;
+  height: 100%;
+}
+
+#addNewCate-container .col-upload .content-addNew > input {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  max-width: fit-content;
+  right: 0;
+  margin: auto;
+}

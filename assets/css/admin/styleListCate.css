@@ -149,11 +149,13 @@
   font-weight: 700;
   transition: all 0.3s ease;
   cursor: pointer;
+  border: 1px solid var(--border-color);
 }
 
 .add-btn:hover {
   background: #2275fc !important;
   color: #fff !important;
+  border-color: #2275fc;
 }
 
 .text-tiny {

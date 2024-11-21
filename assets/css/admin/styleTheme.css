@@ -11,6 +11,7 @@
   --bg-table-1: #28354852;
   --hv-item: #ffffff24;
   --background: #0f172a;
+  --border-color: #fff;
 
   /* cái --test-cl  để test xem có hoạt động không, có thể xóa */
   --test-cl: darkred;
@@ -28,5 +29,6 @@
   --bg-table: #f9fafb; /* Màu nền bảng */
   --bg-table-1: #f3f4f6; /* Màu nền cho dòng xen kẽ trong bảng */
   --hv-item: #e5e7eb; /* Màu nền khi hover các mục */
-  --background: #f8fafc; /* Màu nền tổng thể cho trang */
+  --background: #f2f7fb; /* Màu nền tổng thể cho trang */
+  --border-color: #2275fc;
 }
