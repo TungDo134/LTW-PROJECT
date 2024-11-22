@@ -5,6 +5,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:wght@300..800&display=swap");
 
+
 #list-product-container {
   background-color: var(--White);
   padding: 24px;
@@ -197,3 +198,26 @@ select {
   border: none;
   color: var(--Heading);
 }
+.list-product li .col.out-of-stock {
+  color: rgba(255, 87, 34, 1); 
+  background-color: rgba(255, 87, 34, 0.2); 
+
+  border-radius: 8px; 
+  text-align: center;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+
+.list-product li .col.in-stock {
+  color: rgba(56, 142, 60, 1); 
+  background-color: rgba(56, 142, 60, 0.2);
+  border-radius: 8px; 
+  text-align: center;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
