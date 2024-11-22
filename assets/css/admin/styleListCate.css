@@ -71,7 +71,9 @@
 .content-show-cate .row .col-4 {
   width: 300px;
 }
-
+.row>*{
+  gap: 8px;
+}
 .content-show-cate .row .col:last-child {
   max-width: 130px;
 }
