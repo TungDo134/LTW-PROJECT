@@ -192,6 +192,10 @@ select {
   border: none;
   color: var(--Heading);
 }
+.notify > a {
+  width: 130px;
+  cursor: default;
+}
 
 .Cancel {
   width: 100px;
@@ -231,6 +235,7 @@ select {
   font-weight: bold;
   font-size: 14px;
 }
+
 .Tracking {
   width: 100px;
   display: inline-block;
@@ -243,6 +248,7 @@ select {
   font-weight: bold;
   font-size: 14px;
 }
+
 .content-show-order .row .col:nth-child(6) {
   padding-right: 20px;
 }
