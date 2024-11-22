@@ -227,7 +227,7 @@ li {
   background-color: #fff;
   text-align: justify;
   overflow: hidden;
-  height: 645px;
+  height: 500px;
   transition: all 0.8s linear;
 }
 
@@ -355,17 +355,17 @@ li {
   background: linear-gradient(#fff0, #fff 25%);
 }
 #review-container {
-  margin-top:20px ;
+  margin-top: 20px;
   padding-left: 15px;
   padding-right: 15px;
 }
-#review-container .review{
+#review-container .review {
   text-align: center;
 }
-#review-container .review .list-container{
+#review-container .review .list-container {
   padding: 20px;
 }
-#review-container .review .list-header{
+#review-container .review .list-header {
   display: flex;
   margin-bottom: 30px;
   align-items: center;
@@ -379,15 +379,15 @@ li {
   font-size: 1.5rem;
   margin-bottom: 0px !important;
 }
-#review-container .list-body{
+#review-container .list-body {
   display: grid;
   grid-template-columns: 25% 75%;
 }
-#review-container .list-body .list-aside{
+#review-container .list-body .list-aside {
   margin-right: 40px;
 }
 
-#review-container .list-body .average-header{
+#review-container .list-body .average-header {
   display: grid;
   grid-template-columns: 35% 60%;
   align-items: center;
@@ -399,15 +399,15 @@ li {
   font-weight: 800;
   color: #28293d;
 }
-#review-container .list-body .rating-star{
+#review-container .list-body .rating-star {
   text-align: justify;
 }
-#review-container .list-body .star-icon{
+#review-container .list-body .star-icon {
   font-size: 14px;
-  text-align: left
+  text-align: left;
 }
 
-#review-container .list-body .rating-star p{
+#review-container .list-body .rating-star p {
   color: #8f90a6;
   line-height: 1.3;
   font-weight: 400;
@@ -415,7 +415,7 @@ li {
   margin-bottom: 0px !important;
   margin-top: 5px;
 }
-#review-container .average-body{
+#review-container .average-body {
   display: grid;
   grid-template-columns: 90% 10%;
 }
@@ -425,182 +425,162 @@ li {
   grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
 }
 
-#review-container .average-body 
-.average-progress .average-progress-item-1 {
+#review-container .average-body .average-progress .average-progress-item-1 {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
 }
 
-#review-container .average-body 
-.average-progress .average-progress-item-1 p{
+#review-container .average-body .average-progress .average-progress-item-1 p {
   line-height: 1.3;
   font-weight: 600;
   font-size: 14px;
   min-width: 10px;
   margin: 0px !important;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-1 i{
+#review-container .average-body .average-progress .average-progress-item-1 i {
   font-size: 14px;
   margin: 0 11px;
 }
-.average-progress-item-1 .bar-rating{
+.average-progress-item-1 .bar-rating {
   width: 100%;
   background: #e9e9ee;
   height: 7px;
   border-radius: 4px;
 }
-.average-progress-item-1 
-.bar-rating .rating-percent{
+.average-progress-item-1 .bar-rating .rating-percent {
   height: 100%;
   background-color: #28293d;
   width: 88%;
   border-radius: 4px;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-2 {
+#review-container .average-body .average-progress .average-progress-item-2 {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-2 p{
+#review-container .average-body .average-progress .average-progress-item-2 p {
   line-height: 1.3;
   font-weight: 600;
   font-size: 14px;
   min-width: 10px;
   margin: 0px !important;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-2 i{
+#review-container .average-body .average-progress .average-progress-item-2 i {
   font-size: 14px;
   margin: 0 11px;
 }
-.average-progress-item-2 .bar-rating{
+.average-progress-item-2 .bar-rating {
   width: 100%;
   background: #e9e9ee;
   height: 7px;
   border-radius: 4px;
 }
-.average-progress-item-2 
-.bar-rating .rating-percent{
+.average-progress-item-2 .bar-rating .rating-percent {
   height: 100%;
   background-color: #28293d;
   width: 0%;
   border-radius: 4px;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-3 {
+#review-container .average-body .average-progress .average-progress-item-3 {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-3 p{
+#review-container .average-body .average-progress .average-progress-item-3 p {
   line-height: 1.3;
   font-weight: 600;
   font-size: 14px;
   min-width: 10px;
   margin: 0px !important;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-3 i{
+#review-container .average-body .average-progress .average-progress-item-3 i {
   font-size: 14px;
   margin: 0 11px;
 }
-.average-progress-item-3 .bar-rating{
+.average-progress-item-3 .bar-rating {
   width: 100%;
   background: #e9e9ee;
   height: 7px;
   border-radius: 4px;
 }
-.average-progress-item-3 
-.bar-rating .rating-percent{
+.average-progress-item-3 .bar-rating .rating-percent {
   height: 100%;
   background-color: #28293d;
   width: 11%;
   border-radius: 4px;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-4 {
+#review-container .average-body .average-progress .average-progress-item-4 {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-4 p{
+#review-container .average-body .average-progress .average-progress-item-4 p {
   line-height: 1.3;
   font-weight: 600;
   font-size: 14px;
   min-width: 10px;
   margin: 0px !important;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-4 i{
+#review-container .average-body .average-progress .average-progress-item-4 i {
   font-size: 14px;
   margin: 0 11px;
 }
-.average-progress-item-4 .bar-rating{
+.average-progress-item-4 .bar-rating {
   width: 100%;
   background: #e9e9ee;
   height: 7px;
   border-radius: 4px;
 }
-.average-progress-item-4 
-.bar-rating .rating-percent{
+.average-progress-item-4 .bar-rating .rating-percent {
   height: 100%;
   background-color: #28293d;
   width: 0%;
   border-radius: 4px;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-5 {
+#review-container .average-body .average-progress .average-progress-item-5 {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-5 p{
+#review-container .average-body .average-progress .average-progress-item-5 p {
   line-height: 1.3;
   font-weight: 600;
   font-size: 14px;
   min-width: 10px;
   margin: 0px !important;
 }
-#review-container .average-body 
-.average-progress .average-progress-item-5 i{
+#review-container .average-body .average-progress .average-progress-item-5 i {
   font-size: 14px;
   margin: 0 11px;
 }
-.average-progress-item-5 .bar-rating{
+.average-progress-item-5 .bar-rating {
   width: 100%;
   background: #e9e9ee;
   height: 7px;
   border-radius: 4px;
 }
-.average-progress-item-5 
-.bar-rating .rating-percent{
+.average-progress-item-5 .bar-rating .rating-percent {
   height: 100%;
   background-color: #28293d;
   width: 0%;
   border-radius: 4px;
 }
 
-#review-container .average-body .average-number{
+#review-container .average-body .average-number {
   margin-left: 8px;
   font-size: 14px;
 }
-#review-container .average-body .average-number p{
+#review-container .average-body .average-number p {
   margin: 0px !important;
 }
 .list-main .review-filter {
   margin: 30px 0 30px;
   text-align: center;
   display: grid;
-  grid-template-columns: 70% 30%
+  grid-template-columns: 70% 30%;
 }
-.list-main .review-filter .review-search{
+.list-main .review-filter .review-search {
   align-items: center;
   border: 1px solid #ededed;
   border-radius: 5px;
@@ -610,27 +590,28 @@ li {
   gap: 6px;
 }
 
-.list-main .review-filter .review-search i{
+.list-main .review-filter .review-search i {
   font-size: 12px;
   font-weight: 600;
-
 }
 
-.list-main .review-filter .review-search input{
+.list-main .review-filter .review-search input {
   border: none;
   padding-right: 120px;
 }
 
-.list-main .review-filter button{
-  margin-right: 120px;
+.list-main .review-filter button {
   border: 1px solid #ededed;
   border-radius: 5px;
   background: #28293d;
   color: #fff;
   font-size: 14px;
   font-weight: bold;
+  max-width: 200px;
+  padding: 14px;
 }
-.list-main .review-filter button:hover{
+.list-main .review-filter button:hover {
+  border-color: #000;
   background: #fff;
   color: #28293d;
   transition: all 0.5s;
@@ -644,7 +625,7 @@ li {
   margin-bottom: 20px;
 }
 
-.review-header{
+.review-header {
   display: flex;
   justify-content: space-between;
 }
@@ -693,7 +674,6 @@ li {
 .item-right {
   display: flex;
   align-items: center;
- 
 }
 
 .item-right p {
