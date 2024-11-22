@@ -12,9 +12,7 @@
   --hv-item: #ffffff24;
   --background: #0f172a;
   --border-color: #fff;
-
-  /* cái --test-cl  để test xem có hoạt động không, có thể xóa */
-  --test-cl: darkred;
+  --logo-color: radial-gradient(black, transparent);
 }
 
 /* Định nghĩa các biến CSS cho white theme */
@@ -31,4 +29,5 @@
   --hv-item: #e5e7eb; /* Màu nền khi hover các mục */
   --background: #f2f7fb; /* Màu nền tổng thể cho trang */
   --border-color: #2275fc;
+  --logo-color: transparent;
 }

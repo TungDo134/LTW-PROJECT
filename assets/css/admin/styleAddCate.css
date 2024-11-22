@@ -46,6 +46,8 @@
   border: 1px dashed #2275fc;
   height: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 #addNewCate-container .col-upload .content-addNew > label {
@@ -62,5 +64,9 @@
   margin: auto;
 }
 
-span {
+.span-browse {
+  position: absolute;
+  bottom: 100px;
+  left: 20px;
+  color: var(--Input);
 }

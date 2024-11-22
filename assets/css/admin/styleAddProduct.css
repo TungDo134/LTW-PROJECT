@@ -109,6 +109,14 @@ a {
   color: var(--Heading);
   margin-bottom: 10px;
 }
+
+.form-add-product #myFile {
+  position: absolute;
+  overflow: hidden;
+  margin: 0;
+  opacity: 0;
+  height: 100%;
+}
 .form-add-product .wg-box p {
   color: var(--Note);
   font-size: 14px;
@@ -174,6 +182,8 @@ a {
   align-items: center;
   justify-content: center;
   width: 100%;
+  flex-direction: column;
+  position: relative;
 }
 .form-add-product .upload-img .uploadfile {
   display: flex;
@@ -196,6 +206,7 @@ a {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0 !important;
+  text-align: center;
 }
 .form-add-product .upload-img .item-upload span {
   color: var(--bs-blue);

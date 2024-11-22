@@ -192,50 +192,60 @@ select {
   border: none;
   color: var(--Heading);
 }
-.list-order li .col.Cancel {
-    color: rgba(255, 87, 34, 1); 
-    background-color: rgba(255, 87, 34, 0.2); 
-  
-    border-radius: 8px; 
-    text-align: center;
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 14px;
-  }
-  
-  
-  
-  .list-order li .col.Success {
-    color: rgba(56, 142, 60, 1); 
-    background-color: rgba(56, 142, 60, 0.2);
-    border-radius: 8px; 
-    text-align: center;
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 14px;
-  }
-.list-order li .col.Pending {
-    color: rgb(208, 208, 208); 
-    background-color: rgba(182, 182, 182, 0.2);
-    border-radius: 8px; 
-    text-align: center;
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 14px;
+
+.Cancel {
+  width: 100px;
+  display: inline-block;
+  color: #ff5200;
+  background-color: #432f25;
+  text-decoration: none;
+  border-radius: 8px;
+  text-align: center;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 14px;
 }
-.list-order li .col.Tracking{
-    color: rgb(0, 128, 255); 
-    background-color: rgba(0, 183, 255, 0.2);
-    border-radius: 8px; 
-    text-align: center;
-    padding: 5px 10px;
-    font-weight: bold;
-    font-size: 14px;
+
+.Success {
+  width: 100px;
+  display: inline-block;
+  color: #22c55e;
+  background-color: #2a4432;
+  text-decoration: none;
+  border-radius: 8px;
+  text-align: center;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.Pending {
+  width: 100px;
+  display: inline-block;
+  color: #95989d;
+  background-color: #95989d69;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.Tracking {
+  width: 100px;
+  display: inline-block;
+  color: #2275fc;
+  background-color: rgba(35, 119, 252, 0.22);
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 14px;
 }
 .content-show-order .row .col:nth-child(6) {
-    padding-right: 20px; 
+  padding-right: 20px;
 }
 .content-show-order .row .col:nth-child(7) {
-    margin-left: 20px; 
+  margin-left: 20px;
 }
-    
