@@ -84,6 +84,8 @@ svg {
 
 #header .header-container {
   display: flex;
+  /* display: grid;
+  grid-template-columns: 300px 1fr; */
   align-items: center;
   justify-content: space-evenly;
   padding: 15px 30px;
@@ -94,8 +96,15 @@ svg {
   border-radius: 5px;
 }
 
-#header .header-container .menubar {
-  /* margin-right: 3rem; */
+#header .right-menu {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.menubar {
+  margin-right: 2rem;
 }
 
 #header .logo {

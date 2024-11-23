@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+input,
+textarea {
+  color: #000 !important;
+}
+
 #contact-us-container {
   margin-top: 6rem;
   background-color: #faf7f0;
@@ -117,6 +122,7 @@
   border-radius: 6px;
   border: 1px solid #000;
 }
+
 #contact-us-container .col_contact_5 .site-btn:hover {
   background: #fff;
   color: #000;
