@@ -43,3 +43,43 @@ html {
   height: 50px;
   position: relative;
 }
+/* .tf-section-4 .items-center 
+.flex i{
+  position: absolute;
+  font-size: 20px;
+  right: 94%;
+  top: 37%;
+} */
+.tf-section-4 .wg-chart .body-text{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 2px;
+  color: var(--Body-Text);
+}
+.tf-section-4 .wg-chart h4{
+  color: var(--Heading);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 31px;
+  margin-bottom: 0 !important;
+}
+.tf-section-4 .wg-chart .box-icon{
+  display: flex;
+  align-items: center;
+  gap: 8px; 
+}
+.box-icon i{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+  color: var(--bs-green);
+}
+.box-icon .body-title{
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
