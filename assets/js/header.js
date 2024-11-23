@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(document).on("click", ".btn-search", function () {
+  $(".btn-search").on("click", function () {
     $("#search").slideToggle("normal");
     $(".show").slideUp("normal");
   });
