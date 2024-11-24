@@ -5,7 +5,8 @@
 }
 
 #home-container {
-  margin-top: 8rem;
+  min-width: 1100px;
+  margin-top: 7rem;
   background-color: #faf7f0;
 }
 
@@ -31,6 +32,7 @@
   color: #2f2f2f;
   font-size: 32px;
   margin-bottom: 10px;
+  max-width: 500px;
 }
 
 #home-container .why-choose-container .wh-col-left > p {
@@ -140,7 +142,7 @@
 #home-container .we-help-section .whp-right > ul > li {
   padding: 12px 0px;
   list-style-type: circle;
-  width: 200px;
+  max-width: 200px;
   position: relative;
 }
 

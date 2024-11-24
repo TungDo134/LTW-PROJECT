@@ -15,23 +15,10 @@ textarea {
 }
 
 #contact-us-container .spad {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 4rem;
+  /* padding-bottom: 100px; */
 }
 
-#contact-us-container .spad .container {
-}
-#contact-us-container .spad .row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  /* gap: 30px; */
-  /* padding: 0 15px; */
-  place-items: center;
-}
-#contact-us-container .col_contact_1 {
-  flex: 0 0 50%;
-  max-width: 50%;
-}
 #contact-us-container .col_contact_1 .section-title {
   text-align: left;
   margin-bottom: 40px;
@@ -83,6 +70,7 @@ textarea {
   column-gap: 2rem;
 }
 #contact-us-container .col_contact_3 input {
+  width: 100%;
   height: 50px;
   border: none;
   padding-left: 20px;

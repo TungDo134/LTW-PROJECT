@@ -18,110 +18,227 @@
 
   <title></title>
 </head>
-<div id="header" class="fixed">
-  <div class="mau">
-    <div class="top-message">
-      <span>CHRISTMAS SALE! 🦌</span>
-      <span>20% OFF WITH CODE: <a href="#">FLASH20</a></span>
-    </div>
-  </div>
-  <div class="header-container">
-    <div class="logo">
-      <a href="./index.html">
-        <img src="/assets/pic/logo.png" alt="logo" />
-      </a>
-    </div>
-    <!-- Right Menu -->
-
-    <!-- Menu Bar -->
-    <div class="menubar">
-      <nav class="header_menu">
-        <ul>
-          <li><a href="index.html">Trang chủ</a></li>
-          <li>
-            <a href="product.html">Sản phẩm</a>
-            <ul class="drop">
-              <li><a href="#">Bút</a></li>
-              <li><a href="#">Gôm, thước</a></li>
-              <li><a href="#">Sổ tay, tập</a></li>
-              <li><a href="#">Bìa còng</a></li>
-              <li><a href="#">Bút lông bản, lông dầu</a></li>
-            </ul>
-          </li>
-          <!-- <li><a href="/best-seller.html">Bán chạy nhất</a></li> -->
-          <li>
-            <a href="#">Pages</a>
-            <ul class="drop">
-              <li><a href="product-detail.html">Shop Details</a></li>
-              <li><a href="./Shopping-cart.html">Shop Cart</a></li>
-              <li><a href="payment.html">Check Out</a></li>
-            </ul>
-          </li>
-          <li><a href="about-us.html">Về chúng tôi</a></li>
-          <li><a href="contact-us.html">Liên hệ</a></li>
-        </ul>
-      </nav>
-    </div>
-    <!-- Icon -->
-    <div class="col_icon">
-      <!-- Search input -->
-      <div class="search">
-        <button class="btn-search">
-          <img
-            src="https://theme.hstatic.net/1000348721/1000449307/14/pic-search.png?v=652"
-            alt=""
-          />
-        </button>
-        <div class="ct" id="search">
-          <form action="search-control" method="post" class="form-search">
-            <div class="form-input">
-              <input name="txt" type="text" placeholder="Tìm kiếm..." />
-              <button type="submit">
-                <i class="fa fa-search"></i>
-              </button>
-            </div>
-          </form>
-        </div>
+<body>
+  <div id="header" class="fixed">
+    <div class="mau">
+      <div class="top-message">
+        <span>CHRISTMAS SALE! 🦌</span>
+        <span>20% OFF WITH CODE: <a href="#">FLASH20</a></span>
       </div>
+    </div>
+    <!-- BOOTSTRAP -->
 
-      <!-- Admin -->
-      <div class="col_icon col_icon-user">
-        <button><i class="fa-regular fa-user"></i></button>
-        <div class="show">
-          <ul class="show-option">
-            <li class="items">
-              <a href="./pages/admin/admin.html" style="color: #000">Admin</a>
-            </li>
-            <li class="items">
-              <a href="./pages/forms/signup-login.html" style="color: #000"
-                >Đăng nhập</a
-              >
-            </li>
-            <li class="items">
-              <a href="./pages/forms/forgetPassword.html" style="color: #000"
-                >Quên mật khẩu</a
-              >
-            </li>
-            <li class="items">
-              <a href="./pages/forms/changePassword.html" style="color: #000"
-                >Đổi mât khẩu</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Shopping bag -->
-      <a href="Shopping-cart.html"
-        ><span
-          class="material-symbols-outlined"
-          style="line-height: normal; color: #333333cc"
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary"
+      style="background-color: #faf7f0 !important"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
         >
-          shopping_bag
-        </span></a
-      >
-    </div>
-    <!-- Menu Bar -->
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <!-- <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5> -->
+            <img
+              class="offcanvas-title"
+              id="offcanvasNavbarLabel"
+              src="/assets/pic/logo.png"
+              alt=""
+              style="width: 70%; margin-left: 8px"
+            />
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="ct ct-sub-menu d-lg-none d-block" id="search-custom">
+            <form action="search-control" method="post" class="form-search">
+              <div class="form-input">
+                <input name="txt" type="text" placeholder="Tìm kiếm..." />
+                <button type="submit">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="offcanvas-body align-items-center justify-content-evenly">
+            <a class="navbar-brand d-none d-lg-block nav-brand-custom" href="#"
+              ><img src="/assets/pic/logo.png" alt="" style="width: 100%"
+            /></a>
+
+            <ul class="navbar-nav align-items-start">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/index.html"
+                  >Trang Chủ</a
+                >
+              </li>
+              <li class="nav-item dropdown w-100 custom-width-lg">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="/product.html"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Sản phẩm
+                  <i class="fa-solid fa-chevron-down d-lg-none"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/product.html">Bút</a></li>
+                  <li>
+                    <a class="dropdown-item" href="/product.html">Gôm, thước</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/product.html"
+                      >Sổ tay, tập</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/product.html">Bìa còng</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Bút lông bản, lông dầu</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown w-100 custom-width-lg">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Pages<i class="fa-solid fa-chevron-down d-lg-none"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="/product-detail.html"
+                      >Shop-Detail</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/Shopping-cart.html"
+                      >Shop-Cart</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/payment.html">Check-Out</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about-us.html">Về chúng tôi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact-us.html">Liên hệ</a>
+              </li>
+            </ul>
+
+            <!-- Icon -->
+            <div class="col_icon d-none d-lg-flex">
+              <!-- Search input -->
+              <div class="search">
+                <button class="btn-search">
+                  <img
+                    src="https://theme.hstatic.net/1000348721/1000449307/14/pic-search.png?v=652"
+                    alt=""
+                  />
+                </button>
+                <div class="ct" id="search">
+                  <form
+                    action="search-control"
+                    method="post"
+                    class="form-search"
+                  >
+                    <div class="form-input">
+                      <input name="txt" type="text" placeholder="Tìm kiếm..." />
+                      <button type="submit">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Admin -->
+              <div class="col_icon col_icon-user">
+                <button><i class="fa-regular fa-user"></i></button>
+                <div class="show">
+                  <ul class="show-option">
+                    <li class="items">
+                      <a href="./pages/admin/admin.html" style="color: #000"
+                        >Admin</a
+                      >
+                    </li>
+                    <li class="items">
+                      <a
+                        href="./pages/forms/signup-login.html"
+                        style="color: #000"
+                        >Đăng nhập</a
+                      >
+                    </li>
+                    <li class="items">
+                      <a
+                        href="./pages/forms/forgetPassword.html"
+                        style="color: #000"
+                        >Quên mật khẩu</a
+                      >
+                    </li>
+                    <li class="items">
+                      <a
+                        href="./pages/forms/changePassword.html"
+                        style="color: #000"
+                        >Đổi mât khẩu</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Shopping bag -->
+              <a href="Shopping-cart.html"
+                ><span
+                  class="material-symbols-outlined"
+                  style="line-height: normal; color: #333333cc"
+                >
+                  shopping_bag
+                </span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
   </div>
-</div>
+</body>
 <script src="/assets/js/header.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".nav-link.dropdown-toggle").on("click", function (e) {
+      // Kiểm tra nếu màn hình là kích thước lớn (lg) trở lên
+      if (window.innerWidth >= 992) {
+        // Cho phép liên kết hoạt động
+        window.location.href = $(this).attr("href");
+      } else {
+        // Ngăn hành vi mặc định để mở dropdown
+        e.preventDefault();
+      }
+    });
+  });
+</script>

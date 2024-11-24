@@ -102,7 +102,7 @@
               <li class="nav-item dropdown w-100 custom-width-lg">
                 <a
                   class="nav-link dropdown-toggle"
-                  href="#"
+                  href="/product.html"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -222,3 +222,17 @@
   </div>
 </body>
 <script src="/assets/js/header.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".nav-link.dropdown-toggle").on("click", function (e) {
+      // Kiểm tra nếu màn hình là kích thước lớn (lg) trở lên
+      if (window.innerWidth >= 992) {
+        // Cho phép liên kết hoạt động
+        window.location.href = $(this).attr("href");
+      } else {
+        // Ngăn hành vi mặc định để mở dropdown
+        e.preventDefault();
+      }
+    });
+  });
+</script>

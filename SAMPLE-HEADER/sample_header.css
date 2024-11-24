@@ -15,12 +15,6 @@ a {
   text-decoration: none;
 }
 
-.ádasdasdas {
-  width: 100%;
-  position: static;
-  transition: top 0.3s ease-in-out; /* Add this line for smooth transition */
-}
-
 img,
 svg {
   vertical-align: unset;
