@@ -391,10 +391,12 @@
                   ></span>
                 </a>
               </li>
-              <li class="page-item active">
+              <li class="page-item">
                 <a class="page-link" href="#" style="">1</a>
               </li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item active">
+                <a class="page-link" href="#">2</a>
+              </li>
               <li class="page-item"><a class="page-link" href="#">3</a></li>
               <li class="page-item">
                 <a class="page-link" href="#" aria-label="Next">
@@ -496,35 +498,35 @@
       });
 
       //// JS cho phần phân trang ////
-      const preButton = $(".page-link[aria-label='Previous']");
-      const nextButton = $(".page-link[aria-label='Next']");
-      const currentPos = $(".page-item.active").text().trim();
+      // const preButton = $(".page-link[aria-label='Previous']");
+      // const nextButton = $(".page-link[aria-label='Next']");
+      // const currentPos = $(".page-item.active").text().trim();
 
-      if (currentPos === "1") {
-        preButton.addClass("disabled");
-      }
+      // if (currentPos === "1") {
+      //   preButton.addClass("disabled");
+      // }
 
-      $(".page-link").click(function () {
-        let text = $(this).text();
+      // $(".page-link").click(function () {
+      //   let text = $(this).text();
 
-        $(".page-item").removeClass("active"); // Loại bỏ class 'active' khỏi tất cả các .page-item
+      //   $(".page-item").removeClass("active"); // Loại bỏ class 'active' khỏi tất cả các .page-item
 
-        $(".page-link").removeClass("focused"); // Loại bỏ class 'focused' khỏi tất cả các .page-link
+      //   $(".page-link").removeClass("focused"); // Loại bỏ class 'focused' khỏi tất cả các .page-link
 
-        $(this).addClass("focused"); // Thêm class 'focused' vào thẻ được click
+      //   $(this).addClass("focused"); // Thêm class 'focused' vào thẻ được click
 
-        // Kiểm tra nếu là trang đầu tiên hoặc cuối cùng
-        if (text === "1") {
-          preButton.addClass("disabled");
-          nextButton.removeClass("disabled");
-        } else if (text === "3") {
-          nextButton.addClass("disabled");
-          preButton.removeClass("disabled");
-        } else {
-          preButton.removeClass("disabled");
-          nextButton.removeClass("disabled");
-        }
-      });
+      //   // Kiểm tra nếu là trang đầu tiên hoặc cuối cùng
+      //   if (text === "1") {
+      //     preButton.addClass("disabled");
+      //     nextButton.removeClass("disabled");
+      //   } else if (text === "3") {
+      //     nextButton.addClass("disabled");
+      //     preButton.removeClass("disabled");
+      //   } else {
+      //     preButton.removeClass("disabled");
+      //     nextButton.removeClass("disabled");
+      //   }
+      // });
     </script>
   </body>
 </html>

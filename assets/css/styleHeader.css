@@ -149,34 +149,12 @@ ul > li > a::after {
   transform: scale(0);
 }
 
-ul > li:hover > a::after {
-  /* transform: scale(1); */
+.nav-item:hover > a::after {
+  transform: scale(1);
 }
 
-ul li:hover > .drop {
-  display: block;
-}
-
-.drop li {
-  padding: 6px 14px;
-}
-
-.drop li + li {
-  /* border-top: 1px solid #eee; */
-}
-
-.drop li a {
-  color: #111111;
-  font-size: 16px;
-  font-weight: normal;
-  padding: 5px 0;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.drop li a:hover {
-  /* color: #de94a5; */
-  text-decoration: underline;
+.dropdown-toggle::after {
+  border: none;
 }
 
 .col_icon {
@@ -303,6 +281,7 @@ ul li:hover > .drop {
   position: relative;
   color: #111111;
   font-weight: 600;
+  font-size: 18px;
 }
 
 .nav-link:focus {

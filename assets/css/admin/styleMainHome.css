@@ -13,13 +13,26 @@ body,
 html {
   font-family: "Nunito Sans", sans-serif;
 }
-.tf-section-4{
+
+svg {
+  position: relative;
+  width: 52px;
+  height: 52px;
+}
+
+.icon-shape {
+  position: absolute;
+  padding: 18px;
+  font-size: 20px;
+}
+
+.tf-section-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 30px 20px;
   margin-bottom: 30px;
 }
-.tf-section-4 .wg-chart{
+.tf-section-4 .wg-chart {
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -27,18 +40,17 @@ html {
   background: var(--White);
   border-radius: 14px;
 }
-.tf-section-4 .items-center{
+.tf-section-4 .items-center {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.tf-section-4 .items-center .flex{
+.tf-section-4 .items-center .flex {
   display: flex;
   align-items: center;
   gap: 14px;
 }
-.tf-section-4 .items-center 
-.flex img{
+.tf-section-4 .items-center .flex img {
   width: 50px;
   height: 50px;
   position: relative;
@@ -50,26 +62,26 @@ html {
   right: 94%;
   top: 37%;
 } */
-.tf-section-4 .wg-chart .body-text{
+.tf-section-4 .wg-chart .body-text {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
   margin-bottom: 2px;
   color: var(--Body-Text);
 }
-.tf-section-4 .wg-chart h4{
+.tf-section-4 .wg-chart h4 {
   color: var(--Heading);
   font-size: 20px;
   font-weight: 700;
   line-height: 31px;
   margin-bottom: 0 !important;
 }
-.tf-section-4 .wg-chart .box-icon{
+.tf-section-4 .wg-chart .box-icon {
   display: flex;
   align-items: center;
-  gap: 8px; 
+  gap: 8px;
 }
-.box-icon i{
+.box-icon i {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,7 +90,7 @@ html {
   font-size: 18px;
   color: var(--bs-green);
 }
-.box-icon .body-title{
+.box-icon .body-title {
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
