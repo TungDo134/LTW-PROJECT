@@ -33,4 +33,9 @@ $(document).ready(function () {
 
     lastScrollTop = scrollTop;
   });
+
+  // Xử lý hiệu ứng khi click vào menu dropdown
+  $(".nav-link.dropdown-toggle").on("click", function () {
+    $(this).children("i").toggleClass("rotate");
+  });
 });

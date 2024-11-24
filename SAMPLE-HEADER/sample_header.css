@@ -187,6 +187,7 @@ ul li:hover > .drop {
   display: flex;
   gap: 1.6rem;
   align-items: center;
+  margin-left: 8px;
 }
 
 .col_icon a i {
@@ -284,7 +285,7 @@ ul li:hover > .drop {
 
 /* BootStrap */
 .dropdown-menu {
-  background: #faf7f0;
+  background-color: transparent;
   border: none;
 }
 
@@ -301,13 +302,26 @@ ul li:hover > .drop {
 .nav-item {
   padding: 10px;
 }
+
 .nav-link {
+  position: relative;
   color: #111111;
   font-weight: 600;
 }
 
-.navbar-brand {
-  max-width: 200px;
+.nav-link:focus {
+  color: #111111 !important;
+}
+
+.fa-solid.fa-chevron-down {
+  position: absolute;
+  right: 0;
+  top: 8px;
+}
+
+.navbar-brand.nav-brand-custom {
+  max-width: 225px;
+  margin-right: 0;
 }
 .navbar-toggler {
   border: none;
@@ -317,10 +331,24 @@ ul li:hover > .drop {
   box-shadow: none;
 }
 
+#search-custom {
+  width: 88%;
+  margin: auto;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
 @media (min-width: 992px) {
   .nav-item.dropdown:hover > .dropdown-menu {
     display: block;
     top: 100%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background: #faf7f0;
+  }
+
+  .custom-width-lg {
+    width: unset !important; /* Hoặc sử dụng width: unset; */
   }
 }
