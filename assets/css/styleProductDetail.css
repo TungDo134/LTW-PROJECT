@@ -690,3 +690,81 @@ li {
   color: #21343b;
   font-size: 1.4rem;
 }
+.review-comment{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.review-comment .rating h2{
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 17px;
+}
+
+.review-comment .rating  span{
+  font-weight: 600;
+}
+.rating-inner {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.rating-inner input {
+  display: none; 
+}
+
+.rating-inner label i {
+  font-size: 24px;
+  color: var(--bs-gray-400);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.rating-inner input:checked,
+.rating-inner label:hover i {
+  color: var(--bs-orange);
+}
+
+.rating-inner label:hover ~ label i {
+  color: var(--bs-gray-400);
+}
+
+.review-comment .form-comment{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.review-comment .form-comment .review-form{
+  position: absolute;
+  top: -7px;
+  z-index: 1;
+  left: 16px;
+  background-color: var(--bs-gray-100);
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 12px;
+  height: 12px;
+  color: var(--bs-black);
+}
+.form-comment textarea{
+  height: 70px;
+  width: 300px;
+}
+.review-comment button{
+  border: 1px solid #28293d;
+  border-radius: 5px;
+  background: #28293d;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  max-width: 200px;
+  padding: 14px;
+}
+.review-comment button:hover{
+  color:#28293d;
+  background: #ededed;
+  transition: all 0.5s;
+}
