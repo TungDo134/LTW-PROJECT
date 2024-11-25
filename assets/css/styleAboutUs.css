@@ -15,7 +15,6 @@ body {
 }
 
 .background-split {
-  padding: 20px;
   text-align: left;
   height: 100vh;
   box-sizing: border-box;
@@ -23,36 +22,52 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 0 20%;
 }
 
+.background-split h1, 
+.background-split p{
+  padding: 0 20px;
+}
 .background-split h1 {
   font-size: 50px;
   margin-bottom: 10px;
+  text-align: left;
   font-weight: bolder;
 }
 
 .background-split p {
   font-size: 16px;
   line-height: 1.6;
+  text-align: justify;
+}
+
+.background-split img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 
 #about-us-container .back-1 {
   background-color: #faf1db;
 }
 
-#about-us-container .back-2 {
-  background-image: url(/assets/pic/back_2.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+#about-us-container .back-2,
+#about-us-container .back-3,
+#about-us-container .back-6 {
+  position: relative;
+}
+img {
+  width: 100%; /* Chiều rộng bằng 100% của phần tử chứa */
+  height: 100%; /* Chiều cao bằng 100% của phần tử chứa */
+  object-fit: cover; /* Đảm bảo hình ảnh không bị méo và lấp đầy khung hình */
 }
 
-#about-us-container .back-3 {
-  background-image: url(/assets/pic/back5.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+#about-us-container .back-2 img,
+#about-us-container .back-3 img,
+#about-us-container .back-6 img {
+  max-width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }
 
 #about-us-container .back-4 {
@@ -63,13 +78,6 @@ body {
   background-color: #faf1db;
 }
 
-#about-us-container .back-6 {
-  background-image: url(/assets/pic/back_3.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
 #about-us-container .back_ground_aboutUS {
   grid-column: 1 / -1;
   height: 100vh;
@@ -77,13 +85,21 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(/assets/pic/back_end.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  position: relative; /* Để thẻ img có thể nằm phía dưới */
   color: #ffffff;
   text-align: center;
 }
+
+#about-us-container .back_ground_aboutUS img {
+  position: absolute; /* Đảm bảo hình ảnh ở dưới nội dung */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Đảm bảo hình ảnh phủ hết khung mà không bị méo */
+  z-index: -1; /* Để hình ảnh ở dưới nội dung */
+}
+
 
 #about-us-container .back_ground_aboutUS h2 {
   font-size: 40px;
@@ -93,7 +109,7 @@ body {
 }
 
 #about-us-container .back_ground_aboutUS .frame_element {
-  background-color: rgba(0, 0, 0, 0.3); /* Lớp phủ màu đen với độ mờ 50% */
+  background-color: rgba(0, 0, 0, 0.3);
   padding: 20px;
   border-radius: 10px;
 }
@@ -135,6 +151,7 @@ body {
   background-color: #504e4e;
   color: #ffffff;
 }
+
 #about-us-container .icon-3-background,
 #about-us-container .subscription-description {
   margin-top: 40px;
@@ -161,7 +178,6 @@ body {
   font-size: 2.4rem;
 }
 
-/* Mỗi item */
 #intro-team .item {
   text-align: center;
   width: 200px;
@@ -170,8 +186,6 @@ body {
 
 #intro-team .item > img {
   width: 100%;
-  /* width: 260px;
-  height: 250px; */
   border-radius: 5px;
 }
 
