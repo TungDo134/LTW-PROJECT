@@ -385,4 +385,19 @@ li {
 #main-content .main-container {
   padding: 30px 30px 30px 10px;
   color: #fff;
-}	
+}
+#header-dashboard #sub-header .offcanvas-body .container_social {
+  padding: 0 20px !important;
+}
+#header-dashboard #sub-header .offcanvas-body .container_social .social-icons {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 0px !important;
+  align-items: center !important;
+}
+#header-dashboard #sub-header .offcanvas-body .container_social .social-icons a {
+  text-align: center;
+  justify-content: center !important;
+  align-items: center !important;
+  text-decoration: none !important;
+}
