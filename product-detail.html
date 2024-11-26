@@ -28,6 +28,12 @@
     ></script>
     <!-- Link BOOTSTRAP -->
 
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <!-- Link MY CSS -->
     <link rel="stylesheet" href="./assets/css/styleProductDetail.css" />
   </head>
@@ -40,7 +46,7 @@
           <div class="container">
             <div class="pro_content">
               <div class="col_product_1">
-                <div class="slider-image">
+                <!-- <div class="slider-image">
                   <div class="flexslider">
                     <a href=""
                       ><img
@@ -64,7 +70,37 @@
                       </li>
                     </ul>
                   </div>
+                </div> -->
+
+                <!-- Slider by Swiper -->
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                  <div class="swiper-wrapper">
+                    <!-- Content -->
+                    <div class="swiper-slide">
+                      <a href=""
+                        ><img src="/assets/pic/sample_pic_bestseller" alt=""
+                      /></a>
+                    </div>
+                    <div class="swiper-slide">
+                      <a href=""
+                        ><img
+                          src="/assets/pic/sample_subpicseller_1.avif"
+                          alt=""
+                      /></a>
+                    </div>
+                    <div class="swiper-slide">
+                      <a href=""
+                        ><img
+                          src="/assets/pic/sample_subpicseller_2.avif"
+                          alt=""
+                      /></a>
+                    </div>
+                  </div>
+                  <!-- Pagination -->
+                  <div class="swiper-pagination"></div>
                 </div>
+                <!-- Slider by Swiper -->
               </div>
               <div class="col_product_2">
                 <h1>Sổ tay</h1>
@@ -347,32 +383,67 @@
                     <form class="form-comment">
                       <div class="review-form">Đánh giá của bạn</div>
                       <textarea name="" id=""></textarea>
-                    <div class="rating">
-                      <h2>Xếp hạng</h2>
-                      <div class="rating-inner">
-                        <input type="radio" id="star1" name="rating" value="1">
-                        <label for="star1"><i class="fa-solid fa-star"></i></label>
-                    </div>
-                    <div class="rating-inner">
-                        <input type="radio" id="star2" name="rating" value="2">
-                        <label for="star2"><i class="fa-solid fa-star"></i></label>
-                    </div>
-                    <div class="rating-inner">
-                        <input type="radio" id="star3" name="rating" value="3">
-                        <label for="star3"><i class="fa-solid fa-star"></i></label>
-                    </div>
-                    <div class="rating-inner">
-                        <input type="radio" id="star4" name="rating" value="4">
-                        <label for="star4"><i class="fa-solid fa-star"></i></label>
-                    </div>
-                    <div class="rating-inner">
-                        <input type="radio" id="star5" name="rating" value="5">
-                        <label for="star5"><i class="fa-solid fa-star"></i></label>
-                    </div>
-                    <span class="score">0/5</span>
-                    </div>
-                  </form>
-                  <button type="submit">Gửi</button>
+                      <div class="rating">
+                        <h2>Xếp hạng</h2>
+                        <div class="rating-inner">
+                          <input
+                            type="radio"
+                            id="star1"
+                            name="rating"
+                            value="1"
+                          />
+                          <label for="star1"
+                            ><i class="fa-solid fa-star"></i
+                          ></label>
+                        </div>
+                        <div class="rating-inner">
+                          <input
+                            type="radio"
+                            id="star2"
+                            name="rating"
+                            value="2"
+                          />
+                          <label for="star2"
+                            ><i class="fa-solid fa-star"></i
+                          ></label>
+                        </div>
+                        <div class="rating-inner">
+                          <input
+                            type="radio"
+                            id="star3"
+                            name="rating"
+                            value="3"
+                          />
+                          <label for="star3"
+                            ><i class="fa-solid fa-star"></i
+                          ></label>
+                        </div>
+                        <div class="rating-inner">
+                          <input
+                            type="radio"
+                            id="star4"
+                            name="rating"
+                            value="4"
+                          />
+                          <label for="star4"
+                            ><i class="fa-solid fa-star"></i
+                          ></label>
+                        </div>
+                        <div class="rating-inner">
+                          <input
+                            type="radio"
+                            id="star5"
+                            name="rating"
+                            value="5"
+                          />
+                          <label for="star5"
+                            ><i class="fa-solid fa-star"></i
+                          ></label>
+                        </div>
+                        <span class="score">0/5</span>
+                      </div>
+                    </form>
+                    <button type="submit">Gửi</button>
                   </div>
                   <div class="review-list">
                     <div class="review-item">
@@ -640,13 +711,34 @@
           $(this).text("Xem thêm");
         }
       });
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-      //// HAHAHAHAHA  ////
-      $("#myInput").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        $("#myTable tr").filter(function () {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-        });
+    <!-- Khởi tạo Swiper -->
+    <script>
+      // Lấy giá trị của thuộc tính src từ các thẻ img
+      let imgSrc1 = $(".swiper-slide img").eq(0).attr("src");
+      let imgSrc2 = $(".swiper-slide img").eq(1).attr("src");
+      let imgSrc3 = $(".swiper-slide img").eq(2).attr("src");
+
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          renderBullet: function (index, className) {
+            // Cung cấp URL hình ảnh thumbnail
+            const images = [imgSrc2, imgSrc2, imgSrc3];
+
+            // Tạo HTML cho mỗi bullet với thẻ <img>
+            return `<span class="${className}">
+              <img src="${images[index]}" alt="Thumbnail ${
+              index + 1
+            }" style="width: 68px;" />
+            </span>`;
+          },
+        },
       });
     </script>
   </body>
