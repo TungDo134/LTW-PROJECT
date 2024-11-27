@@ -79,5 +79,3 @@ $(".toggle-theme").on("click", function () {
     $("body").removeClass("white-theme").addClass("dark-theme");
   }
 });
-
-//// JS cho phần auto đóng mở submenu ////

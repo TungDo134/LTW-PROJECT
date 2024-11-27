@@ -33,7 +33,6 @@
     />
 
     <link rel="stylesheet" href="/assets/css/styleAdmin.css" />
-    <link rel="stylesheet" href="/assets/css/admin/styleMainHome.css" />
   </head>
   <body class="dark-theme">
     <header id="header-dashboard">
@@ -159,19 +158,13 @@
               style="padding: 20px 20px 0px 20px; margin-bottom: -1rem"
             >
               <h3 class="title">Trang Chủ</h3>
-              <ul class="menu-main-menu">
-                <li
-                  class="item item-dropdown"
-                  id="main-home"
-                  data-target="mainHome.html"
-                >
-                  <div class="d-flex">
-                    <span class="material-symbols-outlined pr-10">
-                      grid_view
-                    </span>
-                    <a href="#">Dash Board</a>
-                  </div>
-                </li>
+             
+              <div class="d-flex main-home">
+                <span class="material-symbols-outlined pr-10">
+                  grid_view
+                </span>
+                <a href="admin.html">Dash Board</a>
+              </div>
               </ul>
             </div>
 
@@ -267,28 +260,69 @@
             <div class="container_social">
               <h4 class="mb-3 title">Connect Us</h4>
               <div class="social-icons">
-                <a href="#" class="btn btn-outline-primary mx-1" style="width: 50px; height: 40px; display: flex; justify-content: center; align-items: center;">
+                <a
+                  href="#"
+                  class="btn btn-outline-primary mx-1"
+                  style="
+                    width: 50px;
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
                   <i class="fab fa-facebook-f"></i>
                 </a>
                 <!-- Thay đổi biểu tượng Twitter thành X -->
-                <a href="#" class="btn btn-outline-info mx-1" style="width: 50px; height: 40px; display: flex; justify-content: center; align-items: center;">
-                  <i class="fab fa-x"></i> <!-- Biểu tượng "X" -->
+                <a
+                  href="#"
+                  class="btn btn-outline-info mx-1"
+                  style="
+                    width: 50px;
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <i class="fab fa-x"></i>
+                  <!-- Biểu tượng "X" -->
                 </a>
-                <a href="#" class="btn btn-outline-primary mx-1" style="width: 50px; height: 40px; display: flex; justify-content: center; align-items: center;">
+                <a
+                  href="#"
+                  class="btn btn-outline-primary mx-1"
+                  style="
+                    width: 50px;
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
                   <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="#" class="btn btn-outline-danger mx-1" style="width: 50px; height: 40px; display: flex; justify-content: center; align-items: center;">
+                <a
+                  href="#"
+                  class="btn btn-outline-danger mx-1"
+                  style="
+                    width: 50px;
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
                   <i class="fab fa-instagram"></i>
                 </a>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
     </header>
     <div id="main-content">
       <div class="main-container">
+        <!--  Start Content  -->
         <div class="tf-section-4">
           <div class="wg-chart">
             <div class="items-center">
@@ -464,6 +498,8 @@
             </div>
           </div>
         </div>
+        <!--  Start Content  -->
+
       </div>
     </div>
     <script src="/assets/js/admin.js"></script>

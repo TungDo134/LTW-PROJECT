@@ -11,6 +11,7 @@
           <div class="row row-cols-2 align-items-center">
             <div class="col" style="position: relative">
               <input
+                id="input-search"
                 class="mini-search"
                 type="text"
                 placeholder="Tìm kiếm..."
@@ -308,34 +309,44 @@
   </div>
 </div>
 <!-- <script>
-    //// JS cho phần phân trang ////
-    const preButton = $(".page-link[aria-label='Previous']");
-    const nextButton = $(".page-link[aria-label='Next']");
-    const currentPos = $(".page-item.active").text().trim();
-  
-    if (currentPos === "1") {
+  //// JS cho phần phân trang ////
+  const preButton = $(".page-link[aria-label='Previous']");
+  const nextButton = $(".page-link[aria-label='Next']");
+  const currentPos = $(".page-item.active").text().trim();
+
+  if (currentPos === "1") {
+    preButton.addClass("disabled");
+  }
+
+  $(".page-link").click(function () {
+    let text = $(this).text();
+
+    $(".page-item").removeClass("active"); // Loại bỏ class 'active' khỏi tất cả các .page-item
+
+    $(".page-link").removeClass("focused"); // Loại bỏ class 'focused' khỏi tất cả các .page-link
+
+    $(this).addClass("focused"); // Thêm class 'focused' vào thẻ được click
+
+    // Kiểm tra nếu là trang đầu tiên hoặc cuối cùng
+    if (text === "1") {
       preButton.addClass("disabled");
+      nextButton.removeClass("disabled");
+    } else if (text === "3") {
+      nextButton.addClass("disabled");
+      preButton.removeClass("disabled");
+    } else {
+      preButton.removeClass("disabled");
+      nextButton.removeClass("disabled");
     }
-  
-    $(".page-link").click(function () {
-      let text = $(this).text();
-  
-      $(".page-item").removeClass("active"); // Loại bỏ class 'active' khỏi tất cả các .page-item
-  
-      $(".page-link").removeClass("focused"); // Loại bỏ class 'focused' khỏi tất cả các .page-link
-  
-      $(this).addClass("focused"); // Thêm class 'focused' vào thẻ được click
-  
-      // Kiểm tra nếu là trang đầu tiên hoặc cuối cùng
-      if (text === "1") {
-        preButton.addClass("disabled");
-        nextButton.removeClass("disabled");
-      } else if (text === "3") {
-        nextButton.addClass("disabled");
-        preButton.removeClass("disabled");
-      } else {
-        preButton.removeClass("disabled");
-        nextButton.removeClass("disabled");
-      }
+  });
+</script> -->
+<script>
+  //// JS cho phần search ////
+  // Tìm kiếm //
+  $(".mini-search").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $(".list-cate li").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
-  </script> -->
+  });
+</script>
