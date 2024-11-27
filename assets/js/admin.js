@@ -1,24 +1,24 @@
 ////  load dữ liệu (không tải lại trang) ////
-$(document).ready(function () {
-  // Bắt sự kiện click trên các mục menu
-  $(".sub-menu-item").on("click", function (e) {
-    e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+// $(document).ready(function () {
+//   // Bắt sự kiện click trên các mục menu
+//   $(".sub-menu-item").on("click", function (e) {
+//     e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
 
-    var targetFile = $(this).data("target"); // Lấy giá trị file từ thuộc tính data-target
+//     var targetFile = $(this).data("target"); // Lấy giá trị file từ thuộc tính data-target
 
-    // Sử dụng AJAX để tải nội dung từ file HTML tương ứng
-    $(".main-container").load(targetFile);
-  });
+//     // Sử dụng AJAX để tải nội dung từ file HTML tương ứng
+//     $(".main-container").load(targetFile);
+//   });
 
-  $("#main-home").on("click", function (e) {
-    e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+//   $("#main-home").on("click", function (e) {
+//     e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
 
-    var targetFile = $(this).data("target"); // Lấy giá trị file từ thuộc tính data-target
+//     var targetFile = $(this).data("target"); // Lấy giá trị file từ thuộc tính data-target
 
-    // Sử dụng AJAX để tải nội dung từ file HTML tương ứng
-    $(".main-container").load(targetFile);
-  });
-});
+//     // Sử dụng AJAX để tải nội dung từ file HTML tương ứng
+//     $(".main-container").load(targetFile);
+//   });
+// });
 
 //// responsive cho header ////
 $("#open-sub-menu").on("click", function () {

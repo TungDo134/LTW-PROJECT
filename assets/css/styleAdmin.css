@@ -133,6 +133,7 @@ li {
 }
 
 .header-user.wg-user {
+  margin-bottom: 4px;
   display: flex;
   align-items: center;
   justify-content: start;
@@ -152,8 +153,9 @@ li {
 }
 
 .wg-user .image > img {
+  border-radius: 20px;
   height: auto;
-  max-width: 100%;
+  max-width: 40px;
 }
 
 .header-user.wg-user .role {
@@ -161,7 +163,7 @@ li {
 }
 
 .dropdown-menu {
-  margin: 12px 0px !important;
+  margin: 8px 0px !important;
   background-color: var(--White);
   color: var(--Heading);
   color: #000;
@@ -249,7 +251,7 @@ li {
   line-height: 15px;
   text-transform: uppercase;
   margin-bottom: 6px;
-  padding-left: 14px;
+  padding-left: 8px;
 }
 
 .menu-main-menu {
@@ -271,7 +273,7 @@ li {
 }
 
 .d-flex.main-home {
-  margin: 14px 0px 14px 14px;
+  margin: 20px 0px 20px 14px;
 }
 
 .icon-dropdown {
@@ -505,4 +507,12 @@ svg {
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
+}
+
+.social-icons > a {
+  width: 50px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

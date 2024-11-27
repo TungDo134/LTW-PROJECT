@@ -46,7 +46,7 @@
   font-weight: 700;
   border-radius: 12px;
 }
-.name p{
+.name p {
   margin-bottom: 0 !important;
 }
 .cate-list li {
@@ -80,6 +80,10 @@
 
 .list-cate > li:hover {
   background-color: var(--hv-item);
+}
+
+.list-cate li:nth-child(odd) {
+  background: var(--bg-table);
 }
 
 /* Nút chuyển trang */
@@ -190,11 +194,11 @@ select {
   border: none;
   color: var(--Heading);
 }
-.btn-submit button:hover{
+.btn-submit button:hover {
   color: var(--bs-blue);
   transition: all 0.5s;
 }
-.text-tiny{
+.text-tiny {
   line-height: 20px;
   color: var(--Note);
   font-size: 12px;
