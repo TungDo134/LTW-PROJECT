@@ -385,63 +385,25 @@
                       <textarea name="" id=""></textarea>
                       <div class="rating">
                         <h2>Xếp hạng</h2>
-                        <div class="rating-inner">
-                          <input
-                            type="radio"
-                            id="star1"
-                            name="rating"
-                            value="1"
-                          />
-                          <label for="star1"
-                            ><i class="fa-solid fa-star"></i
-                          ></label>
-                        </div>
-                        <div class="rating-inner">
-                          <input
-                            type="radio"
-                            id="star2"
-                            name="rating"
-                            value="2"
-                          />
-                          <label for="star2"
-                            ><i class="fa-solid fa-star"></i
-                          ></label>
-                        </div>
-                        <div class="rating-inner">
-                          <input
-                            type="radio"
-                            id="star3"
-                            name="rating"
-                            value="3"
-                          />
-                          <label for="star3"
-                            ><i class="fa-solid fa-star"></i
-                          ></label>
-                        </div>
-                        <div class="rating-inner">
-                          <input
-                            type="radio"
-                            id="star4"
-                            name="rating"
-                            value="4"
-                          />
-                          <label for="star4"
-                            ><i class="fa-solid fa-star"></i
-                          ></label>
-                        </div>
-                        <div class="rating-inner">
-                          <input
-                            type="radio"
-                            id="star5"
-                            name="rating"
-                            value="5"
-                          />
-                          <label for="star5"
-                            ><i class="fa-solid fa-star"></i
-                          ></label>
+                        <div class="rating-stars">
+                          <input type="radio" id="star1" name="rating" value="1" />
+                          <label for="star1"><i class="fa-solid fa-star"></i></label>
+                      
+                          <input type="radio" id="star2" name="rating" value="2" />
+                          <label for="star2"><i class="fa-solid fa-star"></i></label>
+                      
+                          <input type="radio" id="star3" name="rating" value="3" />
+                          <label for="star3"><i class="fa-solid fa-star"></i></label>
+                      
+                          <input type="radio" id="star4" name="rating" value="4" />
+                          <label for="star4"><i class="fa-solid fa-star"></i></label>
+                      
+                          <input type="radio" id="star5" name="rating" value="5" />
+                          <label for="star5"><i class="fa-solid fa-star"></i></label>
                         </div>
                         <span class="score">0/5</span>
                       </div>
+                      
                     </form>
                     <button type="submit">Gửi</button>
                   </div>
@@ -740,6 +702,32 @@
           },
         },
       });
+
+      // Xử lí phần đóng mở ô review
+      $(".review-filter button").on("click", function () {
+        $(".review-comment").css("display", "flex");
+      });
+
+      //xử lý rating
+      document.querySelectorAll('.rating-stars input').forEach((input) => {
+      input.addEventListener('change', (event) => {
+    const value = event.target.value; // Lấy giá trị đã chọn
+    const stars = document.querySelectorAll('.rating-stars label i');
+    
+    // Đánh dấu sao theo giá trị
+    stars.forEach((star, index) => {
+      if (index < value) {
+        star.style.color = '#f5c518'; // Màu sao được chọn
+      } else {
+        star.style.color = '#ccc'; // Màu sao chưa chọn
+      }
+    });
+
+    // Hiển thị điểm số
+    document.querySelector('.score').textContent = `${value}/5`;
+  });
+});
+
     </script>
   </body>
 </html>
