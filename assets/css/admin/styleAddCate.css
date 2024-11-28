@@ -70,3 +70,28 @@
   left: 20px;
   color: var(--Input);
 }
+.content-addNew {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.content-addNew button{
+  background: var(--Body-Text);
+  height: 44px;
+  padding: 15px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 20px;
+  border-radius: 12px;
+  width: 140px;
+  border: 1px solid var(--Input);
+  color: var(--bs-blue);
+}
+.content-addNew button:hover{
+  color: var(--Body-Text);
+  background: var(--bs-blue);
+  transition: all 0.5s
+}
