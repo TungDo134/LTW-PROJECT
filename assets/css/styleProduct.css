@@ -32,6 +32,10 @@
   text-align: justify;
 }
 
+#product-container .container .col .forward-img {
+  background-color: #f4eee0;
+}
+
 #product-container .container .col .card-img-top {
   transition: all 0.3s ease-in-out;
   transform: scale(1);
