@@ -337,3 +337,9 @@
 .carousel-control-prev {
   opacity: 1;
 }
+#list-template .list-container {
+  margin: 80px 0;
+}
+#list-template .container-full {
+
+}
