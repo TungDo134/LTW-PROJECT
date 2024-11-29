@@ -1,3 +1,4 @@
+
 .bg-body {
   background-color: #faf7f0 !important;
 }
@@ -259,6 +260,29 @@ select.form-select-sm option:hover {
   font-family: Arial, sans-serif;
   width: 200px;
   padding: 10px;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  width: 200px;
+  font-size: 14px;
+  font-family: Nunito, sans-serif;
+}
+
+.form-check-input:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.form-check-input:checked[type="radio"] {
+  background-image: url(/assets/pic/checked-svg-black.svg);
+}
+
+.form-check-input:checked {
+  background-color: #f0f0f0;
+  border: none;
 }
 
 .filter-title {

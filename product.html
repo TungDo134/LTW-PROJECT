@@ -86,100 +86,145 @@
                   </button>
                 </div>
                 <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-                  ALL FILTER
+                  Tất cả lọc
                 </h5>
                 <div class="offcanvas-body">
-                  <!-- Lọc giá -->
-                  <div class="filter-container">
-                    <div class="filter-title">Filter by</div>
-                    <div class="filter-category">Giá +</div>
-                    <ul class="filter-options">
-                      <li>
-                        <div class="checkbox-circle">
-                          <i class="fa-solid fa-check fa-xl"></i>
-                        </div>
-                        <span class="filter-option-text">Nhỏ hơn 50,000đ</span>
-                      </li>
-                      <li>
-                        <div class="checkbox-circle">
-                          <i class="fa-solid fa-check fa-xl"></i>
-                        </div>
-                        <span class="filter-option-text"
-                          >50,000đ - 100,000đ</span
-                        >
-                      </li>
-                      <li>
-                        <div class="checkbox-circle">
-                          <i class="fa-solid fa-check fa-xl"></i>
-                        </div>
-                        <span class="filter-option-text"
-                          >100,000đ - 200,000đ</span
-                        >
-                      </li>
-                      <li>
-                        <div class="checkbox-circle">
-                          <i class="fa-solid fa-check fa-xl"></i>
-                        </div>
-                        <span class="filter-option-text"
-                          >200,000đ - 500,000đ</span
-                        >
-                      </li>
-                      <li>
-                        <div class="checkbox-circle">
-                          <i class="fa-solid fa-check fa-xl"></i>
-                        </div>
-                        <span class="filter-option-text">Lớn hơn 500,000đ</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- Lọc thể loại -->
-                  <div class="filter-container">
-                    <div class="filter-category">Sản phẩm +</div>
-                    <ul class="filter-options">
-                      <li>
-                        <div class="checkbox-circle">
-                          <i class="fa-solid fa-check fa-xl"></i>
-                        </div>
-                        <span class="filter-option-text">Bút</span>
-                      </li>
-                      <li>
-                        <div class="checkbox-circle">
-                          <i class="fa-solid fa-check fa-xl"></i>
-                        </div>
-                        <span class="filter-option-text">Gôm, thước</span>
-                      </li>
-                      <li>
-                        <div class="checkbox-circle">
-                          <i class="fa-solid fa-check fa-xl"></i>
-                        </div>
-                        <span class="filter-option-text">Sổ tay, tập</span>
-                      </li>
-                      <li>
-                        <div class="checkbox-circle">
-                          <i class="fa-solid fa-check fa-xl"></i>
-                        </div>
-                        <span class="filter-option-text">Bìa còng</span>
-                      </li>
-                      <li>
-                        <div class="checkbox-circle">
-                          <i class="fa-solid fa-check fa-xl"></i>
-                        </div>
-                        <span class="filter-option-text"
-                          >Bút lông bản, lông dầu</span
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="filter-btn-group">
-                    <a class="filter-items delete-btn">Xóa</a>
-                    <a
-                      class="filter-items"
-                      data-bs-toggle="offcanvas"
-                      data-bs-target="#offcanvasWithBothOptions"
-                      aria-controls="offcanvasWithBothOptions"
-                      >Lọc</a
-                    >
-                  </div>
+                  <form action="#">
+                    <!-- Lọc giá -->
+                    <div class="filter-container">
+                      <div class="filter-title">Lọc bởi</div>
+                      <div class="filter-category">Giá +</div>
+
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Nhỏ hơn 50,000đ
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          50,000đ - 100,000đ
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          100,000đ - 200,000đ
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          200,000đ - 500,000đ
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Lớn hơn 500,000đ
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Lọc thể loại -->
+                    <div class="filter-container">
+                      <div class="filter-category">Sản phẩm +</div>
+
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Bút
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Gôm, thước
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Sổ tay, tập
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Bìa còng
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Bút lông bản, lông dầu
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Nút xóa + lọc -->
+                    <div class="filter-btn-group">
+                      <a class="filter-items delete-btn">Xóa</a>
+                      <button
+                        class="filter-items"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBothOptions"
+                        aria-controls="offcanvasWithBothOptions"
+                        type="submit"
+                      >
+                        Lọc
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -476,57 +521,11 @@
         (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
       );
 
-      //// JS cho phần check filter ////
-      $(".filter-options li").click(function () {
-        // Toggle trạng thái dấu tích cho từng tùy chọn
-        const checkboxCircle = $(this).find(".checkbox-circle");
-        checkboxCircle.toggleClass("checked");
-      });
-
-      $(".delete-btn").click(function () {
-        console.log(this);
-
-        // Tìm và xóa class "checked" của tất cả các dấu tích trong checkbox-circle
-        const checkboxCircle = $(".checkbox-circle");
-        checkboxCircle.removeClass("checked");
-      });
-
       // Ngăn chặn sự kiện click của thẻ span không thực hiện logic của thẻ a
       $(".add-to-cart span").click(function (event) {
         event.preventDefault(); // Ngừng hành động mặc định của thẻ a (theo href)
         event.stopPropagation(); // Ngừng sự kiện nổi bọt tới thẻ a
       });
-
-      //// JS cho phần phân trang ////
-      // const preButton = $(".page-link[aria-label='Previous']");
-      // const nextButton = $(".page-link[aria-label='Next']");
-      // const currentPos = $(".page-item.active").text().trim();
-
-      // if (currentPos === "1") {
-      //   preButton.addClass("disabled");
-      // }
-
-      // $(".page-link").click(function () {
-      //   let text = $(this).text();
-
-      //   $(".page-item").removeClass("active"); // Loại bỏ class 'active' khỏi tất cả các .page-item
-
-      //   $(".page-link").removeClass("focused"); // Loại bỏ class 'focused' khỏi tất cả các .page-link
-
-      //   $(this).addClass("focused"); // Thêm class 'focused' vào thẻ được click
-
-      //   // Kiểm tra nếu là trang đầu tiên hoặc cuối cùng
-      //   if (text === "1") {
-      //     preButton.addClass("disabled");
-      //     nextButton.removeClass("disabled");
-      //   } else if (text === "3") {
-      //     nextButton.addClass("disabled");
-      //     preButton.removeClass("disabled");
-      //   } else {
-      //     preButton.removeClass("disabled");
-      //     nextButton.removeClass("disabled");
-      //   }
-      // });
     </script>
   </body>
 </html>
