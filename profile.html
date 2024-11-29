@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,78 +16,96 @@
   </head>
   <body>
     <div class="Page-profile">
-        <main class="container-profile">
-            <div class="sidebar-profile">
-              <div class="user-info">
-                <div class="avatar">
-                    <img class="avt-pic" src="assets/pic/capy.jpg" alt="">
-                </div>
-                <p class="username">Tài khoản của<br><strong>Trần Khải</strong></p>
-              </div>
-              <ul class="menu">
-                <li data-frame="frame1" class="menu-item active">Thông tin chung</li>
-                <li data-frame="frame2" class="menu-item">Số địa chỉ</li>
-                <li data-frame="frame3" class="menu-item">Đơn hàng của tôi</li>
-              </ul>
+      <main class="container-profile">
+        <div class="sidebar-profile">
+          <nav class="breadcrumb">
+            <a href="index.html" style="color: #338dbc">Trang chủ</a>
+            &gt;
+            <span>Thông tin cá nhân</span>
+          </nav>
+          <div class="user-info">
+            <div class="avatar">
+              <img class="avt-pic" src="assets/pic/capy.jpg" alt="" />
             </div>
-            <div class="content">
-              <div id="frame1" class="frame active">
-                <div class="main-profile-container">
-                    <h1 class="title-profile">BẢNG THÔNG TIN CỦA TÔI</h1>    
-                    <div class="info-section">
-                        <h2 class="title-section">Thông tin tài khoản</h2>
-                        <div class="info-box">
-                            <p><strong>Họ và tên:</strong> Trần Khải</p>
-                            <p><strong>Email:</strong> khaingaolol@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div class="order-section">
-                        <h2 class="title-section">Các đơn hàng vừa đặt</h2>
-                        <p class="no-orders">Bạn chưa đặt mua sản phẩm nào!...</p>
-                    </div>
-
-                    <div class="address-section">
-                        <h2 class="title-section">Số địa chỉ</h2>
-                        <div class="address-box">
-                            <p><strong>Trần Khải</strong> <span class="default-label">Mặc định</span></p>
-                            <p><strong>Địa chỉ:</strong> , Vietnam</p>
-                            <p><strong>Điện thoại:</strong></p>
-                            <div class="action-buttons">
-                                <button class="edit-btn">Sửa</button>
-                                <button class="delete-btn">Xóa</button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="username">
+              <span> Tài khoản của </span>
+              <h3 style="margin-right: 8px">Trần Khải</h3>
+            </div>
+          </div>
+          <ul class="menu">
+            <li data-frame="frame1" class="menu-item active">
+              Thông tin chung
+            </li>
+            <!-- <li data-frame="frame2" class="menu-item">Số địa chỉ</li> -->
+            <li data-frame="frame3" class="menu-item">Đơn hàng của tôi</li>
+          </ul>
+        </div>
+        <div class="content">
+          <div id="frame1" class="frame active">
+            <div class="main-profile-container">
+              <h1 class="title-profile">BẢNG THÔNG TIN CỦA TÔI</h1>
+              <div class="info-section">
+                <h2 class="title-section">Thông tin tài khoản</h2>
+                <div class="info-box">
+                  <p><strong>Họ và tên:</strong> Trần Khải</p>
+                  <p><strong>Email:</strong> khaingaolol@gmail.com</p>
+                  <button style="width: 10%">
+                    <a href="index.html">Đăng xuất</a>
+                  </button>
                 </div>
               </div>
-              <div id="frame2" class="frame">Danh sách địa chỉ</div>
-              <div id="frame3" class="frame">Danh sách đơn hàng của tôi
-                    bạn chưa có đơn hàng nào
+
+              <div class="order-section">
+                <h2 class="title-section">Các đơn hàng vừa đặt</h2>
+                <p class="no-orders">Bạn chưa đặt mua sản phẩm nào!...</p>
+              </div>
+
+              <div class="address-section">
+                <h2 class="title-section">Số địa chỉ</h2>
+                <div class="address-box">
+                  <p>
+                    Trần Khải
+                    <span class="default-label">Mặc định</span>
+                  </p>
+                  <p><strong>Địa chỉ:</strong> , Vietnam</p>
+                  <p><strong>Điện thoại:</strong></p>
+                  <div class="action-buttons">
+                    <button class="edit-btn">Sửa</button>
+                    <button class="delete-btn">Xóa</button>
+                  </div>
+                </div>
               </div>
             </div>
-        </main>
+          </div>
+
+          <div id="frame3" class="frame">
+            Danh sách đơn hàng của tôi bạn chưa có đơn hàng nào
+          </div>
+        </div>
+      </main>
     </div>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const menuItems = document.querySelectorAll('.menu-item');
-        const frames = document.querySelectorAll('.frame');
-  
-        menuItems.forEach(item => {
-          item.addEventListener('click', () => {
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuItems = document.querySelectorAll(".menu-item");
+        const frames = document.querySelectorAll(".frame");
+
+        menuItems.forEach((item) => {
+          item.addEventListener("click", () => {
             // Xóa class active khỏi tất cả menu items
-            menuItems.forEach(i => i.classList.remove('active'));
-  
+            menuItems.forEach((i) => i.classList.remove("active"));
+
             // Xóa class active khỏi tất cả frames
-            frames.forEach(frame => frame.classList.remove('active'));
-  
+            frames.forEach((frame) => frame.classList.remove("active"));
+
             // Thêm class active vào menu item được click
-            item.classList.add('active');
-  
+            item.classList.add("active");
+
             // Hiển thị frame tương ứng
-            const targetFrame = document.getElementById(item.getAttribute('data-frame'));
+            const targetFrame = document.getElementById(
+              item.getAttribute("data-frame")
+            );
             if (targetFrame) {
-              targetFrame.classList.add('active');
+              targetFrame.classList.add("active");
             }
           });
         });
@@ -94,3 +113,7 @@
     </script>
   </body>
 </html>
+
+
+
+

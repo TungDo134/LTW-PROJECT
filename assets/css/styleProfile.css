@@ -1,18 +1,28 @@
-.Page-profile{
-  font-family: Arial, sans-serif;
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:wght@300..800&display=swap");
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.Page-profile {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f9f9f9;
+  background-color: #faf7f0;
 }
 
-.container-profile{
+.container-profile {
   display: flex;
   min-width: 1200px;
-  background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -20,34 +30,45 @@
 
 .container-profile .sidebar-profile {
   width: 250px;
-  background: #fff;
+  /* padding: 8px; */
   color: #000;
 }
 
+.breadcrumb {
+  padding: 16px 14px;
+  margin-bottom: 24px;
+}
+
+.breadcrumb h1 {
+  margin-bottom: 4px;
+}
+
 .container-profile .sidebar-profile .user-info {
+  display: flex;
+  align-items: center;
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 1rem;
   background: #000;
   margin-bottom: 20px;
+  gap: 12px;
+}
+
+.container-profile .sidebar-profile .user-info .avatar {
+  width: 45px;
+  height: 45px;
 }
 
 .container-profile .sidebar-profile .user-info .avatar .avt-pic {
-  width: 80px;
-  height: 80px;
+  width: 100%;
   background: #ccc;
-  border-radius: 50%;
-  margin: 0 auto 10px;
+  border-radius: 10%;
+  /* margin: 0 auto 10px; */
 }
 
 .container-profile .sidebar-profile .user-info .username {
   font-size: 14px;
   line-height: 1.5;
-}
-
-.container-profile .sidebar-profile .menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  color: #fff;
 }
 
 .container-profile .sidebar-profile .menu .menu-item {
@@ -60,7 +81,7 @@
 
 .container-profile .sidebar-profile .menu .menu-item:hover,
 .container-profile .sidebar-profile .menu .menu-item.active {
-  background: #e0e0e0;
+  background: #fff;
   color: #000;
 }
 
@@ -76,92 +97,172 @@
 .container-profile .content .frame.active {
   display: block;
 }
-.container-profile .content .frame.active  .main-profile-container {
-    margin: 0 auto;
-    background-color: #fff;
+.container-profile .content .frame.active .main-profile-container {
+  margin: 0 auto;
+  /* background-color: #fff; */
 }
-  
-.container-profile .content .frame.active  .main-profile-container .title-profile{
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .title-profile {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
 }
-  
-.container-profile .content .frame.active  .main-profile-container   .info-section,
-.container-profile .content .frame.active  .main-profile-container  .order-section, 
-.container-profile .content .frame.active  .main-profile-container .address-section {
-    margin-bottom: 20px;
+
+.container-profile .content .frame.active .main-profile-container .info-section,
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .order-section,
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section {
+  margin-bottom: 20px;
 }
-  
+
 h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #333;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
 }
-  
-.container-profile .content .frame.active .main-profile-container .info-section .info-box, 
-.container-profile .content .frame.active .main-profile-container .address-section .address-box {
-    padding: 15px;
-    border: 1px dashed #ccc;
-    border-radius: 4px;
-    background-color: #fafafa;
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .info-section
+  .info-box,
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box {
+  padding: 15px;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  background-color: #fafafa;
 }
-  
-  p {
-    margin-bottom: 10px;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .container-profile .content .frame.active .main-profile-container .order-section .no-orders {
-    font-style: italic;
-    color: #777;
-  }
-  
-  .container-profile .content .frame.active .main-profile-container .address-section .address-box  .default-label {
-    font-size: 12px;
-    color: #fff;
-    background-color: #000;
-    padding: 2px 5px;
-    border-radius: 3px;
-    margin-left: 10px;
-  }
-  
-  .container-profile .content .frame.active .main-profile-container .address-section .address-box  .action-buttons {
-    margin-top: 10px;
-  }
-  
-  button {
-    font-size: 14px;
-    padding: 5px 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #fff;
-    transition: background 0.3s, color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #000;
-    color: #fff;
-  }
-  
-  .container-profile .content .frame.active .main-profile-container .address-section .address-box  .action-buttons .edit-btn {
-    border-color: #4caf50;
-  }
-  
-  .container-profile .content .frame.active .main-profile-container .address-section .address-box  .action-buttons .edit-btn:hover {
-    background-color: #4caf50;
-    color: #fff;
-  }
-  
-  .container-profile .content .frame.active .main-profile-container .address-section .address-box  .action-buttons .delete-btn {
-    border-color: #f44336;
-  }
-  
-  .container-profile .content .frame.active .main-profile-container .address-section .address-box  .action-buttons .delete-btn:hover {
-    background-color: #f44336;
-    color: #fff;
-  }
+
+p {
+  margin: 10px 0px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #555;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .order-section
+  .no-orders {
+  font-style: italic;
+  color: #777;
+  font-weight: 700;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box
+  .default-label {
+  font-size: 12px;
+  color: #fff;
+  background-color: #000;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box
+  .action-buttons {
+  margin-top: 10px;
+}
+
+button {
+  width: 60px;
+  font-size: 14px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: background 0.3s, color 0.3s;
+}
+
+button > a {
+  text-decoration: none;
+  color: #000;
+  transition: background 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+button:hover > a {
+  color: #fff;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box
+  .action-buttons
+  .edit-btn {
+  border-color: #ccc;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box
+  .action-buttons
+  .edit-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box
+  .action-buttons
+  .delete-btn {
+  border-color: #ccc;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box
+  .action-buttons
+  .delete-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
