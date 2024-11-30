@@ -345,75 +345,76 @@
   margin: auto;
   padding: 0 15px;
 }
-#list-template .section-header{
+#list-template .section-header {
   position: relative;
   width: 100%;
   margin-bottom: 40px;
   text-align: center;
 }
-#list-template .section-header 
-h2.section-heading{
+#list-template .section-header h2.section-heading {
   font-size: 42px;
   line-height: 1.238;
   font-weight: 400;
   color: var(--bs-black);
   margin-bottom: 0 !important;
 }
-#list-template .section-header 
-h2.section-description{
+#list-template .section-header h2.section-description {
   color: #666;
   font-size: 15px;
   margin-top: 16px;
   margin-bottom: 0 !important;
 }
-#list-template .list-content .colection-list{
+#list-template .list-content .colection-list {
   width: 100%;
 }
-.list-content .layout{
+.list-content .layout {
   margin-left: 10px;
   margin-right: 10px;
 }
-.list-content .layout .layout-inner{
+.list-content .layout .layout-inner {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  column-gap: 20px;
+  row-gap: 30px;
 }
-.list-content .column{
+.list-content .column {
   padding-left: 20px;
   padding-right: 20px;
 }
-.list-content .card-inner{
+.list-content .card-inner {
   position: relative;
   cursor: pointer;
-  transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 }
-.list-content .card-inner a{
+.list-content .card-inner a {
   overflow: hidden;
   position: relative;
 }
-.list-content .box{
+.list-content .box {
   width: 100%;
   border-radius: inherit;
   overflow: hidden;
 }
-.list-content img{
-  width: 187px;
+.list-content .box > img {
+  width: 186px;
   height: 186px;
-}
-.list-content img:hover{
-  transform: scale(1.1);
+  background-color: #f4eee0;
   transition: all 0.3s ease;
 }
-.list-content .card-info{
+.list-content img:hover {
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+.list-content .card-info {
   margin-top: 16px;
   text-align: center;
 }
-.list-content .card-title{
+.list-content .card-title {
   font-size: 20px;
   line-height: 1.5;
   font-weight: 500;
 }
-.list-content .card-title a{
+.list-content .card-title a {
   color: #000;
 }

@@ -66,8 +66,7 @@
 }
 
 .content-show-cate .row .col-4 {
-  width: 300px;
-  gap: 8px;
+  /* width: 300px; */
 }
 
 .content-show-cate .row .col:last-child {
