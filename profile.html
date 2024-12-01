@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,7 +35,6 @@
             <li data-frame="frame1" class="menu-item active">
               Thông tin chung
             </li>
-            <!-- <li data-frame="frame2" class="menu-item">Số địa chỉ</li> -->
             <li data-frame="frame3" class="menu-item">Đơn hàng của tôi</li>
           </ul>
         </div>
@@ -78,8 +76,116 @@
             </div>
           </div>
 
-          <div id="frame3" class="frame">
-            Danh sách đơn hàng của tôi bạn chưa có đơn hàng nào
+          <!-- Order Details and Tracking Section -->
+          <div id="frame3" class="frame order">
+            <div class="container-frameOrder">
+                <!-- Order Details and Summary -->
+                <div class="order-container">
+                    <!-- Order Details -->
+                    <div class="order-details">
+                        <div class="order-header">
+                            <h2>Order ID: DU00017</h2>
+                            <p>Order Date: October 03, 2023, at 6:31 PM <span class="status">Paid</span></p>
+                            
+                        </div>
+                        <div class="product-list">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Sản phẩm</th>
+                                        <th>Số lượng</th>
+                                        <th>Giá</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><img src="assets/pic/but-ki-ten.jpg" alt="Women Shoes">Bút kí tên</td>
+                                        <td>5</td>
+                                        <td>25000</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="assets/pic/but-ki-ten.jpg" alt="Black Round Sunglasses">Bút kí tên</td>
+                                        <td>1</td>
+                                        <td>5000</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="assets/pic/but-ki-ten.jpg" alt="Shoulder Bag">Bút kí tên</td>
+                                        <td>4</td>
+                                        <td>20000</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="assets/pic/but-ki-ten.jpg" alt="Vintage Perfume">Bút kí tên</td>
+                                        <td>3</td>
+                                        <td>15000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="order-summary">
+                      <h3>Hóa đơn và Thanh toán</h3>
+                      <div class="invoice-payment">
+                        <!-- Hóa đơn -->
+                        <div class="invoice">
+                          <h4>Hóa đơn</h4>
+                          <ul>
+                            <li>Tạm tính: <span>65000đ</span></li>
+                            <li>Discount (DIS15%): <span>10%</span></li>
+                            <li>Shipping Charge: <span>20000đ</span></li>
+                            <li><strong>Tổng tiền:</strong> <span><strong>78500đ</strong></span></li>
+                          </ul>
+                        </div>
+                    
+                        <!-- Phương thức thanh toán -->
+                        <div class="payment-method">
+                          <h4>Phương thức thanh toán</h4>
+                          <ul>
+                            <li>Mã giao dịch: <span>#DU444</span></li>
+                            <li>Phương thức: <span>Momo</span></li>
+                            <li>Khách hàng: <span>Trần Khải</span></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    
+                </div>
+
+                <!-- Shipping Progress -->
+                <div class="shipping-progress">
+                    <h3>Tiến trình giao hàng</h3>
+                    <div class="progress-container">
+                        <div class="step active">
+                            <div class="icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <p>Chờ xác nhận</p>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="step active">
+                            <div class="icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <p>Chuẩn bị hàng</p>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="step active">
+                            <div class="icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <p>Vận chuyển</p>
+                        </div>
+
+                        <div class="connector"></div>
+                        <div class="step active">
+                            <div class="icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <p>Hoàn thành</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
           </div>
         </div>
       </main>
@@ -113,7 +219,3 @@
     </script>
   </body>
 </html>
-
-
-
-
