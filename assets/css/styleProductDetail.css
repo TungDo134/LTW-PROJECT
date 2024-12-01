@@ -831,4 +831,36 @@ li {
 .swiper-pagination-bullet-active {
   border: 1px solid #000;
 }
-/* Slideer*/
+/* Slider*/
+
+.box > img {
+  width: 186px;
+  height: 186px;
+}
+
+#layout .col h5,
+#layout .col p {
+  font-size: 15px;
+}
+
+#layout .card-header-cus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#layout .card-body {
+  padding: 10px 2px 0px;
+}
+
+#layout .card {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+}
+.wrapper-img > img {
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+.wrapper-img:hover > img {
+  transform: scale(1.025);
+}
