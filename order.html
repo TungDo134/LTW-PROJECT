@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details and Tracking</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .order-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .order-details {
+            flex: 7;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-summary {
+            flex: 3;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status {
+            color: green;
+            font-weight: bold;
+        }
+
+        .invoice-btn {
+            background: #6c5ce7;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product-list table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .product-list table th, .product-list table td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .product-list img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            vertical-align: middle;
+            border-radius: 4px;
+        }
+
+        .order-summary ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .order-summary ul li {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .shipping-progress {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .shipping-progress h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            text-align: center;
+            color: gray;
+        }
+
+        .step .icon {
+            font-size: 24px;
+            background: #ddd;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .step.active .icon {
+            background: #6c5ce7;
+            color: white;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .connector {
+            flex: 0.5;
+            height: 4px;
+            background: #ddd;
+            margin: 0 5px;
+            position: relative;
+            top: 18px;
+        }
+
+        .step.active ~ .connector {
+            background: #6c5ce7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Order Details and Summary -->
+        <div class="order-container">
+            <!-- Order Details -->
+            <div class="order-details">
+                <div class="order-header">
+                    <h2>Order ID: DU00017</h2>
+                    <p>Order Date: October 03, 2023, at 6:31 PM <span class="status">Paid</span></p>
+                    <button class="invoice-btn">Invoice</button>
+                </div>
+                <div class="product-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="assets/pic/but-ki-ten.jpg" alt="Women Shoes">Bút kí tên</td>
+                                <td>5</td>
+                                <td>25000</td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/pic/but-ki-ten.jpg" alt="Black Round Sunglasses">Bút kí tên</td>
+                                <td>1</td>
+                                <td>5000</td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/pic/but-ki-ten.jpg" alt="Shoulder Bag">Bút kí tên</td>
+                                <td>4</td>
+                                <td>20000</td>
+                            </tr>
+                            <tr>
+                                <td><img src="assets/pic/but-ki-ten.jpg" alt="Vintage Perfume">Bút kí tên</td>
+                                <td>3</td>
+                                <td>15000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h3>Hóa đơn</h3>
+                <ul>
+                    <li>Tạm tính: <span>65000đ</span></li>
+                    <li>Discount (DIS15%): <span>10%</span></li>
+                    <li>Shipping Charge: <span>20000đ</span></li>
+                    <li><strong>Tổng tiền:</strong> <span><strong>78500đ</strong></span></li>
+                </ul>
+                <h3>Phương thức thanh toán</h3>
+                <ul>
+                    <li>Mã giao dịch: <span>#DU444TO10000</span></li>
+                    <li>Phương thức thanh toán: <span>Momo</span></li>
+                    <li>Khách hàng: <span>Trần Khải</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Shipping Progress -->
+        <div class="shipping-progress">
+            <h3>Tiến trình giao hàng</h3>
+            <div class="progress-container">
+                <div class="step">
+                    <div class="icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <p>Chờ xác nhận</p>
+                </div>
+                <div class="connector"></div>
+                <div class="step active">
+                    <div class="icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <p>Chuẩn bị hàng</p>
+                </div>
+                <div class="connector"></div>
+                <div class="step active">
+                    <div class="icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <p>Vận chuyển</p>
+                </div>
+                
+                <div class="connector"></div>
+                <div class="step active">
+                    <div class="icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <p>Hoàn thành</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateShippingProgress(currentStep) {
+            const steps = document.querySelectorAll('.step');
+            const connectors = document.querySelectorAll('.connector');
+
+            steps.forEach((step, index) => {
+                if (index < currentStep) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+
+            connectors.forEach((connector, index) => {
+                if (index < currentStep - 1) {
+                    connector.style.background = '#6c5ce7';
+                } else {
+                    connector.style.background = '#ddd';
+                }
+            });
+        }
+
+        // Example: Update to step 3 (Order En Route)
+        updateShippingProgress(3);
+    </script>
+</body>
+</html>
