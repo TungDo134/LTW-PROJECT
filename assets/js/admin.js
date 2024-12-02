@@ -70,12 +70,34 @@ $(".toggle-theme").on("click", function () {
     spanElement.css("color", "#cccccc");
   }
 
-  // Kiểm tra xem đanmg dùng theme nào
+  // Kiểm tra xem đang dùng theme nào
   if ($("body").hasClass("dark-theme")) {
     // Nếu đang ở dark theme, chuyển sang white theme
     $("body").removeClass("dark-theme").addClass("white-theme");
+
+    // Lưu trạng thái theme vào localStorage
+    localStorage.setItem("theme", "white-theme");
   } else {
     // Nếu đang ở white theme, chuyển sang dark theme
     $("body").removeClass("white-theme").addClass("dark-theme");
+
+    // Lưu trạng thái theme vào localStorage
+    localStorage.setItem("theme", "dark-theme");
+  }
+});
+
+// Khi tải trang, kiểm tra và áp dụng theme từ localStorage
+$(document).ready(function () {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    $("body").removeClass("dark-theme white-theme").addClass(savedTheme);
+
+    // Đặt lại icon tương ứng
+    const spanElement = $(".toggle-theme").find(".material-symbols-outlined");
+    if (savedTheme === "dark-theme") {
+      spanElement.text("bedtime").css("color", "#000");
+    } else {
+      spanElement.text("sunny").css("color", "#cccccc");
+    }
   }
 });

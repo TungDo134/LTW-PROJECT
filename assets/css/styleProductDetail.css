@@ -858,6 +858,7 @@ li {
   padding: 20px;
 }
 .wrapper-img > img {
+  border-radius: 10px;
   transform: scale(1);
   transition: all 0.3s ease;
 }
