@@ -312,6 +312,11 @@ button:hover > a {
   margin-top: 20px;
 }
 
+.container-profile .content .frame.order .container-frameOrder .order-container .order-details .product-list table thead tr th {
+  text-align: left;
+
+}
+
 .container-profile .content .frame.order .container-frameOrder .order-container .order-details .product-list table .product-list table th, .product-list table td {
   text-align: left;
   padding: 10px;

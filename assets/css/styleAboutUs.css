@@ -57,7 +57,7 @@ body {
   position: relative;
 }
 img {
-  /* Chiều rộng bằng 100% của phần tử chứa */
+ 
   height: 100%; /* Chiều cao bằng 100% của phần tử chứa */
   object-fit: cover; /* Đảm bảo hình ảnh không bị méo và lấp đầy khung hình */
 }
