@@ -24,8 +24,8 @@ body {
   align-items: flex-start;
 }
 
-.background-split h1, 
-.background-split p{
+.background-split h1,
+.background-split p {
   padding: 0 20px;
 }
 .background-split h1 {
@@ -99,7 +99,6 @@ img {
   object-fit: cover; /* Đảm bảo hình ảnh phủ hết khung mà không bị méo */
   z-index: -1; /* Để hình ảnh ở dưới nội dung */
 }
-
 
 #about-us-container .back_ground_aboutUS h2 {
   font-size: 40px;
