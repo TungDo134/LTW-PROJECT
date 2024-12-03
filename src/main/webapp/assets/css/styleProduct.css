@@ -1,0 +1,378 @@
+
+.bg-body {
+  background-color: #faf7f0 !important;
+}
+
+#product-container .container .ms--15 {
+  margin-left: -15px;
+}
+
+#product-container .container h5 {
+  font-size: 16px;
+}
+
+#product-container .container .me--15 {
+  margin-right: -15px;
+}
+
+#product-container .currency {
+  vertical-align: super;
+}
+
+#product-container .container .fs-7 {
+  font-size: 14px;
+}
+
+#product-container .container .card-header-cus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#product-container .container .text-justify {
+  text-align: justify;
+}
+
+#product-container .container .col .forward-img {
+  background-color: #f4eee0;
+}
+
+#product-container .container .col .card-img-top {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+  vertical-align: middle;
+}
+
+#product-container .container .col .wrapper-img {
+  overflow: hidden;
+}
+
+#product-container .container .col a:hover > div > .card-img-top {
+  transform: scale(1.025); /* phóng to ảnh lên 10% */
+  background-color: #f0e8d5 !important;
+}
+
+#product-container .container .forward-img {
+  position: relative;
+}
+
+#product-container .container .add-to-cart {
+  position: absolute;
+  right: 20px;
+  bottom: 16px;
+}
+
+#product-container .container .add-to-cart .icon-p {
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+#product-container .container .add-to-cart .icon-p:hover {
+  transform: scale(1.1);
+}
+
+/* CSS thanh sort */
+
+.custom-select {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+}
+
+.custom-select:focus .select-selected {
+  border-color: #000;
+}
+
+.select-selected {
+  background-color: #faf7f0;
+  padding: 6px 8px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.select-options {
+  display: none;
+  position: absolute;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  border: 1px solid #ccc;
+  z-index: 1;
+  /* box-shadow: 0 0 5px 0 rgba(102, 102, 102, 1); */
+}
+
+.select-option {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.select-option:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.custom-select.active .select-options {
+  display: block;
+}
+
+/* CSS thanh sort */
+
+/* Css Bootstrap */
+.btn-custom {
+  background: url(../pic/button_modal.webp) top left no-repeat;
+  position: absolute;
+  right: -20px;
+  top: -12px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.btn-close:focus {
+  box-shadow: none;
+}
+
+.col-6 {
+  width: 78%;
+}
+
+.form-select:focus {
+  border-color: #000;
+  box-shadow: none;
+}
+
+select.form-select-sm option {
+  background-color: #faf7f0; /* Màu nền của option */
+  color: #333; /* Màu chữ */
+}
+
+select.form-select-sm option:hover {
+  background-color: darkred;
+}
+
+.custom-tooltip {
+  --bs-tooltip-bg: #000;
+  --bs-tooltip-color: var(--bs-white);
+}
+
+.btn_filter {
+  outline: none;
+  border: none;
+  background: transparent;
+  margin-top: 8px;
+}
+
+.offcanvas-title {
+  font-size: 24px !important;
+  padding: 16px;
+}
+
+.offcanvas-body h5 {
+  color: #434343;
+  font-weight: 600;
+}
+
+.offcanvas-body .ofcanvas-list .ofcanvas-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.offcanvas-body .ofcanvas-list .ofcanvas-list-item + .ofcanvas-list-item {
+  margin-top: 8px;
+}
+
+.offcanvas-body input {
+  width: 25px;
+  height: 25px;
+}
+
+.btn-close.btn-close-custom {
+  background-image: none;
+  opacity: 1;
+  padding: 20px 20px 0px 0px !important;
+  margin-right: 4px !important;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
+/* Nút chuyển trang */
+.page {
+  margin: 2rem 0px;
+}
+
+.pagination {
+  text-align: center !important;
+}
+.page-item {
+  margin-right: 4px;
+}
+
+.page-item:not(:first-child) .page-link {
+  margin-left: 0;
+}
+
+.page-item:last-child {
+  margin: 0;
+}
+
+.page-item .page-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 0 !important;
+  padding: 8px 0;
+  border-color: #000;
+  background: transparent;
+  color: #000;
+}
+
+.page-link.focused {
+  background-color: #000;
+  color: #fff;
+  box-shadow: none;
+}
+
+.page-link:focus {
+  box-shadow: none;
+}
+
+.active > .page-link {
+  background-color: #000;
+  color: #fff;
+}
+
+.disabled {
+  visibility: hidden;
+}
+
+.fa-solid.fa-chevron-left,
+.fa-solid.fa-chevron-right {
+  font-size: 12px;
+}
+
+/* Css Bootstrap */
+
+/* CSS cho Filter */
+.filter-container {
+  font-family: Arial, sans-serif;
+  width: 200px;
+  padding: 10px;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  width: 200px;
+  font-size: 14px;
+  font-family: Nunito, sans-serif;
+}
+
+.form-check-input:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.form-check-input:checked[type="radio"] {
+  background-image: url(/assets/pic/checked-svg-black.svg);
+}
+
+.form-check-input:checked {
+  background-color: #f0f0f0;
+  border: none;
+}
+
+.filter-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.filter-category {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* CSS cho danh sách các tùy chọn */
+.filter-options {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filter-options li {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+/* CSS cho ô tròn và dấu tích */
+.checkbox-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  margin-right: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 12px;
+  color: white;
+}
+
+.checkbox-circle.checked {
+  background-color: #eaeaea;
+  border-color: #eaeaea;
+}
+
+.checkbox-circle.checked i {
+  display: inline-block;
+  color: #000;
+}
+
+.checkbox-circle i {
+  display: none;
+}
+
+/* CSS cho văn bản của các tùy chọn */
+.filter-option-text {
+  font-size: 14px;
+  color: #333;
+}
+
+.fa-check:before {
+  font-size: 16px;
+}
+
+.filter-btn-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 12px 0px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.filter-btn-group .filter-items {
+  text-align: center;
+  background: #000;
+  padding: 10px 20px;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid #000;
+}
+.filter-btn-group .filter-items.delete-btn {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+}

@@ -1,0 +1,432 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:wght@300..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.Page-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #faf7f0;
+}
+
+.container-profile {
+  display: flex;
+  min-width: 1200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.container-profile .sidebar-profile {
+  width: 250px;
+  /* padding: 8px; */
+  color: #000;
+}
+
+.breadcrumb {
+  padding: 16px 14px;
+  margin-bottom: 24px;
+}
+
+.breadcrumb h1 {
+  margin-bottom: 4px;
+}
+
+.container-profile .sidebar-profile .user-info {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 10px 1rem;
+  background: #000;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.container-profile .sidebar-profile .user-info .avatar {
+  width: 45px;
+  height: 45px;
+}
+
+.container-profile .sidebar-profile .user-info .avatar .avt-pic {
+  width: 100%;
+  background: #ccc;
+  border-radius: 10%;
+  /* margin: 0 auto 10px; */
+}
+
+.container-profile .sidebar-profile .user-info .username {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.container-profile .sidebar-profile .menu .menu-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s;
+  margin-bottom: 5px;
+}
+
+.container-profile .sidebar-profile .menu .menu-item:hover,
+.container-profile .sidebar-profile .menu .menu-item.active {
+  background: #fff;
+  color: #000;
+}
+
+.container-profile .content {
+  flex: 1;
+  padding: 20px;
+}
+
+.container-profile .content .frame {
+  display: none;
+}
+
+.container-profile .content .frame.active {
+  display: block;
+}
+.container-profile .content .frame.active .main-profile-container {
+  margin: 0 auto;
+  /* background-color: #fff; */
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .title-profile {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.container-profile .content .frame.active .main-profile-container .info-section,
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .order-section,
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section {
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .info-section
+  .info-box,
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box {
+  padding: 15px;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  background-color: #fafafa;
+}
+
+p {
+  margin: 10px 0px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #555;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .order-section
+  .no-orders {
+  font-style: italic;
+  color: #777;
+  font-weight: 700;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box
+  .default-label {
+  font-size: 12px;
+  color: #fff;
+  background-color: #000;
+  padding: 2px 5px;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box
+  .action-buttons {
+  margin-top: 10px;
+}
+
+button {
+  width: 60px;
+  font-size: 14px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: background 0.3s, color 0.3s;
+}
+
+button > a {
+  text-decoration: none;
+  color: #000;
+  transition: background 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+button:hover > a {
+  color: #fff;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box
+  .action-buttons
+  .edit-btn {
+  border-color: #ccc;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box
+  .action-buttons
+  .edit-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box
+  .action-buttons
+  .delete-btn {
+  border-color: #ccc;
+}
+
+.container-profile
+  .content
+  .frame.active
+  .main-profile-container
+  .address-section
+  .address-box
+  .action-buttons
+  .delete-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.container-profile .content .frame.order .container-frameOrder {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.container-profile .content .frame.order .container-frameOrder .order-container {
+  display: flex;
+  gap: 20px;
+}
+
+.container-profile .content .frame.order .container-frameOrder .order-container .order-details {
+  flex: 7;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container-profile .content .frame.order .container-frameOrder .order-container .order-summary {
+  flex: 3;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container-profile .content .frame.order .container-frameOrder .order-container .order-details .order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-profile .content .frame.order .container-frameOrder .order-container .order-details .order-header .status {
+  color: green;
+  font-weight: bold;
+}
+
+
+
+.container-profile .content .frame.order .container-frameOrder .order-container .order-details .product-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.container-profile .content .frame.order .container-frameOrder .order-container .order-details .product-list table thead tr th {
+  text-align: left;
+
+}
+
+.container-profile .content .frame.order .container-frameOrder .order-container .order-details .product-list table .product-list table th, .product-list table td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.container-profile .content .frame.order .container-frameOrder .order-container .order-details .product-list table tbody tr td img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+  border-radius: 4px;
+}
+
+.container-profile .content .frame.order .container-frameOrder .order-container .order-details .order-summary .invoice-payment .invoice ul,
+.container-profile .content .frame.order .container-frameOrder .order-container .order-details .order-summary .invoice-payment .payment-method ul  {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-summary ul li {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-profile .content .frame.order .container-frameOrder .shipping-progress {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container-profile .content .frame.order .container-frameOrder .shipping-progress h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.container-profile .content .frame.order .container-frameOrder .shipping-progress .progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.container-profile .content .frame.order .container-frameOrder .shipping-progress .progress-container .step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  color: gray;
+}
+
+.step .icon {
+  font-size: 24px;
+  background: #ddd;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.step.active .icon {
+  background: #000;
+  color: white;
+}
+
+.step p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.connector {
+  flex: 0.5;
+  height: 4px;
+  background: #ddd;
+  margin: 0 5px;
+  position: relative;
+  top: 18px;
+}
+
+.step.active ~ .connector {
+  background: #000;
+}
+/* Phong cách chung cho phần "Hóa đơn" và "Thanh toán" */
+.invoice-payment {
+  display: block; /* Hiển thị dọc (block) */
+}
+
+.invoice,
+.payment-method {
+  background: #f9f9f9;
+  margin-bottom: 20px; /* Tạo khoảng cách giữa các phần */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề của từng phần */
+.invoice h4,
+.payment-method h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

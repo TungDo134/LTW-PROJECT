@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:wght@300..800&display=swap");
+
+#list-order-container {
+  background-color: var(--White);
+  padding: 24px;
+  border-radius: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.text-order {
+  margin: 0;
+  width: 200px;
+}
+
+.header > h1 {
+  font-size: 24px;
+  color: var(--Heading);
+  margin-bottom: 28px;
+  font-weight: 700;
+}
+
+.header-show-order {
+  margin-bottom: 10px;
+}
+
+.order-list {
+  border-bottom: 1px solid #283548;
+  min-width: 1130px;
+}
+
+.row {
+  flex-wrap: nowrap;
+  padding: 12px;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--Heading);
+}
+
+.row img {
+  width: 50px;
+  height: auto;
+  padding-right: 6px;
+}
+
+.header-title {
+  margin-bottom: 1rem;
+  background: var(--bg-table);
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+.order-list li {
+  border-radius: 12px;
+  width: 100%;
+}
+
+.order-list li:nth-child(odd) {
+  background: var(--bg-table);
+}
+
+.header-show-order.row .col-8 {
+  padding: 0;
+}
+.content-show-order {
+  /* min-width: 1150px; */
+}
+
+.content-show-order .row .col-4 {
+  width: 300px;
+}
+
+.content-show-order .row .col:last-child {
+  max-width: 130px;
+}
+
+.list-order {
+  padding-left: 0;
+}
+
+.list-order > li:hover {
+  background-color: var(--hv-item);
+}
+
+/* Nút chuyển trang */
+.page {
+  /* margin: 2rem 0px; */
+}
+
+.pagination {
+  text-align: center !important;
+}
+.page-item {
+  margin-right: 10px;
+}
+
+.page-item:not(:first-child) .page-link {
+  margin-left: 0;
+}
+
+.page-item:last-child {
+  margin: 0;
+}
+
+.page-item .page-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50% !important;
+  padding: 8px 0;
+  border-color: transparent;
+  background: transparent;
+  color: #94a3b8;
+}
+
+.page-item .page-link.arrow {
+  border-color: #283548;
+}
+
+.page-link.focused {
+  background-color: #2275fc;
+  color: #fff;
+  box-shadow: none;
+}
+
+.page-link:focus {
+  box-shadow: none;
+}
+
+.active > .page-link {
+  background-color: #2275fc;
+  color: #fff;
+}
+
+.disabled {
+  visibility: hidden;
+}
+
+.fa-solid.fa-chevron-left,
+.fa-solid.fa-chevron-right {
+  font-size: 12px;
+} /* Nút chuyển trang */
+
+.add-btn {
+  padding: 14px;
+  width: 208px;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #2275fc !important;
+  color: #fff !important;
+}
+
+.text-tiny {
+  color: var(--Note);
+  font-size: 14px;
+  line-height: 15px;
+}
+
+select {
+  border: 1px solid var(--Input);
+  border-radius: 12px;
+  width: 72px;
+  padding: 6px 14px;
+  text-align: center;
+  background: transparent;
+  color: var(--Heading);
+}
+
+.mini-search {
+  padding: 14px 22px;
+  border: 1px solid var(--Input);
+  background-color: transparent;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.btn-submit {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+}
+
+.btn-submit button {
+  background: transparent;
+  outline: none;
+  border: none;
+  color: var(--Heading);
+}
+.notify > a {
+  width: 130px;
+  cursor: default;
+}
+
+.Cancel {
+  width: 100px;
+  display: inline-block;
+  color: #ff5200;
+  background-color: #432f25;
+  text-decoration: none;
+  border-radius: 8px;
+  text-align: center;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.Success {
+  width: 100px;
+  display: inline-block;
+  color: #22c55e;
+  background-color: #2a4432;
+  text-decoration: none;
+  border-radius: 8px;
+  text-align: center;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.Pending {
+  width: 100px;
+  display: inline-block;
+  color: #95989d;
+  background-color: #95989d69;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.Tracking {
+  width: 100px;
+  display: inline-block;
+  color: #2275fc;
+  background-color: rgba(35, 119, 252, 0.22);
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.content-show-order .row .col:nth-child(6) {
+  padding-right: 20px;
+}
+.content-show-order .row .col:nth-child(7) {
+  margin-left: 20px;
+}
