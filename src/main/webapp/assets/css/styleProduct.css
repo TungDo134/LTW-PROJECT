@@ -277,7 +277,7 @@ select.form-select-sm option:hover {
 }
 
 .form-check-input:checked[type="radio"] {
-  background-image: url(/assets/pic/checked-svg-black.svg);
+  background-image: url(../pic/check-svg.svg);
 }
 
 .form-check-input:checked {

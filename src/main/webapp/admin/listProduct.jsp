@@ -88,7 +88,7 @@
                 </div>
                 <div class="col-4 text-end">
                   <a
-                    href="/admin/addProduct.jsp"
+                    href="../admin/addProduct.jsp"
                     class="add-btn d-inline-block bg-white text-center text-decoration-none"
                     ><i class="fa-solid fa-plus" style="padding-right: 4px"></i>
                     Add new</a

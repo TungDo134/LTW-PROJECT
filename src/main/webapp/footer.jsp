@@ -68,7 +68,7 @@
                 <h5 class="text-uppercase mb-4 pb-1">Đăng ký để nhận thêm ưu đãi</h5>
 
                 <div class="form-outline form-white">
-                    <a href="/pages/forms/signup-login.jsp" class="btn-sub">Đăng ký</a>
+                    <a href="forms/signup-login.jsp" class="btn-sub">Đăng ký</a>
                 </div>
 
                 <ul class="fa-ul" style="margin-left: 1.65em">
@@ -122,5 +122,6 @@
       <i class="fa-regular fa-heart" style="color: darkred"></i> thuộc về
       <span style="color: darkred">TVK</span>
     </span>
+        <a href="test-control"> bam vao di</a>
     </div>
 </footer>
