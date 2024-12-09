@@ -47,9 +47,43 @@
 <jsp:include page="header-admin.jsp"></jsp:include>
 <div id="main-content">
     <div class="main-container">
+        <div class="header">
+            <h1>Thêm hình cho trang chủ</h1>
+        </div>
+        <form action="#">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Ảnh banner</label>
+                <input class="form-control" type="file" id="formFile" placeholder="Ảnh banner">
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Ảnh banner</label>
+                <input class="form-control" type="file" id="formFile" placeholder="Ảnh banner">
+            </div>
+            <div class="mb-3">
+            <label for="formFile" class="form-label">Ảnh banner</label>
+            <input class="form-control" type="file" id="formFile" placeholder="Ảnh banner">
+        </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Ảnh banner</label>
+                <input class="form-control" type="file" id="formFile" placeholder="Ảnh banner">
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Ảnh banner</label>
+                <input class="form-control" type="file" id="formFile" placeholder="Ảnh banner">
+            </div>
 
+            <button type="submit" class="btn btn-primary btn-sm">Small button</button>
+        </form>
 
     </div>
 </div>
+<script>
+    document.getElementById('formFileMultiple').addEventListener('change', function(event) {
+        const fileList = event.target.files;
+        console.log('Files selected:', fileList);
+        Array.from(fileList).forEach(file => console.log(file.name));
+    });
+</script>
+
 </body>
 </html>
