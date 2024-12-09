@@ -25,6 +25,12 @@ li {
   box-shadow: none !important;
 }
 
+.header > h1 {
+  font-size: 24px;
+  color: var(--Heading);
+  margin-bottom: 28px;
+  font-weight: 700;}
+
 .open {
   width: 100% !important;
 }
