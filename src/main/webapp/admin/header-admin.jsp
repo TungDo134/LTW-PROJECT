@@ -215,6 +215,24 @@
 
                             </ul>
                         </li>
+                        <li class="item item-dropdown">
+                        <div class="d-flex">
+                    <span class="material-symbols-outlined pr-10">
+                      person
+                    </span>
+                            <a href="#">Chỉnh ảnh</a>
+                        </div>
+                        <ul class="sub-menu">
+                            <li class="sub-menu-item">
+                                <a href="AddPic_Index.jsp">Trang chủ</a>
+                            </li>
+                            <li class="sub-menu-item">
+                                <a href="AddPic_AboutUs.jsp">Trang về chúng tôi</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
                     </ul>
                 </nav>
                 <div class="container_social">
