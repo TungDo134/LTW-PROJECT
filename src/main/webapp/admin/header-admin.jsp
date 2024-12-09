@@ -218,16 +218,39 @@
                         <li class="item item-dropdown">
                         <div class="d-flex">
                     <span class="material-symbols-outlined pr-10">
-                      person
+                      add_photo_alternate
                     </span>
                             <a href="#">Chỉnh ảnh</a>
                         </div>
                         <ul class="sub-menu">
                             <li class="sub-menu-item">
-                                <a href="AddPic_Index.jsp">Trang chủ</a>
+                                <a href="addPic_Index.jsp">Trang chủ</a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="AddPic_AboutUs.jsp">Trang về chúng tôi</a>
+                                <a href="addPic_AboutUs.jsp">Trang về chúng tôi</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                        <li class="item item-dropdown">
+                        <div class="d-flex">
+                    <span class="material-symbols-outlined pr-10">
+                      edit_document
+                    </span>
+                            <a href="#"> Quản lý thông tin </a>
+                        </div>
+                        <ul class="sub-menu">
+                            <li class="sub-menu-item">
+                                <a href="listVoucher.jsp">Mục mã giảm giá</a>
+                            </li>
+                            <li class="sub-menu-item">
+                                <a href="addVoucher.jsp">Thêm mã giảm giá</a>
+                            </li>
+                            <li class="sub-menu-item">
+                                <a href="listReviews.jsp">Danh sách đánh giá</a>
+                            </li>
+                            <li class="sub-menu-item">
+                                <a href="listReviews.jsp">Danh sách phản hồi </a>
                             </li>
 
                         </ul>
