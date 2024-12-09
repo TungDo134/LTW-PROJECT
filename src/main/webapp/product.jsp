@@ -310,7 +310,7 @@
                 <!-- ảnh sản phẩm -->
                 <div class="wrapper-img">
                   <img
-                    src="assets/pic/sample_pic_bestseller"
+                    src="assets/pic/products/gom-thuoc/thuoc-hong.webp"
                     class="card-img-top"
                     style="background-color: #f4eee0"
                     alt="..."
@@ -355,7 +355,7 @@
                 <!-- ảnh sản phẩm -->
                 <div class="wrapper-img">
                   <img
-                    src="assets/pic/sample_pic_bestseller"
+                    src="assets/pic/products/sotay-tap/cabana.avif"
                     class="card-img-top"
                     style="background-color: #f4eee0"
                     alt="..."
