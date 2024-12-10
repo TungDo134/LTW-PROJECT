@@ -250,7 +250,7 @@
                                 <a href="listReviews.jsp">Danh sách đánh giá</a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="listReviews.jsp">Danh sách phản hồi </a>
+                                <a href="listFeedback.jsp">Danh sách phản hồi </a>
                             </li>
 
                         </ul>
