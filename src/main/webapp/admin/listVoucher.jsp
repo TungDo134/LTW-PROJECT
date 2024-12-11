@@ -55,13 +55,13 @@
 <div id="main-content">
     <div class="main-container">
         <div class="header">
-            <h1>Danh sách đánh giá</h1>
+            <h1>Danh sách mã giảm giá</h1>
         </div>
         <div id="list-reviews-container">
             <div class="list-reviews">
                 <!-- Header -->
                 <div class="header-show-cate">
-                    <div class="row align-items-center flex-wrap">
+                    <div class="row row-cols-2 align-items-center flex-wrap">
                         <div class="col-8">
                             <div class="row row-cols-2 align-items-center">
                                 <div class="col" style="position: relative">
@@ -81,6 +81,7 @@
                         </div>
                         <div class="col-4 text-end">
                             <a
+                                    href="addVoucher.jsp"
                                     class="add-btn d-inline-block bg-white text-center text-decoration-none"
                             ><i class="fa-solid fa-plus" style="padding-right: 4px"></i>
                                 Add new</a
@@ -91,62 +92,62 @@
                 <!-- Content -->
                 <div class="content-show-cmt">
                     <div class="header-title">
-                        <div class="row">
+                        <div class="row row-cols-2">
                             <div class="col">Mã giảm giá</div>
                             <div class="col">Phần trăm</div>
                         </div>
                     </div>
                     <ul class="list-cmt list">
                         <li>
-                            <div class="row align-items-center">
+                            <div class="row row-cols-2 align-items-center">
                                 <div class="col">#HelloCaNha</div>
                                 <div class="col">10%</div>
                             </div>
                         </li>
                         <li>
-                            <div class="row align-items-center">
+                            <div class="row row-cols-2 align-items-center">
                                 <div class="col">#HelloCaNha</div>
                                 <div class="col">10%</div>
                             </div>
                         </li>
                         <li>
-                            <div class="row align-items-center">
+                            <div class="row row-cols-2 align-items-center">
                                 <div class="col">#HelloCaNha</div>
                                 <div class="col">10%</div>
                             </div>
                         </li>
                         <li>
-                            <div class="row align-items-center">
+                            <div class="row row-cols-2 align-items-center">
                                 <div class="col">#HelloCaNha</div>
                                 <div class="col">10%</div>
                             </div>
                         </li>
                         <li>
-                            <div class="row align-items-center">
+                            <div class="row row-cols-2 align-items-center">
                                 <div class="col">#HelloCaNha</div>
                                 <div class="col">10%</div>
                             </div>
                         </li>
                         <li>
-                            <div class="row align-items-center">
+                            <div class="row row-cols-2 align-items-center">
                                 <div class="col">#HelloCaNha</div>
                                 <div class="col">10%</div>
                             </div>
                         </li>
                         <li>
-                            <div class="row align-items-center">
+                            <div class="row row-cols-2 align-items-center">
                                 <div class="col">#HelloCaNha</div>
                                 <div class="col">10%</div>
                             </div>
                         </li>
                         <li>
-                            <div class="row align-items-center">
+                            <div class="row row-cols-2 align-items-center">
                                 <div class="col">#HelloCaNha</div>
                                 <div class="col">10%</div>
                             </div>
                         </li>
                         <li>
-                            <div class="row align-items-center">
+                            <div class="row row-cols-2 align-items-center">
                                 <div class="col">#HelloCaNha</div>
                                 <div class="col">10%</div>
                             </div>

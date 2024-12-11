@@ -33,27 +33,7 @@ $("#close-sub-menu").on("click", function () {
   $("#main-content").css("padding-left", "20px");
 });
 
-//// SUB MENU ////
 
-// Ngăn sự kiện nổi bọt khi click vào các phần tử bên trong .sub-menu
-$(".sub-menu").on("click", function (event) {
-  event.stopPropagation();
-});
-// mở đóng sub menu cho các lựa chọn
-$(".item-dropdown").on("click", function () {
-  $(this).find(".sub-menu").toggle();
-  $(this).toggleClass("rotate");
-});
-
-$(".sub-menu-item a").on("click", function () {
-  // Loại bỏ CSS màu sắc trước đó khỏi tất cả các thẻ <a>
-  $(".sub-menu-item a").css("color", "");
-
-  // Áp dụng CSS màu sắc chỉ cho thẻ <a> được click
-  $(this).css("color", "#0a58ca");
-});
-
-//// SUB MENU ////
 
 //// Chuyển theme ////
 $(".toggle-theme").on("click", function () {

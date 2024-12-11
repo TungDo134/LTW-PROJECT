@@ -282,5 +282,6 @@
     </div>
 </header>
 <script src="../assets/js/admin.js"></script>
+<script src="../assets/js/header_admin.js"></script>
 </body>
 </html>
