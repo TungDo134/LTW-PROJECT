@@ -79,13 +79,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4 text-end">
-                            <a
-                                    class="add-btn d-inline-block bg-white text-center text-decoration-none"
-                            ><i class="fa-solid fa-plus" style="padding-right: 4px"></i>
-                                Add new</a
-                            >
-                        </div>
+<%--                        <div class="col-4 text-end">--%>
+<%--                            <a--%>
+<%--                                    class="add-btn d-inline-block bg-white text-center text-decoration-none"--%>
+<%--                            ><i class="fa-solid fa-plus" style="padding-right: 4px"></i>--%>
+<%--                                Add new</a--%>
+<%--                            >--%>
+<%--                        </div>--%>
                     </div>
                 </div>
                 <!-- Content -->
@@ -93,11 +93,10 @@
                     <div class="header-title">
                         <div class="row">
                             <div class="col-2 text-break">Người dùng</div>
-                            <div class="col">ID người dùng</div>
-                            <div class="col">Số điện thoại</div>
+
                             <div class="col-2 text-break">Email</div>
-                            <div class="col-4">Phản Hồi</div>
-                            <div class="col">Thêm phản hồi</div>
+                            <div class="col-6">Phản Hồi</div>
+                            <div class="col-2">Hành động</div>
                         </div>
                     </div>
                     <ul class="list-feedback list">
@@ -109,217 +108,27 @@
                                     <img src="../assets/pic/capy.jpg" alt="" />
                                     <div class="name">
                                         <p class="text-cate">Nguyen Van A</p>
-                                        <div class="text-tiny">Product name</div>
+
                                     </div>
                                 </div>
-                                <div class="col">#111111</div>
-                                <div class="col">+84 778 624</div>
+
+
                                 <div class="col-2 text-break">nguyenvana@gmail.com</div>
-                                <div class="col-4">
+                                <div class="col-6">
                                     Xin lỗi, hãy liên hệ chúng tôi để khắc phục hậu quả
                                 </div>
-                                <div class="col">
-                                    <button>+</button>
+                                <div class="col-2">
+                                    <a href="#">
+                                        <i
+                                                class="fa-regular fa-trash-can"
+                                                style="color: #ff5200"
+                                        ></i>
+                                    </a>
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="row align-items-center">
-                                <div
-                                        class="col-2 text-break d-flex align-items-center gap-2"
-                                >
-                                    <img src="../assets/pic/capyyyy.jpg" alt="" />
-                                    <div class="name">
-                                        <p class="text-cate">Le Thi Hoa</p>
-                                        <div class="text-tiny">Product name</div>
-                                    </div>
-                                </div>
-                                <div class="col">#111111</div>
-                                <div class="col">+84 778 772</div>
-                                <div class="col-2 text-break">lethihoa@gmail.com</div>
-                                <div class="col-4">
-                                    Xin lỗi, hãy liên hệ chúng tôi để khắc phục hậu quả
-                                </div>
-                                <div class="col">
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row align-items-center">
-                                <div
-                                        class="col-2 text-break d-flex align-items-center gap-2"
-                                >
-                                    <img src="../assets/pic/images.jpg" alt="" />
-                                    <div class="name">
-                                        <p class="text-cate">Tran Lam</p>
-                                        <div class="text-tiny">Product name</div>
-                                    </div>
-                                </div>
-                                <div class="col">#111111</div>
-                                <div class="col">+84 778 883</div>
-                                <div class="col-2 text-break">tranlam@gmail.com</div>
-                                <div class="col-4">
-                                    Xin lỗi, hãy liên hệ chúng tôi để khắc phục hậu quả hơn được
-                                </div>
-                                <div class="col">
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row align-items-center">
-                                <div
-                                        class="col-2 text-break d-flex align-items-center gap-2"
-                                >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
-                                    <div class="name">
-                                        <p class="text-cate">Nguyen Gia Bao</p>
-                                        <div class="text-tiny">Product name</div>
-                                    </div>
-                                </div>
-                                <div class="col">#111111</div>
-                                <div class="col">+84 665 123</div>
-                                <div class="col-2 text-break">
-                                    <p>nguyengiabaobaovao@gmail.com</p>
-                                </div>
-                                <div class="col-4">
-                                    Xin lỗi, hãy liên hệ chúng tôi để khắc phục hậu quả
-                                </div>
-                                <div class="col">
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row align-items-center">
-                                <div
-                                        class="col-2 text-break d-flex align-items-center gap-2"
-                                >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
-                                    <div class="name">
-                                        <p class="text-cate">Vo Ngan</p>
-                                        <div class="text-tiny">Product name</div>
-                                    </div>
-                                </div>
-                                <div class="col">#111111</div>
-                                <div class="col">+84 223 476</div>
-                                <div class="col-2 text-break">nganvo@gmail.com</div>
-                                <div class="col-4">
-                                    Xin lỗi, hãy liên hệ chúng tôi để khắc phục hậu quả
-                                </div>                                
-                                <div class="col">
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row align-items-center">
-                                <div
-                                        class="col-2 text-break d-flex align-items-center gap-2"
-                                >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
-                                    <div class="name">
-                                        <p class="text-cate">Tan Tai</p>
-                                        <div class="text-tiny">Product name</div>
-                                    </div>
-                                </div>
-                                <div class="col">#111111</div>
-                                <div class="col">+84 223 398</div>
-                                <div class="col-2 text-break">tantai@gmail.com</div>
-                                <div class="col-4">
-                                    Xin lỗi, hãy liên hệ chúng tôi để khắc phục hậu quả
-                                </div>                                <div class="col">
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row align-items-center">
-                                <div
-                                        class="col-2 text-break d-flex align-items-center gap-2"
-                                >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
-                                    <div class="name">
-                                        <p class="text-cate">Ly Mui Pu</p>
-                                        <div class="text-tiny">Product name</div>
-                                    </div>
-                                </div>
-                                <div class="col">#111111</div>
-                                <div class="col">+84 223 965</div>
-                                <div class="col-2 text-break">lymuipu@gmail.com</div>
-                                <div class="col-4">
-                                    Xin lỗi, hãy liên hệ chúng tôi để khắc phục hậu quả
-                                </div>
-                                <div class="col">
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row align-items-center">
-                                <div
-                                        class="col-2 text-break d-flex align-items-center gap-2"
-                                >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
-                                    <div class="name">
-                                        <p class="text-cate">Nguyen Quang</p>
-                                        <div class="text-tiny">Product name</div>
-                                    </div>
-                                </div>
-                                <div class="col">#111111</div>
-                                <div class="col">+84 972 190</div>
-                                <div class="col-2 text-break">nguyenquangg@gmail.com</div>
-                                <div class="col-4">
-                                    Xin lỗi, hãy liên hệ chúng tôi để khắc phục hậu quả
-                                </div>                                <div class="col">
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row align-items-center">
-                                <div
-                                        class="col-2 text-break d-flex align-items-center gap-2"
-                                >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
-                                    <div class="name">
-                                        <p class="text-cate">Do Ha</p>
-                                        <div class="text-tiny">Product name</div>
-                                    </div>
-                                </div>
-                                <div class="col">#111111</div>
-                                <div class="col">+84 764 389</div>
-                                <div class="col-2 text-break">doha@gmail.com</div>
-                                <div class="col-4">
-                                    Xin lỗi, hãy liên hệ chúng tôi để khắc phục hậu quả
-                                </div>                                <div class="col">
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row align-items-center">
-                                <div
-                                        class="col-2 text-break d-flex align-items-center gap-2"
-                                >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
-                                    <div class="name">
-                                        <p class="text-cate">Huynh Minh Mai</p>
-                                        <div class="text-tiny">Product name</div>
-                                    </div>
-                                </div>
-                                <div class="col">#111111</div>
-                                <div class="col">+84 223 250</div>
-                                <div class="col-2 text-break">huynhminhmai@gmail.com</div>
-                                <div class="col-4">
-                                    Xin lỗi, hãy liên hệ chúng tôi để khắc phục hậu quả
-                                </div>                                
-                                <div class="col">
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </li>
+
+
                     </ul>
                 </div>
             </div>

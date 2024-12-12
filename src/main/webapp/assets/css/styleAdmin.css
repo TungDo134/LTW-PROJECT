@@ -19,6 +19,12 @@ li {
   list-style-type: none;
 }
 
+.sub-menu-item a.active-sub {
+  background-color: #32cd32; /* Tô màu xanh cho mục menu con được chọn */
+  font-weight: bold;
+}
+
+
 .btn:focus {
   outline: none !important;
   border: none !important;
