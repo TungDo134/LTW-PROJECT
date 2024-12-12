@@ -41,7 +41,7 @@
     />
 
 
-    <link rel="stylesheet" href="../assets/css/admin/styleAllUser.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleAllUser.css" />
   </head>
   <body class="dark-theme">
   <jsp:include page="header-admin.jsp"></jsp:include>
@@ -49,6 +49,7 @@
       <div class="main-container">
         <div class="header">
           <h1>Tất cả người dùng</h1>
+
         </div>
         <div id="all-user-container">
           <div class="all-user">
@@ -99,7 +100,7 @@
                     <div
                       class="col-2 text-break d-flex align-items-center gap-2"
                     >
-                      <img src="../assets/pic/capy.jpg" alt="" />
+                      <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
                       <div class="name">
                         <p class="text-cate">Nguyen Van A</p>
                         <div class="text-tiny">Product name</div>
