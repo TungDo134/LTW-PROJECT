@@ -210,7 +210,9 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="../sample_servlet">Tất cả người dùng</a>
+
+                                    <a href="../all-user">Tất cả người dùng</a>
+
                                 </li>
 
                             </ul>
