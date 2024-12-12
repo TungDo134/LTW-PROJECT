@@ -16,7 +16,7 @@ public class AllUserController extends HttpServlet {
         CustomerDAO cusDao= new CustomerDAO();
         List<Customer> listAllCus= cusDao.getAllUser();
         request.setAttribute("listC",listAllCus);
-        request.getRequestDispatcher("allUser.jsp").forward(request,response);
+        request.getRequestDispatcher("admin/allUser.jsp").forward(request,response);
     }
 
     @Override
