@@ -48,7 +48,7 @@
     />
 
 
-    <link rel="stylesheet" href="../assets/css/admin/styleFeedback.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleFeedback.css" />
 </head>
 <body class="dark-theme">
 <jsp:include page="header-admin.jsp"></jsp:include>
@@ -105,7 +105,7 @@
                                 <div
                                         class="col-2 text-break d-flex align-items-center gap-2"
                                 >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
+                                    <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
                                     <div class="name">
                                         <p class="text-cate">Nguyen Van A</p>
 
@@ -170,6 +170,6 @@
     </div>
 </div>
 
-<script src="../assets/js/search.js"></script>
+<script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
 </body>
 </html>

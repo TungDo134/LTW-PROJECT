@@ -41,7 +41,7 @@
     />
 
 
-    <link rel="stylesheet" href="../assets/css/admin/styleAddProduct.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleAddProduct.css" />
   </head>
   <body class="dark-theme">
   <jsp:include page="header-admin.jsp"></jsp:include>

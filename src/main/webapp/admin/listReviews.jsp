@@ -48,7 +48,7 @@
     />
 
 
-    <link rel="stylesheet" href="../assets/css/admin/styleListReviews.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleListReviews.css" />
 </head>
 <body class="dark-theme">
 <jsp:include page="header-admin.jsp"></jsp:include>
@@ -106,7 +106,7 @@
                                 <div
                                         class="col-2 text-break d-flex align-items-center gap-2"
                                 >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
+                                    <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
                                     <div class="name">
                                         <p class="text-cate">Nguyen Van A</p>
                                         <div class="text-tiny">Product name</div>
@@ -128,7 +128,7 @@
                                 <div
                                         class="col-2 text-break d-flex align-items-center gap-2"
                                 >
-                                    <img src="../assets/pic/capyyyy.jpg" alt="" />
+                                    <img src="<%= request.getContextPath()%>/assets/pic/capyyyy.jpg" alt="" />
                                     <div class="name">
                                         <p class="text-cate">Le Thi Hoa</p>
                                         <div class="text-tiny">Product name</div>
@@ -150,7 +150,7 @@
                                 <div
                                         class="col-2 text-break d-flex align-items-center gap-2"
                                 >
-                                    <img src="../assets/pic/images.jpg" alt="" />
+                                    <img src="<%= request.getContextPath()%>/assets/pic/images.jpg" alt="" />
                                     <div class="name">
                                         <p class="text-cate">Tran Lam</p>
                                         <div class="text-tiny">Product name</div>
@@ -172,7 +172,7 @@
                                 <div
                                         class="col-2 text-break d-flex align-items-center gap-2"
                                 >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
+                                    <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
                                     <div class="name">
                                         <p class="text-cate">Nguyen Gia Bao</p>
                                         <div class="text-tiny">Product name</div>
@@ -196,7 +196,7 @@
                                 <div
                                         class="col-2 text-break d-flex align-items-center gap-2"
                                 >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
+                                    <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
                                     <div class="name">
                                         <p class="text-cate">Vo Ngan</p>
                                         <div class="text-tiny">Product name</div>
@@ -217,7 +217,7 @@
                                 <div
                                         class="col-2 text-break d-flex align-items-center gap-2"
                                 >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
+                                    <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
                                     <div class="name">
                                         <p class="text-cate">Tan Tai</p>
                                         <div class="text-tiny">Product name</div>
@@ -238,7 +238,7 @@
                                 <div
                                         class="col-2 text-break d-flex align-items-center gap-2"
                                 >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
+                                    <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
                                     <div class="name">
                                         <p class="text-cate">Ly Mui Pu</p>
                                         <div class="text-tiny">Product name</div>
@@ -260,7 +260,7 @@
                                 <div
                                         class="col-2 text-break d-flex align-items-center gap-2"
                                 >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
+                                    <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
                                     <div class="name">
                                         <p class="text-cate">Nguyen Quang</p>
                                         <div class="text-tiny">Product name</div>
@@ -281,7 +281,7 @@
                                 <div
                                         class="col-2 text-break d-flex align-items-center gap-2"
                                 >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
+                                    <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
                                     <div class="name">
                                         <p class="text-cate">Do Ha</p>
                                         <div class="text-tiny">Product name</div>
@@ -302,7 +302,7 @@
                                 <div
                                         class="col-2 text-break d-flex align-items-center gap-2"
                                 >
-                                    <img src="../assets/pic/capy.jpg" alt="" />
+                                    <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
                                     <div class="name">
                                         <p class="text-cate">Huynh Minh Mai</p>
                                         <div class="text-tiny">Product name</div>
@@ -359,6 +359,6 @@
     </div>
 </div>
 
-<script src="../assets/js/search.js"></script>
+<script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
 </body>
 </html>

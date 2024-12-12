@@ -1,4 +1,5 @@
 package context;
+
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -6,19 +7,23 @@ import java.sql.SQLException;
 
 public class DBConntext {
     public static Connection getConnection() {
-        String jdbcURL = "jdbc:mysql://localhost:3306/test_222"; // Thay bằng tên database của bạn
-        String username = "root"; // Thay bằng username của bạn
-        String password = ""; // Thay bằng mật khẩu của bạn
+        Connection c = null;
 
         try {
-            // Kết nối đến MySQL
-            Connection connection = DriverManager.getConnection(jdbcURL, username, password);
-            System.out.println("Kết nối thành công!");
-            return connection;
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+            // Các thông số
+            String url = "jdbc:mySQL://localhost:3306/ltw";
+            String username = "root";
+            String password = "";
+
+            // Tạo kết nối
+            c = DriverManager.getConnection(url, username, password);
+
         } catch (SQLException e) {
-            System.out.println("Lỗi kết nối: " + e.getMessage());
-            return null; // Trả về null nếu kết nối thất bại
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
+        return c;
     }
 
     public static void closeConnection(Connection c) {
@@ -35,17 +40,22 @@ public class DBConntext {
         try {
             if (c != null) {
                 DatabaseMetaData mtdt = c.getMetaData();
-                System.out.println(mtdt.getDatabaseProductName());
-                System.out.println(mtdt.getDatabaseProductVersion());
+                // Lấy tên sản phẩm cơ sở dữ liệu
+                System.out.println("Database Product Name: " + mtdt.getDatabaseProductName());
+                // Lấy phiên bản sản phẩm cơ sở dữ liệu
+                System.out.println("Database Product Version: " + mtdt.getDatabaseProductVersion());
+                // Lấy tên cơ sở dữ liệu hiện tại
+                System.out.println("Current Database: " + c.getCatalog());
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+
     public static void main(String[] args) {
-        Connection connection = DBConntext.getConnection();
-        DBConntext.printInfo(connection);
-        DBConntext.closeConnection(connection);
+        DBConntext.getConnection();
+        printInfo(DBConntext.getConnection());
     }
+
 }

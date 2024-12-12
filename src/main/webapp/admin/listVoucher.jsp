@@ -48,7 +48,7 @@
     />
 
 
-    <link rel="stylesheet" href="../assets/css/admin/styleVoucher.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleVoucher.css" />
 </head>
 <body class="dark-theme">
 <jsp:include page="header-admin.jsp"></jsp:include>
@@ -195,6 +195,6 @@
     </div>
 </div>
 
-<script src="../assets/js/search.js"></script>
+<script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
 </body>
 </html>

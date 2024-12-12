@@ -41,7 +41,7 @@
     />
 
 
-    <link rel="stylesheet" href="../assets/css/admin/styleOrderDetail.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleOrderDetail.css" />
   </head>
   <body class="dark-theme">
   <jsp:include page="header-admin.jsp"></jsp:include>
@@ -56,7 +56,7 @@
               <div class="table-order">
                 <ul class="flex-column">
                   <li class="product-item">
-                    <img src="../assets/pic/highlights_pen.avif" />
+                    <img src="<%= request.getContextPath()%>/assets/pic/highlights_pen.avif" />
                     <div class="items-center">
                       <div class="name">
                         <div class="text-tiny">Product name</div>
@@ -73,7 +73,7 @@
                     </div>
                   </li>
                   <li class="product-item">
-                    <img src="../assets/pic/highlights_pen.avif" />
+                    <img src="<%= request.getContextPath()%>/assets/pic/highlights_pen.avif" />
                     <div class="items-center">
                       <div class="name">
                         <div class="text-tiny">Product name</div>
@@ -90,7 +90,7 @@
                     </div>
                   </li>
                   <li class="product-item">
-                    <img src="../assets/pic/highlights_pen.avif" />
+                    <img src="<%= request.getContextPath()%>/assets/pic/highlights_pen.avif" />
                     <div class="items-center">
                       <div class="name">
                         <div class="text-tiny">Product name</div>

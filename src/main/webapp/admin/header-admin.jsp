@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/styleAdmin.css">
+    <link rel="stylesheet" href="<%= request.getContextPath()%>//assets/css/styleAdmin.css">
 </head>
 <body>
 <header id="header-dashboard">
@@ -70,18 +70,18 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="../index.jsp"
+                            <a class="dropdown-item" href="<%= request.getContextPath()%>/index.jsp"
                             ><i class="fa-regular fa-user icon-dropdown"></i>Tài
                                 Khoản</a
                             >
                         </li>
                         <li>
-                            <a class="dropdown-item" href="../index.jsp"
+                            <a class="dropdown-item" href="<%= request.getContextPath()%>/index.jsp"
                             ><i class="fa-solid fa-headphones icon-dropdown"></i> Trang chủ</a
                             >
                         </li>
                         <li>
-                            <a class="dropdown-item" href="../index.jsp"
+                            <a class="dropdown-item" href="<%= request.getContextPath()%>/index.jsp"
                             ><i class="fa-solid fa-right-to-bracket icon-dropdown"></i
                             >Đăng xuất</a
                             >
@@ -108,7 +108,7 @@
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
                     <img
-                            src="../assets/pic/logo.png"
+                            src="<%= request.getContextPath()%>/assets/pic/logo.png"
                             alt="Logo"
                             style="width: 100%; background: var(--logo-color)"
                     />
@@ -134,7 +134,7 @@
 
                     <div class="d-flex main-home">
                         <span class="material-symbols-outlined pr-10"> grid_view </span>
-                        <a href="admin.jsp">Dash Board</a>
+                        <a href="<%= request.getContextPath()%>/admin/admin.jsp">Dash Board</a>
                     </div>
                 </div>
 
@@ -152,12 +152,12 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="listProduct.jsp"
+                                    <a href="<%= request.getContextPath()%>/admin/listProduct.jsp"
                                     >Danh sách sản phẩm</a
                                     >
                                 </li>
                                 <li class="sub-menu-item">
-                                    <a href="addProduct.jsp">Thêm sản phẩm</a>
+                                    <a href="<%= request.getContextPath()%>/admin/addProduct.jsp">Thêm sản phẩm</a>
                                 </li>
                             </ul>
                         </li>
@@ -171,13 +171,13 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="listCategory.jsp"
+                                    <a href="<%= request.getContextPath()%>/admin/listCategory.jsp"
                                     >Danh sách danh mục</a
                                     >
                                 </li>
 
                                 <li class="sub-menu-item">
-                                    <a href="addCategory.jsp">Danh mục mới</a>
+                                    <a href="<%= request.getContextPath()%>/admin/addCategory.jsp">Danh mục mới</a>
                                 </li>
                             </ul>
                         </li>
@@ -190,12 +190,12 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="order-list.jsp"
+                                    <a href="<%= request.getContextPath()%>/admin/order-list.jsp"
                                     >Danh sách đơn hàng</a
                                     >
                                 </li>
                                 <li class="sub-menu-item">
-                                    <a href="order-detail.jsp"
+                                    <a href="<%= request.getContextPath()%>/admin/order-detail.jsp"
                                     >Chi tiết đơn hàng</a
                                     >
                                 </li>
@@ -211,7 +211,8 @@
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
 
-                                    <a href="../all-user">Tất cả người dùng</a>
+                                    <a href="<%= request.getContextPath()%>/all-user">Tất cả người dùng</a>
+
 
                                 </li>
 
@@ -226,10 +227,10 @@
                         </div>
                         <ul class="sub-menu">
                             <li class="sub-menu-item">
-                                <a href="addPic_Index.jsp">Trang chủ</a>
+                                <a href="<%= request.getContextPath()%>/admin/addPic_Index.jsp">Trang chủ</a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="addPic_AboutUs.jsp">Trang về chúng tôi</a>
+                                <a href="<%= request.getContextPath()%>/admin/addPic_AboutUs.jsp">Trang về chúng tôi</a>
                             </li>
 
                         </ul>
@@ -243,16 +244,16 @@
                         </div>
                         <ul class="sub-menu">
                             <li class="sub-menu-item">
-                                <a href="listVoucher.jsp">Mục mã giảm giá</a>
+                                <a href="<%= request.getContextPath()%>/admin/listVoucher.jsp">Mục mã giảm giá</a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="addVoucher.jsp">Thêm mã giảm giá</a>
+                                <a href="<%= request.getContextPath()%>/admin/addVoucher.jsp">Thêm mã giảm giá</a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="listReviews.jsp">Danh sách đánh giá</a>
+                                <a href="<%= request.getContextPath()%>/admin/listReviews.jsp">Danh sách đánh giá</a>
                             </li>
                             <li class="sub-menu-item">
-                                <a href="listFeedback.jsp">Danh sách phản hồi </a>
+                                <a href="<%= request.getContextPath()%>/admin/listFeedback.jsp">Danh sách phản hồi </a>
                             </li>
 
                         </ul>
@@ -283,7 +284,7 @@
         </div>
     </div>
 </header>
-<script src="../assets/js/admin.js"></script>
-<script src="../assets/js/header_admin.js"></script>
+<script src="<%= request.getContextPath()%>/assets/js/admin.js"></script>
+<script src="<%= request.getContextPath()%>/assets/js/header_admin.js"></script>
 </body>
 </html>

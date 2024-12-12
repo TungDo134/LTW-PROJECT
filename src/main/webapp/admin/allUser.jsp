@@ -49,7 +49,6 @@
       <div class="main-container">
         <div class="header">
           <h1>Tất cả người dùng</h1>
-
         </div>
         <div id="all-user-container">
           <div class="all-user">
@@ -95,7 +94,7 @@
                 </div>
               </div>
               <ul class="list-cate list">
-               <c:forEach items="listC" var="o">
+               <c:forEach items="${listC}" var="o">
                  <li>
                    <div class="row align-items-center">
                      <div
@@ -167,6 +166,6 @@
       </div>
     </div>
 
-    <script src="../assets/js/search.js"></script>
+    <script src="<%=request.getContextPath()%>/assets/js/search.js"></script>
   </body>
 </html>

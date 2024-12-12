@@ -23,6 +23,34 @@ public class Customer {
 
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public byte getRole() {
+        return role;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
