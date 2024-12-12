@@ -210,7 +210,7 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="allUser.jsp">Tất cả người dùng</a>
+                                    <a href="../all-user">Tất cả người dùng</a>
                                 </li>
 
                             </ul>
