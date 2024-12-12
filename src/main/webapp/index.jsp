@@ -98,6 +98,7 @@
   <section class="why-choose-section">
     <div class="why-choose-container">
       <div class="wh-col-left">
+
         <h2 class="wh-title">Những lí do bạn nên chọn chúng tôi</h2>
         <p>
           Chúng tôi mang đến sự khác biệt trong từng sản phẩm, tạo niềm vui

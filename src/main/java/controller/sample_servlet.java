@@ -10,7 +10,9 @@ import java.io.IOException;
 public class sample_servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String tex="dcm mia mmmmm";
+        request.setAttribute("text",tex);
+        request.getRequestDispatcher("admin/allUser.jsp").forward(request, response);
     }
 
     @Override

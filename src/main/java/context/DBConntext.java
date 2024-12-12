@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBConntext {
     public static Connection getConnection() {
-        String jdbcURL = "jdbc:mysql://localhost:3306/test"; // Thay bằng tên database của bạn
+        String jdbcURL = "jdbc:mysql://localhost:3306/test_222"; // Thay bằng tên database của bạn
         String username = "root"; // Thay bằng username của bạn
         String password = ""; // Thay bằng mật khẩu của bạn
 

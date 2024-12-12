@@ -41,7 +41,7 @@
     />
 
 
-    <link rel="stylesheet" href="../assets/css/admin/styleAllUser.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleAllUser.css" />
   </head>
   <body class="dark-theme">
   <jsp:include page="header-admin.jsp"></jsp:include>
@@ -49,6 +49,7 @@
       <div class="main-container">
         <div class="header">
           <h1>Tất cả người dùng</h1>
+
         </div>
         <div id="all-user-container">
           <div class="all-user">
@@ -94,288 +95,37 @@
                 </div>
               </div>
               <ul class="list-cate list">
-                <li>
-                  <div class="row align-items-center">
-                    <div
-                      class="col-2 text-break d-flex align-items-center gap-2"
-                    >
-                      <img src="../assets/pic/capy.jpg" alt="" />
-                      <div class="name">
-                        <p class="text-cate">Nguyen Van A</p>
-                        <div class="text-tiny">Product name</div>
-                      </div>
-                    </div>
-                    <div class="col">#111111</div>
-                    <div class="col">84+ 778 624</div>
-                    <div class="col-2 text-break">nguyenvana@gmail.com</div>
-                    <div class="col-4">
-                      13C chung cư Hiệp Bình Chánh, đường số 23 Phạm Văn Đồng,
-                      Thành phố Thủ Đức
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div
-                      class="col-2 text-break d-flex align-items-center gap-2"
-                    >
-                      <img src="../assets/pic/capyyyy.jpg" alt="" />
-                      <div class="name">
-                        <p class="text-cate">Le Thi Hoa</p>
-                        <div class="text-tiny">Product name</div>
-                      </div>
-                    </div>
-                    <div class="col">#111111</div>
-                    <div class="col">84+ 778 772</div>
-                    <div class="col-2 text-break">lethihoa@gmail.com</div>
-                    <div class="col-4">
-                      13C chung cư Hiệp Bình Chánh, đường số 23 Phạm Văn Đồng,
-                      Thành phố Thủ Đức
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div
-                      class="col-2 text-break d-flex align-items-center gap-2"
-                    >
-                      <img src="../assets/pic/images.jpg" alt="" />
-                      <div class="name">
-                        <p class="text-cate">Tran Lam</p>
-                        <div class="text-tiny">Product name</div>
-                      </div>
-                    </div>
-                    <div class="col">#111111</div>
-                    <div class="col">84+ 778 883</div>
-                    <div class="col-2 text-break">tranlam@gmail.com</div>
-                    <div class="col-4">
-                      13C chung cư Hiệp Bình Chánh, đường số 23 Phạm Văn Đồng,
-                      Thành phố Thủ Đức
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div
-                      class="col-2 text-break d-flex align-items-center gap-2"
-                    >
-                      <img src="../assets/pic/capy.jpg" alt="" />
-                      <div class="name">
-                        <p class="text-cate">Nguyen Gia Bao</p>
-                        <div class="text-tiny">Product name</div>
-                      </div>
-                    </div>
-                    <div class="col">#111111</div>
-                    <div class="col">84+ 665 123</div>
-                    <div class="col-2 text-break">
-                      <p>nguyengiabaobaovao@gmail.com</p>
-                    </div>
-                    <div class="col-4">
-                      13C chung cư Hiệp Bình Chánh, đường số 23 Phạm Văn Đồng,
-                      Thành phố Thủ Đức
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div
-                      class="col-2 text-break d-flex align-items-center gap-2"
-                    >
-                      <img src="../assets/pic/capy.jpg" alt="" />
-                      <div class="name">
-                        <p class="text-cate">Vo Ngan</p>
-                        <div class="text-tiny">Product name</div>
-                      </div>
-                    </div>
-                    <div class="col">#111111</div>
-                    <div class="col">84+ 223 476</div>
-                    <div class="col-2 text-break">nganvo@gmail.com</div>
-                    <div class="col-4">
-                      13C chung cư Hiệp Bình Chánh, đường số 23 Phạm Văn Đồng,
-                      Thành phố Thủ Đức
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div
-                      class="col-2 text-break d-flex align-items-center gap-2"
-                    >
-                      <img src="../assets/pic/capy.jpg" alt="" />
-                      <div class="name">
-                        <p class="text-cate">Tan Tai</p>
-                        <div class="text-tiny">Product name</div>
-                      </div>
-                    </div>
-                    <div class="col">#111111</div>
-                    <div class="col">84+ 223 398</div>
-                    <div class="col-2 text-break">tantai@gmail.com</div>
-                    <div class="col-4">
-                      13C chung cư Hiệp Bình Chánh, đường số 23 Phạm Văn Đồng,
-                      Thành phố Thủ Đức
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div
-                      class="col-2 text-break d-flex align-items-center gap-2"
-                    >
-                      <img src="../assets/pic/capy.jpg" alt="" />
-                      <div class="name">
-                        <p class="text-cate">Ly Mui Pu</p>
-                        <div class="text-tiny">Product name</div>
-                      </div>
-                    </div>
-                    <div class="col">#111111</div>
-                    <div class="col">84+ 223 965</div>
-                    <div class="col-2 text-break">lymuipu@gmail.com</div>
-                    <div class="col-4">
-                      13C chung cư Hiệp Bình Chánh, đường số 23 Phạm Văn Đồng,
-                      Thành phố Thủ Đức
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div
-                      class="col-2 text-break d-flex align-items-center gap-2"
-                    >
-                      <img src="../assets/pic/capy.jpg" alt="" />
-                      <div class="name">
-                        <p class="text-cate">Nguyen Quang</p>
-                        <div class="text-tiny">Product name</div>
-                      </div>
-                    </div>
-                    <div class="col">#111111</div>
-                    <div class="col">84+ 972 190</div>
-                    <div class="col-2 text-break">nguyenquangg@gmail.com</div>
-                    <div class="col-4">
-                      13C chung cư Hiệp Bình Chánh, đường số 23 Phạm Văn Đồng,
-                      Thành phố Thủ Đức
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div
-                      class="col-2 text-break d-flex align-items-center gap-2"
-                    >
-                      <img src="../assets/pic/capy.jpg" alt="" />
-                      <div class="name">
-                        <p class="text-cate">Do Ha</p>
-                        <div class="text-tiny">Product name</div>
-                      </div>
-                    </div>
-                    <div class="col">#111111</div>
-                    <div class="col">84+ 764 389</div>
-                    <div class="col-2 text-break">doha@gmail.com</div>
-                    <div class="col-4">
-                      13C chung cư Hiệp Bình Chánh, đường số 23 Phạm Văn Đồng,
-                      Thành phố Thủ Đức
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div
-                      class="col-2 text-break d-flex align-items-center gap-2"
-                    >
-                      <img src="../assets/pic/capy.jpg" alt="" />
-                      <div class="name">
-                        <p class="text-cate">Huynh Minh Mai</p>
-                        <div class="text-tiny">Product name</div>
-                      </div>
-                    </div>
-                    <div class="col">#111111</div>
-                    <div class="col">84+ 223 250</div>
-                    <div class="col-2 text-break">huynhminhmai@gmail.com</div>
-                    <div class="col-4">
-                      13C chung cư Hiệp Bình Chánh, đường số 23 Phạm Văn Đồng,
-                      Thành phố Thủ Đức
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
+               <c:forEach items="listC" var="o">
+                 <li>
+                   <div class="row align-items-center">
+                     <div
+                             class="col-2 text-break d-flex align-items-center gap-2"
+                     >
+                       <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
+                       <div class="name">
+                         <p class="text-cate">${o.name}</p>
+                         <div class="text-tiny">Product name</div>
+                       </div>
+                     </div>
+                     <div class="col">${o.id}</div>
+                     <div class="col">${o.phone}</div>
+                     <div class="col-2 text-break">${o.email}</div>
+                     <div class="col-4">
+                       ${o.address}
+                     </div>
+                     <div class="col">
+                       <div class="icon-action d-flex justify-content-around">
+                         <i
+                                 class="fa-regular fa-trash-can"
+                                 style="color: #ff5200"
+                         ></i>
+                       </div>
+                     </div>
+                   </div>
+                 </li>
+
+               </c:forEach>
+
               </ul>
             </div>
           </div>
