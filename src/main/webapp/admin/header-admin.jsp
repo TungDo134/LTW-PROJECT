@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../assets/css/styleAdmin.css">
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/styleAdmin.css">
 </head>
 <body>
 <header id="header-dashboard">
@@ -60,7 +60,7 @@
                     >
                 <span class="header-user wg-user">
                   <span class="image">
-                    <img src="../assets/pic/capy.jpg" alt="" />
+                    <img src="<%=request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
                   </span>
                   <span class="d-flex flex-column align-items-baseline">
                     <span class="name body-title">Do Son Tung</span>
@@ -210,7 +210,9 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="all-user">Tất cả người dùng</a>
+
+                                    <a href="../sample_servlet">Tất cả người dùng</a>
+
                                 </li>
 
                             </ul>
