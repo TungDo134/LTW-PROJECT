@@ -100,33 +100,35 @@
                         </div>
                     </div>
                     <ul class="list-feedback list">
-                        <li>
-                            <div class="row align-items-center">
-                                <div
-                                        class="col-2 text-break d-flex align-items-center gap-2"
-                                >
-                                    <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
-                                    <div class="name">
-                                        <p class="text-cate">Nguyen Van A</p>
+                       <c:forEach items="${listF}" var="o">
+                           <li>
+                               <div class="row align-items-center">
+                                   <div
+                                           class="col-2 text-break d-flex align-items-center gap-2"
+                                   >
+                                       <img src="<%= request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
+                                       <div class="name">
+                                           <p class="text-cate">${o.customerName}</p>
 
-                                    </div>
-                                </div>
+                                       </div>
+                                   </div>
 
 
-                                <div class="col-2 text-break">nguyenvana@gmail.com</div>
-                                <div class="col-6">
-                                    Xin lỗi, hãy liên hệ chúng tôi để khắc phục hậu quả
-                                </div>
-                                <div class="col-2">
-                                    <a href="#">
-                                        <i
-                                                class="fa-regular fa-trash-can"
-                                                style="color: #ff5200"
-                                        ></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
+                                   <div class="col-2 text-break">${o.email}</div>
+                                   <div class="col-6">
+                                       ${o.fContent}
+                                   </div>
+                                   <div class="col-2">
+                                       <a href="#">
+                                           <i
+                                                   class="fa-regular fa-trash-can"
+                                                   style="color: #ff5200"
+                                           ></i>
+                                       </a>
+                                   </div>
+                               </div>
+                           </li>
+                       </c:forEach>
 
 
                     </ul>
