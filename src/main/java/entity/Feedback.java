@@ -1,0 +1,41 @@
+package entity;
+
+public class Feedback {
+    public int fID;
+    public String customerName;
+    public String email;
+    public String fContent;
+
+    public Feedback(int fID, String customerName, String email, String fContent) {
+        this.fID = fID;
+        this.customerName = customerName;
+        this.email = email;
+        this.fContent = fContent;
+    }
+
+    public int getfID() {
+        return fID;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getfContent() {
+        return fContent;
+    }
+
+    @Override
+    public String toString() {
+        return "Feedback{" +
+                "fID=" + fID +
+                ", customerName='" + customerName + '\'' +
+                ", email='" + email + '\'' +
+                ", fContent='" + fContent + '\'' +
+                '}';
+    }
+}
