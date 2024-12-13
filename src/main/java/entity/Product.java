@@ -25,6 +25,10 @@ public class Product {
         this.shortDes = shortDes;
     }
 
+    public Product(){
+
+    }
+
     public int getProductID() {
         return productID;
     }
