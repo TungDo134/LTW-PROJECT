@@ -40,8 +40,6 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
-
-
     <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleAddCate.css" />
   </head>
   <body class="dark-theme">
@@ -53,7 +51,7 @@
         </div>
         <div id="addNewCate-container">
           <div class="row align-items-center">
-            <form action="">
+            <form action="<%= request.getContextPath()%>/add-newCate" method="post">
               <div class="col">
                 <div class="content-addNew" style="margin-bottom: 40px">
                   Tên danh mục
@@ -61,23 +59,15 @@
               </div>
               <div class="col col-input">
                 <div class="content-addNew">
-                  <input required="" type="text" placeholder="Vd: Balo" />
-                  <button type="submit">Thêm</button>
+                    <label for="cate"></label>
+                    <input required="" type="text" placeholder="Vd: Balo" name="cate" id="cate"/>
+                    <button type="submit">Thêm</button>
                 </div>
               </div>
             </form>
           </div>
-
-          <!-- <div class="row align-items-center-1">
-            <div class="col col-input">
-              <div class="content-addNew">
-                <button type="button">Thêm</button> 
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
     </div>
-
   </body>
 </html>
