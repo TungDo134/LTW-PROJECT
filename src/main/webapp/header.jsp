@@ -105,7 +105,7 @@
                         <li class="nav-item dropdown w-100 custom-width-lg">
                             <a
                                     class="nav-link dropdown-toggle"
-                                    href="product.jsp"
+                                    href="products"
                                     role="button"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
