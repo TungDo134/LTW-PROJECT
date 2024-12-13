@@ -41,7 +41,7 @@
     />
 
 
-    <link rel="stylesheet" href="../assets/css/admin/styleListProduct.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleListProduct.css" />
   </head>
   <body class="dark-theme">
   <jsp:include page="header-admin.jsp"></jsp:include>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="col-4 text-end">
                   <a
-                    href="../admin/addProduct.jsp"
+                    href="<%= request.getContextPath()%>/admin/addProduct.jsp"
                     class="add-btn d-inline-block bg-white text-center text-decoration-none"
                     ><i class="fa-solid fa-plus" style="padding-right: 4px"></i>
                     Add new</a
@@ -304,6 +304,6 @@
       </div>
     </div>
 
-    <script src="../assets/js/search.js"></script>
+    <script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
   </body>
 </html>

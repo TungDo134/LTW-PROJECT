@@ -42,7 +42,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
 
-    <link rel="stylesheet" href="../assets/css/styleAdmin.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/styleAdmin.css" />
   </head>
   <body class="dark-theme">
     <jsp:include page="header-admin.jsp"></jsp:include>

@@ -12,14 +12,18 @@ import java.util.List;
 
 public class CustomerDAO {
 
-    public static List<Customer> getAllUser() {
-        List<Customer> list = new ArrayList<>();
-        String query = "SELECT * FROM customers";
+    public  List<Customer> getAllUser() {
+
+        ArrayList<Customer> list = new ArrayList<>();
+
         try {
             Connection conn = DBConntext.getConnection();
-            //
-            PreparedStatement preparedStatement = conn.prepareStatement(query);
-            ResultSet rs = preparedStatement.executeQuery();
+
+            String query = "SELECT * FROM customers";
+            PreparedStatement pst = conn.prepareStatement(query);
+
+            System.out.println(query);
+            ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
                 list.add(new Customer(
