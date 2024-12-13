@@ -16,7 +16,7 @@ public class CategoryDAO {
         try {
             Connection conn = DBConntext.getConnection();
 
-            String query = "SELECT * FROM Category";
+            String query = "SELECT * FROM categories";
             PreparedStatement pst = conn.prepareStatement(query);
 
             System.out.println(query);

@@ -1,1 +1,0 @@
-let table = new DataTable('.list');

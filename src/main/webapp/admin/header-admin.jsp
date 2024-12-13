@@ -13,7 +13,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
     <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/styleAdmin.css">
 </head>
 <body>
@@ -172,9 +171,7 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%=request.getContextPath()%>/show-all-cate"
-                                    >Danh sách danh mục</a
-                                    >
+                                    <a href="<%=request.getContextPath()%>/get-all-cate">Danh sách danh mục</a>
                                 </li>
 
                                 <li class="sub-menu-item">
@@ -214,8 +211,6 @@
 
 
                                     <a href="<%= request.getContextPath()%>/all-user">Tất cả người dùng</a>
-
-
 
 
                                 </li>
@@ -293,6 +288,5 @@
 </header>
 <script src="<%= request.getContextPath()%>/assets/js/admin.js"></script>
 <script src="<%= request.getContextPath()%>/assets/js/header_admin.js"></script>
-<script src="<%= request.getContextPath()%>/assets/js/datatable.js"></script>
 </body>
 </html>
