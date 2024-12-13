@@ -32,7 +32,7 @@
             </div>
             <form action="#" class="form-search flex-grow-1">
                 <div class="form-control-cus">
-                    <input type="text" placeholder="Tìm kiếm" />
+                    <input type="text" placeholder="Tìm kiếm"/>
                 </div>
             </form>
             <div class="btn-submit">
@@ -60,7 +60,7 @@
                     >
                 <span class="header-user wg-user">
                   <span class="image">
-                    <img src="<%=request.getContextPath()%>/assets/pic/capy.jpg" alt="" />
+                    <img src="<%=request.getContextPath()%>/assets/pic/capy.jpg" alt=""/>
                   </span>
                   <span class="d-flex flex-column align-items-baseline">
                     <span class="name body-title">Do Son Tung</span>
@@ -171,9 +171,7 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%=request.getContextPath()%>/show-all-cate"
-                                    >Danh sách danh mục</a
-                                    >
+                                    <a href="<%=request.getContextPath()%>/get-all-cate">Danh sách danh mục</a>
                                 </li>
 
                                 <li class="sub-menu-item">
@@ -215,52 +213,53 @@
                                     <a href="<%= request.getContextPath()%>/all-user">Tất cả người dùng</a>
 
 
-
-
                                 </li>
 
                             </ul>
                         </li>
                         <li class="item item-dropdown">
-                        <div class="d-flex">
+                            <div class="d-flex">
                     <span class="material-symbols-outlined pr-10">
                       add_photo_alternate
                     </span>
-                            <a href="#">Chỉnh ảnh</a>
-                        </div>
-                        <ul class="sub-menu">
-                            <li class="sub-menu-item">
-                                <a href="<%= request.getContextPath()%>/admin/addPic_Index.jsp">Trang chủ</a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="<%= request.getContextPath()%>/admin/addPic_AboutUs.jsp">Trang về chúng tôi</a>
-                            </li>
+                                <a href="#">Chỉnh ảnh</a>
+                            </div>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="<%= request.getContextPath()%>/admin/addPic_Index.jsp">Trang chủ</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="<%= request.getContextPath()%>/admin/addPic_AboutUs.jsp">Trang về chúng
+                                        tôi</a>
+                                </li>
 
-                        </ul>
-                    </li>
+                            </ul>
+                        </li>
                         <li class="item item-dropdown">
-                        <div class="d-flex">
+                            <div class="d-flex">
                     <span class="material-symbols-outlined pr-10">
                       edit_document
                     </span>
-                            <a href="#"> Quản lý thông tin </a>
-                        </div>
-                        <ul class="sub-menu">
-                            <li class="sub-menu-item">
-                                <a href="<%= request.getContextPath()%>/admin/listVoucher.jsp">Mục mã giảm giá</a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="<%= request.getContextPath()%>/admin/addVoucher.jsp">Thêm mã giảm giá</a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="<%= request.getContextPath()%>/admin/listReviews.jsp">Danh sách đánh giá</a>
-                            </li>
-                            <li class="sub-menu-item">
-                                <a href="<%= request.getContextPath()%>/admin/listFeedback.jsp">Danh sách phản hồi </a>
-                            </li>
+                                <a href="#"> Quản lý thông tin </a>
+                            </div>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="<%= request.getContextPath()%>/admin/listVoucher.jsp">Mục mã giảm giá</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="<%= request.getContextPath()%>/admin/addVoucher.jsp">Thêm mã giảm giá</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="<%= request.getContextPath()%>/admin/listReviews.jsp">Danh sách đánh
+                                        giá</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="<%= request.getContextPath()%>/admin/listFeedback.jsp">Danh sách phản
+                                        hồi </a>
+                                </li>
 
-                        </ul>
-                    </li>
+                            </ul>
+                        </li>
 
                     </ul>
                 </nav>
