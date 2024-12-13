@@ -98,60 +98,14 @@
                         </div>
                     </div>
                     <ul class="list-cmt list">
+                        <c:forEach items="${listV}" var="o">
                         <li>
                             <div class="row row-cols-2 align-items-center">
-                                <div class="col">#HelloCaNha</div>
-                                <div class="col">10%</div>
+                                <div class="col">${o.code}</div>
+                                <div class="col">${o.discount}</div>
                             </div>
                         </li>
-                        <li>
-                            <div class="row row-cols-2 align-items-center">
-                                <div class="col">#HelloCaNha</div>
-                                <div class="col">10%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row row-cols-2 align-items-center">
-                                <div class="col">#HelloCaNha</div>
-                                <div class="col">10%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row row-cols-2 align-items-center">
-                                <div class="col">#HelloCaNha</div>
-                                <div class="col">10%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row row-cols-2 align-items-center">
-                                <div class="col">#HelloCaNha</div>
-                                <div class="col">10%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row row-cols-2 align-items-center">
-                                <div class="col">#HelloCaNha</div>
-                                <div class="col">10%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row row-cols-2 align-items-center">
-                                <div class="col">#HelloCaNha</div>
-                                <div class="col">10%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row row-cols-2 align-items-center">
-                                <div class="col">#HelloCaNha</div>
-                                <div class="col">10%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="row row-cols-2 align-items-center">
-                                <div class="col">#HelloCaNha</div>
-                                <div class="col">10%</div>
-                            </div>
-                        </li>
+                        </c:forEach>
 
                     </ul>
                 </div>
