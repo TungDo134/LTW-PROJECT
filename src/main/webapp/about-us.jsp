@@ -1,3 +1,5 @@
+<%@ page import="entity.AboutUsPic" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -30,7 +32,8 @@
   <body>
   <jsp:include page="header.jsp"></jsp:include>
 
-  <main id="about-us-container">
+  <% List<AboutUsPic> list = (List<AboutUsPic>) request.getAttribute("aboutuspictures");%>
+  <main id="about-us-container" style="margin-top: 4rem">
       <div class="background-split back-1">
         <h1>Sứ Mệnh của Chúng Tôi</h1>
         <p>
@@ -42,10 +45,10 @@
         </p>
       </div>
       <div class="background-split back-2">
-        <img src="assets/pic/back_2.jpg" alt="Background Image 1" />
+        <img src="assets/pic/Aboutus/<%= list.get(0).getImg1()%>" alt="Background Image 1" />
       </div>
       <div class="background-split back-3">
-        <img src="assets/pic/back5.jpg" alt="Background Image 2" />
+        <img src="assets/pic/Aboutus/<%= list.get(0).getImg4()%>" alt="Background Image 2" />
       </div>
       <div class="background-split back-4">
         <h1>Chất Lượng Là Trên Hết</h1>
@@ -68,10 +71,10 @@
         </p>
       </div>
       <div class="background-split back-6">
-        <img src="assets/pic/back_3.jpg" alt="Background Image 3" />
+        <img src="assets/pic/Aboutus/<%= list.get(0).getImg2()%>" alt="Background Image 3" />
       </div>
       <div class="back_ground_aboutUS">
-        <img src="assets/pic/back_end.jpeg" alt="">
+        <img src="assets/pic/Aboutus/<%= list.get(0).getImg3()%>" alt="">
         <div class="frame_element">
           <h2>Go further with a subscription</h2>
           <div class="icon-3-background">
@@ -102,19 +105,19 @@
       <div class="my-team">
         <div class="item">
           <img
-            src="assets/pic/843a1287113455bc84255bdeee08d63b.jpg"
+            src="assets/pic/Aboutus/<%= list.get(0).getMember1()%>"
             alt="Image 1"
           />
           <h3>Tùng Đỗ</h3>
           <p>CEO</p>
         </div>
         <div class="item">
-          <img src="assets/pic/capy.jpg" alt="Image 2" />
+          <img src="assets/pic/Aboutus/<%= list.get(0).getMember3()%>" alt="Image 2" />
           <h3>Thảoo Vânn</h3>
           <p>Co.Founder</p>
         </div>
         <div class="item">
-          <img src="assets/pic/capyyyy.jpg" alt="Image 3" />
+          <img src="assets/pic/Aboutus/<%= list.get(0).getMember2()%>" alt="Image 3" />
           <h3>Trần Khải</h3>
           <p>Co.Founder</p>
         </div>

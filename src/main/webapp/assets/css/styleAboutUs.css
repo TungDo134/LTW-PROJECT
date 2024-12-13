@@ -8,7 +8,7 @@ body {
 }
 
 #about-us-container {
-  margin-top: 9rem;
+  margin-top: 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
@@ -181,6 +181,7 @@ img {
   text-align: center;
   width: 200px;
   margin: 10px;
+  height: 200px;
 }
 
 #intro-team .item > img {

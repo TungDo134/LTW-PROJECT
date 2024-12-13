@@ -158,7 +158,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about-us.jsp">Về chúng tôi</a>
+                            <a class="nav-link" href="AboutUsPicController">Về chúng tôi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact-us.jsp">Liên hệ</a>
