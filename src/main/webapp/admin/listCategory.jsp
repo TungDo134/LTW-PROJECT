@@ -106,10 +106,11 @@
                 </div>
               </div>
               <ul class="list-cate list">
+                <c:forEach items="${listC}" var="o">
                 <li>
                   <div class="row align-items-center">
-                    <div class="col">Bút bi</div>
-                    <div class="col">#11111111</div>
+                    <div class="col">${o.name}</div>
+                    <div class="col">${o.id}</div>
                     <div class="col">
                       <div class="icon-action d-flex justify-content-around">
                         <a href="/admin/addCategory.jsp">
@@ -127,98 +128,8 @@
                   </div>
                 </li>
                 <li>
-                  <div class="row align-items-center">
-                    <div class="col">Bút bi</div>
-                    <div class="col">#11111111</div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-pen-to-square"
-                          style="color: #22c55e"
-                        ></i>
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div class="col">Bút bi</div>
-                    <div class="col">#11111111</div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-pen-to-square"
-                          style="color: #22c55e"
-                        ></i>
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div class="col">Bút bi</div>
-                    <div class="col">#11111111</div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-pen-to-square"
-                          style="color: #22c55e"
-                        ></i>
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div class="col">Bút bi</div>
-                    <div class="col">#11111111</div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-pen-to-square"
-                          style="color: #22c55e"
-                        ></i>
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div class="col">Bút bi</div>
-                    <div class="col">#11111111</div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <i
-                          class="fa-regular fa-pen-to-square"
-                          style="color: #22c55e"
-                        ></i>
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+                  </c:forEach>
+
           <div class="row">
             <div class="col-6">Hiển thị 10 mục</div>
             <div class="col-6">

@@ -171,7 +171,7 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/listCategory.jsp"
+                                    <a href="<%=request.getContextPath()%>/show-all-cate"
                                     >Danh sách danh mục</a
                                     >
                                 </li>
