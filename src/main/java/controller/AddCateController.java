@@ -1,5 +1,6 @@
 package controller;
 
+import dao.CategoryDAO;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -15,7 +16,10 @@ public class AddCateController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String value = request.getParameter("cate");
-        System.out.println(value);
+        String name = request.getParameter("cate");
+        CategoryDAO categoryDAO= new CategoryDAO();
+        categoryDAO.insertCate(name);
+        String url=request.getContextPath();
+        response.sendRedirect(url+"/admin/addCategory.jsp");
     }
 }

@@ -34,4 +34,20 @@ public class CategoryDAO {
         }
         return list;
     }
+
+    public void insertCate(String name){
+        try {
+            Connection conn = DBConntext.getConnection();
+            String query = "INSERT INTO  categories (CateName) values (?) ";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1, name);
+
+            System.out.println(query);
+            pst.executeUpdate();
+            DBConntext.closeConnection(conn);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

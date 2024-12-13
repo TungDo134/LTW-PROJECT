@@ -41,10 +41,10 @@
 <body>
 
 <jsp:include page="header.jsp"></jsp:include>
-<% List<HomePicture> list = (List<HomePicture>) request.getAttribute("homepictures"); %>
+
 
 <main id="home-container">
-
+    <% List<HomePicture> list = (List<HomePicture>) request.getAttribute("homepictures"); %>
     <!-- Banner -->
     <section class="banner-hero">
         <!-- Banner bootstrap -->
