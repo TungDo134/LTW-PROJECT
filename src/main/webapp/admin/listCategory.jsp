@@ -167,7 +167,7 @@
             </div>
         </div>
     </div>
-</div>
-<script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
-</body>
+    </div>
+    <script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
+  </body>
 </html>

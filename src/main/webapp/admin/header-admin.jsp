@@ -244,7 +244,7 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/listVoucher.jsp">Mục mã giảm giá</a>
+                                    <a href="<%= request.getContextPath()%>/all-coupon">Mục mã giảm giá</a>
                                 </li>
                                 <li class="sub-menu-item">
                                     <a href="<%= request.getContextPath()%>/admin/addVoucher.jsp">Thêm mã giảm giá</a>
