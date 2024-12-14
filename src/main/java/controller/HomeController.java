@@ -9,22 +9,18 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "getHomePictureController", value = "/HomePic")
-public class getHomePictureController extends HttpServlet {
+@WebServlet(name = "HomeController", value = "/home")
+public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HomePictureDAO homePicDAO = new HomePictureDAO();
         List<HomePicture> homePic= homePicDAO.getHomePic();
-        for (HomePicture homePicture : homePic) {
-            System.out.println(homePicture);
-
-        }
         request.setAttribute("homepictures", homePic);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doGet(request,response);
     }
 }

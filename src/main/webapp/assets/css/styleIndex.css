@@ -10,6 +10,10 @@
   background-color: #faf7f0;
 }
 
+#home-container .banner-hero{
+  box-shadow: 0 0 5px 0 rgba(102, 102, 102, 0.4);
+}
+
 #home-container .why-choose-section {
   display: flex;
   margin-top: 3rem;

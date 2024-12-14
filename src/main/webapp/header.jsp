@@ -98,7 +98,7 @@
 
                     <ul class="navbar-nav align-items-start">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="HomePic"
+                            <a class="nav-link" aria-current="page" href="home"
                             >Trang Chủ</a
                             >
                         </li>
