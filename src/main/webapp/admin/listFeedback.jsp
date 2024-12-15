@@ -76,12 +76,8 @@
                             <td>${o.email}</td>
                             <td> ${o.fContent}</td>
                             <td>
-                                <a href="#">
-                                    <i
-                                            class="fa-regular fa-trash-can"
-                                            style="color: #ff5200"
-                                    ></i>
-                                </a>
+                                <a class="btn btn-danger btn-customize" href="#" role="button">Xóa</a>
+
                             </td>
                         </tr>
                     </c:forEach>

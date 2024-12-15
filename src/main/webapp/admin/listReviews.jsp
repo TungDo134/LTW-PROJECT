@@ -79,7 +79,9 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td>
+                                <a class="btn btn-primary btn-customize" href="#" role="button">Duyệt</a>
+                            </td>
                         </tr>
                     </c:forEach>
                     </tbody>

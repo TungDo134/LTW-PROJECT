@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Header Example</title>
+    <title>Tất cả người dùng</title>
     <!-- Bootstrap  -->
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -75,20 +75,10 @@
                         <td>${o.email}</td>
                         <td> ${o.address}</td>
                         <td>
-                            <a href="<%=request.getContextPath()%>/admin/addCategory.jsp"
-                               style="padding-right: 10px;
-color: transparent">
-                                <i
-                                        class="fa-regular fa-pen-to-square"
-                                        style="color: #22c55e"
-                                ></i>
-                            </a>
-                            <a>
-                                <i
-                                        class="fa-regular fa-trash-can"
-                                        style="color: #ff5200"
-                                ></i>
-                            </a>
+                            <a class="btn btn-success btn-customize" href="#" role="button">Chỉnh sửa</a>
+                            <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/admin/addUser.jsp" role="button">Thêm</a>
+                            <a class="btn btn-danger btn-customize" href="#" role="button">Xóa</a>
+
                         </td>
                     </tr>
                 </c:forEach>

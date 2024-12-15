@@ -72,20 +72,10 @@
                             <td>${o.code}</td>
                             <td>${o.discount}</td>
                             <td>
-                                <a href="<%=request.getContextPath()%>/admin/addCategory.jsp"
-                                   style="padding-right: 10px;
-color: transparent">
-                                    <i
-                                            class="fa-regular fa-pen-to-square"
-                                            style="color: #22c55e"
-                                    ></i>
-                                </a>
-                                <a>
-                                    <i
-                                            class="fa-regular fa-trash-can"
-                                            style="color: #ff5200"
-                                    ></i>
-                                </a>
+                                <a class="btn btn-success btn-customize" href="#" role="button">Chỉnh sửa</a>
+                                <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/admin/addVoucher.jsp" role="button">Thêm</a>
+                                <a class="btn btn-danger btn-customize" href="#" role="button">Xóa</a>
+
                             </td>
                         </tr>
                     </c:forEach>

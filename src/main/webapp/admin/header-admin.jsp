@@ -36,25 +36,6 @@
                 ><i class="fa-solid fa-bars"></i>
                 </a>
             </div>
-            <form action="#" class="form-search flex-grow-1">
-                <div class="form-control-cus">
-                    <input type="text" placeholder="Tìm kiếm"/>
-                </div>
-            </form>
-            <div class="btn-submit">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-        </div>
-        <div class="header-right">
-            <div class="toggle-theme icon" style="padding: 8px; cursor: pointer">
-                <span class="material-symbols-outlined"> sunny </span>
-            </div>
-            <div class="notify icon" style="display: none">
-                <i class="fa-regular fa-bell"></i>
-            </div>
-            <div class="icon" style="display: none">
-                <i class="fa-regular fa-message"></i>
-            </div>
             <div class="user icon">
                 <div class="dropdown">
                     <button
@@ -76,7 +57,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="<%= request.getContextPath()%>/index.jsp"
+                            <a class="dropdown-item" href="<%= request.getContextPath()%>/home"
                             ><i class="fa-regular fa-user icon-dropdown"></i>Tài
                                 Khoản</a
                             >
@@ -95,12 +76,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="setting" style="display: none">
-                <button class="btn" type="button">
-                    <i class="fa-solid fa-gear icon-setting"></i>
-                </button>
-            </div>
         </div>
+
     </div>
     <div id="sub-header">
         <div

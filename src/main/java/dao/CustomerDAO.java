@@ -67,7 +67,6 @@ public class CustomerDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
     }
