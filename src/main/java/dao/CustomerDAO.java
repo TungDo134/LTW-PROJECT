@@ -42,4 +42,32 @@ public class CustomerDAO {
         }
         return list;
     }
+    public Customer getUserByEmail(String email, String pass){
+        try {
+            Connection conn = DBConntext.getConnection();
+
+            String query = "SELECT * FROM customers WHERE email = ? AND pass = ?";
+            PreparedStatement pst = conn.prepareStatement(query);
+            pst.setString(1,email);
+            pst.setString(2,pass);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                return new Customer(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getByte(7)
+                );
+            }
+            System.out.println(query);
+            DBConntext.closeConnection(conn);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
     }
