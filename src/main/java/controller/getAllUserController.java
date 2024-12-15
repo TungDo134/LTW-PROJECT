@@ -1,6 +1,7 @@
 package controller;
 
 import dao.CustomerDAO;
+import dao.JDBI_Customer_DAO;
 import entity.Customer;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
@@ -13,8 +14,12 @@ import java.util.List;
 public class getAllUserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CustomerDAO cusDao = new CustomerDAO();
-        List<Customer> listC= cusDao.getAllUser();
+//        CustomerDAO cusDao = new CustomerDAO();
+//        List<Customer> listC= cusDao.getAllUser();
+
+        JDBI_Customer_DAO dao = new JDBI_Customer_DAO();
+        List<Customer> listC = dao.getUsers();
+
         request.setAttribute("listC", listC);
         request.getRequestDispatcher("admin/allUser.jsp").forward(request, response);
     }

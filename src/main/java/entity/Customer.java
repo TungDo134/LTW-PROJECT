@@ -1,6 +1,10 @@
 package entity;
 
-public class Customer {
+import org.jdbi.v3.core.mapper.reflect.ColumnName;
+
+import java.io.Serializable;
+
+public class Customer implements Serializable {
     public int id;
     public String name;
     public String email;
@@ -9,7 +13,11 @@ public class Customer {
     public String address;
     public byte role;
 
-    public Customer(int id, String name, String email, String pass, String phone, String address, byte role) {
+    public Customer() {
+    }
+
+
+    public Customer( int id, String name, String email, String pass, String phone, String address, byte role) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -19,13 +27,12 @@ public class Customer {
         this.role = role;
     }
 
-    public Customer(){
-    }
-
+    @ColumnName("customerID")
     public int getId() {
         return id;
     }
 
+    @ColumnName("customerName")
     public String getName() {
         return name;
     }
@@ -48,6 +55,34 @@ public class Customer {
 
     public byte getRole() {
         return role;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setRole(byte role) {
+        this.role = role;
     }
 
     @Override

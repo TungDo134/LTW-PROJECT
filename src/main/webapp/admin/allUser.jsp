@@ -62,6 +62,7 @@
                     <th>Số điện thoại</th>
                     <th>Email</th>
                     <th>Địa chỉ</th>
+                    <th>Quyền</th>
                     <th>Hành động</th>
                 </tr>
                 </thead>
@@ -73,10 +74,19 @@
                         <td>${o.id}</td>
                         <td>${o.phone}</td>
                         <td>${o.email}</td>
-                        <td> ${o.address}</td>
+                        <td> ${o.address} </td>
+                        <td>
+                            <c:if test="${o.role == 1}">
+                                Admin
+                            </c:if>
+                            <c:if test="${o.role == 0}">
+                                Người dùng
+                            </c:if>
+                        </td>
                         <td>
                             <a class="btn btn-success btn-customize" href="#" role="button">Chỉnh sửa</a>
-                            <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/admin/addUser.jsp" role="button">Thêm</a>
+                            <a class="btn btn-primary btn-customize"
+                               href="<%=request.getContextPath()%>/admin/addUser.jsp" role="button">Thêm</a>
                             <a class="btn btn-danger btn-customize" href="#" role="button">Xóa</a>
 
                         </td>

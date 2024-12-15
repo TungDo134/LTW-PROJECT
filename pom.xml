@@ -62,35 +62,53 @@
             <scope>provided</scope>
         </dependency>
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.microsoft.sqlserver</groupId>-->
-<!--            <artifactId>mssql-jdbc</artifactId>-->
-<!--            <version>12.6.2.jre11</version>-->
-<!--        </dependency>-->
-
-
-
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <!-- Mysql Connector-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
         </dependency>
-
+        <!-- Mysql Connector-->
 
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
             <version>3.0.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
             <version>3.0.1</version>
         </dependency>
 
+        <!-- JDBI & SLF4J -->
+        <dependency>
+            <groupId>org.jdbi</groupId>
+            <artifactId>jdbi3-core</artifactId>
+            <version>3.47.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+
+        <!-- JDBI & SLF4J -->
     </dependencies>
+
     <build>
         <finalName>E-commerce-my-project</finalName>
     </build>

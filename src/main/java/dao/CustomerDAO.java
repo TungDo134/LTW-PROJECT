@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CustomerDAO {
 
-    public  List<Customer> getAllUser() {
+    public static   List<Customer> getAllUser() {
 
         ArrayList<Customer> list = new ArrayList<>();
 
@@ -68,5 +68,13 @@ public class CustomerDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        CustomerDAO dao = new CustomerDAO();
+        ArrayList<Customer> list= (ArrayList<Customer>) dao.getAllUser();
+        for (Customer customer : list) {
+            System.out.println(customer+"\n");
+        }
     }
     }
