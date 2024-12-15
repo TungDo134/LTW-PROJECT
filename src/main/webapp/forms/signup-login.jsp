@@ -87,14 +87,14 @@
         </div>
 
         <div class="login">
-          <form>
+          <form id="login-form" method="post" action="<%= request.getContextPath()%>/login">
             <label class="label-Login" for="chk" aria-hidden="true"
               >Đăng Nhập</label
             >
-            <input type="email" name="email" placeholder="Email" required="" />
+            <input type="email" name="email-login" placeholder="Email" required="" />
             <input
               type="password"
-              name="pswd"
+              name="password-login"
               placeholder="Password"
               required=""
             />

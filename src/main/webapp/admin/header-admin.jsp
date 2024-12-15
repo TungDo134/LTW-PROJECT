@@ -215,6 +215,9 @@
 
 
                                 </li>
+                                <li class="sub-menu-item">
+                                    <a href="<%= request.getContextPath()%>/admin/addUser.jsp">Thêm người dùng</a>
+                                </li>
 
                             </ul>
                         </li>
