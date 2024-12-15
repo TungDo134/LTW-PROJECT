@@ -1,6 +1,8 @@
 package controller;
 
+import dao.CategoryDAO;
 import dao.HomePictureDAO;
+import entity.Category;
 import entity.HomePicture;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
@@ -17,6 +19,7 @@ public class HomeController extends HttpServlet {
         List<HomePicture> homePic= homePicDAO.getHomePic();
         request.setAttribute("homepictures", homePic);
         request.getRequestDispatcher("index.jsp").forward(request, response);
+
     }
 
     @Override

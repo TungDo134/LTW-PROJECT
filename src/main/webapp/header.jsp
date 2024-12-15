@@ -113,23 +113,11 @@
                                 Sản phẩm
                                 <i class="fa-solid fa-chevron-down d-lg-none"></i>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="product.jsp">Bút</a></li>
-                                <li>
-                                    <a class="dropdown-item" href="product.jsp">Gôm, thước</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="product.jsp"
-                                    >Sổ tay, tập</a
-                                    >
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="product.jsp">Bìa còng</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="product.jsp">Bút lông bản, lông dầu</a>
-                                </li>
+                            <ul id="myNav" class="dropdown-menu">
+                                <!-- Các mục mặc định -->
+                                <li><a class="dropdown-item" href="products">Tất cả</a></li>
                             </ul>
+
                         </li>
                         <li class="nav-item dropdown w-100 custom-width-lg">
                             <a
@@ -254,6 +242,19 @@
                 e.preventDefault();
             }
         });
+
+        function loadSubMenuHead(){
+            $.ajax({
+                url: "${pageContext.request.contextPath}/head-control",
+                type:"get",
+                success:function (data){
+                    $("#myNav").append(data);
+                },
+                error:function (){
+                }
+            })
+        }
+        loadSubMenuHead();
     });
 </script>
 

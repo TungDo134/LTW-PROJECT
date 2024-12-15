@@ -1,7 +1,9 @@
 package controller;
 
 import dao.AboutUsPicDAO;
+import dao.CategoryDAO;
 import entity.AboutUsPic;
+import entity.Category;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -15,11 +17,10 @@ public class AboutUsPicController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AboutUsPicDAO aboutUsPicDAO = new AboutUsPicDAO();
         List<AboutUsPic> aboutUsPic= aboutUsPicDAO.getAboutUsPic();
+
         request.setAttribute("aboutuspictures", aboutUsPic);
         request.getRequestDispatcher("about-us.jsp").forward(request, response);
-        for (AboutUsPic aboutUsPics : aboutUsPic) {
-            System.out.println(aboutUsPics);
-        }
+
     }
 
     @Override

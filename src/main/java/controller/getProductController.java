@@ -1,6 +1,8 @@
 package controller;
 
+import dao.CategoryDAO;
 import dao.ProductDAO;
+import entity.Category;
 import entity.Product;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
@@ -15,6 +17,7 @@ public class getProductController extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProductDAO proDao = new ProductDAO();
         List<Product> products= proDao.getProduct();
+
         request.setAttribute("products", products);
         request.getRequestDispatcher("product.jsp").forward(request, response);
     }
