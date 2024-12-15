@@ -45,7 +45,7 @@
   />
   <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleAddUser.css">
 </head>
-<body>
+<body class="dark-theme">
 <jsp:include page="header-admin.jsp"></jsp:include>
 <main class="main-content">
   <div class="container">

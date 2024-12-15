@@ -32,11 +32,7 @@
     color: var(--Heading);
 }
 
-.row img {
-    width: 50px;
-    height: auto;
-    border-radius: 10px;
-}
+
 
 .header-title {
     margin-bottom: 1rem;
@@ -163,15 +159,7 @@
     line-height: 15px;
 }
 
-select {
-    border: 1px solid var(--Input);
-    border-radius: 12px;
-    width: 72px;
-    padding: 6px 14px;
-    text-align: center;
-    background: transparent;
-    color: var(--Heading);
-}
+
 
 .mini-search {
     padding: 14px 22px;

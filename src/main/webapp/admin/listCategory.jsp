@@ -51,123 +51,43 @@
         </div>
         <div id="list-cate-container">
             <div class="cate-list">
-                <!-- Header -->
-                <div class="header-show-cate">
-                    <div class="row align-items-center flex-wrap">
-                        <div class="col-8">
-                            <div class="row row-cols-2 align-items-center">
-                                <div class="col" style="width: 160px">
-                                    <div
-                                            class="show-search d-flex align-items-center justify-content-between"
-                                    >
-                                        <div class="text-tiny">Hiển thị</div>
-                                        <div class="select">
-                                            <select name="" id="">
-                                                <option value="10">10</option>
-                                                <option value="20">20</option>
-                                                <option value="30">30</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col" style="position: relative">
-                                    <input
-                                            id="input-search"
-                                            class="mini-search"
-                                            type="text"
-                                            placeholder="Tìm kiếm..."
-                                    />
-                                    <div class="btn-submit">
-                                        <button>
-                                            <i class="fa-solid fa-magnifying-glass"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4 text-end">
-                            <a
-                                    href="<%= request.getContextPath()%>/admin/addCategory.jsp"
-                                    class="add-btn d-inline-block bg-white text-center text-decoration-none"
-                            ><i class="fa-solid fa-plus" style="padding-right: 4px"></i>
-                                Add new</a
-                            >
-                        </div>
-                    </div>
-                </div>
-                <!-- Content -->
-                <div class="content-show-cate">
-                    <div class="header-title">
-                        <div class="row">
-                            <div class="col">Danh mục</div>
-                            <div class="col">ID Danh mục</div>
-                            <div class="col">Hoạt động</div>
-                        </div>
-                    </div>
-                    <ul class="list-cate list">
-                        <c:forEach items="${listC}" var="o">
-                        <li>
-                            <div class="row align-items-center">
-                                <div class="col">${o.name}</div>
-                                <div class="col">${o.id}</div>
-                                <div class="col">
-                                    <div class="icon-action d-flex justify-content-around">
-                                        <a href="/admin/addCategory.jsp">
-                                            <i
-                                                    class="fa-regular fa-pen-to-square"
-                                                    style="color: #22c55e"
-                                            ></i>
-                                        </a>
-                                        <i
-                                                class="fa-regular fa-trash-can"
-                                                style="color: #ff5200"
-                                        ></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            </c:forEach>
-
-                            <div class="row">
-                                <div class="col-6">Hiển thị 10 mục</div>
-                                <div class="col-6">
-                                    <div class="page">
-                                        <nav aria-label="Page navigation example">
-                                            <ul class="pagination justify-content-end">
-                                                <li class="page-item">
-                                                    <a class="page-link arrow" href="#" aria-label="Previous">
-                        <span aria-hidden="true"
-                        ><i class="fa-solid fa-chevron-left"></i
-                        ></span>
-                                                    </a>
-                                                </li>
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#">1</a>
-                                                </li>
-                                                <li class="page-item active">
-                                                    <a class="page-link" href="#">2</a>
-                                                </li>
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#">3</a>
-                                                </li>
-                                                <li class="page-item">
-                                                    <a class="page-link arrow" href="#" aria-label="Next">
-                        <span aria-hidden="true"
-                        ><i class="fa-solid fa-chevron-right"></i
-                        ></span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                </div>
+                <table id="myTable" class="display" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>Danh mục</th>
+                        <th>ID danh mục</th>
+                        <th>Hành động</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${listC}" var="o">
+                        <tr>
+                            <td>${o.name}</td>
+                            <td>${o.id}</td>
+                            <td>
+                                <a href="<%=request.getContextPath()%>/admin/addCategory.jsp"
+                                   style="padding-right: 10px;
+color: transparent">
+                                    <i
+                                            class="fa-regular fa-pen-to-square"
+                                            style="color: #22c55e"
+                                    ></i>
+                                </a>
+                                <a>
+                                    <i
+                                            class="fa-regular fa-trash-can"
+                                            style="color: #ff5200"
+                                    ></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    </div>
-    <script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
-  </body>
+</div>
+<script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
+</body>
 </html>

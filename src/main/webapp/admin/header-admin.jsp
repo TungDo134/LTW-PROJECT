@@ -13,7 +13,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!-- Datatable -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css"
+    />
     <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/styleAdmin.css">
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/styleDataTable.css">
 </head>
 <body>
 <header id="header-dashboard">
@@ -152,7 +158,7 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/listProduct.jsp"
+                                    <a href="<%= request.getContextPath()%>/load-pAdmin"
                                     >Danh sách sản phẩm</a
                                     >
                                 </li>
@@ -292,5 +298,7 @@
 </header>
 <script src="<%= request.getContextPath()%>/assets/js/admin.js"></script>
 <script src="<%= request.getContextPath()%>/assets/js/header_admin.js"></script>
+<script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+<script src="<%= request.getContextPath()%>/assets/js/datatable.js"></script>
 </body>
 </html>

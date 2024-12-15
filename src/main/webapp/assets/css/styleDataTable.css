@@ -1,0 +1,18 @@
+td > img {
+    width: 50px;
+    height: auto;
+    border-radius: 10px;
+}
+
+select {
+    background-color: var(--White) !important;
+}
+
+tbody>tr:nth-child(odd) {
+    background: var(--bg-table) !important;
+}
+.dt-paging-button.current,
+.dt-paging-button:hover{
+    background: #2275fc !important;
+    border-radius: 50px !important;
+}

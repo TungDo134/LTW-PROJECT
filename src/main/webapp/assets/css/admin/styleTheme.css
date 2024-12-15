@@ -1,5 +1,8 @@
 /* Định nghĩa các biến CSS cho Dark theme */
 .dark-theme {
+  /*
+  bg-table: #2E3C52/#273345/#2C3A4F
+  */
   --White: #1e293b;
   --Heading: #94a3b8;
   --Input: #324055;
@@ -7,7 +10,7 @@
   --Note: #95989d;
   --Stroke: #283548;
   --Icon: #ccc;
-  --bg-table: #28354852;
+  --bg-table: #273345;
   --bg-table-1: #28354852;
   --hv-item: #ffffff24;
   --background: #0f172a;

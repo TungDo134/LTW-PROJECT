@@ -25,6 +25,9 @@
     />
     <!-- Link jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+
     <link rel="stylesheet" href="assets/css/styleHeader.css"/>
 </head>
 <body>
@@ -230,6 +233,7 @@
 </div>
 </body>
 <script src="assets/js/header.js"></script>
+
 <script>
     $(document).ready(function () {
         $(".nav-link.dropdown-toggle").on("click", function (e) {

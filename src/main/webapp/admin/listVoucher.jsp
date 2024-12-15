@@ -10,8 +10,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Header Example</title>
     <!-- Bootstrap  -->
     <link
@@ -47,8 +47,7 @@
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
 
-
-    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleVoucher.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleVoucher.css"/>
 </head>
 <body class="dark-theme">
 <jsp:include page="header-admin.jsp"></jsp:include>
@@ -59,92 +58,43 @@
         </div>
         <div id="list-reviews-container">
             <div class="list-reviews">
-                <!-- Header -->
-                <div class="header-show-cate">
-                    <div class="row row-cols-2 align-items-center flex-wrap">
-                        <div class="col-8">
-                            <div class="row row-cols-2 align-items-center">
-                                <div class="col" style="position: relative">
-                                    <input
-                                            id="input-search"
-                                            class="mini-search"
-                                            type="text"
-                                            placeholder="Tìm kiếm..."
-                                    />
-                                    <div class="btn-submit">
-                                        <button>
-                                            <i class="fa-solid fa-magnifying-glass"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4 text-end">
-                            <a
-                                    href="addVoucher.jsp"
-                                    class="add-btn d-inline-block bg-white text-center text-decoration-none"
-                            ><i class="fa-solid fa-plus" style="padding-right: 4px"></i>
-                                Add new</a
-                            >
-                        </div>
-                    </div>
-                </div>
-                <!-- Content -->
-                <div class="content-show-cmt">
-                    <div class="header-title">
-                        <div class="row row-cols-2">
-                            <div class="col">Mã giảm giá</div>
-                            <div class="col">Phần trăm</div>
-                        </div>
-                    </div>
-                    <ul class="list-cmt list">
-                        <c:forEach items="${listV}" var="o">
-                        <li>
-                            <div class="row row-cols-2 align-items-center">
-                                <div class="col">${o.code}</div>
-                                <div class="col">${o.discount}</div>
-                            </div>
-                        </li>
-                        </c:forEach>
+                <table id="myTable" class="display" style="width:100%; color: #fff" >
+                    <thead>
+                    <tr>
+                        <th>Mã giảm giá</th>
+                        <th>Tỉ lệ giảm giá</th>
+                        <th>Hành động</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${listV}" var="o">
+                        <tr>
+                            <td>${o.code}</td>
+                            <td>${o.discount}</td>
+                            <td>
+                                <a href="<%=request.getContextPath()%>/admin/addCategory.jsp"
+                                   style="padding-right: 10px;
+color: transparent">
+                                    <i
+                                            class="fa-regular fa-pen-to-square"
+                                            style="color: #22c55e"
+                                    ></i>
+                                </a>
+                                <a>
+                                    <i
+                                            class="fa-regular fa-trash-can"
+                                            style="color: #ff5200"
+                                    ></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
 
-                    </ul>
-                </div>
 
             </div>
-            <div class="row">
-                <div class="col-6">Hiển thị 10 mục</div>
-                <div class="col-6">
-                    <div class="page">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-end">
-                                <li class="page-item">
-                                    <a class="page-link arrow" href="#" aria-label="Previous">
-                        <span aria-hidden="true"
-                        ><i class="fa-solid fa-chevron-left"></i
-                        ></span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">3</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link arrow" href="#" aria-label="Next">
-                        <span aria-hidden="true"
-                        ><i class="fa-solid fa-chevron-right"></i
-                        ></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
