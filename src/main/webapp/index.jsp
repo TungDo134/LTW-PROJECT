@@ -44,7 +44,7 @@
 
 
 <main id="home-container">
-    <% List<HomePicture> list = (List<HomePicture>) request.getAttribute("homepictures"); %>
+    <% HomePicture home = (HomePicture) request.getAttribute("homepictures"); %>
     <!-- Banner -->
     <section class="banner-hero">
         <!-- Banner bootstrap -->
@@ -56,7 +56,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img
-                            src="./assets/pic/<%= list.get(0).getBannerImg()%>"
+                            src="./assets/pic/<%= home.getBannerImg()%>"
                             class="d-block w-100"
                             alt="..."
                     />
@@ -181,7 +181,7 @@
             <div class="wh-col-right">
                 <div class="img-wrap">
                     <img
-                            src="./assets/pic/<%= list.get(0).getImg1()%>"
+                            src="./assets/pic/<%= home.getImg1()%>"
                             alt="Image"
                             class="img-fluid"
                     />
@@ -197,13 +197,13 @@
             <div class="whp-left">
                 <div class="imgs-grid">
                     <div class="grid grid-1">
-                        <img src="./assets/pic/<%= list.get(0).getImg4()%>" alt=""/>
+                        <img src="./assets/pic/<%= home.getImg4()%>" alt=""/>
                     </div>
                     <div class="grid grid-2">
-                        <img src="./assets/pic/<%= list.get(0).getImg2()%>" alt=""/>
+                        <img src="./assets/pic/<%= home.getImg2()%>" alt=""/>
                     </div>
                     <div class="grid grid-3">
-                        <img src="./assets/pic/<%= list.get(0).getImg5()%>" alt=""/>
+                        <img src="./assets/pic/<%= home.getImg5()%>" alt=""/>
                     </div>
                 </div>
             </div>

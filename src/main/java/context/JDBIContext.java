@@ -9,22 +9,27 @@ import java.sql.SQLException;
 public class JDBIContext {
     private static Jdbi jdbi;
 
+    private JDBIContext() {
+    }
+
     public static Jdbi getJdbi() {
         if (jdbi == null) {
+            // Tạo kết nối JDBC
+
+            String url = "jdbc:mySQL://localhost:3306/ltw";
+            String username = "root";
+            String password = "";
+
+            Connection connection = null;
             try {
-                String url = "jdbc:mysql://localhost:3306/ltw";
-                String username = "root";
-                String password = "";
-                Connection connection = DriverManager.getConnection(url, username, password);
-
-
-
-                // Khởi tạo JDBI với kết nối JDBC
-                jdbi = Jdbi.create(connection);
+                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+                connection = DriverManager.getConnection(url, username, password);
             } catch (SQLException e) {
-                System.err.println("Failed to connect to the database.");
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
+
+            // Tạo instance JDBI từ kết nối
+            jdbi = Jdbi.create(connection);
         }
         return jdbi;
     }
