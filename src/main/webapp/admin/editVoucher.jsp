@@ -58,12 +58,11 @@
 
                 <input hidden="hidden" value="${coupon.couponId}" name="id">
                 <div class="col">
-<<<<<<< HEAD:src/main/webapp/admin/addVoucher.jsp
-                    <input type="text" class="form-control" placeholder="Mã giảm" aria-label="First name">
 
-=======
+
+
                     <input value="${coupon.code}" id="name" name="code" type="text" class="form-control"  aria-label="First name">
->>>>>>> a7090723be6462aa7ee8258342af04f65c57f7b0:src/main/webapp/admin/editVoucher.jsp
+
                 </div>
                 <div class="col">
                     <input value="${coupon.discount}" id="discount" name="discount" type="text" class="form-control"
