@@ -18,11 +18,6 @@ public class updateVoucher extends HttpServlet {
         CouponDAO cdao = new CouponDAO();
         int row = cdao.updateCoupon(id, code, discount);
 
-        if (row >= 1) {
-            System.out.println("update Voucher success");
-        } else {
-            System.out.println("update Voucher fail");
-        }
         response.sendRedirect("all-coupon");
 
     }

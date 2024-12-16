@@ -55,14 +55,10 @@
         </div>
         <form action="<%=request.getContextPath()%>/update-voucher" method="post">
             <div class="row">
-
                 <input hidden="hidden" value="${coupon.couponId}" name="id">
                 <div class="col">
 
-
-
                     <input value="${coupon.code}" id="name" name="code" type="text" class="form-control"  aria-label="First name">
-
                 </div>
                 <div class="col">
                     <input value="${coupon.discount}" id="discount" name="discount" type="text" class="form-control"

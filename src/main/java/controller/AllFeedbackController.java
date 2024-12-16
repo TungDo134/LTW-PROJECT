@@ -13,8 +13,6 @@ import java.util.List;
 public class AllFeedbackController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         FeedbackDAO feedbackDAO = new FeedbackDAO();
         List<Feedback> listF = feedbackDAO.getFeedback();
         request.setAttribute("listF", listF);
