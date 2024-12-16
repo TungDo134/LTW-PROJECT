@@ -82,7 +82,7 @@
                     <div class="swiper-slide">
 
                       <a href=""
-                        ><img src="assets/pic/sample_pic_bestseller" alt=""
+                        ><img src="assets/pic/products/${detail.productImage}" alt=""
                       /></a>
                     </div>
                     <div class="swiper-slide">
@@ -106,13 +106,13 @@
                 <!-- Slider by Swiper -->
               </div>
               <div class="col_product_2">
-                <h1>Sổ tay</h1>
+                <h1>${detail.productName}</h1>
                 <div class="price_pdPrice">
                   <div class="pro_price">
-                    <h3>99,000đ</h3>
+                    <h3>${detail.productPrice}</h3>
                   </div>
                   <div class="item_1">
-                    <p>Klarna Lorem ipsum dolor sit amet.</p>
+                    <p>${detail.shortDes}</p>
                   </div>
                   <div class="item_2">
                     <i class="fa-solid fa-tags"></i>
@@ -128,10 +128,7 @@
                     Mô tả:
                   </p>
                   <p>
-                    Chất liệu: Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Quibusdam laboriosam, ut optio corrupti,
-                    neque sit odit dolor rem quaerat temporibus animi nihil sed
-                    facilis sequi? Voluptatum praesentium laudantium ex sunt?
+                    ${detail.productDes}
                   </p>
                 </div>
                 <div class="qty-cart">

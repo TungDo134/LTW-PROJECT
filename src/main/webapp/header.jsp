@@ -118,7 +118,7 @@
                             </a>
                             <ul id="myNav" class="dropdown-menu">
                                 <!-- Các mục mặc định -->
-                                <li><a class="dropdown-item" href="products">Tất cả</a></li>
+
                             </ul>
 
                         </li>

@@ -55,6 +55,7 @@
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control" placeholder="Mã giảm" aria-label="First name">
+
                 </div>
                 <div class="col">
                     <input type="text" class="form-control" placeholder="Phần trăm giảm " aria-label="Last name">
