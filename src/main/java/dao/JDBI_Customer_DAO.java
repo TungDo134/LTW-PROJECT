@@ -2,6 +2,7 @@ package dao;
 
 import context.JDBIContext;
 import entity.Customer;
+import entity.Product;
 import org.jdbi.v3.core.Handle;
 
 
