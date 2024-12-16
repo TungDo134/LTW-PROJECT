@@ -241,7 +241,7 @@
                                         giá</a>
                                 </li>
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/all-feedback">Danh sách phản
+                                    <a href="./all-feedback">Danh sách phản
                                         hồi </a>
                                 </li>
 

@@ -96,7 +96,6 @@
                             <td>
                                 <a class="btn btn-success btn-customize" href="<%=request.getContextPath()%>/get-voucher?vID=${o.couponId}" role="button">Chỉnh sửa</a>
                                 <a class="btn btn-danger btn-customize" href="<%=request.getContextPath()%>/delete-voucher?vID=${o.couponId}" role="button">Xóa</a>
-
                             </td>
                         </tr>
                     </c:forEach>
