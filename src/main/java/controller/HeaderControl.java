@@ -21,7 +21,7 @@ public class HeaderControl extends HttpServlet {
 
         for (Category cat : listCate) {
             // trả về đoạn mã html cho từng danh mục
-            out.println("<li><a class='dropdown-item' href='product.jsp?pid=" + cat.getId() + "'>" + cat.getName() + "</a></li>");
+            out.println("<li><a class='dropdown-item' href='product-cate?cID=" + cat.getId() + "'>" + cat.getName() + "</a></li>");
         }
     }
 

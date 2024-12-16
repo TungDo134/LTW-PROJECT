@@ -262,7 +262,7 @@
         <c:forEach items="${products}" var="o">
           <div class="col">
             <div class="card border border-0">
-              <a href="product-detail.jsp" class="forward-img">
+              <a href="detail?pid=${o.productID}" class="forward-img">
                 <!-- ảnh sản phẩm -->
                 <div class="wrapper-img">
                   <img
