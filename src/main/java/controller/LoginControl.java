@@ -20,6 +20,7 @@ public class LoginControl extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String emailLogin = request.getParameter("email-login");
         String passLogin = request.getParameter("password-login");
+
         CustomerDAO cusDao = new CustomerDAO();
         Customer cus = cusDao.getUserByEmail(emailLogin,passLogin);
         if(cus == null){

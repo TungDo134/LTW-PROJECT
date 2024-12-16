@@ -187,6 +187,7 @@
                             <button><i class="fa-regular fa-user"></i></button>
                             <div class="show">
                                 <ul class="show-option">
+
                                     <li class="items">
                                         <a href="admin/admin.jsp" style="color: #000"
                                         >Admin</a
@@ -204,7 +205,13 @@
                                         >Đăng nhập</a
                                         >
                                     </li>
-
+                                    <li class="items">
+                                        <a
+                                                href="logout"
+                                                style="color: #000"
+                                        >Đăng xuất</a
+                                        >
+                                    </li>
                                     <li class="items">
                                         <a
                                                 href="forms/changePassword.jsp"

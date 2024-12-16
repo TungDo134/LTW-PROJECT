@@ -1,5 +1,7 @@
 package entity;
 
+import org.jdbi.v3.core.mapper.reflect.ColumnName;
+
 public class Category {
     public int id;
     public String name;
@@ -10,14 +12,25 @@ public class Category {
         this.name = name;
     }
 
-    public Category(){
+    public Category() {
 
     }
 
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @ColumnName("CateID")
     public int getId() {
         return id;
     }
 
+    @ColumnName("CateName")
     public String getName() {
         return name;
     }

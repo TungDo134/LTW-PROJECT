@@ -12,7 +12,7 @@ import java.util.List;
 
 public class CustomerDAO {
 
-    public static   List<Customer> getAllUser() {
+    public  List<Customer> getAllUser() {
 
         ArrayList<Customer> list = new ArrayList<>();
 

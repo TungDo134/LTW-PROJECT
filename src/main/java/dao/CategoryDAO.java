@@ -1,8 +1,10 @@
 package dao;
 
 import context.DBConntext;
+import context.JDBIContext;
 import entity.Category;
 import entity.Customer;
+import entity.Feedback;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,42 +14,24 @@ import java.util.List;
 
 public class CategoryDAO {
     public List<Category> getAllCate() {
-        ArrayList<Category> list = new ArrayList<>();
-        try {
-            Connection conn = DBConntext.getConnection();
-
-            String query = "SELECT * FROM categories";
-            PreparedStatement pst = conn.prepareStatement(query);
-
-            System.out.println(query);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                list.add(new Category(
-                        rs.getInt(1),
-                        rs.getString(2)
-                ));
-            }
-            DBConntext.closeConnection(conn);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return list;
+        return JDBIContext.getJdbi().withHandle(handle ->
+                (handle.createQuery("select * from categories").mapToBean(Category.class).list())
+        );
     }
 
-    public void insertCate(String name){
-        try {
-            Connection conn = DBConntext.getConnection();
-            String query = "INSERT INTO  categories (CateName) values (?) ";
-            PreparedStatement pst = conn.prepareStatement(query);
-            pst.setString(1, name);
-
-            System.out.println(query);
-            pst.executeUpdate();
-            DBConntext.closeConnection(conn);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public void insertCate(String name){
+//        try {
+//            Connection conn = DBConntext.getConnection();
+//            String query = "INSERT INTO  categories (CateName) values (?) ";
+//            PreparedStatement pst = conn.prepareStatement(query);
+//            pst.setString(1, name);
+//
+//            System.out.println(query);
+//            pst.executeUpdate();
+//            DBConntext.closeConnection(conn);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

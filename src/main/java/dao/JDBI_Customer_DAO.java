@@ -29,12 +29,12 @@ public class JDBI_Customer_DAO {
     }
 
 
-    public static void main(String[] args) {
-        JDBI_Customer_DAO dao = new JDBI_Customer_DAO();
-        List<Customer> users = dao.getUsers();
-        List<Customer> userEmailPass = dao.getUserByEmailPass("tung134@gmail.com", "13042004");
-        for (Customer user : users) {
-            System.out.println(user + "\n");
-        }
-    }
+//    public static void main(String[] args) {
+//        JDBI_Customer_DAO dao = new JDBI_Customer_DAO();
+//        List<Customer> users = dao.getUsers();
+//        List<Customer> userEmailPass = dao.getUserByEmailPass("tung134@gmail.com", "13042004");
+//        for (Customer user : users) {
+//            System.out.println(user + "\n");
+//        }
+//    }
 }

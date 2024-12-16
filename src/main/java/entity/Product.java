@@ -26,7 +26,6 @@ public class Product {
     }
 
     public Product(){
-
     }
 
     public int getProductID() {
@@ -67,6 +66,46 @@ public class Product {
 
     public String getShortDes() {
         return shortDes;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public void setProductDes(String productDes) {
+        this.productDes = productDes;
+    }
+
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
+    }
+
+    public void setProductInventory(int productInventory) {
+        this.productInventory = productInventory;
+    }
+
+    public void setProductOrder(int productOrder) {
+        this.productOrder = productOrder;
+    }
+
+    public void setProductStock(int productStock) {
+        this.productStock = productStock;
+    }
+
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
+    }
+
+    public void setCateID(int cateID) {
+        this.cateID = cateID;
+    }
+
+    public void setShortDes(String shortDes) {
+        this.shortDes = shortDes;
     }
 
     @Override

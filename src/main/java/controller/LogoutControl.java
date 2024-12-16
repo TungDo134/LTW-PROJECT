@@ -1,25 +1,22 @@
 package controller;
 
-import dao.CategoryDAO;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "AddCateController", value = "/add-newCate")
-public class AddCateController extends HttpServlet {
+@WebServlet(name = "LogoutControl", value = "/logout")
+public class LogoutControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
+        HttpSession session=request.getSession(false);
+        session.invalidate();
+        response.sendRedirect("home");
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("cate");
-        CategoryDAO categoryDAO= new CategoryDAO();
-//        categoryDAO.insertCate(name);
-        String url=request.getContextPath();
-        response.sendRedirect(url+"/admin/addCategory.jsp");
+        doGet(request, response);
     }
 }

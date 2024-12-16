@@ -13,6 +13,25 @@ public class Feedback {
         this.fContent = fContent;
     }
 
+    public Feedback() {
+    }
+
+    public void setfID(int fID) {
+        this.fID = fID;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setfContent(String fContent) {
+        this.fContent = fContent;
+    }
+
     public int getfID() {
         return fID;
     }

@@ -15,8 +15,9 @@ import java.util.List;
 public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HomePictureDAO homePicDAO = new HomePictureDAO();
-        List<HomePicture> homePic= homePicDAO.getHomePic();
+        HomePictureDAO dao = new HomePictureDAO();
+        List<HomePicture>homePic= dao.getHomePic();
+
         request.setAttribute("homepictures", homePic);
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
