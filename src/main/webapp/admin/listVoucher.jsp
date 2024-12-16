@@ -50,14 +50,36 @@
     <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleVoucher.css"/>
 </head>
 <body class="dark-theme">
+<%
+    String message = (String) request.getAttribute("msg");
+%>
+
 <jsp:include page="header-admin.jsp"></jsp:include>
 <div id="main-content">
     <div class="main-container">
         <div class="header">
             <h1>Danh sách mã giảm giá</h1>
         </div>
+        <div>
+            <form action="<%= request.getContextPath()%>/add-coupon" method="post">
+                <div class="row">
+                    <p><%=message != null ? message : "" %>
+                    </p>
+                    <div class="col">
+                        <input name="code" type="text" class="form-control" placeholder="Mã giảm" aria-label="First name">
+                    </div>
+                    <div class="col">
+                        <input name="discount" type="text" class="form-control" placeholder="Phần trăm giảm "
+                               aria-label="Last name">
+                    </div>
+                </div>
+                <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm">Thêm mã</button>
+            </form>
+        </div>
         <div id="list-reviews-container">
+
             <div class="list-reviews">
+
                 <table id="myTable" class="display" style="width:100%; color: #fff" >
                     <thead>
                     <tr>
@@ -72,9 +94,8 @@
                             <td>${o.code}</td>
                             <td>${o.discount}</td>
                             <td>
-                                <a class="btn btn-success btn-customize" href="#" role="button">Chỉnh sửa</a>
-                                <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/admin/addVoucher.jsp" role="button">Thêm</a>
-                                <a class="btn btn-danger btn-customize" href="#" role="button">Xóa</a>
+                                <a class="btn btn-success btn-customize" href="<%=request.getContextPath()%>/get-voucher?vID=${o.couponId}" role="button">Chỉnh sửa</a>
+                                <a class="btn btn-danger btn-customize" href="<%=request.getContextPath()%>/delete-voucher?vID=${o.couponId}" role="button">Xóa</a>
 
                             </td>
                         </tr>

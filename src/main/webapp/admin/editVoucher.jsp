@@ -1,4 +1,4 @@
-<%--
+<%@ page import="entity.Coupon" %><%--
   Created by IntelliJ IDEA.
   User: PC-010F
   Date: 12/9/2024
@@ -45,23 +45,32 @@
     />
 </head>
 <body class="dark-theme">
+
+
 <jsp:include page="header-admin.jsp"></jsp:include>
 <div id="main-content">
     <div class="main-container">
         <div class="header">
             <h1> Thêm mã giảm giá </h1>
         </div>
-        <form action="#">
+        <form action="<%=request.getContextPath()%>/update-voucher" method="post">
             <div class="row">
+
+                <input hidden="hidden" value="${coupon.couponId}" name="id">
                 <div class="col">
+<<<<<<< HEAD:src/main/webapp/admin/addVoucher.jsp
                     <input type="text" class="form-control" placeholder="Mã giảm" aria-label="First name">
 
+=======
+                    <input value="${coupon.code}" id="name" name="code" type="text" class="form-control"  aria-label="First name">
+>>>>>>> a7090723be6462aa7ee8258342af04f65c57f7b0:src/main/webapp/admin/editVoucher.jsp
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Phần trăm giảm " aria-label="Last name">
+                    <input value="${coupon.discount}" id="discount" name="discount" type="text" class="form-control"
+                           aria-label="Last name">
                 </div>
             </div>
-            <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm"> Thêm mã giảm </button>
+            <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm">Cập nhật</button>
         </form>
     </div>
 </div>
