@@ -45,6 +45,12 @@
     />
 </head>
 <body class="dark-theme">
+
+<%
+String message= (String) request.getAttribute("msg");
+%>
+
+
 <jsp:include page="header-admin.jsp"></jsp:include>
 <div id="main-content">
     <div class="main-container">
@@ -53,14 +59,15 @@
         </div>
         <form action="#">
             <div class="row">
+                <p> <%=message%></p>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Mã giảm" aria-label="First name">
+                    <input name="code" type="text" class="form-control" placeholder="Mã giảm" aria-label="First name">
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control" placeholder="Phần trăm giảm " aria-label="Last name">
+                    <input name="discount" type="text" class="form-control" placeholder="Phần trăm giảm " aria-label="Last name">
                 </div>
             </div>
-            <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm"> Thêm mã giảm </button>
+            <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm"><a href="add-coupon">Them ma</a> </button>
         </form>
     </div>
 </div>

@@ -16,4 +16,15 @@ public class CouponDAO {
                 (handle.createQuery("select * from coupons").mapToBean(Coupon.class).list())
         );
     }
+    public int addCoupon(String code, double discount) {
+        return JDBIContext.getJdbi().withHandle(handle -> (
+            handle.createUpdate("INSERT INTO coupons (code, discount) VALUES (:code, :discount)")
+                    .bind("code", code)
+                    .bind("discount", discount)
+                    .execute())
+
+
+         );
+    }
+
 }
