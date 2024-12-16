@@ -233,9 +233,9 @@
                                 <li class="sub-menu-item">
                                     <a href="<%= request.getContextPath()%>/all-coupon">Mục mã giảm giá</a>
                                 </li>
-                                <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/addVoucher.jsp">Thêm mã giảm giá</a>
-                                </li>
+<%--                                <li class="sub-menu-item">--%>
+<%--                                    <a href="<%= request.getContextPath()%>/admin/addVoucher.jsp">Thêm mã giảm giá</a>--%>
+<%--                                </li>--%>
                                 <li class="sub-menu-item">
                                     <a href="<%= request.getContextPath()%>/admin/listReviews.jsp">Danh sách đánh
                                         giá</a>

@@ -1,6 +1,7 @@
 package controller;
 
 import dao.CouponDAO;
+import entity.Coupon;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -11,18 +12,20 @@ import java.io.IOException;
 public class addCouponController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String code = request.getParameter("code");
-    String discountText = request.getParameter("discount");
-    double discount = Double.parseDouble(discountText);
+        String code = request.getParameter("code");
+        double discount = Double.parseDouble( request.getParameter("discount").trim());
 
         CouponDAO couponDAO = new CouponDAO();
-       if( couponDAO.addCoupon(code, discount)>0){
-           request.setAttribute("msg","Them thanh cong");
-       }else{
-           request.setAttribute("msg","Them that bai");
+        int row = couponDAO.addCoupon(code, discount);
 
-       }
-        response.sendRedirect("admin/addVoucher.jsp");
+        if (row >= 1) {
+            request.setAttribute("msg", "Thêm thành công ");
+            request.getRequestDispatcher("all-coupon").forward(request, response);
+        } else {
+            request.setAttribute("msg", "Them that bai");
+            request.getRequestDispatcher("all-coupon").forward(request, response);
+        }
+
     }
 
     @Override
