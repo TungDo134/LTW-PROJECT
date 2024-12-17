@@ -2,7 +2,9 @@ package controller;
 
 import context.JDBIContext;
 import dao.HomePictureDAO;
+import dao.ProductDAO;
 import entity.HomePicture;
+import entity.Product;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -18,7 +20,10 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HomePictureDAO dao = new HomePictureDAO();
         HomePicture homePic = dao.getHomePic();
+        ProductDAO productDAO= new ProductDAO();
+        List<Product> bestP=productDAO.getBestSeller();
 
+        request.setAttribute("products", bestP);
         request.setAttribute("homepictures", homePic);
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
