@@ -224,7 +224,7 @@
                         </div>
 
                         <!-- Shopping bag -->
-                        <a href="Shopping-cart.jsp"
+                        <a href="show-cart"
                         ><span
                                 class="material-symbols-outlined"
                                 style="line-height: normal; color: #333333cc"

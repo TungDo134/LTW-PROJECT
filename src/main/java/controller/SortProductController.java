@@ -7,25 +7,23 @@ import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "DetailProductController", value = "/detail")
-public class DetailProductController extends HttpServlet {
+@WebServlet(name = "SortProductController", value = "/sort-product")
+public class SortProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String pid = request.getParameter("pid");
+        String choice = request.getParameter("choice");
+        ProductDAO productDAO= new ProductDAO();
+        List<Product> sortP=productDAO.getProductSort(choice);
 
-        System.out.println(pid);
 
-        ProductDAO dao = new ProductDAO();
-        Product product= dao.getProductByID(pid);
-
-        request.setAttribute("detail",product);
-        request.getRequestDispatcher("product-detail.jsp").forward(request,response);
-
+        request.setAttribute("products", sortP);
+        request.getRequestDispatcher("product.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doGet(request, response);
     }
 }
