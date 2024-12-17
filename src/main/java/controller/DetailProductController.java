@@ -13,11 +13,11 @@ public class DetailProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pid = request.getParameter("pid");
-        int pID = Integer.parseInt(pid);
-        System.out.println(pID);
+
+        System.out.println(pid);
 
         ProductDAO dao = new ProductDAO();
-        Product product= dao.getProductByID(pID);
+        Product product= dao.getProductByID(pid);
 
         request.setAttribute("detail",product);
         request.getRequestDispatcher("product-detail.jsp").forward(request,response);

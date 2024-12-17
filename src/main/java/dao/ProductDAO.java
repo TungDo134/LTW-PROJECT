@@ -13,7 +13,7 @@ public class ProductDAO {
         );
     }
 
-    public Product getProductByID(int ProID){
+    public Product getProductByID(String ProID){
         return JDBIContext.getJdbi().withHandle(handle ->
                 (handle.createQuery("select * from products where productID = :productID")
                         .bind("productID",ProID)

@@ -146,14 +146,18 @@
                       <button type="button" class="increase">+</button>
                     </div>
                     <div class="select-swatch">
-                      <button
-                        type="button"
-                        class="btn btn-primary btn_add"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                      >
-                        Thêm vào giỏ
-                      </button>
+                      <a href="add-cart?pid=${product.productID}" class="add-to-cart">
+                        <button
+                                type="button"
+                                class="btn btn-primary btn_add"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+
+                        >
+                          Thêm vào giỏ
+                        </button>
+                      </a>
+
                     </div>
                   </form>
                 </div>
