@@ -27,6 +27,7 @@ public class ProductDAO {
                         .bind("cateID",CateID)
                         .mapToBean(Product.class).list())
         );
-
     }
+
+
 }
