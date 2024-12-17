@@ -2,7 +2,9 @@ package dao;
 
 
 import context.JDBIContext;
+import entity.HomePicture;
 import entity.Product;
+import org.jdbi.v3.core.Handle;
 
 import java.util.List;
 
@@ -57,5 +59,18 @@ public class ProductDAO {
             default -> null;
         };
     }
+    public List<Product> getBestSeller() {
+        try (Handle handle = JDBIContext.getJdbi().open()) {
+            return handle.createQuery("SELECT * FROM products ORDER BY productOrder DESC LIMIT 10;")
+                    .mapToBean(Product.class).list();
+        }
+    }
 
+    public static void main(String[] args) {
+        ProductDAO p = new ProductDAO();
+        for (Product product : p.getBestSeller()) {
+            System.out.println(product);
+
+        }
+    }
 }
