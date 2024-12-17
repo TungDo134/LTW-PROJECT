@@ -104,7 +104,7 @@
         <div class="why-choose-container">
             <div class="wh-col-left">
 
-                 <!-- Assuming getTitle() exists in HomePicture -->
+                <!-- Assuming getTitle() exists in HomePicture -->
 
                 <h2 class="wh-title">Những lí do bạn nên chọn chúng tôi</h2>
                 <p>
@@ -340,104 +340,25 @@
     <div class="slider-container swiper">
         <div class="card-wrapper">
             <ul class="card-list swiper-wrapper">
-                <li class="card-item swiper-slide">
-                    <a href="product-detail.jsp" class="card-link">
-                        <img
-                                src="./assets/pic/sample_pic_bestseller"
-                                alt=""
-                                class="card-image"
-                        />
-                        <p class="badge">Sổ tay</p>
-                        <h2 class="card-title">99.000đ</h2>
-                        <button class="card-button">
-                            <i
-                                    class="fa-solid fa-arrow-right"
-                                    style="font-size: 1rem"
-                            ></i>
-                        </button>
-                    </a>
-                </li>
-                <li class="card-item swiper-slide">
-                    <a href="product-detail.jsp" class="card-link">
-                        <img src="./assets/pic/2pens.avif" alt="" class="card-image"/>
-                        <p class="badge">Sổ tay</p>
-                        <h2 class="card-title">99.000đ</h2>
-                        <button class="card-button">
-                            <i
-                                    class="fa-solid fa-arrow-right"
-                                    style="font-size: 1rem"
-                            ></i>
-                        </button>
-                    </a>
-                </li>
-                <li class="card-item swiper-slide">
-                    <a href="product-detail.jsp" class="card-link">
-                        <img
-                                src="./assets//pic/highlights_pen.avif"
-                                alt=""
-                                class="card-image"
-                        />
-                        <p class="badge">Sổ tay</p>
-                        <h2 class="card-title">99.000đ</h2>
-                        <button class="card-button">
-                            <i
-                                    class="fa-solid fa-arrow-right"
-                                    style="font-size: 1rem"
-                            ></i>
-                        </button>
-                    </a>
-                </li>
-                <li class="card-item swiper-slide">
-                    <a href="product-detail.jsp" class="card-link">
-                        <img
-                                src="./assets/pic/notebook-flower.avif"
-                                alt=""
-                                class="card-image"
-                        />
-                        <p class="badge">Sổ tay</p>
-                        <h2 class="card-title">99.000đ</h2>
-                        <button class="card-button">
-                            <i
-                                    class="fa-solid fa-arrow-right"
-                                    style="font-size: 1rem"
-                            ></i>
-                        </button>
-                    </a>
-                </li>
-                <li class="card-item swiper-slide">
-                    <a href="product-detail.jsp" class="card-link">
-                        <img
-                                src="./assets/pic/notebook-flower.avif"
-                                alt=""
-                                class="card-image"
-                        />
-                        <p class="badge">Sổ tay</p>
-                        <h2 class="card-title">99.000đ</h2>
-                        <button class="card-button">
-                            <i
-                                    class="fa-solid fa-arrow-right"
-                                    style="font-size: 1rem"
-                            ></i>
-                        </button>
-                    </a>
-                </li>
-                <li class="card-item swiper-slide">
-                    <a href="product-detail.jsp" class="card-link">
-                        <img
-                                src="./assets/pic/notebook-flower.avif"
-                                alt=""
-                                class="card-image"
-                        />
-                        <p class="badge">Sổ tay</p>
-                        <h2 class="card-title">99.000đ</h2>
-                        <button class="card-button">
-                            <i
-                                    class="fa-solid fa-arrow-right"
-                                    style="font-size: 1rem"
-                            ></i>
-                        </button>
-                    </a>
-                </li>
+                <c:forEach items="${products}" var="o">
+                    <li class="card-item swiper-slide">
+                        <a href="detail?pid=${o.productID}" class="card-link">
+                            <img
+                                    src="./assets/pic/products/${o.productImage}"
+                                    alt=""
+                                    class="card-image"
+                            />
+                            <p class="badge">${o.productName}</p>
+                            <h2 class="card-title">${o.productPrice}</h2>
+                            <button class="card-button">
+                                <i
+                                        class="fa-solid fa-arrow-right"
+                                        style="font-size: 1rem"
+                                ></i>
+                            </button>
+                        </a>
+                    </li>
+                </c:forEach>
             </ul>
 
             <!-- If we need pagination -->
