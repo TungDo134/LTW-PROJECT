@@ -9,14 +9,14 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/admin/all-feedback")
+@WebServlet("/all-feedback")
 public class AllFeedbackController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         FeedbackDAO feedbackDAO = new FeedbackDAO();
         List<Feedback> listF = feedbackDAO.getFeedback();
         request.setAttribute("listF", listF);
-        request.getRequestDispatcher("./listFeedback.jsp").forward(request, response);
+        request.getRequestDispatcher("admin/listFeedback.jsp").forward(request, response);
     }
 
     @Override

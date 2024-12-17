@@ -23,15 +23,13 @@ public class AddController extends HttpServlet {
 
         ProductDAO productDAO = new ProductDAO();
         Product product = productDAO.getProductByID(pID);
-        System.out.println(product.toString());
 
         HttpSession session = request.getSession(true);
-
         Cart c = (Cart) session.getAttribute("cart");
         if (c == null) c = new Cart();
         c.add(product);
         session.setAttribute("cart",c);
-        response.sendRedirect("products?add-cart=ok");
+
 
     }
 }

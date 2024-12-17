@@ -58,8 +58,8 @@
 
 #product-container .container .add-to-cart {
   position: absolute;
-  right: 20px;
-  bottom: 16px;
+  right: 5px;
+  bottom: 0;
 }
 
 #product-container .container .add-to-cart .icon-p {

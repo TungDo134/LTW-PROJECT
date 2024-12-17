@@ -18,7 +18,7 @@ public class RemoveController extends HttpServlet {
         Cart c = (Cart) session.getAttribute("cart");
         c.remove(proID);
         session.setAttribute("cart", c);
-        request.getRequestDispatcher("show-cart").forward(request,response);
+        request.getRequestDispatcher("Shopping-cart.jsp").forward(request,response);
     }
 
     @Override

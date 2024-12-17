@@ -280,42 +280,46 @@
                                     </div>
                                     <!-- nút thêm nhanh vào giỏ hàng -->
                                     <div class="add-to-cart">
-                  <span data-bs-target="#exampleModal" data-bs-toggle="modal">
-                    <button
-                            class="icon-p"
-                            type="button"
-                            data-bs-toggle="tooltip"
-                            data-bs-placement="top"
-                            data-bs-custom-class="custom-tooltip"
-                            data-bs-title="Thêm vào giỏ hàng."
-                    >
-                              <img
-                                      src="assets/pic/shopping_cart_icon.svg"
-                                      alt="ảnh"
-                              />
+                                        <form onsubmit="getIdProduct(this); return false">
+                                            <input type="hidden" value="${o.productID}" name="pID">
+                                            <button class="btn " type="submit"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="top"
+                                                    data-bs-custom-class="custom-tooltip"
+                                                    data-bs-title="Thêm vào giỏ hàng.">
+                                                <img
+                                                        src="assets/pic/shopping_cart_icon.svg"
+                                                        alt="ảnh"
 
-
-
-                    </button>
-                  </span>
+                                                /></button>
+                                        </form>
                                     </div>
                                 </a>
 
                                 <div class="card-body bg-body ms--15">
                                     <div class="card-header-cus">
                                         <h5 class="card-title fw-semibold">${o.productName}</h5>
-                                        <h5 class="price me--15 fw-semibold">
-                                                ${o.productPrice}<span class="currency">đ</span>
+                                        <h5 class="price me--15 fw-semibold number-format">
+                                                ${o.productPrice} <span class="currency">đ</span>
                                         </h5>
                                     </div>
                                     <p class="card-text fs-7 fw-medium text-justify">
                                             ${o.shortDes}
                                     </p>
-                                    <a href="add-cart?pID=${o.productID}"> thêm giỏ hàng </a>
+
                                 </div>
                             </div>
                         </div>
+
                     </c:forEach>
+                    <%--  Hiện thông báo nếu thêm vô giỏ thành công --%>
+                    <span data-bs-target="#exampleModal" data-bs-toggle="modal">
+                                        <button
+                                                class="icon-p"
+                                                type="button"
+
+                                        ></button> </span>
+
                 </div>
                 <div class="page">
                     <nav aria-label="Page navigation example">
@@ -386,7 +390,7 @@
                                     data-bs-dismiss="modal"
                             >
                                 <a
-                                        href="Shopping-cart.jsp"
+                                        href="show-cart"
                                         style="color: #fff; font-size: 14px; font-weight: 600"
                                 >XEM GIỎ HÀNG</a
                                 >
@@ -403,6 +407,7 @@
 
 <!-- Link CUSTOM JS -->
 <script src="assets/js/main.js"></script>
+<script src="assets/js/formatNum.js"></script>
 <script>
     //// JS cho phần hiện tooltip khi hover vào icon giỏ hàng (bstrap) ////
     const tooltipTriggerList = document.querySelectorAll(
@@ -419,5 +424,29 @@
         event.stopPropagation(); // Ngừng sự kiện nổi bọt tới thẻ a
     });
 </script>
+
+<%--AJAX add to cart--%>
+<script>
+    function getIdProduct(form) {
+        const pID = form.querySelector('[name="pID"]').value;
+        $.ajax({
+            url: 'add-cart', // Servlet URL
+            type: 'GET',
+            data: {
+                pID: pID
+            },
+            success: function (response) {
+                const button = document.querySelector('.icon-p');
+                if (button) {
+                    button.click(); // Kích hoạt sự kiện click
+                }
+            },
+            error: function (xhr, status, error) {
+                alert('Error: ' + xhr.responseText);
+            }
+        });
+    }
+</script>
+
 </body>
 </html>

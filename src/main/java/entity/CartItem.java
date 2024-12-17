@@ -3,22 +3,32 @@ package entity;
 import java.io.Serializable;
 
 public class CartItem implements Serializable {
-private int id;
-private String title;
-private double price;
-private String img;
-private int quantity;
+    private int id;
+    private String title;
+    private double price;
+    private String img;
+    private int quantity;
+    private double totalCt;
 
-    public CartItem(int id, String title, double price, String img, int quantity) {
+    public CartItem(int id, String title, double price, String img, int quantity, double totalCt) {
         this.id = id;
         this.title = title;
         this.price = price;
         this.img = img;
         this.quantity = quantity;
+        this.totalCt = totalCt;
     }
 
 
     public CartItem() {
+    }
+
+    public double getTotalCt() {
+        return totalCt = quantity * price;
+    }
+
+    public void setTotalCt(double totalCt) {
+        this.totalCt = totalCt;
     }
 
     public int getId() {
@@ -60,7 +70,20 @@ private int quantity;
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
     public double getTotalPrice() {
         return this.price * this.quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                ", img='" + img + '\'' +
+                ", quantity=" + quantity +
+                ", totalCt=" + totalCt +
+                '}';
     }
 }

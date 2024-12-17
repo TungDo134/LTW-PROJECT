@@ -9,7 +9,16 @@ public class Cart {
 
     public boolean add(Product p) {
         if (data.containsKey(p.getProductID())) {
-           return update(p.getProductID(), data.get(p.getProductID()).getQuantity() + 1);
+            return update(p.getProductID(), data.get(p.getProductID()).getQuantity() + 1);
+        }
+        // them sp moi
+        data.put(p.productID, convert(p));
+        return true;
+    }
+
+    public boolean addWithQuantity(Product p, int quantity) {
+        if (data.containsKey(p.getProductID())) {
+            return update(p.getProductID(), data.get(p.getProductID()).getQuantity() + quantity);
         }
         // them sp moi
         data.put(p.productID, convert(p));
@@ -22,6 +31,7 @@ public class Cart {
         CartItem cartProduct = data.get(productID);
         if (quantity < 1) return false;
         cartProduct.setQuantity(quantity);
+        cartProduct.setTotalCt(cartProduct.getPrice() * cartProduct.getQuantity());
         data.put(productID, cartProduct);
         return true;
     }
@@ -32,6 +42,10 @@ public class Cart {
 
     public List<CartItem> getList() {
         return new ArrayList<>(data.values());
+    }
+
+    public Map<Integer, CartItem> getData() {
+        return data;
     }
 
     public int getTotalQuantity() {
@@ -53,7 +67,8 @@ public class Cart {
         re.setTitle(p.getProductName());
         re.setPrice(p.getProductPrice());
         re.setImg(p.getProductImage());
-        re.setQuantity(1);  // Sử dụng số lượng được truyền vào
+        re.setQuantity(1);
+//        re.setTotalCt(re.getTotalCt());
         return re;
     }
 

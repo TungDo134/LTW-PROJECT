@@ -22,7 +22,9 @@
             crossorigin="anonymous"
     ></script>
     <!-- Link BOOTSRAP -->
-    <%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>--%>
+
+    <!-- Link jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -39,33 +41,42 @@
     <div class="main-cart">
 
         <div class="cart-table left">
-            <table>
-                <thead>
-                <tr>
-                    <th>Ảnh</th>
-                    <th>Tên</th>
-                    <th>Số lượng</th>
-                    <th>Tổng</th>
-                    <th>Xóa</th>
-                </tr>
-                </thead>
+            <div class="cart-header">
+                <span>Sản phẩm</span>
+                <span>Số lượng</span>
+                <span>Tổng tiền</span>
+                <span>Hành động</span>
+            </div>
+            <c:forEach items="${sessionScope.cart.list}" var="cp">
+                <!-- Product Rows -->
+                <div class="cart-item" data-id="${cp.id}">
+                    <div class="product-info">
+                        <a href="">
+                            <img src="<%=request.getContextPath()%>/assets/pic/products/${cp.img}" alt="Sản phẩm 1"></a>
+                        <div>
+                            <p>${cp.title}</p>
+                            <p class="price number-format">${cp.price}<span class="currency">đ</span></p>
+                        </div>
+                    </div>
+                    <div class="quantity" style="width: 100px">
 
 
-                <tbody>
+                        <input onblur="updateCart(this)" name="quantity" id="" class="p-quantity"
+                               data-id="${cp.id}" value="${cp.quantity}"/>
+                            <%--                        <input type="hidden" name="idP" value="${cp.id}">--%>
 
-                <c:forEach items="${sessionScope.cart.list}" var="cp">
-                    <tr>
-                        <td><img src="<%=request.getContextPath()%>/assets/pic/products/${cp.img}" alt="Sản phẩm 1">
-                        </td>
-                        <td><p>${cp.title}</p></td>
-                        <td><input type="text" name="quantity" class="p-quantity" value="${cp.quantity}"/></td>
-                        <td><p class="price">${cp.price}đ</p></td>
-                        <td><a href="remove-cart?pID=${cp.id}"><i class="fa fa-times"></i></a></td>
-                    </tr>
-                </c:forEach>
-                <!-- Thêm các dòng sản phẩm khác nếu cần -->
-                </tbody>
-            </table>
+                    </div>
+                    <div class="total-price number-format" id="total-price-${cp.id}">
+                            ${cp.totalCt}<span class="">đ</span>
+                    </div>
+                    <div class="remove-item">
+                        <div class="i-container">
+                            <a href="remove-cart?pID=${cp.id}"><i class="fa fa-times"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+            <!-- Cart Controls -->
             <div class="cart-controls">
                 <a class="continue-shopping" href="products"
                 >Tiếp tục mua sắm</a
@@ -74,48 +85,34 @@
             </div>
 
         </div>
-        <div class="cart-table right">
-            <div class="cart-header">
-                <span>Khuyến mãi</span>
-            </div>
 
-            <!-- Discount Code Section -->
-            <div class="discount-section">
-                <form action="" style="display: flex" class="form-coupon">
-                    <input type="text" placeholder="Mã giảm giá"/>
-                    <button class="apply-discount">Áp dụng</button>
-                </form>
-            </div>
-
-            <!-- Cart Summary Section -->
-            <form action="payment.jsp" class="form-checkout">
-                <div class="cart-summary">
-                    <h2>Tổng đơn</h2>
-                    <div class="cart-total-row">
-                        <span>Số lượng sản phẩm:</span>
-
-                        <%
-                            Cart c = (Cart) session.getAttribute("cart");
-                        %>
-                        <span> <%= c == null ? "" : c.getTotalQuantity()%></span>
-
-                    </div>
-                    <div class="cart-total-row">
-                        <span>Tổng tiền:</span>
-                        <span class="total"
-                        >
-                        <%= c == null ? "" : c.getTotal() %>
-                            <span class="currency">đ</span></span>
-                    </div>
-                    <button type="submit" class="checkout-button">
-                        Tiến hành thanh toán
-                    </button>
+        <%--Cart Summary Section--%>
+        <form action="payment.jsp" class="form-checkout">
+            <div class="cart-summary">
+                <h2>Tổng đơn</h2>
+                <div class="cart-total-row">
+                    <span>Tổng sản phẩm:</span>
+                    <span class="subtotalQuantity">
+                         <% Cart c = (Cart) session.getAttribute("cart");%>
+                         <%= c == null ? "" : c.getTotalQuantity()%>
+                    </span>
                 </div>
-            </form>
-        </div>
+                <div class="cart-total-row">
+                    <span>Tổng tiền:</span>
+                    <span class="total number-format">
+                         <%= c == null ? "" : c.getTotal() %><span class="">đ</span>
+                    </span>
+                </div>
+                <button type="submit" class="checkout-button">
+                    Tiến hành thanh toán
+                </button>
+            </div>
+        </form>
     </div>
 </main>
 <jsp:include page="footer.jsp"></jsp:include>
-<%--<script src="assets/js/main.js"></script>--%>
+
+<script src="assets/js/formatNum.js"></script>
+<script src="assets/js/update_cart.js"></script>
 </body>
 </html>
