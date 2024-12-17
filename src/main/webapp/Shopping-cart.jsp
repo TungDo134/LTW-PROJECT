@@ -93,11 +93,11 @@
                     <h2>Tổng đơn</h2>
                     <div class="cart-total-row">
                         <span>Số lượng sản phẩm:</span>
-                        <span class="subtotal"
+
                         <%
                             Cart c = (Cart) session.getAttribute("cart");
                         %>
-                            <%= c == null ? "" : c.getTotalQuantity()%></span>
+                        <span> <%= c == null ? "" : c.getTotalQuantity()%></span>
 
                     </div>
                     <div class="cart-total-row">

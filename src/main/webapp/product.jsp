@@ -234,44 +234,52 @@
                     </div>
                 </div>
 
-            <!-- Sort -->
-            <div class="col">
-              <div class="sort" style="display: inline-block">
-                <span>Sắp xếp:</span>
-                <div class="custom-select">
-                  <div class="select-selected">Giá: Thấp đến cao</div>
-                  <div class="select-options">
-                    <div class="select-option" data-value="1"> <a  style="display: inline-block; width: 100%" href="sort-product?choice=1">Giá: Thấp đến cao</a>
-                    </div>
-                    <div class="select-option" data-value="2"><a style="display: inline-block; width: 100%" href="sort-product?choice=2">Giá: Cao đến thấp</a>
-                    </div>
-                    <div class="select-option" data-value="3"><a style="display: inline-block; width: 100%" href="sort-product?choice=3">Tên: A-Z</a></div>
-                    <div class="select-option" data-value="4"><a style="display: inline-block; width: 100%" href="sort-product?choice=4">Tên: Z-A</a></div>
-                  </div>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- Filter and Sort -->
-        <div
-                class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"
-        >
-            <c:forEach items="${products}" var="o">
+                <!-- Sort -->
                 <div class="col">
-                    <div class="card border border-0">
-                        <a href="detail?pid=${o.productID}" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/products/${o.productImage}"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0"
-                                        alt="..."
-                                />
+                    <div class="sort" style="display: inline-block">
+                        <span>Sắp xếp:</span>
+                        <div class="custom-select">
+                            <div class="select-selected">Giá: Thấp đến cao</div>
+                            <div class="select-options">
+                                <div class="select-option" data-value="1"><a style="display: inline-block; width: 100%"
+                                                                             href="sort-product?choice=1">Giá: Thấp đến
+                                    cao</a>
+                                </div>
+                                <div class="select-option" data-value="2"><a style="display: inline-block; width: 100%"
+                                                                             href="sort-product?choice=2">Giá: Cao đến
+                                    thấp</a>
+                                </div>
+                                <div class="select-option" data-value="3"><a style="display: inline-block; width: 100%"
+                                                                             href="sort-product?choice=3">Tên: A-Z</a>
+                                </div>
+                                <div class="select-option" data-value="4"><a style="display: inline-block; width: 100%"
+                                                                             href="sort-product?choice=4">Tên: Z-A</a>
+                                </div>
                             </div>
-                            <!-- nút thêm nhanh vào giỏ hàng -->
-                            <div class="add-to-cart">
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter and Sort -->
+                <div
+                        class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"
+                >
+                    <c:forEach items="${products}" var="o">
+                        <div class="col">
+                            <div class="card border border-0">
+                                <a href="detail?pid=${o.productID}" class="forward-img">
+                                    <!-- ảnh sản phẩm -->
+                                    <div class="wrapper-img">
+                                        <img
+                                                src="assets/pic/products/${o.productImage}"
+                                                class="card-img-top"
+                                                style="background-color: #f4eee0"
+                                                alt="..."
+                                        />
+                                    </div>
+                                    <!-- nút thêm nhanh vào giỏ hàng -->
+                                    <div class="add-to-cart">
                   <span data-bs-target="#exampleModal" data-bs-toggle="modal">
                     <button
                             class="icon-p"
@@ -290,99 +298,101 @@
 
                     </button>
                   </span>
-                            </div>
-                        </a>
+                                    </div>
+                                </a>
 
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">${o.productName}</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                        ${o.productPrice}<span class="currency">đ</span>
-                                </h5>
+                                <div class="card-body bg-body ms--15">
+                                    <div class="card-header-cus">
+                                        <h5 class="card-title fw-semibold">${o.productName}</h5>
+                                        <h5 class="price me--15 fw-semibold">
+                                                ${o.productPrice}<span class="currency">đ</span>
+                                        </h5>
+                                    </div>
+                                    <p class="card-text fs-7 fw-medium text-justify">
+                                            ${o.shortDes}
+                                    </p>
+                                    <a href="add-cart?pID=${o.productID}"> thêm giỏ hàng </a>
+                                </div>
                             </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                    ${o.shortDes}
-                            </p>
-                            <a href="add-cart?pID=${o.productID}"> thêm giỏ hàng  </a>
                         </div>
-                    </div>
+                    </c:forEach>
                 </div>
-            </c:forEach>
-        </div>
-        <div class="page">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
+                <div class="page">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
                   <span aria-hidden="true"
                   ><i class="fa-solid fa-chevron-left"></i
                   ></span>
-                        </a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" style="">1</a>
-                    </li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">2</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" style="">1</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
                   <span aria-hidden="true"
                   ><i class="fa-solid fa-chevron-right"></i
                   ></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
 
-    <!-- Modal -->
-    <div
-            class="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-    >
-        <div class="modal-dialog modal-sm" style="margin-top: 10rem">
-            <div class="modal-content rounded-0">
-                <div
-                        class="modal-header bg-dark border border-0 rounded-0"
-                        style="height: 25px; padding: 20px 0px"
-                >
-                    <h1
-                            class="modal-title fs-6 fw- text-light text-center w-100 ps-2"
-                            id="exampleModalLabel"
-                    >
-                        THÔNG BÁO
-                    </h1>
-                    <button
-                            type="button"
-                            class="btn-close btn-custom"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                    ></button>
-                </div>
-                <div
-                        class="modal-body text-center text-secondary-emphasis fst-italic"
-                        style="height: 20px"
-                >
-                    Thêm vào giỏ hàng thành công...
-                </div>
-                <div class="modal-footer border border-0">
-                    <button
-                            type="button"
-                            class="btn btn-secondary w-50 mx-auto bg-dark rounded-0"
-                            data-bs-dismiss="modal"
-                    >
-                        <a
-                                href="Shopping-cart.jsp"
-                                style="color: #fff; font-size: 14px; font-weight: 600"
-                        >XEM GIỎ HÀNG</a
+            <!-- Modal -->
+            <div
+                    class="modal fade"
+                    id="exampleModal"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+            >
+                <div class="modal-dialog modal-sm" style="margin-top: 10rem">
+                    <div class="modal-content rounded-0">
+                        <div
+                                class="modal-header bg-dark border border-0 rounded-0"
+                                style="height: 25px; padding: 20px 0px"
                         >
-                    </button>
+                            <h1
+                                    class="modal-title fs-6 fw- text-light text-center w-100 ps-2"
+                                    id="exampleModalLabel"
+                            >
+                                THÔNG BÁO
+                            </h1>
+                            <button
+                                    type="button"
+                                    class="btn-close btn-custom"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div
+                                class="modal-body text-center text-secondary-emphasis fst-italic"
+                                style="height: 20px"
+                        >
+                            Thêm vào giỏ hàng thành công...
+                        </div>
+                        <div class="modal-footer border border-0">
+                            <button
+                                    type="button"
+                                    class="btn btn-secondary w-50 mx-auto bg-dark rounded-0"
+                                    data-bs-dismiss="modal"
+                            >
+                                <a
+                                        href="Shopping-cart.jsp"
+                                        style="color: #fff; font-size: 14px; font-weight: 600"
+                                >XEM GIỎ HÀNG</a
+                                >
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
