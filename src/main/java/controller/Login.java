@@ -1,6 +1,5 @@
 package controller;
 
-import com.mysql.cj.Session;
 import dao.CustomerDAO;
 import entity.Customer;
 import jakarta.servlet.*;
@@ -10,7 +9,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet(name = "LoginControl", value = "/login")
-public class LoginControl extends HttpServlet {
+public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

@@ -1,4 +1,4 @@
-package controller;
+package controller.admincontrol;
 
 import dao.ProductDAO;
 import entity.Product;

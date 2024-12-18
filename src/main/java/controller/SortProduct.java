@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "SortProductController", value = "/sort-product")
-public class SortProductController extends HttpServlet {
+public class SortProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String choice = request.getParameter("choice");

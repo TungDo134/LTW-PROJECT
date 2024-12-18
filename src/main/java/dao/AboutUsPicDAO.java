@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AboutUsPicDAO {
+
+
+
+
     public List<AboutUsPic> getAboutUsPic() {
 
         ArrayList<AboutUsPic> listpicAboutUs = new ArrayList<>();

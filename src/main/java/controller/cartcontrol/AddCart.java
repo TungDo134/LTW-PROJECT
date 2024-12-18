@@ -1,4 +1,4 @@
-package controller;
+package controller.cartcontrol;
 
 import dao.ProductDAO;
 import entity.Cart;
@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @WebServlet(name = "Add", value = "/add-cart")
-public class AddController extends HttpServlet {
+public class AddCart extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

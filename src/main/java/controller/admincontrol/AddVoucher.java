@@ -1,7 +1,6 @@
-package controller;
+package controller.admincontrol;
 
 import dao.CouponDAO;
-import entity.Coupon;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -9,7 +8,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet(name = "addCouponController", value = "/add-coupon")
-public class addCouponController extends HttpServlet {
+public class AddVoucher extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String code = request.getParameter("code");

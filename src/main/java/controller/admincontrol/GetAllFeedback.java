@@ -1,4 +1,4 @@
-package controller;
+package controller.admincontrol;
 
 import dao.FeedbackDAO;
 import entity.Feedback;
@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/all-feedback")
-public class AllFeedbackController extends HttpServlet {
+public class GetAllFeedback extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         FeedbackDAO feedbackDAO = new FeedbackDAO();

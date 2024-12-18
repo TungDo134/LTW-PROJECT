@@ -1,7 +1,7 @@
-package controller;
+package controller.admincontrol;
 
-import dao.CategoryDAO;
-import entity.Category;
+import dao.JDBI_Customer_DAO;
+import entity.Customer;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -9,14 +9,18 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "CateController", value = "/get-all-cate")
-public class CateController extends HttpServlet {
+@WebServlet(name = "getAllUserController", value = "/all-user")
+public class GetAllUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CategoryDAO cateDao = new CategoryDAO();
-        List<Category> listC = cateDao.getAllCate();
+//        CustomerDAO cusDao = new CustomerDAO();
+//        List<Customer> listC= cusDao.getAllUser();
+
+        JDBI_Customer_DAO dao = new JDBI_Customer_DAO();
+        List<Customer> listC = dao.getUsers();
+
         request.setAttribute("listC", listC);
-        request.getRequestDispatcher("admin/listCategory.jsp").forward(request, response);
+        request.getRequestDispatcher("admin/allUser.jsp").forward(request, response);
     }
 
     @Override

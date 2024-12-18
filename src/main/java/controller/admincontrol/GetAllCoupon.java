@@ -1,4 +1,4 @@
-package controller;
+package controller.admincontrol;
 
 import dao.CouponDAO;
 import entity.Coupon;
@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "getAllCouponController", value = "/all-coupon")
-public class getAllCouponController extends HttpServlet {
+public class GetAllCoupon extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CouponDAO couDao = new CouponDAO();

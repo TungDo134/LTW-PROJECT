@@ -317,7 +317,7 @@
                                         <button
                                                 class="icon-p"
                                                 type="button"
-
+                                                style="display: none"
                                         ></button> </span>
 
                 </div>

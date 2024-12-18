@@ -1,18 +1,20 @@
-package controller;
+package controller.admincontrol;
 
+import dao.CouponDAO;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "LogoutControl", value = "/logout")
-public class LogoutControl extends HttpServlet {
+@WebServlet(name = "deleteVoucher", value = "/delete-voucher")
+public class DeleteVoucher extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session=request.getSession(false);
-        session.invalidate();
-        response.sendRedirect("home");
+        int voucher_id = Integer.parseInt(request.getParameter("vID").trim());
+        CouponDAO dao= new CouponDAO();
+        dao.deleteCoupon(voucher_id);
+        response.sendRedirect("all-coupon");
     }
 
     @Override

@@ -1,9 +1,7 @@
-package controller;
+package controller.cartcontrol;
 
-import dao.ProductDAO;
 import entity.Cart;
 import entity.CartItem;
-import entity.Product;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -12,14 +10,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "updateCart", value = "/update-cart")
-public class updateCart extends HttpServlet {
+public class UpdateCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String txt_id = request.getParameter("pID");
 
         int id = Integer.parseInt(txt_id);
@@ -42,6 +35,10 @@ public class updateCart extends HttpServlet {
         // tổng sp, tổng giá, tổng tiền của 1 sp
         response.getWriter().write("{\"TotalQuantity\":" + c.getTotalQuantity() + ", \"Total\":" + c.getTotal() + ", \"TotalCt\":" + ct.getTotalCt() + "}");
 
+    }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 }

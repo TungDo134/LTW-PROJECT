@@ -9,7 +9,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet(name = "DetailProductController", value = "/detail")
-public class DetailProductController extends HttpServlet {
+public class DetailProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pid = request.getParameter("pid");

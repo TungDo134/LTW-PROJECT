@@ -54,6 +54,7 @@
                 <table id="myTable" class="display" style="width:100%">
                     <thead>
                     <tr>
+                        <th>Ảnh</th>
                         <th>Danh mục</th>
                         <th>ID danh mục</th>
                         <th>Hành động</th>
@@ -62,11 +63,12 @@
                     <tbody>
                     <c:forEach items="${listC}" var="o">
                         <tr>
+                            <td><img src="<%=request.getContextPath()%>/assets/pic/products/${o.cateImg}" alt=""></td>
                             <td>${o.name}</td>
                             <td>${o.id}</td>
                             <td>
                                 <a class="btn btn-success btn-customize" href="#" role="button">Chỉnh sửa</a>
-                                <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/admin/addCategory.jsp" role="button">Thêm</a>
+<%--                                <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/admin/addCategory.jsp" role="button">Thêm</a>--%>
                                 <a class="btn btn-danger btn-customize" href="#" role="button">Xóa</a>
 
                             </td>

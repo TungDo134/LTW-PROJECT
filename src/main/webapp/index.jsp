@@ -61,39 +61,7 @@
                             alt="..."
                     />
                 </div>
-                <%--        <div class="carousel-item">--%>
-                <%--          <img--%>
-                <%--                  src="./assets/pic/new_banner_noel.jpg"--%>
-                <%--                  class="d-block w-100"--%>
-                <%--                  alt="..."--%>
-                <%--          />--%>
-                <%--        </div>--%>
-                <%--        <div class="carousel-item">--%>
-                <%--          <img--%>
-                <%--                  src="./assets/pic/new_banner_noel.jpg"--%>
-                <%--                  class="d-block w-100"--%>
-                <%--                  alt="..."--%>
-                <%--          />--%>
-                <%--        </div>--%>
             </div>
-            <%--      <button--%>
-            <%--              class="carousel-control-prev"--%>
-            <%--              type="button"--%>
-            <%--              data-bs-target="#carouselExampleAutoplaying"--%>
-            <%--              data-bs-slide="prev"--%>
-            <%--      >--%>
-            <%--        <span class="carousel-control-prev-icon" aria-hidden="true"></span>--%>
-            <%--        <span class="visually-hidden">Previous</span>--%>
-            <%--      </button>--%>
-            <%--      <button--%>
-            <%--              class="carousel-control-next"--%>
-            <%--              type="button"--%>
-            <%--              data-bs-target="#carouselExampleAutoplaying"--%>
-            <%--              data-bs-slide="next"--%>
-            <%--      >--%>
-            <%--        <span class="carousel-control-next-icon" aria-hidden="true"></span>--%>
-            <%--        <span class="visually-hidden">Next</span>--%>
-            <%--      </button>--%>
         </div>
     </section>
 
@@ -244,90 +212,22 @@
                 <div class="colection-list">
                     <div class="layout">
                         <div class="row">
-                            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                                <div class="card-inner">
-                                    <a href="#">
-                                        <div class="box">
-                                            <img src="assets/pic/highlights_pen.avif"/>
-                                        </div>
-                                    </a>
-                                    <div class="card-info">
-                                        <div class="card-title">
-                                            <a href="#">Thể loại</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                                <div class="card-inner">
-                                    <a href="#">
-                                        <div class="box">
-                                            <img src="assets/pic/highlights_pen.avif"/>
-                                        </div>
-                                    </a>
-                                    <div class="card-info">
-                                        <div class="card-title">
-                                            <a href="#">Thể loại</a>
+                            <c:forEach items="${listCate}" var="o">
+                                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                                    <div class="card-inner">
+                                        <a href="product-cate?cID=${o.id}">
+                                            <div class="box">
+                                                <img src="<%=request.getContextPath()%>/assets/pic/products/${o.cateImg}"/>
+                                            </div>
+                                        </a>
+                                        <div class="card-info">
+                                            <div class="card-title">
+                                                <a href="#">${o.name}</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                                <div class="card-inner">
-                                    <a href="#">
-                                        <div class="box">
-                                            <img src="assets/pic/highlights_pen.avif"/>
-                                        </div>
-                                    </a>
-                                    <div class="card-info">
-                                        <div class="card-title">
-                                            <a href="#">Thể loại</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                                <div class="card-inner">
-                                    <a href="#">
-                                        <div class="box">
-                                            <img src="assets/pic/highlights_pen.avif"/>
-                                        </div>
-                                    </a>
-                                    <div class="card-info">
-                                        <div class="card-title">
-                                            <a href="#">Thể loại</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                                <div class="card-inner">
-                                    <a href="#">
-                                        <div class="box">
-                                            <img src="assets/pic/highlights_pen.avif"/>
-                                        </div>
-                                    </a>
-                                    <div class="card-info">
-                                        <div class="card-title">
-                                            <a href="#">Thể loại</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                                <div class="card-inner">
-                                    <a href="#">
-                                        <div class="box">
-                                            <img src="assets/pic/highlights_pen.avif"/>
-                                        </div>
-                                    </a>
-                                    <div class="card-info">
-                                        <div class="card-title">
-                                            <a href="#">Thể loại</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
@@ -349,7 +249,8 @@
                                     class="card-image"
                             />
                             <p class="badge">${o.productName}</p>
-                            <h2 class="card-title">${o.productPrice}</h2>
+                            <h2 class="card-title number-format">${o.productPrice}<span
+                                    style="vertical-align: super">đ</span></h2>
                             <button class="card-button">
                                 <i
                                         class="fa-solid fa-arrow-right"
@@ -369,12 +270,15 @@
             <div class="swiper-slide-button swiper-button-next"></div>
         </div>
     </div>
-
     <!-- Slider -->
 </main>
 <jsp:include page="footer.jsp"></jsp:include>
 <!-- Swpier JS script -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="assets/js/swpier.js"></script>
+<script src="assets/js/formatNum.js"></script>
+<script>
+    formatNumberWithDots($(".card-title.number-format").text());
+</script>
 </body>
 </html>

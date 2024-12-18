@@ -32,14 +32,8 @@
 </head>
 <body>
 <div id="header" class="fixed">
-<%--    <div class="mau">--%>
-<%--        <div class="top-message">--%>
-<%--            <span>CHRISTMAS SALE! 🦌</span>--%>
-<%--            <span>TẬN HƯỞNG GIẢM GIÁ TỪ 20%</span>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-    <!-- BOOTSTRAP -->
 
+    <!-- BOOTSTRAP -->
     <nav
             class="navbar navbar-expand-lg bg-body-tertiary"
             style="

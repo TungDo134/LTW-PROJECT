@@ -1,4 +1,4 @@
-package controller;
+package controller.admincontrol;
 
 import dao.CouponDAO;
 import entity.Coupon;
@@ -9,7 +9,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet(name = "getOneVoucher", value = "/get-voucher")
-public class getOneVoucher extends HttpServlet {
+public class GetOneVoucher extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int voucher_id = Integer.parseInt(request.getParameter("vID").trim());
