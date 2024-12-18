@@ -672,81 +672,34 @@
                       <button type="submit">Gửi</button>
                     </form>
                   </div>
-                  <div class="review-list">
-                    <div class="review-item">
-                      <div class="item-desktop">
-                        <div class="review-header">
-                          <div class="item-left">
-                            <div class="item-top">
-                              <!-- <img src="./assets/pic/capyyyy.jpg" alt="avt" /> -->
-                              <div class="item-details">
-                                <p>J***n</p>
-                                <p>Feb 1, 2024</p>
+
+                  <c:forEach items="${reviews}" var="o">
+                    <div class="review-list">
+                      <div class="review-item">
+                        <div class="item-desktop">
+                          <div class="review-header">
+                            <div class="item-left">
+                              <div class="item-top">
+                                <!-- <img src="./assets/pic/capyyyy.jpg" alt="avt" /> -->
+                                <div class="item-details">
+                                  <p>${o.customerName}</p>
+                                  <p>${o.date}</p>
+                                </div>
+                              </div>
+                              <div class="item-bottom">
+                                <p>${o.comment}.</p>
                               </div>
                             </div>
-                            <div class="item-bottom">
-                              <p>Perfect and fast.</p>
+                            <div class="item-right">
+                              <p>Rating: ${o.rating}/5</p>
+                              <p>★★★★★</p>
                             </div>
-                          </div>
-                          <div class="item-right">
-                            <p>Rating: 5/5</p>
-                            <p>★★★★★</p>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="review-list">
-                    <div class="review-item">
-                      <div class="item-desktop">
-                        <div class="review-header">
-                          <div class="item-left">
-                            <div class="item-top">
-                              <!-- <img src="./assets/pic/capyyyy.jpg" alt="avt" /> -->
-                              <div class="item-details">
-                                <p>D***t</p>
-                                <p>Dec 4, 2023</p>
-                              </div>
-                            </div>
-                            <div class="item-bottom">
-                              <p>The kids love these.</p>
-                            </div>
-                          </div>
-                          <div class="item-right">
-                            <p>Rating: 5/5</p>
-                            <p>★★★★★</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="review-list">
-                    <div class="review-item">
-                      <div class="item-desktop">
-                        <div class="review-header">
-                          <div class="item-left">
-                            <div class="item-top">
-                              <!-- <img src="./assets/pic/capyyyy.jpg" alt="avt" /> -->
-                              <div class="item-details">
-                                <p>5***r</p>
-                                <p>Mar 5, 2024</p>
-                              </div>
-                            </div>
-                            <div class="item-bottom">
-                              <p>
-                                My grandchildren love it, super fun, I recommend
-                                the seller
-                              </p>
-                            </div>
-                          </div>
-                          <div class="item-right">
-                            <p>Rating: 5/5</p>
-                            <p>★★★★★</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  </c:forEach>
+
                   <!-- Đóng thẻ review-pane -->
                 </div>
                 <!-- Đóng thẻ list-main -->

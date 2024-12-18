@@ -86,12 +86,13 @@
                                 </c:if>
 
                                 <c:if test="${o.display == 1}">
-                                    <p class="text-info mx-0 my-0"> Đã duyệt</p>
+                                    <p class="text-info mx-0 my-0" data-id="${o.reviewID}"> Đã duyệt</p>
                                 </c:if>
                             </td>
                             <td>
                                 <c:if test="${o.display == 0}">
-                                    <form class="d-inline-block" action="accept-review?rID=${o.reviewID}" method="post">
+                                    <form class="d-inline-block modify-re" data-id="${o.reviewID}"
+                                          method="post">
                                         <input name="choice" type="hidden" value="1">
                                         <button type="submit" class="btn btn-info btn-customize" role="button">Duyệt
                                         </button>
@@ -99,19 +100,19 @@
                                 </c:if>
 
                                 <c:if test="${o.display == 1}">
-                                    <form class="d-inline-block" action="accept-review?rID=${o.reviewID}" method="post">
+                                    <form class="d-inline-block modify-re" data-id="${o.reviewID}"
+                                          method="post">
                                         <input name="choice" type="hidden" value="0">
                                         <button type="submit" class="btn btn-warning btn-customize" role="button">Ẩn
                                         </button>
                                     </form>
-                                    <form class="d-inline-block" action="accept-review?rID=${o.reviewID}" method="post">
+                                    <form class="d-inline-block modify-re" data-id="${o.reviewID}"
+                                          method="post">
                                         <input name="choice" type="hidden" value="-1">
                                         <button type="submit" class="btn btn-danger btn-customize" role="button">Xóa
                                         </button>
                                     </form>
                                 </c:if>
-
-
                             </td>
                         </tr>
                     </c:forEach>
@@ -122,7 +123,34 @@
         </div>
     </div>
 </div>
-
 <script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
+<script>
+
+    $(".modify-re").on("submit", function () {
+        event.preventDefault();
+        let form = $(this);
+        let rID = $(this).data("id");
+        let choice = parseInt($(this).find('input[name="choice"]').val());
+        // console.log(rID + ' ' + choice);
+
+        $.ajax({
+            url: "modify-review",
+            type: "post",
+            data: {
+                rID: rID,
+                choice: choice
+            },
+            success: function (response) {
+                if (response.isSuccess) {
+                    location.reload()
+                }
+            },
+            error: function (status, error) {
+                console.log("Error: " + error);
+            }
+        })
+    });
+
+</script>
 </body>
 </html>

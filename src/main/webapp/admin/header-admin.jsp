@@ -57,13 +57,13 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="<%= request.getContextPath()%>/home"
+                            <a class="dropdown-item" href="<%= request.getContextPath()%>/profile.jsp"
                             ><i class="fa-regular fa-user icon-dropdown"></i>Tài
                                 Khoản</a
                             >
                         </li>
                         <li>
-                            <a class="dropdown-item" href="<%= request.getContextPath()%>/index.jsp"
+                            <a class="dropdown-item" href="<%= request.getContextPath()%>/home"
                             ><i class="fa-solid fa-headphones icon-dropdown"></i> Trang chủ</a
                             >
                         </li>

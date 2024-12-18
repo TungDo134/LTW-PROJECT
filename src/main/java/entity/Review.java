@@ -3,6 +3,7 @@ package entity;
 import dao.ReviewDAO;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Review implements Serializable {
 
@@ -12,18 +13,22 @@ public class Review implements Serializable {
     private int rating;
     private byte display;
     private String comment;
+    private Date date;
 
-    public Review(int reviewID, int productID, String customerName, int rating, byte display, String comment) {
+
+    public Review(int reviewID, int productID, String customerName, int rating, byte display, String comment, Date date) {
         this.reviewID = reviewID;
         this.productID = productID;
         this.customerName = customerName;
         this.rating = rating;
         this.display = display;
         this.comment = comment;
+        this.date = date;
     }
 
     public Review() {
     }
+
 
     public int getReviewID() {
         return reviewID;
@@ -73,17 +78,24 @@ public class Review implements Serializable {
         this.comment = comment;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return "Review{" +
                 "reviewID=" + reviewID +
                 ", productID=" + productID +
-                ", customerName=" + customerName +
+                ", customerName='" + customerName + '\'' +
                 ", rating=" + rating +
                 ", display=" + display +
                 ", comment='" + comment + '\'' +
+                ", date=" + date +
                 '}';
     }
-
-
 }

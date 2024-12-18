@@ -58,13 +58,16 @@
                     <p class="text-danger"><%=message != null ? message : "" %>
                     </p>
                     <div class="col col-2">
-                        <input name="imgCate" type="file" class="form-control" placeholder="Ảnh danh mục"
-                               aria-label="First name">
-                    </div>
-                    <div class="col col-2">
+                        <label class="pb-2" id="nameCate" for="nameCate">Tên danh mục</label>
                         <input name="nameCate" type="text" class="form-control" placeholder="Tên danh mục"
                                aria-label="Last name">
                     </div>
+                    <div class="col col-2">
+                        <label class="pb-2" for="imgCate">Tên danh mục</label>
+                        <input id="imgCate" name="imgCate" type="file" class="form-control" placeholder="Ảnh danh mục"
+                               aria-label="First name">
+                    </div>
+
                 </div>
                 <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm">Thêm danh mục</button>
             </form>

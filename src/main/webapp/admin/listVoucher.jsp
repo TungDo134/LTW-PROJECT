@@ -65,12 +65,14 @@
                 <div class="row">
                     <p class="text-danger"><%=message != null ? message : "" %>
                     </p>
-                    <div class="col col-2">
-                        <input name="code" type="text" class="form-control" placeholder="Mã giảm"
+                    <div class="col col-2 ">
+                        <label for="code" class="pb-2">Tên mã giảm</label>
+                        <input id="code" name="code" type="text" class="form-control" placeholder="Mã giảm"
                                aria-label="First name">
                     </div>
-                    <div class="col col-2">
-                        <input name="discount" type="text" class="form-control" placeholder="Phần trăm giảm "
+                    <div class="col col-2 ">
+                        <label for="discount" class="pb-2">Tỉ lệ giảm</label>
+                        <input id="discount" name="discount" type="text" class="form-control" placeholder="Phần trăm giảm "
                                aria-label="Last name">
                     </div>
                 </div>
