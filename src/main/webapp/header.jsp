@@ -89,7 +89,7 @@
                 <div class="offcanvas-body align-items-center justify-content-evenly">
                     <a
                             class="navbar-brand d-none d-lg-block nav-brand-custom"
-                            href="index.jsp"
+                            href="home"
                     ><img src="assets/pic/logo.png" alt="" style="width: 100%"
                     /></a>
 

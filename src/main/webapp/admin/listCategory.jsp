@@ -43,6 +43,9 @@
     <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleListCate.css"/>
 </head>
 <body class="dark-theme">
+<%
+    String message = (String) request.getAttribute("msg");
+%>
 <jsp:include page="header-admin.jsp"></jsp:include>
 <div id="main-content">
     <div class="main-container">
@@ -52,10 +55,10 @@
         <div class="add-voucher" style="margin-bottom: 1rem">
             <form action="<%= request.getContextPath()%>/add-newCate" method="post">
                 <div class="row">
-                    <%--                    <p class="text-Info"><%=message != null ? message : "" %>--%>
-                    <%--                    </p>--%>
+                    <p class="text-danger"><%=message != null ? message : "" %>
+                    </p>
                     <div class="col col-2">
-                        <input name="imgCate" type="text" class="form-control" placeholder="Ảnh danh mục"
+                        <input name="imgCate" type="file" class="form-control" placeholder="Ảnh danh mục"
                                aria-label="First name">
                     </div>
                     <div class="col col-2">

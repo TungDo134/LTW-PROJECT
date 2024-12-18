@@ -24,12 +24,13 @@ public class CartItem implements Serializable {
     }
 
     public double getTotalCt() {
-        return totalCt = quantity * price;
-//        return totalCt;
+        setTotalCt(getPrice(), getQuantity());
+//        return totalCt = quantity * price;
+        return totalCt;
     }
 
-    public void setTotalCt(double totalCt) {
-        this.totalCt = totalCt;
+    public void setTotalCt(double price, int quantity) {
+        this.totalCt = price * quantity;
     }
 
     public int getId() {

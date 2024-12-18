@@ -20,15 +20,23 @@ public class AddCate extends HttpServlet {
         String name = request.getParameter("nameCate");
         String img = request.getParameter("imgCate");
 
-        CategoryDAO categoryDAO = new CategoryDAO();
-        Category category = new Category();
-        category.setName(name);
-        category.setCateImg(img);
+        if (name.isBlank() || img.isBlank()) {
+            request.setAttribute("msg", "Dữ liệu nhập vào không được trống");
+            request.getRequestDispatcher("get-all-cate").forward(request, response);
 
-        int row = categoryDAO.insertCate(category);
-        if (row >= 1) {
+        } else {
+            CategoryDAO categoryDAO = new CategoryDAO();
+            Category category = new Category();
+            category.setName(name.trim());
+            System.out.println(name);
+            category.setCateImg(img.trim());
 
+            int row = categoryDAO.insertCate(category);
+            if (row >= 1) {
+                response.sendRedirect("get-all-cate");
+            }
         }
-        request.getRequestDispatcher("get-all-cate").forward(request, response);
+
+
     }
 }

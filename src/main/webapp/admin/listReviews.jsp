@@ -63,24 +63,55 @@
                 <table id="myTable" class="display" style="width:100%; color: #fff">
                     <thead>
                     <tr>
-                        <th>Người dùng</th>
-                        <th>ID người dùng</th>
+                        <th>Tên người dùng</th>
                         <th>Số điện thoại</th>
-                        <th>Email</th>
+                        <th>Mã sản phẩm</th>
                         <th>Đánh giá</th>
+                        <th>Sao</th>
+                        <th>Trạng thái</th>
                         <th>Hành động</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="" var="o">
+                    <c:forEach items="${reviews}" var="o">
                         <tr>
+                            <td>${o.customerName}</td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>${o.productID}</td>
+                            <td>${o.comment}</td>
+                            <td>${o.rating}</td>
                             <td>
-                                <a class="btn btn-primary btn-customize" href="#" role="button">Duyệt</a>
+                                <c:if test="${o.display == 0}">
+                                    <p class="text-warning mx-0 my-0"> Chưa duyệt</p>
+                                </c:if>
+
+                                <c:if test="${o.display == 1}">
+                                    <p class="text-info mx-0 my-0"> Đã duyệt</p>
+                                </c:if>
+                            </td>
+                            <td>
+                                <c:if test="${o.display == 0}">
+                                    <form class="d-inline-block" action="accept-review?rID=${o.reviewID}" method="post">
+                                        <input name="choice" type="hidden" value="1">
+                                        <button type="submit" class="btn btn-info btn-customize" role="button">Duyệt
+                                        </button>
+                                    </form>
+                                </c:if>
+
+                                <c:if test="${o.display == 1}">
+                                    <form class="d-inline-block" action="accept-review?rID=${o.reviewID}" method="post">
+                                        <input name="choice" type="hidden" value="0">
+                                        <button type="submit" class="btn btn-warning btn-customize" role="button">Ẩn
+                                        </button>
+                                    </form>
+                                    <form class="d-inline-block" action="accept-review?rID=${o.reviewID}" method="post">
+                                        <input name="choice" type="hidden" value="-1">
+                                        <button type="submit" class="btn btn-danger btn-customize" role="button">Xóa
+                                        </button>
+                                    </form>
+                                </c:if>
+
+
                             </td>
                         </tr>
                     </c:forEach>

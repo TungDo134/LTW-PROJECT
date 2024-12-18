@@ -62,7 +62,7 @@
                     <th>Số điện thoại</th>
                     <th>Email</th>
                     <th>Địa chỉ</th>
-                    <th>Quyền</th>
+                    <th>Vai trò</th>
                     <th>Hành động</th>
                 </tr>
                 </thead>
@@ -77,7 +77,7 @@
                         <td> ${o.address} </td>
                         <td>
                             <c:if test="${o.role == 1}">
-                                Admin
+                                <p style="padding: 4px" class="bg-info text-dark text-center mx-0 my-0 rounded" >Admin</p>
                             </c:if>
                             <c:if test="${o.role == 0}">
                                 Người dùng

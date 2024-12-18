@@ -12,7 +12,7 @@ public class CategoryDAO {
     // lấy hết danh mục
     public List<Category> getAllCate() {
         return JDBIContext.getJdbi().withHandle(handle ->
-                (handle.createQuery("select * from categories").mapToBean(Category.class).list())
+                (handle.createQuery("select * from categories Order by cateID DESC ").mapToBean(Category.class).list())
         );
     }
 

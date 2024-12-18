@@ -31,7 +31,7 @@ public class Cart {
         CartItem cartItem = data.get(productID);
         if (quantity < 1) return false;
         cartItem.setQuantity(quantity);
-        cartItem.setTotalCt(cartItem.getPrice() * cartItem.getQuantity());
+        cartItem.setTotalCt(cartItem.getPrice(), cartItem.getQuantity());
         data.put(productID, cartItem);
         return true;
     }

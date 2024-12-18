@@ -1,24 +1,23 @@
 package controller.admincontrol;
 
-import dao.CustomerDAO;
-import entity.Customer;
+import dao.ReviewDAO;
+import entity.Review;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "getAllUserController", value = "/all-user")
-public class GetAllUser extends HttpServlet {
+@WebServlet(name = "GetAllReview", value = "/all-review")
+public class GetAllReview extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        CustomerDAO dao = new CustomerDAO();
-        List<Customer> listC = dao.getUsers();
-
-        request.setAttribute("listC", listC);
-        request.getRequestDispatcher("admin/allUser.jsp").forward(request, response);
+        ReviewDAO dao = new ReviewDAO();
+        List<Review> reviews = dao.getAllReview();
+        request.setAttribute("reviews", reviews);
+        request.getRequestDispatcher("admin/listReviews.jsp").forward(request, response);
     }
 
     @Override

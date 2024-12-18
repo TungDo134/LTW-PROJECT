@@ -14,23 +14,20 @@ public class AddVoucher extends HttpServlet {
         String code = request.getParameter("code");
         String txt_Discount = request.getParameter("discount");
 
-        if (code.isEmpty() || txt_Discount.isEmpty()) {
+        if (code.isBlank() || txt_Discount.isBlank()) {
             request.setAttribute("msg", "Thiếu mã giảm hoặc giá trị của mã");
             request.getRequestDispatcher("all-coupon").forward(request, response);
-            return;
-        }
 
-        double discount = Double.parseDouble(txt_Discount.trim());
-        CouponDAO couponDAO = new CouponDAO();
-        int row = couponDAO.addCoupon(code, discount);
-
-        if (row >= 1) {
-            request.setAttribute("msg", "Thêm thành công ");
-            request.getRequestDispatcher("all-coupon").forward(request, response);
         } else {
-            request.setAttribute("msg", "Them that bai");
-            request.getRequestDispatcher("all-coupon").forward(request, response);
+            double discount = Double.parseDouble(txt_Discount.trim());
+            CouponDAO couponDAO = new CouponDAO();
+            int row = couponDAO.addCoupon(code, discount);
+
+            if (row >= 1) {
+                response.sendRedirect("all-coupon");
+            }
         }
+
 
     }
 

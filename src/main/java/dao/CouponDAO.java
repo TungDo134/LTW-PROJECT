@@ -15,7 +15,7 @@ public class CouponDAO {
     // hiển thị tất cả voucher
     public List<Coupon> getAllCoupon() {
         return JDBIContext.getJdbi().withHandle(handle ->
-                (handle.createQuery("select * from coupons").mapToBean(Coupon.class).list())
+                (handle.createQuery("select * from coupons order by couponID desc").mapToBean(Coupon.class).list())
         );
     }
 

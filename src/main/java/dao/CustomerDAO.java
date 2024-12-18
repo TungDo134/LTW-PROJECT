@@ -1,80 +1,32 @@
 package dao;
 
-import context.DBConntext;
+import context.JDBIContext;
 import entity.Customer;
+import org.jdbi.v3.core.Handle;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class CustomerDAO {
 
-    public  List<Customer> getAllUser() {
-
-        ArrayList<Customer> list = new ArrayList<>();
-
-        try {
-            Connection conn = DBConntext.getConnection();
-
-            String query = "SELECT * FROM customers";
-            PreparedStatement pst = conn.prepareStatement(query);
-
-            System.out.println(query);
-            ResultSet rs = pst.executeQuery();
-
-            while (rs.next()) {
-                list.add(new Customer(
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getByte(7)
-                ));
-            }
-            DBConntext.closeConnection(conn);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
-    public Customer getUserByEmail(String email, String pass){
-        try {
-            Connection conn = DBConntext.getConnection();
-
-            String query = "SELECT * FROM customers WHERE email = ? AND pass = ?";
-            PreparedStatement pst = conn.prepareStatement(query);
-            pst.setString(1,email);
-            pst.setString(2,pass);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                return new Customer(
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getByte(7)
-                );
-            }
-            System.out.println(query);
-            DBConntext.closeConnection(conn);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public List<Customer> getUsers() {
+        // Dùng withHandle để mở handle kết nối và thực hiện truy vấn
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM customers")
+                        .mapToBean(Customer.class) // Ánh xạ kết quả thành đối tượng Customer
+                        .list() // Trả về danh sách các khách hàng
+        );
     }
 
-    public static void main(String[] args) {
-        CustomerDAO dao = new CustomerDAO();
-        ArrayList<Customer> list= (ArrayList<Customer>) dao.getAllUser();
-        for (Customer customer : list) {
-            System.out.println(customer+"\n");
+
+    public Customer getUserByEmailPass(String email, String pass) {
+        try (Handle handle = JDBIContext.getJdbi().open()) {
+            return handle.createQuery("SELECT * FROM customers where email = :email and pass = :pass")
+                    .bind("email", email)
+                    .bind("pass", pass)
+                    .mapToBean(Customer.class).one();
         }
     }
-    }
+
+
+}
