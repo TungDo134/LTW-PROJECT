@@ -30,8 +30,8 @@
 }
 
 .row {
-  flex-wrap: nowrap;
-  padding: 1rem 12px;
+  /*flex-wrap: nowrap;*/
+  /*padding: 1rem 12px;*/
   border-radius: 12px;
   background: transparent;
   color: var(--Heading);

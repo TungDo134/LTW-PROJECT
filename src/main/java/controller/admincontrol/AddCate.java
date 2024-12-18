@@ -1,6 +1,7 @@
 package controller.admincontrol;
 
 import dao.CategoryDAO;
+import entity.Category;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -16,10 +17,18 @@ public class AddCate extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("cate");
-        CategoryDAO categoryDAO= new CategoryDAO();
-//        categoryDAO.insertCate(name);
-        String url=request.getContextPath();
-        response.sendRedirect(url+"/admin/addCategory.jsp");
+        String name = request.getParameter("nameCate");
+        String img = request.getParameter("imgCate");
+
+        CategoryDAO categoryDAO = new CategoryDAO();
+        Category category = new Category();
+        category.setName(name);
+        category.setCateImg(img);
+
+        int row = categoryDAO.insertCate(category);
+        if (row >= 1) {
+
+        }
+        request.getRequestDispatcher("get-all-cate").forward(request, response);
     }
 }

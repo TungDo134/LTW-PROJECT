@@ -12,8 +12,15 @@ public class AddVoucher extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String code = request.getParameter("code");
-        double discount = Double.parseDouble( request.getParameter("discount").trim());
+        String txt_Discount = request.getParameter("discount");
 
+        if (code.isEmpty() || txt_Discount.isEmpty()) {
+            request.setAttribute("msg", "Thiếu mã giảm hoặc giá trị của mã");
+            request.getRequestDispatcher("all-coupon").forward(request, response);
+            return;
+        }
+
+        double discount = Double.parseDouble(txt_Discount.trim());
         CouponDAO couponDAO = new CouponDAO();
         int row = couponDAO.addCoupon(code, discount);
 

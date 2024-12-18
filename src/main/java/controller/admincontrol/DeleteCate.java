@@ -7,16 +7,16 @@ import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name = "CateController", value = "/get-all-cate")
-public class CateController extends HttpServlet {
+@WebServlet(name = "DeleteCate", value = "/delete-cate")
+public class DeleteCate extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CategoryDAO cateDao = new CategoryDAO();
-        List<Category> listC = cateDao.getAllCate();
-        request.setAttribute("listC", listC);
-        request.getRequestDispatcher("admin/listCategory.jsp").forward(request, response);
+        String cID = request.getParameter("cID");
+
+        CategoryDAO dao = new CategoryDAO();
+        dao.removeCate(cID);
+        request.getRequestDispatcher("get-all-cate").forward(request, response);
     }
 
     @Override

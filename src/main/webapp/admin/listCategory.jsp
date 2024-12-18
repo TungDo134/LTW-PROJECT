@@ -49,6 +49,23 @@
         <div class="header">
             <h1>Hiển thị danh mục</h1>
         </div>
+        <div class="add-voucher" style="margin-bottom: 1rem">
+            <form action="<%= request.getContextPath()%>/add-newCate" method="post">
+                <div class="row">
+                    <%--                    <p class="text-Info"><%=message != null ? message : "" %>--%>
+                    <%--                    </p>--%>
+                    <div class="col col-2">
+                        <input name="imgCate" type="text" class="form-control" placeholder="Ảnh danh mục"
+                               aria-label="First name">
+                    </div>
+                    <div class="col col-2">
+                        <input name="nameCate" type="text" class="form-control" placeholder="Tên danh mục"
+                               aria-label="Last name">
+                    </div>
+                </div>
+                <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm">Thêm danh mục</button>
+            </form>
+        </div>
         <div id="list-cate-container">
             <div class="cate-list">
                 <table id="myTable" class="display" style="width:100%">
@@ -68,8 +85,9 @@
                             <td>${o.id}</td>
                             <td>
                                 <a class="btn btn-success btn-customize" href="#" role="button">Chỉnh sửa</a>
-<%--                                <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/admin/addCategory.jsp" role="button">Thêm</a>--%>
-                                <a class="btn btn-danger btn-customize" href="#" role="button">Xóa</a>
+                                    <%--                                <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/admin/addCategory.jsp" role="button">Thêm</a>--%>
+                                <a class="btn btn-danger btn-customize" href="delete-cate?cID=${o.id}"
+                                   role="button">Xóa</a>
 
                             </td>
                         </tr>

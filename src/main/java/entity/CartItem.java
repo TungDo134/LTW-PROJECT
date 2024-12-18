@@ -25,6 +25,7 @@ public class CartItem implements Serializable {
 
     public double getTotalCt() {
         return totalCt = quantity * price;
+//        return totalCt;
     }
 
     public void setTotalCt(double totalCt) {
@@ -86,4 +87,6 @@ public class CartItem implements Serializable {
                 ", totalCt=" + totalCt +
                 '}';
     }
+
+
 }

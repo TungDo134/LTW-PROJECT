@@ -28,11 +28,11 @@ public class Cart {
 
     public boolean update(int productID, int quantity) {
         if (!data.containsKey(productID)) return false;
-        CartItem cartProduct = data.get(productID);
+        CartItem cartItem = data.get(productID);
         if (quantity < 1) return false;
-        cartProduct.setQuantity(quantity);
-        cartProduct.setTotalCt(cartProduct.getPrice() * cartProduct.getQuantity());
-        data.put(productID, cartProduct);
+        cartItem.setQuantity(quantity);
+        cartItem.setTotalCt(cartItem.getPrice() * cartItem.getQuantity());
+        data.put(productID, cartItem);
         return true;
     }
 

@@ -60,15 +60,16 @@
         <div class="header">
             <h1>Danh sách mã giảm giá</h1>
         </div>
-        <div>
+        <div class="add-voucher" style="margin-bottom: 1rem">
             <form action="<%= request.getContextPath()%>/add-coupon" method="post">
                 <div class="row">
-                    <p><%=message != null ? message : "" %>
+                    <p class="text-Info"><%=message != null ? message : "" %>
                     </p>
-                    <div class="col">
-                        <input name="code" type="text" class="form-control" placeholder="Mã giảm" aria-label="First name">
+                    <div class="col col-2">
+                        <input name="code" type="text" class="form-control" placeholder="Mã giảm"
+                               aria-label="First name">
                     </div>
-                    <div class="col">
+                    <div class="col col-2">
                         <input name="discount" type="text" class="form-control" placeholder="Phần trăm giảm "
                                aria-label="Last name">
                     </div>
@@ -80,7 +81,7 @@
 
             <div class="list-reviews">
 
-                <table id="myTable" class="display" style="width:100%; color: #fff" >
+                <table id="myTable" class="display" style="width:100%; color: #fff">
                     <thead>
                     <tr>
                         <th>Mã giảm giá</th>
@@ -94,8 +95,11 @@
                             <td>${o.code}</td>
                             <td>${o.discount}</td>
                             <td>
-                                <a class="btn btn-success btn-customize" href="<%=request.getContextPath()%>/get-voucher?vID=${o.couponId}" role="button">Chỉnh sửa</a>
-                                <a class="btn btn-danger btn-customize" href="<%=request.getContextPath()%>/delete-voucher?vID=${o.couponId}" role="button">Xóa</a>
+                                <a class="btn btn-success btn-customize"
+                                   href="<%=request.getContextPath()%>/get-voucher?vID=${o.couponId}" role="button">Chỉnh
+                                    sửa</a>
+                                <a class="btn btn-danger btn-customize"
+                                   href="<%=request.getContextPath()%>/delete-voucher?vID=${o.couponId}" role="button">Xóa</a>
                             </td>
                         </tr>
                     </c:forEach>

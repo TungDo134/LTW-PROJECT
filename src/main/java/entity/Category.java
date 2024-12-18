@@ -35,12 +35,12 @@ public class Category {
         this.cateImg = cateImg;
     }
 
-    @ColumnName("CateID")
+    @ColumnName("cateID")
     public int getId() {
         return id;
     }
 
-    @ColumnName("CateName")
+    @ColumnName("cateName")
     public String getName() {
         return name;
     }
