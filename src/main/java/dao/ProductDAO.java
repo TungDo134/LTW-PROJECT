@@ -15,8 +15,7 @@ public class ProductDAO {
         );
     }
 
-    public Product getProductByID(String ProID){
-
+    public Product getProductByID(String ProID) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 (handle.createQuery("select * from products where productID = :productID")
                         .bind("productID", ProID)
@@ -59,6 +58,7 @@ public class ProductDAO {
             default -> null;
         };
     }
+
     public List<Product> getBestSeller() {
         try (Handle handle = JDBIContext.getJdbi().open()) {
             return handle.createQuery("SELECT * FROM products ORDER BY productOrder DESC LIMIT 10;")

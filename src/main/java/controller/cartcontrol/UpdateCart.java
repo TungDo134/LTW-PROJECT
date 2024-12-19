@@ -28,7 +28,6 @@ public class UpdateCart extends HttpServlet {
         CartItem ct = c.getData().get(id);
         System.out.println(ct);
 
-        // Trả về thông tin cần thiết cho giao diện
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
 

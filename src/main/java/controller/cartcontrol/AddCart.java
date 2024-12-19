@@ -20,6 +20,7 @@ public class AddCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pID = (request.getParameter("pID"));
+        System.out.println(pID);
 
         ProductDAO productDAO = new ProductDAO();
         Product product = productDAO.getProductByID(pID);
@@ -28,7 +29,7 @@ public class AddCart extends HttpServlet {
         Cart c = (Cart) session.getAttribute("cart");
         if (c == null) c = new Cart();
         c.add(product);
-        session.setAttribute("cart",c);
+        session.setAttribute("cart", c);
 
 
     }

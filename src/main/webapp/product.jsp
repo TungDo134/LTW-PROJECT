@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="f" uri="jakarta.tags.fmt" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -299,8 +300,12 @@
                                 <div class="card-body bg-body ms--15">
                                     <div class="card-header-cus">
                                         <h5 class="card-title fw-semibold">${o.productName}</h5>
+
+
                                         <h5 class="price me--15 fw-semibold number-format">
-                                                ${o.productPrice} <span class="currency">đ</span>
+                                                <%--                                            <f:setLocale value = "vi_VN"/>--%>
+                                            <f:formatNumber value="${o.productPrice}"/>
+                                            <span class="currency">đ</span>
                                         </h5>
                                     </div>
                                     <p class="card-text fs-7 fw-medium text-justify">
@@ -407,7 +412,7 @@
 
 <!-- Link CUSTOM JS -->
 <script src="assets/js/main.js"></script>
-<script src="assets/js/formatNum.js"></script>
+<%--<script src="assets/js/formatNum.js"></script>--%>
 <script>
     //// JS cho phần hiện tooltip khi hover vào icon giỏ hàng (bstrap) ////
     const tooltipTriggerList = document.querySelectorAll(
