@@ -162,7 +162,7 @@
                             </button>
                             <div class="ct" id="search">
                                 <form
-                                        action="search-control"
+                                        action="products"
                                         method="post"
                                         class="form-search"
                                 >
