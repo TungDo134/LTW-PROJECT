@@ -11,16 +11,15 @@ function updateCart(input) {
             quantity: quantity,
         },
         success: function (data) {
-            // Cập nhật giao diện
             // formatted trước khi cập nhật
-            const fmTotalQuantity = formatNumberWithDots(data.TotalQuantity);
-            const fmTotal = formatNumberWithDots(data.Total);
-            const fmTotalCt = formatNumberWithDots(data.TotalCt);
+            $(".subtotalQuantity").text(data.TotalQuantity);
+            $(".total.number-format").text(formatCurrency(data.Total) + " VND");
+            $(`#total-price-${pID}`).text(formatCurrency(data.TotalCt) + " VND");
 
-            $(".subtotalQuantity").text(fmTotalQuantity);
-            $(".total.number-format").text(fmTotal + "đ");
-            $(`#total-price-${pID}`).text(fmTotalCt + "đ");
-            // console.log($(".total-price.number-format").text(data.TotalCt))
+            function formatCurrency(value) {
+                return new Intl.NumberFormat('en-US').format(value);
+            }
+
         }
     })
 }

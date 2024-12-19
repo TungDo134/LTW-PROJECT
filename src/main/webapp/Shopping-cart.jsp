@@ -1,6 +1,7 @@
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="entity.Cart" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="f" uri="jakarta.tags.fmt" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -44,7 +45,7 @@
             <div class="cart-header">
                 <span>Sản phẩm</span>
                 <span>Số lượng</span>
-                <span>Tổng tiền</span>
+                <span>Tổng tiền (VND)</span>
                 <span>Hành động</span>
             </div>
             <c:forEach items="${sessionScope.cart.list}" var="cp">
@@ -55,7 +56,12 @@
                             <img src="<%=request.getContextPath()%>/assets/pic/products/${cp.img}" alt="Sản phẩm 1"></a>
                         <div>
                             <p>${cp.title}</p>
-                            <p class="price number-format">${cp.price}<span class="currency">đ</span></p>
+                            <p class="price number-format">
+                                    <%--  ${cp.price}--%>
+
+                                <f:parseNumber value="${cp.price}" type="number" var="parsedNumber"/>
+                                <f:formatNumber value="${parsedNumber}"/>
+                                <span class="currency">đ</span></p>
                         </div>
                     </div>
                     <div class="quantity" style="width: 100px">
@@ -63,11 +69,11 @@
 
                         <input onblur="updateCart(this)" name="quantity" id="" class="p-quantity"
                                data-id="${cp.id}" value="${cp.quantity}"/>
-                            <%--                        <input type="hidden" name="idP" value="${cp.id}">--%>
-
                     </div>
                     <div class="total-price number-format" id="total-price-${cp.id}">
-                            ${cp.totalCt}<span class="">đ</span>
+                        <f:parseNumber value="${cp.totalCt}" type="number" var="parsedNumber"/>
+                        <f:formatNumber value="${parsedNumber}"/>
+                        <span>VND</span>
                     </div>
                     <div class="remove-item">
                         <div class="i-container">
@@ -100,7 +106,12 @@
                 <div class="cart-total-row">
                     <span>Tổng tiền:</span>
                     <span class="total number-format">
-                         <%= c == null ? "" : c.getTotal() %><span class="">đ</span>
+                        <c:set var="balance" value="<%= c == null ? 0 : c.getTotal() %>"/>
+
+                         <f:parseNumber value="${balance}" type="number" var="parsedNumber"/>
+                            <f:formatNumber value="${parsedNumber}"/>
+
+                        <span>VND</span>
                     </span>
                 </div>
                 <button type="submit" class="checkout-button">
@@ -112,7 +123,7 @@
 </main>
 <jsp:include page="footer.jsp"></jsp:include>
 
-<script src="assets/js/formatNum.js"></script>
+<%--<script src="assets/js/formatNum.js"></script>--%>
 <script src="assets/js/update_cart.js"></script>
 </body>
 </html>

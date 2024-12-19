@@ -18,7 +18,8 @@ public class RemoveCart extends HttpServlet {
         Cart c = (Cart) session.getAttribute("cart");
         c.remove(proID);
         session.setAttribute("cart", c);
-        request.getRequestDispatcher("Shopping-cart.jsp").forward(request,response);
+//        request.getRequestDispatcher("Shopping-cart.jsp").forward(request,response);
+        response.sendRedirect("show-cart");
     }
 
     @Override
