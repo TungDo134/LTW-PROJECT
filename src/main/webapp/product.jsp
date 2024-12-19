@@ -241,28 +241,23 @@
                         <span>Sắp xếp:</span>
                         <div class="custom-select">
                             <div class="select-selected">Giá: Thấp đến cao</div>
-<%--                            <div class="select-options">--%>
-<%--                                <div class="select-option" data-value="1"><a style="display: inline-block; width: 100%"--%>
-<%--                                                                             href="sort-product?choice=1">Giá: Thấp đến--%>
-<%--                                    cao</a>--%>
-<%--                                </div>--%>
-<%--                                <div class="select-option" data-value="2"><a style="display: inline-block; width: 100%"--%>
-<%--                                                                             href="sort-product?choice=2">Giá: Cao đến--%>
-<%--                                    thấp</a>--%>
-<%--                                </div>--%>
-<%--                                <div class="select-option" data-value="3"><a style="display: inline-block; width: 100%"--%>
-<%--                                                                             href="sort-product?choice=3">Tên: A-Z</a>--%>
-<%--                                </div>--%>
-<%--                                <div class="select-option" data-value="4"><a style="display: inline-block; width: 100%"--%>
-<%--                                                                             href="sort-product?choice=4">Tên: Z-A</a>--%>
-<%--                                </div>--%>
-<%--                            </div>--%>
                             <div class="select-options">
-                                <div class="select-option" data-value="1"><a href="product?sortChoice=1">Giá: Thấp đến cao</a></div>
-                                <div class="select-option" data-value="2"><a href="product?sortChoice=2">Giá: Cao đến thấp</a></div>
-                                <div class="select-option" data-value="3"><a href="product?sortChoice=3">Tên: A-Z</a></div>
-                                <div class="select-option" data-value="4"><a href="product?sortChoice=4">Tên: Z-A</a></div>
+                                <div class="select-option" data-value="1"><a style="display: inline-block; width: 100%"
+                                                                             href="sort-product?choice=1">Giá: Thấp đến
+                                    cao</a>
+                                </div>
+                                <div class="select-option" data-value="2"><a style="display: inline-block; width: 100%"
+                                                                             href="sort-product?choice=2">Giá: Cao đến
+                                    thấp</a>
+                                </div>
+                                <div class="select-option" data-value="3"><a style="display: inline-block; width: 100%"
+                                                                             href="sort-product?choice=3">Tên: A-Z</a>
+                                </div>
+                                <div class="select-option" data-value="4"><a style="display: inline-block; width: 100%"
+                                                                             href="sort-product?choice=4">Tên: Z-A</a>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -271,45 +266,42 @@
                 <div
                         class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"
                 >
-<%--                    <c:forEach items="${products}" var="o">--%>
-<%--                        <div class="col">--%>
-<%--                            <div class="card border border-0">--%>
-<%--                                <a href="detail?pid=${o.productID}" class="forward-img">--%>
-<%--                                    <!-- ảnh sản phẩm -->--%>
-<%--                                    <div class="wrapper-img">--%>
-<%--                                        <img--%>
-<%--                                                src="assets/pic/products/${o.productImage}"--%>
-<%--                                                class="card-img-top"--%>
-<%--                                                style="background-color: #f4eee0"--%>
-<%--                                                alt="..."--%>
-<%--                                        />--%>
-<%--                                    </div>--%>
-<%--                                    <!-- nút thêm nhanh vào giỏ hàng -->--%>
-<%--                                    <div class="add-to-cart">--%>
-<%--                                        <form onsubmit="getIdProduct(this); return false">--%>
-<%--                                            <input type="hidden" value="${o.productID}" name="pID">--%>
-<%--                                            <button class="btn " type="submit"--%>
-<%--                                                    data-bs-toggle="tooltip"--%>
-<%--                                                    data-bs-placement="top"--%>
-<%--                                                    data-bs-custom-class="custom-tooltip"--%>
-<%--                                                    data-bs-title="Thêm vào giỏ hàng.">--%>
-<%--                                                <img--%>
-<%--                                                        src="assets/pic/shopping_cart_icon.svg"--%>
-<%--                                                        alt="ảnh"--%>
+                    <c:forEach items="${products}" var="o">
+                        <div class="col">
+                            <div class="card border border-0">
+                                <a href="detail?pid=${o.productID}" class="forward-img">
+                                    <!-- ảnh sản phẩm -->
+                                    <div class="wrapper-img">
+                                        <img
+                                                src="assets/pic/products/${o.productImage}"
+                                                class="card-img-top"
+                                                style="background-color: #f4eee0"
+                                                alt="..."
+                                        />
+                                    </div>
+                                    <!-- nút thêm nhanh vào giỏ hàng -->
+                                    <div class="add-to-cart">
+                                        <form onsubmit="getIdProduct(this); return false">
+                                            <input type="hidden" value="${o.productID}" name="pID">
+                                            <button class="btn " type="submit"
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="top"
+                                                    data-bs-custom-class="custom-tooltip"
+                                                    data-bs-title="Thêm vào giỏ hàng.">
+                                                <img
+                                                        src="assets/pic/shopping_cart_icon.svg"
+                                                        alt="ảnh"
 
-<%--                                                /></button>--%>
-<%--                                        </form>--%>
-<%--                                    </div>--%>
-<%--                                </a>--%>
+                                                /></button>
+                                        </form>
+                                    </div>
+                                </a>
 
 
                                 <div class="card-body bg-body ms--15">
                                     <div class="card-header-cus">
                                         <h5 class="card-title fw-semibold">${o.productName}</h5>
-
-
                                         <h5 class="price me--15 fw-semibold number-format">
-                                                <%--                                            <f:setLocale value = "vi_VN"/>--%>
                                             <f:formatNumber value="${o.productPrice}"/>
                                             <span class="currency">đ</span>
                                         </h5>
@@ -317,61 +309,17 @@
                                     <p class="card-text fs-7 fw-medium text-justify">
                                             ${o.shortDes}
                                     </p>
-
-
-<%--                    </c:forEach>--%>
-                        <c:forEach items="${products}" var="o">
-                            <div class="col">
-                                <div class="card border border-0">
-                                    <a href="detail?pid=${o.productID}" class="forward-img">
-                                        <!-- ảnh sản phẩm -->
-                                        <div class="wrapper-img">
-                                            <img
-                                                    src="assets/pic/products/${o.productImage}"
-                                                    class="card-img-top"
-                                                    style="background-color: #f4eee0"
-                                                    alt="..."
-                                            />
-                                        </div>
-                                        <!-- nút thêm nhanh vào giỏ hàng -->
-                                        <div class="add-to-cart">
-                                            <form onsubmit="getIdProduct(this); return false">
-                                                <input type="hidden" value="${o.productID}" name="pID">
-                                                <button class="btn " type="submit"
-                                                        data-bs-toggle="tooltip"
-                                                        data-bs-placement="top"
-                                                        data-bs-custom-class="custom-tooltip"
-                                                        data-bs-title="Thêm vào giỏ hàng.">
-                                                    <img
-                                                            src="assets/pic/shopping_cart_icon.svg"
-                                                            alt="ảnh"
-                                                    /></button>
-                                            </form>
-                                        </div>
-                                    </a>
-
-                                    <div class="card-body bg-body ms--15">
-                                        <div class="card-header-cus">
-                                            <h5 class="card-title fw-semibold">${o.productName}</h5>
-                                            <h5 class="price me--15 fw-semibold number-format">
-                                                    ${o.productPrice} <span class="currency">đ</span>
-                                            </h5>
-                                        </div>
-                                        <p class="card-text fs-7 fw-medium text-justify">
-                                                ${o.shortDes}
-                                        </p>
-                                    </div>
                                 </div>
                             </div>
-                         </c:forEach>
-
-<%--  Hiện thông báo nếu thêm vô giỏ thành công --%>
+                        </div>
+                    </c:forEach>
+                    <%--  Hiện thông báo nếu thêm vô giỏ thành công --%>
                     <span data-bs-target="#exampleModal" data-bs-toggle="modal">
-                                        <button
-                                                class="icon-p"
-                                                type="button"
-                                                style="display: none"
-                                        ></button> </span>
+    <button
+            class="icon-p"
+            type="button"
+            style="display: none"
+    ></button> </span>
 
                 </div>
                 <div class="page">
@@ -379,9 +327,9 @@
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true"
-                  ><i class="fa-solid fa-chevron-left"></i
-                  ></span>
+    <span aria-hidden="true"
+    ><i class="fa-solid fa-chevron-left"></i
+    ></span>
                                 </a>
                             </li>
                             <li class="page-item">
@@ -393,16 +341,15 @@
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true"
-                  ><i class="fa-solid fa-chevron-right"></i
-                  ></span>
+    <span aria-hidden="true"
+    ><i class="fa-solid fa-chevron-right"></i
+    ></span>
                                 </a>
                             </li>
                         </ul>
                     </nav>
                 </div>
             </div>
-
             <!-- Modal -->
             <div
                     class="modal fade"
@@ -454,6 +401,8 @@
             </div>
         </div>
     </div>
+    </div>
+
 </main>
 
 <jsp:include page="footer.jsp"></jsp:include>
