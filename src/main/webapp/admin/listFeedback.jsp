@@ -76,7 +76,8 @@
                             <td>${o.email}</td>
                             <td> ${o.fContent}</td>
                             <td>
-                                <a class="btn btn-danger btn-customize" href="#" role="button">Xóa</a>
+                                <a class="btn btn-danger btn-customize"
+                                   href="<%=request.getContextPath()%>/delete-feedback?fID=${o.fID}" role="button">Xóa</a>
 
                             </td>
                         </tr>
