@@ -66,6 +66,15 @@ public class ProductDAO {
         }
     }
 
+
+    public List<Product> searchProductsByName(String nameP) {
+            return JDBIContext.getJdbi().withHandle(handle ->
+                    handle.createQuery("SELECT * FROM products WHERE productName LIKE :name")
+                            .bind("name", "%" + nameP + "%")
+                            .mapToBean(Product.class)
+                            .list());
+    }
+
     public static void main(String[] args) {
         ProductDAO p = new ProductDAO();
         for (Product product : p.getBestSeller()) {
