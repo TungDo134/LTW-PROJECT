@@ -242,19 +242,26 @@
                         <div class="custom-select">
                             <div class="select-selected">Giá: Thấp đến cao</div>
                             <div class="select-options">
-                                <div class="select-option" data-value="1"><a style="display: inline-block; width: 100%"
-                                                                             href="sort-product?choice=1">Giá: Thấp đến
-                                    cao</a>
+                                <div class="select-option" data-value="1">
+                                    <a class="sort-btn w-100 d-inline-block"
+                                       href="sort-product?choice=1">Giá: Thấp đến
+                                        cao</a>
                                 </div>
-                                <div class="select-option" data-value="2"><a style="display: inline-block; width: 100%"
-                                                                             href="sort-product?choice=2">Giá: Cao đến
-                                    thấp</a>
+
+                                <div class="select-option" data-value="2">
+                                    <a class="sort-btn w-100 d-inline-block"
+                                       href="sort-product?choice=2">Giá: Cao đến
+                                        thấp</a>
                                 </div>
-                                <div class="select-option" data-value="3"><a style="display: inline-block; width: 100%"
-                                                                             href="sort-product?choice=3">Tên: A-Z</a>
+
+                                <div class="select-option" data-value="3">
+                                    <a class="sort-btn w-100 d-inline-block"
+                                       href="sort-product?choice=3">Tên: A-Z</a>
                                 </div>
-                                <div class="select-option" data-value="4"><a style="display: inline-block; width: 100%"
-                                                                             href="sort-product?choice=4">Tên: Z-A</a>
+
+                                <div class="select-option" data-value="4">
+                                    <a class="sort-btn w-100 d-inline-block"
+                                       href="sort-product?choice=4">Tên: Z-A</a>
                                 </div>
                             </div>
 

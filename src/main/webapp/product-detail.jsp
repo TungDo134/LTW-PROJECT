@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="f" uri="jakarta.tags.fmt" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -109,7 +110,11 @@
                         <h1>${detail.productName}</h1>
                         <div class="price_pdPrice">
                             <div class="pro_price">
-                                <h3>${detail.productPrice}</h3>
+                                <h3>
+                                    <f:setLocale value="vi_VN"/>
+                                    <f:formatNumber value=" ${detail.productPrice}" type="currency"/>
+
+                                </h3>
                             </div>
                             <div class="item_1">
                                 <p>${detail.shortDes}</p>
@@ -138,7 +143,7 @@
                                     <input
                                             type="text"
                                             name=""
-                                            id=""
+                                    <%--  id=""--%>
                                             class="p-quantity"
                                             value="1"
                                     />
@@ -146,16 +151,10 @@
                                     <button type="button" class="increase">+</button>
                                 </div>
                                 <div class="select-swatch">
-                                    <a href="add-cart?pID=${detail.productID}" class="add-to-cart">
-                                        <button
-                                                style="display: none"
-                                                type="button"
-                                                class="btn btn-primary btn_add icon-p "
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"
-                                        >
+                                    <%--                                    <a  href="add-cart?pID=${detail.productID}" class="add-to-cart">--%>
+                                    <a style="cursor: pointer" onclick="getIdProduct(this)"
+                                       data-id="${detail.productID}" class="add-to-cart">
 
-                                        </button>
                                         Thêm vào giỏ
                                     </a>
 
@@ -166,7 +165,14 @@
                 </div>
             </div>
         </div>
-
+        <button
+                style="display: none"
+                type="button"
+                class="btn btn-primary btn_add icon-p "
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+        >
+        </button>
         <!-- Modal -->
         <div
                 class="modal fade"
@@ -768,15 +774,18 @@
     });
 </script>
 
-<%--  Add to cart AJAX--%>
+<%--  Add to cart AJAX (Detail Product) --%>
 <script>
-    function getIdProduct(form) {
-        const pID = form.querySelector('[name="pID"]').value;
+    function getIdProduct(tag) {
+        const pID = $(tag).data('id');
+        const quantity = $(".p-quantity").val().trim();
+        console.log(pID + ' ' + quantity)
         $.ajax({
-            url: 'add-cart', // Servlet URL
+            url: 'add-card-dp', // Servlet URL
             type: 'GET',
             data: {
-                pID: pID
+                pID: pID,
+                quantity: quantity
             },
             success: function (response) {
                 const button = document.querySelector('.icon-p');

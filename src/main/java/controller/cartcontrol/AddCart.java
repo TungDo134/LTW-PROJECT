@@ -30,8 +30,11 @@ public class AddCart extends HttpServlet {
         if (c == null) c = new Cart();
         c.add(product);
         session.setAttribute("cart", c);
+    }
 
-
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 }
 

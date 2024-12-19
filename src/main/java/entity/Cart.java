@@ -16,15 +16,17 @@ public class Cart {
         return true;
     }
 
+    // thêm sp với số lượng mà user chọn
     public boolean addWithQuantity(Product p, int quantity) {
         if (data.containsKey(p.getProductID())) {
             return update(p.getProductID(), data.get(p.getProductID()).getQuantity() + quantity);
+        } else {
+            // them sp moi
+            data.put(p.productID, convert(p));
+            data.get(p.getProductID()).setQuantity(quantity);
+            return true;
         }
-        // them sp moi
-        data.put(p.productID, convert(p));
-        return true;
     }
-
 
     public boolean update(int productID, int quantity) {
         if (!data.containsKey(productID)) return false;
@@ -44,6 +46,7 @@ public class Cart {
         return new ArrayList<>(data.values());
     }
 
+    // dùng để lấy ra 1 cart item cụ thể để tính tồng tiền cho nó
     public Map<Integer, CartItem> getData() {
         return data;
     }

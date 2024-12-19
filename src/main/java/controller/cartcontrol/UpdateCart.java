@@ -24,14 +24,15 @@ public class UpdateCart extends HttpServlet {
         c.update(id, quantity);
         session.setAttribute("cart", c);
 
-        // chi tiết giỏ
+        // lấy ra cụ thể 1 cart item
         CartItem ct = c.getData().get(id);
-        System.out.println(ct);
 
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
 
-        // tổng sp, tổng giá, tổng tiền của 1 sp
+        /* - tổng sp, tổng giá
+           - tổng tiền của 1 sp
+         */
         response.getWriter().write("{\"TotalQuantity\":" + c.getTotalQuantity() + ", \"Total\":" + c.getTotal() + ", \"TotalCt\":" + ct.getTotalCt() + "}");
 
     }

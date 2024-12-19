@@ -52,15 +52,13 @@
                 <!-- Product Rows -->
                 <div class="cart-item" data-id="${cp.id}">
                     <div class="product-info">
-                        <a href="">
+                        <a href="detail?pid=${cp.id}">
                             <img src="<%=request.getContextPath()%>/assets/pic/products/${cp.img}" alt="Sản phẩm 1"></a>
                         <div>
                             <p>${cp.title}</p>
                             <p class="price number-format">
-                                    <%--  ${cp.price}--%>
-
-                                <f:parseNumber value="${cp.price}" type="number" var="parsedNumber"/>
-                                <f:formatNumber value="${parsedNumber}"/>
+                                    <%-- <f:parseNumber value="${cp.price}" type="number" var="parsedNumber"/>&ndash;%&gt;--%>
+                                <f:formatNumber value="${cp.price}"/>
                                 <span class="currency">đ</span></p>
                         </div>
                     </div>
@@ -71,8 +69,8 @@
                                data-id="${cp.id}" value="${cp.quantity}"/>
                     </div>
                     <div class="total-price number-format" id="total-price-${cp.id}">
-                        <f:parseNumber value="${cp.totalCt}" type="number" var="parsedNumber"/>
-                        <f:formatNumber value="${parsedNumber}"/>
+                            <%-- <f:parseNumber value="${cp.totalCt}" type="number" var="parsedNumber"/>--%>
+                        <f:formatNumber value="${cp.totalCt}"/>
                         <span>VND</span>
                     </div>
                     <div class="remove-item">
@@ -107,10 +105,8 @@
                     <span>Tổng tiền:</span>
                     <span class="total number-format">
                         <c:set var="balance" value="<%= c == null ? 0 : c.getTotal() %>"/>
-
-                         <f:parseNumber value="${balance}" type="number" var="parsedNumber"/>
-                            <f:formatNumber value="${parsedNumber}"/>
-
+<%-- <f:parseNumber value="${balance}" type="number" var="parsedNumber"/>--%>
+                         <f:formatNumber value="${balance}"/>
                         <span>VND</span>
                     </span>
                 </div>
