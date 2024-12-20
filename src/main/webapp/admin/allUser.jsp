@@ -53,7 +53,9 @@
             <h1>Tất cả người dùng</h1>
         </div>
         <div id="all-user-container">
-            <table id="myTable" class="display" style="width:100%">
+            <a class="btn btn-primary btn-customize px-5 py-2 mb-2"
+               href="<%=request.getContextPath()%>/admin/addUser.jsp" role="button">Thêm</a>
+            <table  id="myTable" class="display" style="width:100%">
                 <thead>
                 <tr>
                     <th></th>
@@ -84,10 +86,8 @@
                             </c:if>
                         </td>
                         <td>
-                            <a class="btn btn-success btn-customize" href="#" role="button">Chỉnh sửa</a>
-                            <a class="btn btn-primary btn-customize"
-                               href="<%=request.getContextPath()%>/admin/addUser.jsp" role="button">Thêm</a>
-                            <a class="btn btn-danger btn-customize" href="#" role="button">Xóa</a>
+                            <a class="btn btn-success btn-customize" href="edit-user?cusID=${o.id}" role="button">Chỉnh sửa</a>
+                            <a class="btn btn-danger btn-customize" href="delete-user?cID=${o.id}"  role="button">Xóa</a>
 
                         </td>
                     </tr>
