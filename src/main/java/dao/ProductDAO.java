@@ -74,12 +74,12 @@ public class ProductDAO {
                         .mapToBean(Product.class)
                         .list());
     }
-
-    public static void main(String[] args) {
-        ProductDAO p = new ProductDAO();
-        for (Product product : p.getBestSeller()) {
-            System.out.println(product);
-
-        }
+    // xóa sản phẩm dựa vào ID
+    public int deleteProductById(int productID) {
+        return JDBIContext.getJdbi().withHandle(handle -> (
+                handle.createUpdate("DELETE FROM products WHERE productID =:productID")
+                        .bind("productID", productID)
+                        .execute())
+        );
     }
 }
