@@ -1,7 +1,9 @@
 package dao;
 
 import context.DBConntext;
+import context.JDBIContext;
 import entity.AboutUsPic;
+import entity.HomePicture;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -45,5 +47,12 @@ public class AboutUsPicDAO {
             e.printStackTrace();
         }
         return listpicAboutUs;
+    }
+    //Hiển thị tất cả ảnh about us
+    public List<AboutUsPic> getAllAboutUsPic() {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                (handle.createQuery("select * from aboutuspictures")
+                        .mapToBean(AboutUsPic.class).list())
+        );
     }
 }
