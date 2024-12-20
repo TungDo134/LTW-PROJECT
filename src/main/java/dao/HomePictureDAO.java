@@ -2,6 +2,7 @@ package dao;
 
 import context.DBConntext;
 import context.JDBIContext;
+import entity.Coupon;
 import entity.HomePicture;
 import entity.Product;
 import org.jdbi.v3.core.Handle;
@@ -23,6 +24,13 @@ public class HomePictureDAO {
             return handle.createQuery("SELECT * FROM homepictures")
                     .mapToBean(HomePicture.class).one();
         }
+    }
+    //Hiển thị tất cả ảnh home
+    public List<HomePicture> getAllHomePic() {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                (handle.createQuery("select * from homepictures")
+                        .mapToBean(HomePicture.class).list())
+        );
     }
 
     public static void main(String[] args) {

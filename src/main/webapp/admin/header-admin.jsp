@@ -214,8 +214,14 @@
                                     <a href="<%= request.getContextPath()%>/admin/addPic_Index.jsp">Trang chủ</a>
                                 </li>
                                 <li class="sub-menu-item">
+                                    <a href="<%= request.getContextPath()%>/all-homePic">Home Img</a>
+                                </li>
+                                <li class="sub-menu-item">
                                     <a href="<%= request.getContextPath()%>/admin/addPic_AboutUs.jsp">Trang về chúng
                                         tôi</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="<%= request.getContextPath()%>/all-aboutUs">Pic About Us</a>
                                 </li>
 
                             </ul>
