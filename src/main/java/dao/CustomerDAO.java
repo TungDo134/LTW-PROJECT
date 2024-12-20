@@ -78,5 +78,7 @@ public class CustomerDAO {
         dao.updateUser("Tùng Đỗ Khùng","tung134@gmail.com",
                 "0392929929", "TPHCM", "0" );
     }
+
+
 }
 

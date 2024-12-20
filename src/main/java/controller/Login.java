@@ -31,7 +31,7 @@ public class Login extends HttpServlet {
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("customer", cus);
-            request.getRequestDispatcher("home").forward(request, response);
+            response.sendRedirect("home");
         }
     }
 

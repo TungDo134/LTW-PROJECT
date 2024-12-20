@@ -46,7 +46,6 @@ html {
 .container-profile .sidebar-profile .user-info {
   display: flex;
   align-items: center;
-  text-align: center;
   padding: 10px 1rem;
   background: #000;
   margin-bottom: 20px;
@@ -155,7 +154,6 @@ p {
   margin: 10px 0px;
   font-size: 14px;
   font-weight: 700;
-  color: #555;
 }
 
 .container-profile
