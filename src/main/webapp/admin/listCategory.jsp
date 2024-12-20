@@ -90,8 +90,9 @@
                             <td>${o.name}</td>
                             <td>${o.id}</td>
                             <td>
-                                <a class="btn btn-success btn-customize" href="#" role="button">Chỉnh sửa</a>
-                                    <%--                                <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/admin/addCategory.jsp" role="button">Thêm</a>--%>
+                                <a class="btn btn-success btn-customize"
+                                   href="<%=request.getContextPath()%>/get-cate?cID=${o.id}" role="button">Chỉnh sửa</a>
+                                    <%--                                <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/admin/editCategory.jsp" role="button">Thêm</a>--%>
                                 <a class="btn btn-danger btn-customize" href="delete-cate?cID=${o.id}"
                                    role="button">Xóa</a>
 
