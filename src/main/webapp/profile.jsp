@@ -25,12 +25,10 @@
             <span>Thông tin cá nhân</span>
           </nav>
           <div class="user-info">
-            <div class="avatar">
-              <img class="avt-pic" src="assets/pic/capy.jpg" alt="" />
-            </div>
+
             <div class="username">
               <span> Tài khoản của </span>
-              <h3 style="margin-right: 8px">Trần Khải</h3>
+              <h3 style="margin-right: 8px"><Strong>${cus.name}</Strong></h3>
             </div>
           </div>
           <ul class="menu">
@@ -47,32 +45,28 @@
               <div class="info-section">
                 <h2 class="title-section">Thông tin tài khoản</h2>
                 <div class="info-box">
-                  <p><strong>Họ và tên:</strong> Trần Khải</p>
-                  <p><strong>Email:</strong> khaingaolol@gmail.com</p>
+                  <p>Họ và tên: <Strong>${cus.name}</Strong></p>
+                  <p>Email: <Strong>${cus.email}</Strong></p>
                   <button style="width: 10%">
-                    <a href="index.html">Đăng xuất</a>
+                    <a href="logout">Đăng xuất</a>
                   </button>
                 </div>
               </div>
 
-              <div class="order-section">
-                <h2 class="title-section">Các đơn hàng vừa đặt</h2>
-                <p class="no-orders">Bạn chưa đặt mua sản phẩm nào!...</p>
-              </div>
+
 
               <div class="address-section">
                 <h2 class="title-section">Số địa chỉ</h2>
                 <div class="address-box">
                   <p>
-                    Trần Khải
+                    ${cus.name}
                     <span class="default-label">Mặc định</span>
                   </p>
-                  <p><strong>Địa chỉ:</strong> , Vietnam</p>
-                  <p><strong>Điện thoại:</strong></p>
-                  <div class="action-buttons">
+                  <p>Địa chỉ:<Strong> ${cus.address}</Strong></p>
+                  <p>Điện thoại: <Strong> ${cus.phone}</Strong></p>
+                  <a href="editProfile.jsp" class="action-buttons">
                     <button class="edit-btn">Sửa</button>
-                    <button class="delete-btn">Xóa</button>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>

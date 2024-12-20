@@ -188,7 +188,7 @@
                                         >
                                     </li>
                                     <li class="items">
-                                        <a href="profile.jsp" style="color: #000"
+                                        <a href="load-profile" style="color: #000"
                                         >Thông tin tài khoản</a
                                         >
                                     </li>
@@ -226,6 +226,8 @@
                   shopping_bag
                 </span></a
                         >
+
+                        <a href="">${sessionScope.customer.name}</a>
                     </div>
                 </div>
             </div>
