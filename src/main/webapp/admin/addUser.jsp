@@ -1,4 +1,4 @@
-<%--
+<%@ page import="entity.Customer" %><%--
   Created by IntelliJ IDEA.
   User: ADMIN
   Date: 12/14/2024
@@ -47,18 +47,37 @@
 </head>
 <body class="dark-theme">
 <jsp:include page="header-admin.jsp"></jsp:include>
+<%
+String msg = request.getAttribute("msg") + "";
+msg = (msg.equals(null))?"":msg;
+String customerName = (String) request.getAttribute("customerName");
+String email = (String) request.getAttribute("email");
+String pass = (String) request.getAttribute("pass");
+String phone =(String) request.getAttribute("phone");
+String address = (String) request.getAttribute("address");
+%>
 <main class="main-content">
+
   <div class="container">
     <h1>Thêm người dùng</h1>
-    <form action="/add-user" method="POST">
+    <span> ${msg} </span>
+
+    <form action="<%=request.getContextPath()%>/add-user" method="POST">
+
       <label for="username">Tên đăng nhập</label>
-      <input type="text" id="username" name="username" placeholder="Nhập tên người dùng" required>
+      <input type="text" value="<%=customerName == null?"":customerName%>" id="username" name="username" placeholder="Nhập tên người dùng" required>
 
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Nhập email" required>
+      <input type="email" value="<%=email == null?"":email%>" id="email" name="email" placeholder="Nhập email người dùng" required>
 
       <label for="password">Mật khẩu</label>
-      <input type="password" id="password" name="password" placeholder="Nhập password" required>
+      <input type="password" value="<%=pass == null?"":pass%>" id="password" name="password" placeholder="Nhập password người dùng" required>
+
+      <label for="numberPhone">Số điện thoại</label>
+      <input type="tel" value="<%=phone == null?"":phone%>" id="numberPhone" name="numberPhone" placeholder="Nhập số điện thoại người dùng" >
+
+      <label for="Address">Địa chỉ</label>
+      <input type="text" value="<%=address == null?"":address%>" id="Address" name="address" placeholder="Nhập địa chỉ người dùng" >
 
       <label for="role">Vai trò</label>
       <select id="role" name="role">
