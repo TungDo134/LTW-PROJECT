@@ -23,7 +23,6 @@ public class Login extends HttpServlet {
 
         CustomerDAO cusDao = new CustomerDAO();
         Customer cus = cusDao.getUserByEmailPass(emailLogin, passLogin);
-        System.out.println(cus);
 
         if (cus == null) {
 //          response.sendRedirect("forms/signup-login.jsp");

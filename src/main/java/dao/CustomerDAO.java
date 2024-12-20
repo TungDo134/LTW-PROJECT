@@ -21,8 +21,7 @@ public class CustomerDAO {
 
     public Customer getUserByEmailPass(String email, String pass) {
         try (Handle handle = JDBIContext.getJdbi().open()) {
-            return handle.createQuery("INSERT INTO customers (customerName, email, pass, phone, address, role) " +
-                    "VALUES (:customerName, :email, :pass, :phone, :address, :role)")
+            return handle.createQuery("SELECT * FROM customers WHERE email = :email and pass = :pass")
                     .bind("email", email)
                     .bind("pass", pass)
                     .mapToBean(Customer.class).findOne().orElse(null);

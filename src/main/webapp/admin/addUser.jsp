@@ -57,7 +57,6 @@ String phone =(String) request.getAttribute("phone");
 String address = (String) request.getAttribute("address");
 %>
 <main class="main-content">
-
   <div class="container">
     <h1>Thêm người dùng</h1>
     <span> ${msg} </span>
