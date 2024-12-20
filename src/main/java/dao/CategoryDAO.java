@@ -3,6 +3,7 @@ package dao;
 
 import context.JDBIContext;
 import entity.Category;
+import entity.Coupon;
 
 
 import java.util.List;
@@ -34,5 +35,24 @@ public class CategoryDAO {
                         .execute())
         );
     }
+    // lấy 1 category dựa vào ID
+    public Category getCateByID(int cateID) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("select * from categories  where cateID = :cateID")
+                        .bind("cateID", cateID)
+                        .mapToBean(Category.class).findOne().orElse(null)
+        );
+    }
+    // cập nhật danh mục dựa vào ID
+    public int updateCate(int cateID, String cateName, String cateImg) {
+        return JDBIContext.getJdbi().withHandle(handle -> (
+                handle.createUpdate("Update categories  set cateName =:cateName, cateImg =:cateImg  where cateID =:cateID")
+                        .bind("cateID", cateID)
+                        .bind("cateName", cateName)
+                        .bind("cateImg", cateImg)
+                        .execute())
+        );
+    }
+
 
 }

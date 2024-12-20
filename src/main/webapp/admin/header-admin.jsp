@@ -157,9 +157,7 @@
                                     <a href="<%=request.getContextPath()%>/get-all-cate">Danh sách danh mục</a>
                                 </li>
 
-                                <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/addCategory.jsp">Danh mục mới</a>
-                                </li>
+
                             </ul>
                         </li>
                         <li class="item item-dropdown">
