@@ -21,12 +21,27 @@ public class CustomerDAO {
 
     public Customer getUserByEmailPass(String email, String pass) {
         try (Handle handle = JDBIContext.getJdbi().open()) {
-            return handle.createQuery("SELECT * FROM customers where email = :email and pass = :pass")
+            return handle.createQuery("INSERT INTO customers (customerName, email, pass, phone, address, role) " +
+                    "VALUES (:customerName, :email, :pass, :phone, :address, :role)")
                     .bind("email", email)
                     .bind("pass", pass)
                     .mapToBean(Customer.class).one();
         }
     }
 
+    public int insertCustomer(String customerName, String email, String pass, String phone, String address, String role){
+        Byte roler = Byte.valueOf(role);
+        return JDBIContext.getJdbi().withHandle(handle ->
+            handle.createUpdate("INSERT INTO customers (customerName, email, pass, phone, address, role)\n" +
+                            "VALUES (:customerName, :email, :pass, :phone, :address, :role);")
+                    .bind("customerName", customerName)
+                    .bind("email", email)
+                    .bind("pass",pass)
+                    .bind("phone",phone)
+                    .bind("address",address)
+                    .bind("role", roler)
+                    .execute()
 
+        );
+    }
 }
