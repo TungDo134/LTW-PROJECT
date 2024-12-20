@@ -36,7 +36,7 @@ public class CouponDAO {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createQuery("select * from coupons  where couponID = :couponID")
                         .bind("couponID", couponID)
-                        .mapToBean(Coupon.class).one()
+                        .mapToBean(Coupon.class).findOne().orElse(null)
         );
     }
 

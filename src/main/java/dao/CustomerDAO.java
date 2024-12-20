@@ -24,7 +24,7 @@ public class CustomerDAO {
             return handle.createQuery("SELECT * FROM customers where email = :email and pass = :pass")
                     .bind("email", email)
                     .bind("pass", pass)
-                    .mapToBean(Customer.class).one();
+                    .mapToBean(Customer.class).findOne().orElse(null);
         }
     }
 

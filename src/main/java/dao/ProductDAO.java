@@ -19,7 +19,7 @@ public class ProductDAO {
         return JDBIContext.getJdbi().withHandle(handle ->
                 (handle.createQuery("select * from products where productID = :productID")
                         .bind("productID", ProID)
-                        .mapToBean(Product.class).one())
+                        .mapToBean(Product.class).findOne().orElse(null))
         );
 
     }
@@ -68,11 +68,11 @@ public class ProductDAO {
 
 
     public List<Product> searchProductsByName(String nameP) {
-            return JDBIContext.getJdbi().withHandle(handle ->
-                    handle.createQuery("SELECT * FROM products WHERE productName LIKE :name")
-                            .bind("name", "%" + nameP + "%")
-                            .mapToBean(Product.class)
-                            .list());
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM products WHERE productName LIKE :name")
+                        .bind("name", "%" + nameP + "%")
+                        .mapToBean(Product.class)
+                        .list());
     }
 
     public static void main(String[] args) {

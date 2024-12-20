@@ -329,7 +329,7 @@
     ></button> </span>
 
                 </div>
-                <div class="page">
+                <div class="page" style="display: none">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
@@ -408,7 +408,7 @@
             </div>
         </div>
     </div>
-    </div>
+
 
 </main>
 

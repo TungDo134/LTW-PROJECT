@@ -20,14 +20,20 @@ public class Login extends HttpServlet {
         String emailLogin = request.getParameter("email-login");
         String passLogin = request.getParameter("password-login");
 
+
         CustomerDAO cusDao = new CustomerDAO();
-        Customer cus = cusDao.getUserByEmailPass(emailLogin,passLogin);
-        if(cus == null){
-            response.sendRedirect("forms/signup-login.jsp");
-        }else {
+        Customer cus = cusDao.getUserByEmailPass(emailLogin, passLogin);
+        System.out.println(cus);
+
+        if (cus == null) {
+//          response.sendRedirect("forms/signup-login.jsp");
+            request.setAttribute("error", "Sai tài khoản hoặc mật khẩu");
+            request.getRequestDispatcher("forms/signup-login.jsp").forward(request, response);
+        } else {
             HttpSession session = request.getSession();
-            session.setAttribute("customer",cus);
-            request.getRequestDispatcher("home").forward(request,response);
+            session.setAttribute("customer", cus);
+            request.getRequestDispatcher("home").forward(request, response);
         }
     }
+
 }
