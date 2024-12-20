@@ -52,6 +52,8 @@
             <h1>Danh sách sản phẩm</h1>
         </div>
         <div id="list-product-container">
+            <a class="btn btn-primary btn-customize px-5 py-2 mb-2"
+               href="<%=request.getContextPath()%>/admin/addProduct.jsp" role="button">Thêm</a>
             <div class="product-list">
 
                 <table id="myTable" class="display" style="width:100%">
@@ -79,8 +81,9 @@
                             <td>${o.productStock}</td>
                             <td>
                                 <a class="btn btn-success btn-customize" href="#" role="button">Chỉnh sửa</a>
-                                <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/admin/addProduct.jsp" role="button">Thêm</a>
-                                <a class="btn btn-danger btn-customize" href="#" role="button">Xóa</a>
+
+                                <a class="btn btn-danger btn-customize"
+                                   href="<%=request.getContextPath()%>/delete-pro?pID=${o.productID}" role="button">Xóa</a>
 
                             </td>
                         </tr>
