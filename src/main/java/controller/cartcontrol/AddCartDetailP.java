@@ -15,7 +15,7 @@ public class AddCartDetailP extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pID = request.getParameter("pID");
         String quantityTxt = request.getParameter("quantity");
-        System.out.println(pID + " " + quantityTxt);
+//        System.out.println(pID + " " + quantityTxt);
 
         int quantity = Integer.parseInt(quantityTxt);
 

@@ -57,23 +57,25 @@
                         <div>
                             <p>${cp.title}</p>
                             <p class="price number-format">
-                                    <%-- <f:parseNumber value="${cp.price}" type="number" var="parsedNumber"/>&ndash;%&gt;--%>
                                 <f:formatNumber value="${cp.price}"/>
                                 <span class="currency">đ</span></p>
                         </div>
                     </div>
+
                     <div class="quantity" style="width: 100px">
                         <input onblur="updateCart(this)" name="quantity" id="" class="p-quantity"
                                data-id="${cp.id}" value="${cp.quantity}"/>
                     </div>
+
                     <div class="total-price number-format" id="total-price-${cp.id}">
-                            <%-- <f:parseNumber value="${cp.totalCt}" type="number" var="parsedNumber"/>--%>
                         <f:formatNumber value="${cp.totalCt}"/>
                         <span>VND</span>
                     </div>
+
                     <div class="remove-item">
                         <div class="i-container">
-                            <a href="remove-cart?pID=${cp.id}"><i class="fa fa-times"></i></a>
+                            <a id="remove-cart" data-id="${cp.id}" onclick="removeCart(this)"><i
+                                    class="fa fa-times"></i></a>
                         </div>
                     </div>
                 </div>
@@ -85,10 +87,11 @@
             </div>
         </div>
 
-        <%--Cart Summary Section--%>
+        <%--Tổng giỏ hàng (số lượng + giá)--%>
         <form action="payment.jsp" class="form-checkout">
             <div class="cart-summary">
                 <h2>Tổng đơn</h2>
+
                 <div class="cart-total-row">
                     <span>Tổng sản phẩm:</span>
                     <span class="subtotalQuantity">
@@ -96,11 +99,11 @@
                          <%= c == null ? "" : c.getTotalQuantity()%>
                     </span>
                 </div>
+
                 <div class="cart-total-row">
                     <span>Tổng tiền:</span>
                     <span class="total number-format">
-                        <c:set var="balance" value="<%= c == null ? 0 : c.getTotal() %>"/>
-<%-- <f:parseNumber value="${balance}" type="number" var="parsedNumber"/>--%>
+                         <c:set var="balance" value="<%= c == null ? 0 : c.getTotal() %>"/>
                          <f:formatNumber value="${balance}"/>
                         <span>VND</span>
                     </span>
@@ -111,12 +114,14 @@
             </div>
         </form>
     </div>
+
+
 </main>
 <jsp:include page="footer.jsp"></jsp:include>
-
-<%--<script src="assets/js/formatNum.js"></script>--%>
-
 <%--Update cart--%>
 <script src="assets/js/update_cart.js"></script>
+<script src="assets/js/remove_cart.js"></script>
+
+
 </body>
 </html>
