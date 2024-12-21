@@ -63,8 +63,6 @@
                         </div>
                     </div>
                     <div class="quantity" style="width: 100px">
-
-
                         <input onblur="updateCart(this)" name="quantity" id="" class="p-quantity"
                                data-id="${cp.id}" value="${cp.quantity}"/>
                     </div>
@@ -82,12 +80,9 @@
             </c:forEach>
             <!-- Cart Controls -->
             <div class="cart-controls">
-                <a class="continue-shopping" href="products"
-                >Tiếp tục mua sắm</a
-                >
+                <a class="continue-shopping" href="products">Tiếp tục mua sắm</a>
                 <!-- <button class="update-cart">Update Cart</button> -->
             </div>
-
         </div>
 
         <%--Cart Summary Section--%>
@@ -120,6 +115,8 @@
 <jsp:include page="footer.jsp"></jsp:include>
 
 <%--<script src="assets/js/formatNum.js"></script>--%>
+
+<%--Update cart--%>
 <script src="assets/js/update_cart.js"></script>
 </body>
 </html>

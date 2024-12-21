@@ -218,7 +218,7 @@ padding: 16px 8px;
                                 style="line-height: normal; color: #333333cc">
                         shopping_bag
                         </span></a>
-                        <a href="#">${sessionScope.customer.name}</a>
+                        <a href="load-profile">${sessionScope.customer.name}</a>
                     </div>
                 </div>
             </div>

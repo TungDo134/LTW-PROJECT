@@ -13,7 +13,7 @@ public class UpdateUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String customerName = request.getParameter("username");
         String email = request.getParameter("email");
-        String pass = request.getParameter("password");
+//        String pass = request.getParameter("password");
         String phone = request.getParameter("numberPhone");
         String address = request.getParameter("address");
         String addressShipping = request.getParameter("addressShipping");
@@ -21,11 +21,8 @@ public class UpdateUser extends HttpServlet {
 
         CustomerDAO cusDao = new CustomerDAO();
 
-        int row = cusDao.updateUser(customerName, email, phone, address,addressShipping, role);
-        System.out.println(row);
+        int row = cusDao.updateUser(customerName, email, phone, address, addressShipping, role);
         response.sendRedirect("all-user");
-
-
     }
 
     @Override

@@ -78,6 +78,7 @@ html {
 }
 
 .cancel-btn {
+    text-decoration: none;
     background-color: #dc3545;
     color: white;
     border: none;

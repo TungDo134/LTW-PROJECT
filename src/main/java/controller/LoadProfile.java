@@ -20,7 +20,6 @@ public class LoadProfile extends HttpServlet {
 
         if ("1".equals(code)) {
             request.getRequestDispatcher("editProfile.jsp").forward(request, response);
-            System.out.println("Con tiep tuc");
         } else {
             request.getRequestDispatcher("profile.jsp").forward(request, response);
         }

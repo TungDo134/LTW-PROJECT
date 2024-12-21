@@ -22,10 +22,9 @@
         <div class="content">
             <div class="main-profile-container">
                 <h1 class="title-profile" style="text-transform: uppercase">chỉnh sửa thông tin cá nhân</h1>
-                <form action="updateUser" method="POST" class="edit-form">
+                <form action="update-user-client" method="POST" class="edit-form">
                     <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input readonly type="email" id="email" name="email" value="${cus.email}" required>
+                        <input type="hidden" id="email" name="email" value="${cus.email}">
                     </div>
                     <div class="form-group">
                         <label for="name">Họ và tên:</label>
@@ -48,13 +47,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Mật khẩu:</label>
-                        <input type="password" id="password" name="password" value="${cus.pass}" required>
+                        <%--<label for="role">Mật khẩu:</label>--%>
+                        <%--<input type="hidden" id="password" name="password" value="${cus.pass}">--%>
+                        <input type="hidden" id="role" name="role" value="${cus.role}" required>
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="save-btn">Lưu thay đổi</button>
-                        <button type="button" class="cancel-btn" onclick="window.location.href='profile.jsp'">Hủy
-                        </button>
+                        <a type="button" class="cancel-btn" href="load-profile">Hủy
+                        </a>
                     </div>
                 </form>
             </div>
