@@ -12,7 +12,7 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 />
-<link rel="stylesheet" href="assets/css/styleFooter.css" />
+<link rel="stylesheet" href="assets/css/styleFooter.css"/>
 
 <footer id="footer" class="text-white text-center text-lg-start bg-custom">
     <!-- Grid container -->
@@ -122,6 +122,6 @@
       <i class="fa-regular fa-heart" style="color: darkred"></i> thuộc về
       <span style="color: darkred">TVK</span>
     </span>
-        <a href="test-control"> bam vao di</a>
+    
     </div>
 </footer>

@@ -86,23 +86,23 @@
                                     ><img src="assets/pic/products/${detail.productImage}" alt=""
                                     /></a>
                                 </div>
-                                <div class="swiper-slide">
-                                    <a href=""
-                                    ><img
-                                            src="assets/pic/sample_sub1.avif"
-                                            alt=""
-                                    /></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href=""
-                                    ><img
-                                            src="assets/pic/sample_subpicseller_2.avif"
-                                            alt=""
-                                    /></a>
-                                </div>
+                                <%--                                <div class="swiper-slide">--%>
+                                <%--                                    <a href=""--%>
+                                <%--                                    ><img--%>
+                                <%--                                            src="assets/pic/sample_sub1.avif"--%>
+                                <%--                                            alt=""--%>
+                                <%--                                    /></a>--%>
+                                <%--                                </div>--%>
+                                <%--                                <div class="swiper-slide">--%>
+                                <%--                                    <a href=""--%>
+                                <%--                                    ><img--%>
+                                <%--                                            src="assets/pic/sample_subpicseller_2.avif"--%>
+                                <%--                                            alt=""--%>
+                                <%--                                    /></a>--%>
+                                <%--                                </div>--%>
                             </div>
                             <!-- Pagination -->
-                            <div class="swiper-pagination"></div>
+                            <%--                            <div class="swiper-pagination"></div>--%>
                         </div>
                         <!-- Slider by Swiper -->
                     </div>
@@ -126,7 +126,12 @@
                         </div>
                         <div class="cate">
                             <p>Trạng thái:</p>
-                            <p>Còn hàng</p>
+                            <c:if test="${detail.productInventory ==0}">
+                                <p>Hết hàng</p>
+                            </c:if>
+                            <c:if test="${detail.productInventory >=1}">
+                                <p>Còn hàng</p>
+                            </c:if>
                         </div>
                         <div class="shortDesc">
                             <p style="margin: 0; color: #111111; font-weight: 700">

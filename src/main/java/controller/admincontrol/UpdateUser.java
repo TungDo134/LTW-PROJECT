@@ -16,11 +16,12 @@ public class UpdateUser extends HttpServlet {
         String pass = request.getParameter("password");
         String phone = request.getParameter("numberPhone");
         String address = request.getParameter("address");
+        String addressShipping = request.getParameter("addressShipping");
         String role = request.getParameter("role");
 
         CustomerDAO cusDao = new CustomerDAO();
 
-        int row = cusDao.updateUser(customerName, email, phone, address, role);
+        int row = cusDao.updateUser(customerName, email, phone, address,addressShipping, role);
         System.out.println(row);
         response.sendRedirect("all-user");
 

@@ -28,16 +28,17 @@ public class CustomerDAO {
         }
     }
 
-    public int insertCustomer(String customerName, String email, String pass, String phone, String address, String role) {
+    public int insertCustomer(String customerName, String email, String pass, String phone, String address, String addressShipping, String role) {
         Byte roler = Byte.valueOf(role);
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createUpdate("INSERT INTO customers (customerName, email, pass, phone, address, role)\n" +
-                                "VALUES (:customerName, :email, :pass, :phone, :address, :role);")
+                                "VALUES (:customerName, :email, :pass, :phone, :address, :addressShipping,:role);")
                         .bind("customerName", customerName)
                         .bind("email", email)
                         .bind("pass", pass)
                         .bind("phone", phone)
                         .bind("address", address)
+                        .bind("addressShipping", addressShipping)
                         .bind("role", roler)
                         .execute()
 
@@ -52,14 +53,15 @@ public class CustomerDAO {
         );
     }
 
-    public int updateUser(String customerName, String email, String phone, String address, String roleTxt) {
+    public int updateUser(String customerName, String email, String phone, String address, String addressShipping, String roleTxt) {
         Byte role = Byte.valueOf(roleTxt);
         return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createUpdate("UPDATE customers set customerName = :customerName, phone =:phone, address = :address, role = :role WHERE email=:email")
+                handle.createUpdate("UPDATE customers set customerName = :customerName, phone =:phone, address = :address, addressShipping=:addressShipping, role = :role WHERE email=:email")
                         .bind("customerName", customerName)
                         .bind("email", email)
                         .bind("phone", phone)
                         .bind("address", address)
+                        .bind("addressShipping", addressShipping)
                         .bind("role", role)
                         .execute()
         );
@@ -72,13 +74,6 @@ public class CustomerDAO {
                         .mapToBean(Customer.class).one()
                 ));
     }
-
-    public static void main(String[] args) {
-        CustomerDAO dao = new CustomerDAO();
-        dao.updateUser("Tùng Đỗ Khùng","tung134@gmail.com",
-                "0392929929", "TPHCM", "0" );
-    }
-
 
 }
 

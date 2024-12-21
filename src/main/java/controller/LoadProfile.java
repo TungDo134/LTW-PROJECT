@@ -12,11 +12,19 @@ import java.io.IOException;
 public class LoadProfile extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //code = 1 khi ng dùng muốn sửa info
+        String code = request.getParameter("code");
         HttpSession session = request.getSession(false);
-
         Customer cus = (Customer) session.getAttribute("customer");
-        request.setAttribute("cus",cus);
-        request.getRequestDispatcher("profile.jsp").forward(request,response);
+        request.setAttribute("cus", cus);
+
+        if ("1".equals(code)) {
+            request.getRequestDispatcher("editProfile.jsp").forward(request, response);
+            System.out.println("Con tiep tuc");
+        } else {
+            request.getRequestDispatcher("profile.jsp").forward(request, response);
+        }
+
     }
 
     @Override

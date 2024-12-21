@@ -20,7 +20,7 @@
       <main class="container-profile">
         <div class="sidebar-profile">
           <nav class="breadcrumb">
-            <a href="index.html" style="color: #338dbc">Trang chủ</a>
+            <a href="home" style="color: #338dbc">Trang chủ</a>
             &gt;
             <span>Thông tin cá nhân</span>
           </nav>
@@ -41,7 +41,7 @@
         <div class="content">
           <div id="frame1" class="frame active">
             <div class="main-profile-container">
-              <h1 class="title-profile">BẢNG THÔNG TIN CỦA TÔI</h1>
+              <h1 class="title-profile" style="text-transform: uppercase"> thông tin cá nhân</h1>
               <div class="info-section">
                 <h2 class="title-section">Thông tin tài khoản</h2>
                 <div class="info-box">
@@ -54,7 +54,6 @@
               </div>
 
 
-
               <div class="address-section">
                 <h2 class="title-section">Số địa chỉ</h2>
                 <div class="address-box">
@@ -62,9 +61,10 @@
                     ${cus.name}
                     <span class="default-label">Mặc định</span>
                   </p>
-                  <p>Địa chỉ:<Strong> ${cus.address}</Strong></p>
+                  <p>Địa chỉ cá nhân:<Strong> ${cus.address}</Strong></p>
+                  <p>Địa chỉ vận chuyển:<Strong> ${cus.addressShipping}</Strong></p>
                   <p>Điện thoại: <Strong> ${cus.phone}</Strong></p>
-                  <a href="editProfile.jsp" class="action-buttons">
+                  <a href="load-profile?code=1" class="action-buttons">
                     <button class="edit-btn">Sửa</button>
                   </a>
                 </div>
@@ -82,7 +82,7 @@
                         <div class="order-header">
                             <h2>Order ID: DU00017</h2>
                             <p>Order Date: October 03, 2023, at 6:31 PM <span class="status">Paid</span></p>
-                            
+
                         </div>
                         <div class="product-list">
                             <table>
@@ -132,7 +132,7 @@
                             <li><strong>Tổng tiền:</strong> <span><strong>78500đ</strong></span></li>
                           </ul>
                         </div>
-                    
+
                         <!-- Phương thức thanh toán -->
                         <div class="payment-method">
                           <h4>Phương thức thanh toán</h4>
@@ -144,7 +144,7 @@
                         </div>
                       </div>
                     </div>
-                    
+
                 </div>
 
                 <!-- Shipping Progress -->

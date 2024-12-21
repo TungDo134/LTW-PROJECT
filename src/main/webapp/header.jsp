@@ -27,7 +27,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
-
     <link rel="stylesheet" href="assets/css/styleHeader.css"/>
 </head>
 <body>
@@ -37,10 +36,10 @@
     <nav
             class="navbar navbar-expand-lg bg-body-tertiary"
             style="
-        background-color: #faf7f0 !important;
-        box-shadow: 0 0 5px 0 rgba(102, 102, 102, 0.4);
-        padding: 16px 8px;
-      "
+background-color: #faf7f0 !important;
+box-shadow: 0 0 5px 0 rgba(102, 102, 102, 0.4);
+padding: 16px 8px;
+"
     >
         <div class="container-fluid">
             <a class="navbar-brand" href="#"></a>
@@ -79,7 +78,7 @@
                 <div class="ct ct-sub-menu d-lg-none d-block" id="search-custom">
                     <form action="search-control" method="post" class="form-search">
                         <div class="form-input">
-                            <input name="txt" type="text" placeholder="Tìm kiếm..." />
+                            <input name="txt" type="text" placeholder="Tìm kiếm..."/>
                             <button type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -155,19 +154,16 @@
                         <!-- Search input -->
                         <div class="search">
                             <button class="btn-search">
-                                <img
-                                        src="https://theme.hstatic.net/1000348721/1000449307/14/pic-search.png?v=652"
-                                        alt=""
-                                />
+                                <img src="https://theme.hstatic.net/1000348721/1000449307/14/pic-search.png?v=652"
+                                     alt=""/>
                             </button>
                             <div class="ct" id="search">
                                 <form
                                         action="products"
                                         method="post"
-                                        class="form-search"
-                                >
+                                        class="form-search">
                                     <div class="form-input">
-                                        <input name="txt" type="text" placeholder="Tìm kiếm..." />
+                                        <input name="txt" type="text" placeholder="Tìm kiếm..."/>
                                         <button type="submit">
                                             <i class="fa fa-search"></i>
                                         </button>
@@ -175,59 +171,54 @@
                                 </form>
                             </div>
                         </div>
-
                         <!-- Admin -->
                         <div class="col_icon col_icon-user">
                             <button><i class="fa-regular fa-user"></i></button>
                             <div class="show">
                                 <ul class="show-option">
-
                                     <li class="items">
                                         <a href="admin/admin.jsp" style="color: #000"
-                                        >Admin</a
-                                        >
+                                        >Admin</a>
                                     </li>
                                     <li class="items">
                                         <a href="load-profile" style="color: #000"
-                                        >Thông tin tài khoản</a
-                                        >
+                                        >Thông tin tài khoản</a>
                                     </li>
-                                    <li class="items">
-                                        <a
-                                                href="forms/signup-login.jsp"
-                                                style="color: #000"
-                                        >Đăng nhập</a
-                                        >
-                                    </li>
-                                    <li class="items">
-                                        <a
-                                                href="logout"
-                                                style="color: #000"
-                                        >Đăng xuất</a
-                                        >
-                                    </li>
-                                    <li class="items">
-                                        <a
-                                                href="forms/changePassword.jsp"
-                                                style="color: #000"
-                                        >Đổi mât khẩu</a
-                                        >
-                                    </li>
+                                    <c:if test="${sessionScope.customer == null}">
+                                        <li class="items">
+                                            <a
+                                                    href="forms/signup-login.jsp"
+                                                    style="color: #000"
+                                            >Đăng nhập</a>
+                                        </li>
+                                    </c:if>
+
+                                    <c:if test="${sessionScope.customer != null}">
+                                        <li class="items">
+                                            <a
+                                                    href="logout"
+                                                    style="color: #000"
+                                            >Đăng xuất</a>
+                                        </li>
+
+                                        <li class="items">
+                                            <a
+                                                    href="forms/changePassword.jsp"
+                                                    style="color: #000"
+                                            >Đổi mât khẩu</a>
+                                        </li>
+                                    </c:if>
                                 </ul>
                             </div>
                         </div>
-
                         <!-- Shopping bag -->
                         <a href="show-cart"
                         ><span
                                 class="material-symbols-outlined"
-                                style="line-height: normal; color: #333333cc"
-                        >
-                  shopping_bag
-                </span></a
-                        >
-
-                        <a href="">${sessionScope.customer.name}</a>
+                                style="line-height: normal; color: #333333cc">
+                        shopping_bag
+                        </span></a>
+                        <a href="#">${sessionScope.customer.name}</a>
                     </div>
                 </div>
             </div>
@@ -236,7 +227,6 @@
 </div>
 </body>
 <script src="assets/js/header.js"></script>
-
 <script>
     $(document).ready(function () {
         $(".nav-link.dropdown-toggle").on("click", function (e) {
@@ -250,17 +240,18 @@
             }
         });
 
-        function loadSubMenuHead(){
+        function loadSubMenuHead() {
             $.ajax({
                 url: "${pageContext.request.contextPath}/head-control",
-                type:"get",
-                success:function (data){
+                type: "get",
+                success: function (data) {
                     $("#myNav").append(data);
                 },
-                error:function (){
+                error: function () {
                 }
             })
         }
+
         loadSubMenuHead();
     });
 </script>

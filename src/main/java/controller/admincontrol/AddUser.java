@@ -22,13 +22,16 @@ public class AddUser extends HttpServlet {
         String pass = request.getParameter("password");
         String phone = request.getParameter("numberPhone");
         String address = request.getParameter("address");
+        String addressShipping = request.getParameter("addressShipping");
         String role = request.getParameter("role");
+
 
         request.setAttribute("customerName", customerName);
         request.setAttribute("email", email);
         request.setAttribute("pass", pass);
         request.setAttribute("phone", phone);
         request.setAttribute("address", address);
+        request.setAttribute("addressShipping", addressShipping);
 
 
         if (customerName.isBlank() || email.isBlank()) {
@@ -37,7 +40,7 @@ public class AddUser extends HttpServlet {
 
         } else {
             CustomerDAO cusDao = new CustomerDAO();
-            int cus = cusDao.insertCustomer(customerName, email, pass, phone, address, role);
+            int cus = cusDao.insertCustomer(customerName, email, pass, phone, address,addressShipping, role);
             if (cus < 1) {
                 request.setAttribute("msg", "Có lỗi với đời");
                 request.getRequestDispatcher("admin/addUser.jsp").forward(request, response);

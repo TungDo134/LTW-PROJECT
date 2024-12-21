@@ -63,7 +63,8 @@
                     <th>ID người dùng</th>
                     <th>Số điện thoại</th>
                     <th>Email</th>
-                    <th>Địa chỉ</th>
+                    <th>Địa chỉ cá nhân</th>
+                    <th>Địa chỉ vận chuyển</th>
                     <th>Vai trò</th>
                     <th>Hành động</th>
                 </tr>
@@ -77,6 +78,7 @@
                         <td>${o.phone}</td>
                         <td>${o.email}</td>
                         <td> ${o.address} </td>
+                        <td> ${o.addressShipping} </td>
                         <td>
                             <c:if test="${o.role == 1}">
                                 <p style="padding: 4px" class="bg-info text-dark text-center mx-0 my-0 rounded" >Admin</p>

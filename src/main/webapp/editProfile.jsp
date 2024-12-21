@@ -21,31 +21,40 @@
     <main class="container-profile">
         <div class="content">
             <div class="main-profile-container">
-                <h1 class="title-profile">CHỈNH SỬA THÔNG TIN NGƯỜI DÙNG</h1>
+                <h1 class="title-profile" style="text-transform: uppercase">chỉnh sửa thông tin cá nhân</h1>
                 <form action="updateUser" method="POST" class="edit-form">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input readonly type="email" id="email" name="email" value="${cus.email}" required>
+                    </div>
                     <div class="form-group">
                         <label for="name">Họ và tên:</label>
                         <input type="text" id="name" name="name" value="${cus.name}" required>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input disabled type="email" id="email" name="email" value="${cus.email}" required>
-                    </div>
+
                     <div class="form-group">
                         <label for="phone">Số điện thoại:</label>
                         <input type="text" id="phone" name="phone" value="${cus.phone}" required>
                     </div>
                     <div class="form-group">
-                        <label for="address">Địa chỉ:</label>
+                        <label for="address">Địa chỉ cá nhân:</label>
                         <input type="text" id="address" name="address" value="${cus.address}" required>
                     </div>
+
+                    <div class="form-group">
+                        <label for="addressShipping">Địa chỉ vận chuyển:</label>
+                        <input type="text" id="addressShipping" name="addressShipping" value="${cus.addressShipping}"
+                               required>
+                    </div>
+
                     <div class="form-group">
                         <label for="password">Mật khẩu:</label>
                         <input type="password" id="password" name="password" value="${cus.pass}" required>
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="save-btn">Lưu thay đổi</button>
-                        <button type="button" class="cancel-btn" onclick="window.location.href='profile.jsp'">Hủy</button>
+                        <button type="button" class="cancel-btn" onclick="window.location.href='profile.jsp'">Hủy
+                        </button>
                     </div>
                 </form>
             </div>

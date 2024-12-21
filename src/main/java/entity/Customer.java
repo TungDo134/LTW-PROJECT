@@ -11,19 +11,21 @@ public class Customer implements Serializable {
     public String pass;
     public String phone;
     public String address;
+    public String addressShipping;
     public byte role;
 
     public Customer() {
     }
 
 
-    public Customer( int id, String name, String email, String pass, String phone, String address, byte role) {
+    public Customer(int id, String name, String email, String pass, String phone, String address, String addressShipping, byte role) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.pass = pass;
         this.phone = phone;
         this.address = address;
+        this.addressShipping = addressShipping;
         this.role = role;
     }
 
@@ -53,6 +55,11 @@ public class Customer implements Serializable {
         return address;
     }
 
+    public String getAddressShipping() {
+        return addressShipping;
+    }
+
+
     public byte getRole() {
         return role;
     }
@@ -81,6 +88,10 @@ public class Customer implements Serializable {
         this.address = address;
     }
 
+    public void setAddressShipping(String addressShipping) {
+        this.addressShipping = addressShipping;
+    }
+
     public void setRole(byte role) {
         this.role = role;
     }
@@ -94,6 +105,7 @@ public class Customer implements Serializable {
                 ", pass='" + pass + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
+                ", addressShipping='" + addressShipping + '\'' +
                 ", role=" + role +
                 '}';
     }

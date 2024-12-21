@@ -72,8 +72,12 @@
         <label for="numberPhone">Số điện thoại</label>
         <input type="tel" value="${customers.phone}" id="numberPhone" name="numberPhone" placeholder="Nhập số điện thoại người dùng" >
 
-        <label for="Address">Địa chỉ</label>
+        <label for="Address">Địa chỉ cá nhân</label>
         <input type="text" value="${customers.address}" id="address" name="address" placeholder="Nhập địa chỉ người dùng" >
+
+
+        <label for="Address">Địa chỉ vận chuyển</label>
+        <input type="text" value="${customers.addressShipping}" id="addressShipping" name="addressShipping" placeholder="Nhập địa chỉ vận chuyển" >
 
         <label for="role">Vai trò</label>
         <select id="role" name="role">
