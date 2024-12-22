@@ -109,14 +109,15 @@
                 </div>
               </div>
               <ul class="list-order list">
+                <c:forEach items="${listO}" var="o">
                 <li>
                   <div class="row align-items-center">
-                    <div class="col">#111111</div>
-                    <div class="col">100.000đ</div>
-                    <div class="col">20</div>
+                    <div class="col">${o.orderID}</div>
+                    <div class="col">${o.totalPrice}</div>
+                    <div class="col">${o.quantity}</div>
                     <div class="col">COD</div>
                     <div class="col notify">
-                      <a href="#" class="Success">Thành công</a>
+                      <a href="#" class="Success">${o.status}</a>
                     </div>
                     <div class="col">
                       <div class="icon-action d-flex justify-content-around">
@@ -135,84 +136,7 @@
                     </div>
                   </div>
                 </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div class="col">#111111</div>
-                    <div class="col">100.000đ</div>
-                    <div class="col">20</div>
-                    <div class="col">COD</div>
-                    <div class="col notify">
-                      <a href="#" class="Pending">Đang đợi</a>
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <a href="/admin/order-detail.jsp">
-                          <i
-                            class="fa-regular fa-eye"
-                            style="color: #2377fc"
-                          ></i>
-                        </a>
-
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div class="col">#111111</div>
-                    <div class="col">100.000đ</div>
-                    <div class="col">20</div>
-                    <div class="col">COD</div>
-                    <div class="col notify">
-                      <a href="#" class="Cancel">Đã hủy</a>
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <a href="/admin/order-detail.jsp">
-                          <i
-                            class="fa-regular fa-eye"
-                            style="color: #2377fc"
-                          ></i>
-                        </a>
-
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="row align-items-center">
-                    <div class="col">#111111</div>
-                    <div class="col">100.000đ</div>
-                    <div class="col">20</div>
-                    <div class="col">COD</div>
-                    <div class="col notify">
-                      <a href="#" class="Success">Thành công</a>
-                    </div>
-                    <div class="col">
-                      <div class="icon-action d-flex justify-content-around">
-                        <a href="/admin/order-detail.jsp">
-                          <i
-                            class="fa-regular fa-eye"
-                            style="color: #2377fc"
-                          ></i>
-                        </a>
-
-                        <i
-                          class="fa-regular fa-trash-can"
-                          style="color: #ff5200"
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-                </li>
+                </c:forEach>
               </ul>
             </div>
           </div>

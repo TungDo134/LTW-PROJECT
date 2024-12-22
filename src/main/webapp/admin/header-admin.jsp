@@ -169,12 +169,12 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/order-list.jsp"
+                                    <a href="<%= request.getContextPath()%>/all-order"
                                     >Danh sách đơn hàng</a
                                     >
                                 </li>
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/order-detail.jsp"
+                                    <a href="<%= request.getContextPath()%>/all-orderDetail"
                                     >Chi tiết đơn hàng</a
                                     >
                                 </li>

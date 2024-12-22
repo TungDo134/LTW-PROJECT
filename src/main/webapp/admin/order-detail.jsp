@@ -55,6 +55,7 @@
             <div class="wg-box">
               <div class="table-order">
                 <ul class="flex-column">
+                  <c:forEach items="listOD" var="o">
                   <li class="product-item">
                     <img src="<%= request.getContextPath()%>/assets/pic/highlights_pen.avif" />
                     <div class="items-center">
@@ -72,40 +73,7 @@
                       </div>
                     </div>
                   </li>
-                  <li class="product-item">
-                    <img src="<%= request.getContextPath()%>/assets/pic/highlights_pen.avif" />
-                    <div class="items-center">
-                      <div class="name">
-                        <div class="text-tiny">Product name</div>
-                        <a href="#">Bút highlights</a>
-                      </div>
-                      <div class="name">
-                        <div class="text-tiny">Số lượng</div>
-                        <a href="#">1</a>
-                      </div>
-                      <div class="name">
-                        <div class="text-tiny">Giá</div>
-                        <a href="#">15.000đ</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="product-item">
-                    <img src="<%= request.getContextPath()%>/assets/pic/highlights_pen.avif" />
-                    <div class="items-center">
-                      <div class="name">
-                        <div class="text-tiny">Product name</div>
-                        <a href="#">Bút highlights</a>
-                      </div>
-                      <div class="name">
-                        <div class="text-tiny">Số lượng</div>
-                        <a href="#">1</a>
-                      </div>
-                      <div class="name">
-                        <div class="text-tiny">Giá</div>
-                        <a href="#">15.000đ</a>
-                      </div>
-                    </div>
-                  </li>
+                  </c:forEach>
                 </ul>
               </div>
             </div>
