@@ -51,30 +51,70 @@
         </div>
         <div id="addNewCate-container">
             <div class="row align-items-center">
-                <form action="<%= request.getContextPath()%>/update-cate" method="post">
-                    <%--                    <div class="col">--%>
-                    <%--                        <div class="content-addNew" style="margin-bottom: 40px">--%>
-                    <%--                            Tên danh mục--%>
-                    <%--                        </div>--%>
-                    <%--                    </div>--%>
+                <%--                action="<%= request.getContextPath()%>/update-cate"--%>
+                <form id="form-editCate" method="post" onsubmit="updateCate(); return false">
                     <div class="row">
+                        <span class="msg text-success"></span>
                         <input hidden="hidden" value="${cate.id}" name="id">
                         <div class="col">
 
                             <input value="${cate.name}" id="name" name="name" type="text" class="form-control"
-                                   aria-label="First name">
-                        </div>
-                        <div class="col">
+                                   aria-label="First name" required>
+                            <input type="hidden" value="${cate.cateImg}" id="temp" name="temp">
                             <input value="${cate.cateImg}" id="cateImg" name="cateImg" type="file"
                                    class="form-control"
-                                   aria-label="Last name">
+                                   aria-label="Last name"
+                            >
+                        </div>
+
+                        <div class="col">
+                            <img id="imgCate" style="width: 150px;"
+                                 src="<%=request.getContextPath()%>/assets/pic/products/${cate.cateImg}">
                         </div>
                     </div>
-                    <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm">Cập nhật</button>
+                    <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm px-5 py-2">Cập nhật
+                    </button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+<script>
+    function updateCate() {
+        const contextPath = "<%=request.getContextPath()%>";
+        let name = $("input[name='name']").val();
+        let id = $("input[name='id']").val();
+        let img = $("input[name='cateImg']").val().split("\\").pop();
+
+        if (img === "") {
+            img = $("input[name='temp']").val().trim();
+        }
+
+        $.ajax({
+            url: 'update-cate',
+            method: 'POST',
+            data: {
+                id: id,
+                name: name,
+                img: img
+            },
+            success: function (data) {
+                let img = data.img;
+                let imgSrc = contextPath + "/assets/pic/products/" + img
+                $("#imgCate").attr("src", imgSrc)
+                console.log(data.nameCate);
+                $("input[name='name']").val(data.nameCate);
+                $(".msg").text("Thêm thành công")
+            },
+            error: function () {
+                alert("Có lỗi khi chỉnh sửa")
+            }
+
+        })
+
+    }
+
+
+</script>
 </body>
 </html>

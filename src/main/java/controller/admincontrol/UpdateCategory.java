@@ -24,6 +24,11 @@ public class UpdateCategory extends HttpServlet {
         CategoryDAO cdao = new CategoryDAO();
         int row = cdao.updateCate(id, name, img);
 
-        response.sendRedirect("get-all-cate");
+        response.setContentType("application/json");
+        response.getWriter().write("{\"nameCate\":\"" + name + "\", \"img\":\"" + img + "\"}");
+
+
+//        <%=request.getContextPath()%>/assets/pic/products/img
+//        response.sendRedirect("get-all-cate");
     }
 }

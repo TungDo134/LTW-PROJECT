@@ -56,7 +56,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img
-                            src="./assets/pic/<%= home.getBannerImg()%>"
+                            src="./assets/pic/homePage/<%= home.getBannerImg()%>"
                             class="d-block w-100"
                             alt="..."
                     />
@@ -149,7 +149,7 @@
             <div class="wh-col-right">
                 <div class="img-wrap">
                     <img
-                            src="./assets/pic/<%= home.getImg1()%>"
+                            src="./assets/pic/homePage/<%= home.getImg1()%>"
                             alt="Image"
                             class="img-fluid"
                     />
@@ -165,13 +165,13 @@
             <div class="whp-left">
                 <div class="imgs-grid">
                     <div class="grid grid-1">
-                        <img src="./assets/pic/<%= home.getImg4()%>" alt=""/>
+                        <img src="./assets/pic/homePage/<%= home.getImg4()%>" alt=""/>
                     </div>
                     <div class="grid grid-2">
-                        <img src="./assets/pic/<%= home.getImg2()%>" alt=""/>
+                        <img src="./assets/pic/homePage/<%= home.getImg2()%>" alt=""/>
                     </div>
                     <div class="grid grid-3">
-                        <img src="./assets/pic/<%= home.getImg5()%>" alt=""/>
+                        <img src="./assets/pic/homePage/<%= home.getImg5()%>" alt=""/>
                     </div>
                 </div>
             </div>

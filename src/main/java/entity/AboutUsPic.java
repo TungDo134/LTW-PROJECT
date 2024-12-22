@@ -56,6 +56,38 @@ public class AboutUsPic {
         return member3;
     }
 
+    public void setAboutUsID(int aboutUsID) {
+        this.aboutUsID = aboutUsID;
+    }
+
+    public void setImg1(String img1) {
+        this.img1 = img1;
+    }
+
+    public void setImg2(String img2) {
+        this.img2 = img2;
+    }
+
+    public void setImg3(String img3) {
+        this.img3 = img3;
+    }
+
+    public void setImg4(String img4) {
+        this.img4 = img4;
+    }
+
+    public void setMember1(String member1) {
+        this.member1 = member1;
+    }
+
+    public void setMember2(String member2) {
+        this.member2 = member2;
+    }
+
+    public void setMember3(String member3) {
+        this.member3 = member3;
+    }
+
     @Override
     public String toString() {
         return "AboutUsPic{" +

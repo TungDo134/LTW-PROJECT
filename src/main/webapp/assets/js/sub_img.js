@@ -1,12 +1,13 @@
-// Lấy src từ các ảnh trong Swiper
-let imgSrc1 = $(".swiper-slide img").eq(0).attr("src");
-let imgSrc2 = $(".swiper-slide img").eq(1).attr("src");
-let imgSrc3 = $(".swiper-slide img").eq(2).attr("src");
-const images = [
-    imgSrc1 ,
-    imgSrc2,
-    imgSrc3
-];
+
+const images = [];
+
+// Duyệt qua tất cả các phần tử có class 'swiper-slide img'
+$('.swiper-slide img').each(function () {
+    // Lấy src của từng thẻ img và thêm vào mảng images
+    var imgSrc = $(this).attr('src');
+    images.push(imgSrc);
+});
+
 new Swiper(".mySwiper", {
     spaceBetween: 30,
     pagination: {

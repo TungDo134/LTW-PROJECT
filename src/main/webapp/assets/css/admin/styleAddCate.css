@@ -19,6 +19,7 @@
 }
 
 #addNewCate-container input {
+  margin: 1rem 0px;
   padding: 14px 22px;
   border: 1px solid var(--Input);
   background-color: #fff;

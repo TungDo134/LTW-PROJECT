@@ -86,23 +86,24 @@
                                     ><img src="assets/pic/products/${detail.productImage}" alt=""
                                     /></a>
                                 </div>
-                                <%--                                <div class="swiper-slide">--%>
-                                <%--                                    <a href=""--%>
-                                <%--                                    ><img--%>
-                                <%--                                            src="assets/pic/sample_sub1.avif"--%>
-                                <%--                                            alt=""--%>
-                                <%--                                    /></a>--%>
-                                <%--                                </div>--%>
-                                <%--                                <div class="swiper-slide">--%>
-                                <%--                                    <a href=""--%>
-                                <%--                                    ><img--%>
-                                <%--                                            src="assets/pic/sample_subpicseller_2.avif"--%>
-                                <%--                                            alt=""--%>
-                                <%--                                    /></a>--%>
-                                <%--                                </div>--%>
+<%--                                <div class="swiper-slide">--%>
+<%--                                    <a href=""--%>
+<%--                                    ><img--%>
+<%--                                            src="assets/pic/sample_sub1.avif"--%>
+<%--                                            alt=""--%>
+<%--                                    /></a>--%>
+<%--                                </div>--%>
+<%--                                <div class="swiper-slide">--%>
+<%--                                    <a href=""--%>
+<%--                                    ><img--%>
+<%--                                            src="assets/pic/sample_subpicseller_2.avif"--%>
+<%--                                            alt=""--%>
+<%--                                    /></a>--%>
+<%--                                </div>--%>
+
                             </div>
                             <!-- Pagination -->
-                            <%--                            <div class="swiper-pagination"></div>--%>
+                            <div class="swiper-pagination"></div>
                         </div>
                         <!-- Slider by Swiper -->
                     </div>

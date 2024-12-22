@@ -4,20 +4,27 @@ td > img {
     border-radius: 10px;
 }
 
+td > a > img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+}
+
 select {
     background-color: var(--White) !important;
     margin-right: 4px !important;
 }
-div.dt-container .dt-search input{
+
+div.dt-container .dt-search input {
     margin-left: 6px !important;
 }
 
-tbody>tr:nth-child(odd) {
+tbody > tr:nth-child(odd) {
     background: var(--bg-table) !important;
 }
 
 .dt-paging-button.current,
-.dt-paging-button:hover{
+.dt-paging-button:hover {
     background: #2275fc !important;
     border-radius: 50px !important;
 }
