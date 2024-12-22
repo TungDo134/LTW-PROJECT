@@ -55,57 +55,25 @@
             <div class="wg-box">
               <div class="table-order">
                 <ul class="flex-column">
+                  <c:forEach items="${listOD}" var="o">
                   <li class="product-item">
                     <img src="<%= request.getContextPath()%>/assets/pic/highlights_pen.avif" />
                     <div class="items-center">
                       <div class="name">
                         <div class="text-tiny">Product name</div>
-                        <a href="#">Bút highlights</a>
+                        <a href="#">${o.productName}</a>
                       </div>
                       <div class="name">
                         <div class="text-tiny">Số lượng</div>
-                        <a href="#">1</a>
+                        <a href="#">${o.quantity}</a>
                       </div>
                       <div class="name">
                         <div class="text-tiny">Giá</div>
-                        <a href="#">15.000đ</a>
+                        <a href="#">${o.price}</a>
                       </div>
                     </div>
                   </li>
-                  <li class="product-item">
-                    <img src="<%= request.getContextPath()%>/assets/pic/highlights_pen.avif" />
-                    <div class="items-center">
-                      <div class="name">
-                        <div class="text-tiny">Product name</div>
-                        <a href="#">Bút highlights</a>
-                      </div>
-                      <div class="name">
-                        <div class="text-tiny">Số lượng</div>
-                        <a href="#">1</a>
-                      </div>
-                      <div class="name">
-                        <div class="text-tiny">Giá</div>
-                        <a href="#">15.000đ</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="product-item">
-                    <img src="<%= request.getContextPath()%>/assets/pic/highlights_pen.avif" />
-                    <div class="items-center">
-                      <div class="name">
-                        <div class="text-tiny">Product name</div>
-                        <a href="#">Bút highlights</a>
-                      </div>
-                      <div class="name">
-                        <div class="text-tiny">Số lượng</div>
-                        <a href="#">1</a>
-                      </div>
-                      <div class="name">
-                        <div class="text-tiny">Giá</div>
-                        <a href="#">15.000đ</a>
-                      </div>
-                    </div>
-                  </li>
+                  </c:forEach>
                 </ul>
               </div>
             </div>
@@ -115,15 +83,15 @@
               <div class="body-title">Thông tin</div>
               <div class="summary-item">
                 <div class="body-text">ID đơn hàng</div>
-                <div class="body-title">#192847</div>
+                <div class="body-title"><%=request.getAttribute("cID")%></div>
               </div>
               <div class="summary-item">
                 <div class="body-text">ID khách hàng</div>
-                <div class="body-title">#192847</div>
+                <div class="body-title">${cus.id}</div>
               </div>
               <div class="summary-item">
                 <div class="body-text">Tên khách hàng</div>
-                <div class="body-title">Tùng Đỗ</div>
+                <div class="body-title">${cus.name}</div>
               </div>
               <div class="summary-item">
                 <div class="body-text">Ngày tạo đơn</div>
@@ -132,13 +100,12 @@
               <div class="summary-item">
                 <div class="body-text">Địa chỉ giao hàng</div>
                 <div class="body-title">
-                  13C chung cư Hiệp Bình Chánh, đường số 23 Phạm Văn Đồng, Thành
-                  phố Thủ Đức
+                  ${cus.addressShipping}
                 </div>
               </div>
               <div class="summary-item">
                 <div class="body-text">Tổng cộng</div>
-                <div class="tf-color-1">710.000đ</div>
+                <div class="tf-color-1"><%=request.getAttribute("total")%></div>
               </div>
             </div>
             <!-- <div class="wg-box" style="gap: 10px; margin-top: 38px">
