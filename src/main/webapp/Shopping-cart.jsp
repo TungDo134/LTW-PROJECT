@@ -57,19 +57,21 @@
                         <div>
                             <p>${cp.title}</p>
                             <p class="price number-format">
-                                <f:formatNumber value="${cp.price}"/>
-                                <span class="currency">đ</span></p>
+                                <f:setLocale value = "vi_VN"/>
+                                <f:formatNumber value="${cp.price}" type = "currency"/>
+<%--                                <span class="currency">đ</span></p>--%>
                         </div>
                     </div>
 
                     <div class="quantity" style="width: 100px">
                         <input onblur="updateCart(this)" name="quantity" id="" class="p-quantity"
-                               data-id="${cp.id}" value="${cp.quantity}"/>
+                               data-id="${cp.id}" value="${cp.quantity}" autocomplete="off"/>
                     </div>
 
                     <div class="total-price number-format" id="total-price-${cp.id}">
-                        <f:formatNumber value="${cp.totalCt}"/>
-                        <span>VND</span>
+                        <f:setLocale value = "vi_VN"/>
+                        <f:formatNumber value="${cp.totalCt}" type = "currency"/>
+<%--                        <span>VND</span>--%>
                     </div>
 
                     <div class="remove-item">
@@ -104,13 +106,17 @@
                     <span>Tổng tiền:</span>
                     <span class="total number-format">
                          <c:set var="balance" value="<%= c == null ? 0 : c.getTotal() %>"/>
-                         <f:formatNumber value="${balance}"/>
-                        <span>VND</span>
+                         <f:setLocale value = "vi_VN"/>
+                         <f:formatNumber value="${balance}" type = "currency"/>
+<%--                        <span>VND</span>--%>
                     </span>
                 </div>
-                <button type="submit" class="checkout-button">
+                <%String msg = (String) request.getAttribute("msg");%>
+                <h6 class="text-danger fw-bold"><%= msg == null ? "" : msg%>
+                </h6>
+                <a type="button" href="create-order" class="checkout-button text-center">
                     Tiến hành thanh toán
-                </button>
+                </a>
             </div>
         </form>
     </div>
@@ -121,7 +127,11 @@
 <%--Update cart--%>
 <script src="assets/js/update_cart.js"></script>
 <script src="assets/js/remove_cart.js"></script>
+<script>
+    let value = $("#total-price-20")
+    console.log(value.text())
+    console.log( typeof value.text())
 
-
+</script>
 </body>
 </html>

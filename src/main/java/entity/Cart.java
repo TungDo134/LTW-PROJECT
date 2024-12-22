@@ -75,5 +75,9 @@ public class Cart {
         return re;
     }
 
+    public static void main(String[] args) {
+        Cart c= new Cart();
+        if(c.getList().isEmpty()) System.out.println("empty");;
+    }
 
 }

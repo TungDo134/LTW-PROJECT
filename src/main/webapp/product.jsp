@@ -309,8 +309,9 @@
                                     <div class="card-header-cus">
                                         <h5 class="card-title fw-semibold">${o.productName}</h5>
                                         <h5 class="price me--15 fw-semibold number-format">
-                                            <f:formatNumber value="${o.productPrice}"/>
-                                            <span class="currency">đ</span>
+                                            <f:setLocale value = "vi_VN"/>
+                                            <f:formatNumber value="${o.productPrice}" type = "currency"/>
+<%--                                            <span class="currency">đ</span>--%>
                                         </h5>
                                     </div>
                                     <p class="card-text fs-7 fw-medium text-justify">

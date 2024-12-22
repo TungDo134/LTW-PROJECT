@@ -13,13 +13,12 @@ function updateCart(input) {
         success: function (data) {
             // formatted trước khi cập nhật
             $(".subtotalQuantity").text(data.TotalQuantity);
-            $(".total.number-format").text(formatCurrency(data.Total) + " VND");
-            $(`#total-price-${pID}`).text(formatCurrency(data.TotalCt) + " VND");
+            $(".total.number-format").text(formatCurrency(data.Total) + ' ₫');
+            $(`#total-price-${pID}`).text(formatCurrency(data.TotalCt) + ' ₫');
 
             function formatCurrency(value) {
-                return new Intl.NumberFormat('en-US').format(value);
+                return new Intl.NumberFormat('vi-VN').format(value);
             }
-
         }
     })
 }
