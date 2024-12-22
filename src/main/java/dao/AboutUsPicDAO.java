@@ -19,7 +19,7 @@ public class AboutUsPicDAO {
 
     public int updateImg(String target, String img) {
         //Kiểm tra tên cột hợp lệ
-        List<String> allowedColumns = Arrays.asList("img1", "img2", "img3", "member1", "member2", "member3");
+        List<String> allowedColumns = Arrays.asList("img1", "img2", "img3", "img4", "member1", "member2", "member3");
         if (!allowedColumns.contains(target)) {
             throw new IllegalArgumentException("Invalid column name: " + target);
         }

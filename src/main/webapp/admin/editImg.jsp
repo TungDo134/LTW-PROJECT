@@ -55,10 +55,14 @@
 
                     <div class="row">
                         <div class="col">
+                            <img id="imgCate" style="width: 150px;"
+                                 src="<%=request.getContextPath()%>/assets/pic/Aboutus/<%=request.getAttribute("nameImg")%>">
+
                             <input value="<%=request.getAttribute("nameImg")%>" id="cateImg" name="txt" type="file"
                                    class="form-control"
                                    aria-label="Last name">
                         </div>
+
                         <div class="col">
 
                             <input value="<%=request.getAttribute("target")%>" id="name" name="txtVal" type="hidden"
@@ -70,11 +74,21 @@
                     </button>
                     <button style="margin-top: 1rem" type="button" class="btn btn-success btn-sm px-5 py-2"><a
                             class="text-white text-decoration-none" href="all-aboutUs">Quay lại</a></button>
+                    <button style="margin-top: 1rem" type="button" id="check"
+                            class="btn btn-warning btn-sm px-5 py-2 d-block"><a
+                            class="text-white text-decoration-none" href="#">Kiểm tra</a></button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
+<script>
+    $("#check").on('click', function () {
+        const contextPath = "<%=request.getContextPath()%>";
+        let preImg = $("#cateImg").val().trim().split("\\").pop();
+        let imgSrc = contextPath + "/assets/pic/Aboutus/" + preImg
+        $("#imgCate").attr("src", imgSrc)
+    })
+</script>
 </body>
 </html>
