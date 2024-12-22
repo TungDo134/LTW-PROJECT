@@ -9,7 +9,6 @@ import java.util.List;
 
 public class AboutUsPicDAO {
 
-
     //Hiển thị tất cả ảnh about us
     public List<AboutUsPic> getAboutUsPic() {
         return JDBIContext.getJdbi().withHandle(handle ->
@@ -19,10 +18,7 @@ public class AboutUsPicDAO {
     }
 
     public int updateImg(String target, String img) {
-        /*
-         - Kiểm tra tên cột hợp lệ để tránh SQL Injection
-         - Danh sách các cột cho phép
-         */
+        //Kiểm tra tên cột hợp lệ
         List<String> allowedColumns = Arrays.asList("img1", "img2", "img3", "member1", "member2", "member3");
         if (!allowedColumns.contains(target)) {
             throw new IllegalArgumentException("Invalid column name: " + target);

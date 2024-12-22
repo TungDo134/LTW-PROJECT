@@ -20,6 +20,7 @@ public class AboutUsPic {
         this.member2 = member2;
         this.member3 = member3;
     }
+
     public AboutUsPic(){
 
     }

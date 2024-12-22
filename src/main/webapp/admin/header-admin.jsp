@@ -68,7 +68,7 @@
                             >
                         </li>
                         <li>
-                            <a class="dropdown-item" href="<%= request.getContextPath()%>/index.jsp"
+                            <a class="dropdown-item" href="<%= request.getContextPath()%>/logout"
                             ><i class="fa-solid fa-right-to-bracket icon-dropdown"></i
                             >Đăng xuất</a
                             >
@@ -211,17 +211,10 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/addPic_Index.jsp">Trang chủ</a>
+                                    <a href="<%= request.getContextPath()%>/all-homePic">Trang chủ</a>
                                 </li>
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/all-homePic">Home Img</a>
-                                </li>
-                                <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/addPic_AboutUs.jsp">Trang về chúng
-                                        tôi</a>
-                                </li>
-                                <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/all-aboutUs">Pic About Us</a>
+                                    <a href="<%= request.getContextPath()%>/all-aboutUs">Trang về chúng tôi</a>
                                 </li>
 
                             </ul>

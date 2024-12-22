@@ -74,6 +74,9 @@
                     </div>
                     <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm px-5 py-2">Cập nhật
                     </button>
+                    <button style="margin-top: 1rem" type="button" class="btn btn-success btn-sm px-5 py-2">
+                        <a class="text-white text-decoration-none" href="get-all-cate">Quay lại</a>
+                    </button>
                 </form>
             </div>
         </div>

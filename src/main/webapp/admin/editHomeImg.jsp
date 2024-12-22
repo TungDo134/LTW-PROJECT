@@ -51,17 +51,17 @@
         </div>
         <div id="addNewCate-container">
             <div class="row align-items-center">
-                <form action="<%= request.getContextPath()%>/update-img-ab" method="post">
+                <form action="<%= request.getContextPath()%>/update-homePic" method="post">
 
                     <div class="row">
                         <div class="col">
-                            <input value="<%=request.getAttribute("nameImg")%>" id="cateImg" name="txt" type="file"
+                            <input value="<%=request.getAttribute("value")%>" id="cateImg" name="value" type="file"
                                    class="form-control"
                                    aria-label="Last name">
                         </div>
                         <div class="col">
 
-                            <input value="<%=request.getAttribute("target")%>" id="name" name="txtVal" type="hidden"
+                            <input value="<%=request.getAttribute("target")%>" id="name" name="target" type="hidden"
                                    class="form-control"
                                    aria-label="First name">
                         </div>
@@ -69,12 +69,11 @@
                     <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm px-5 py-2">Cập nhật
                     </button>
                     <button style="margin-top: 1rem" type="button" class="btn btn-success btn-sm px-5 py-2"><a
-                            class="text-white text-decoration-none" href="all-aboutUs">Quay lại</a></button>
+                            class="text-white text-decoration-none" href="#">Quay lại</a></button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>

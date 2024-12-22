@@ -73,19 +73,25 @@
                         <th>Ảnh 3</th>
                         <th>Ảnh 4</th>
                         <th>Ảnh 5</th>
-
                     </tr>
                     </thead>
                     <tbody>
                     <c:forEach items="${listH}" var="o">
                         <tr>
-                            <td><a><img style="width: 250px !important;"
-                                        src="<%=request.getContextPath()%>/assets/pic/${o.bannerImg}"/></a></td>
-                            <td><a><img src="<%=request.getContextPath()%>/assets/pic/${o.img1}"/></a></td>
-                            <td><a><img src="<%=request.getContextPath()%>/assets/pic/${o.img2}"/></a></td>
-                            <td><a><img src="<%=request.getContextPath()%>/assets/pic/${o.img3}"/></a></td>
-                            <td><a><img src="<%=request.getContextPath()%>/assets/pic/${o.img4}"/></a></td>
-                            <td><a><img src="<%=request.getContextPath()%>/assets/pic/${o.img5}"/></a></td>
+                            <td><a href="update-homePic?target=bannerImg&value=${o.bannerImg}&choice=1">
+                                <img style="width: 250px !important;"
+                                     src="<%=request.getContextPath()%>/assets/pic/homePage/${o.bannerImg}"/></a>
+                            </td>
+                            <td><a href="update-homePic?target=img1&value=${o.img1}&choice=1"><img
+                                    src="<%=request.getContextPath()%>/assets/pic/homePage/${o.img1}"/></a></td>
+                            <td><a href="update-homePic?target=img2&value=${o.img2}&choice=1"><img
+                                    src="<%=request.getContextPath()%>/assets/pic/homePage/${o.img2}"/></a></td>
+                            <td><a href="update-homePic?target=img3&value=${o.img3}&choice=1"><img
+                                    src="<%=request.getContextPath()%>/assets/pic/homePage/${o.img3}"/></a></td>
+                            <td><a href="update-homePic?target=img4&value=${o.img4}&choice=1"><img
+                                    src="<%=request.getContextPath()%>/assets/pic/homePage/${o.img4}"/></a></td>
+                            <td><a href="update-homePic?target=img5&value=${o.img5}&choice=1"><img
+                                    src="<%=request.getContextPath()%>/assets/pic/homePage/${o.img5}"/></a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
