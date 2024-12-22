@@ -1,6 +1,10 @@
 package controller.admincontrol;
 
+import dao.CustomerDAO;
+import dao.OrderDAO;
 import dao.OrderDetailDAO;
+import entity.Customer;
+import entity.Order;
 import entity.OrderDetail;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
@@ -13,10 +17,23 @@ import java.util.List;
 public class GetAllOrderDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String order_id = request.getParameter("id");
         OrderDetailDAO dao = new OrderDetailDAO();
-        List<OrderDetail> listOD = dao.getAllOrderDetail();
+        List<OrderDetail> listOD = dao.getAllOrderDetail(order_id);
         request.setAttribute("listOD", listOD);
-        request.getRequestDispatcher("/admin/order-detail.jsp").forward(request, response);
+
+
+        OrderDAO Odao = new OrderDAO();
+        Order order= Odao.getOrderById(order_id);
+        CustomerDAO cdao = new CustomerDAO();
+        Customer cus = cdao.getCusByID(order.getCusID());
+        request.setAttribute("cus", cus);
+
+        request.setAttribute("total", order.getTotalPrice());
+        request.setAttribute("cID", order.getOrderID());
+        request.getRequestDispatcher("admin/order-detail.jsp").forward(request, response);
+
+
     }
 
     @Override

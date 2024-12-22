@@ -121,7 +121,7 @@
                     </div>
                     <div class="col">
                       <div class="icon-action d-flex justify-content-around">
-                        <a href="/admin/order-detail.jsp">
+                        <a href="<%= request.getContextPath()%>/all-orderDetail?id=${o.orderID}">
                           <i
                             class="fa-regular fa-eye"
                             style="color: #2377fc"

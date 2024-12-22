@@ -74,6 +74,12 @@ public class CustomerDAO {
                         .mapToBean(Customer.class).one()
                 ));
     }
-
+    public Customer getCusByID(int cusID) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("select * from customers where customerID= :customerID")
+                        .bind("customerID", cusID)
+                        .mapToBean(Customer.class).findOne().orElse(null)
+        );
+    }
 }
 
