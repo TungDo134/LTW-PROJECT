@@ -3,16 +3,14 @@ package entity;
 public class OrderDetail {
     private int orderDetailID;
     private int orderID;
-    private int productID;
     private int quantity;
     private double price;
     private String productName;
     private String productImage;
 
-    public OrderDetail(int orderDetailID, int orderID, int productID, int quantity, double price, String productName, String productImage) {
+    public OrderDetail(int orderDetailID, int orderID, int quantity, double price, String productName, String productImage) {
         this.orderDetailID = orderDetailID;
         this.orderID = orderID;
-        this.productID = productID;
         this.quantity = quantity;
         this.price = price;
         this.productName = productName;
@@ -37,14 +35,6 @@ public class OrderDetail {
 
     public void setOrderID(int orderID) {
         this.orderID = orderID;
-    }
-
-    public int getProductID() {
-        return productID;
-    }
-
-    public void setProductID(int productID) {
-        this.productID = productID;
     }
 
     public int getQuantity() {
@@ -84,7 +74,6 @@ public class OrderDetail {
         return "OrderDetail{" +
                 "orderDetailID=" + orderDetailID +
                 ", orderID=" + orderID +
-                ", productID=" + productID +
                 ", quantity=" + quantity +
                 ", price=" + price +
                 ", productName='" + productName + '\'' +

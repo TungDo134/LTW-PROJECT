@@ -101,7 +101,6 @@
                         <div class="body-text">Thông tin liên lạc:</div>
                         <div class="body-title" style="width: unset"> ${cus.email}</div>
                         <div class="body-title" style="width: unset">${cus.phone}</div>
-
                     </div>
 
                     <div class="summary-item">

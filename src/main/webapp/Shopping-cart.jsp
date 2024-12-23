@@ -57,9 +57,9 @@
                         <div>
                             <p>${cp.title}</p>
                             <p class="price number-format">
-                                <f:setLocale value = "vi_VN"/>
-                                <f:formatNumber value="${cp.price}" type = "currency"/>
-<%--                                <span class="currency">đ</span></p>--%>
+                                    <f:setLocale value="vi_VN"/>
+                                    <f:formatNumber value="${cp.price}" type="currency"/>
+                                    <%--                                <span class="currency">đ</span></p>--%>
                         </div>
                     </div>
 
@@ -69,9 +69,9 @@
                     </div>
 
                     <div class="total-price number-format" id="total-price-${cp.id}">
-                        <f:setLocale value = "vi_VN"/>
-                        <f:formatNumber value="${cp.totalCt}" type = "currency"/>
-<%--                        <span>VND</span>--%>
+                        <f:setLocale value="vi_VN"/>
+                        <f:formatNumber value="${cp.totalCt}" type="currency"/>
+                            <%--                        <span>VND</span>--%>
                     </div>
 
                     <div class="remove-item">
@@ -90,7 +90,7 @@
         </div>
 
         <%--Tổng giỏ hàng (số lượng + giá)--%>
-        <form action="payment.jsp" class="form-checkout">
+        <form action="check-out.jsp.jsp" class="form-checkout">
             <div class="cart-summary">
                 <h2>Tổng đơn</h2>
 
@@ -106,15 +106,18 @@
                     <span>Tổng tiền:</span>
                     <span class="total number-format">
                          <c:set var="balance" value="<%= c == null ? 0 : c.getTotal() %>"/>
-                         <f:setLocale value = "vi_VN"/>
-                         <f:formatNumber value="${balance}" type = "currency"/>
+                         <f:setLocale value="vi_VN"/>
+                         <f:formatNumber value="${balance}" type="currency"/>
 <%--                        <span>VND</span>--%>
                     </span>
                 </div>
-                <%String msg = (String) request.getAttribute("msg");%>
-                <h6 class="text-danger fw-bold"><%= msg == null ? "" : msg%>
+                <%String msgP = (String) request.getAttribute("msgP");%>
+                <%String msgA = (String) request.getAttribute("msgA");%>
+                <h6 class="text-danger fw-bold"><%= msgP == null ? "" : msgP%>
                 </h6>
-                <a type="button" href="create-order" class="checkout-button text-center">
+                <a href="forms/signup-login.jsp" class="text-danger fw-bold"><%= msgA == null ? "" : msgA%>
+                </a>
+                <a type="button" href="show-pre-order" class="checkout-button text-center">
                     Tiến hành thanh toán
                 </a>
             </div>
@@ -130,7 +133,7 @@
 <script>
     let value = $("#total-price-20")
     console.log(value.text())
-    console.log( typeof value.text())
+    console.log(typeof value.text())
 
 </script>
 </body>

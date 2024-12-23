@@ -70,7 +70,6 @@
                             <td>${o.totalPrice}</td>
                             <td>${o.quantity}</td>
                             <td>${o.status}</td>
-
                             <td>
                                 <a class="btn btn-success btn-customize"
                                    href="<%= request.getContextPath()%>/all-orderDetail?id=${o.orderID}" role="button">Xem</a>

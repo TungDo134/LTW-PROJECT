@@ -3,6 +3,7 @@ package dao;
 
 import context.JDBIContext;
 import entity.Coupon;
+
 import java.util.List;
 
 public class CouponDAO {
@@ -31,6 +32,15 @@ public class CouponDAO {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createQuery("select * from coupons  where couponID = :couponID")
                         .bind("couponID", couponID)
+                        .mapToBean(Coupon.class).findOne().orElse(null)
+        );
+    }
+
+    // lấy 1 voucher dựa vào name
+    public Coupon getCouponName(String name) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("select * from coupons  where code = :code")
+                        .bind("code", name)
                         .mapToBean(Coupon.class).findOne().orElse(null)
         );
     }

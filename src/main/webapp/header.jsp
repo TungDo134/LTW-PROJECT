@@ -137,7 +137,7 @@ padding: 16px 8px;
                                     >
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="payment.jsp">Check-Out</a>
+                                    <a class="dropdown-item" href="check-out.jsp">Check-Out</a>
                                 </li>
                             </ul>
                         </li>
