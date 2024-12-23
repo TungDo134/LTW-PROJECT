@@ -62,6 +62,7 @@
                                    aria-label="First name" required>
                             <input type="hidden" value="${cate.cateImg}" id="temp" name="temp">
                             <input value="${cate.cateImg}" id="cateImg" name="cateImg" type="file"
+                                   onchange="loadImg()"
                                    class="form-control"
                                    aria-label="Last name"
                             >
@@ -105,18 +106,20 @@
                 let img = data.img;
                 let imgSrc = contextPath + "/assets/pic/products/" + img
                 $("#imgCate").attr("src", imgSrc)
-                console.log(data.nameCate);
                 $("input[name='name']").val(data.nameCate);
                 $(".msg").text("Thêm thành công")
             },
             error: function () {
                 alert("Có lỗi khi chỉnh sửa")
             }
-
         })
-
     }
-
+    function loadImg(){
+        const contextPath = "<%=request.getContextPath()%>";
+        let preImg = $("#cateImg").val().trim().split("\\").pop();
+        let imgSrc = contextPath + "/assets/pic/products/" + preImg
+        $("#imgCate").attr("src", imgSrc)
+    }
 
 </script>
 </body>

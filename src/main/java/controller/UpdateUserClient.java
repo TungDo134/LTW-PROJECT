@@ -33,6 +33,7 @@ public class UpdateUserClient extends HttpServlet {
         c.setAddress(address);
         c.setAddressShipping(addressShipping);
 
+
         // set lai session customer
         session.setAttribute("customer", c);
         response.sendRedirect("load-profile");

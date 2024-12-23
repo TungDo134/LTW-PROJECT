@@ -1,9 +1,6 @@
 package controller;
 
-import dao.CouponDAO;
-import dao.OrderDAO;
-import dao.PaymentDAO;
-import dao.ShippingDAO;
+import dao.*;
 import entity.*;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
@@ -32,19 +29,28 @@ public class CreateOrder extends HttpServlet {
         String addressShipping = request.getParameter("addressShipping");
 
         String payment = request.getParameter("payment");
-        // Xử lý logic dựa trên option được chọn
-        if ("ATM".equals(payment)) payment = "ATM, VISA";
-        else if ("MOMO".equals(payment)) {
+        String statusOrder = "";
+
+        // lấy ra phương thức thanh toán
+        if ("ATM".equals(payment)) {
+            payment = "ATM, VISA";
+            statusOrder = "đã thanh toán";
+        } else if ("MOMO".equals(payment)) {
             payment = "MOMO";
+            statusOrder = "đang xử lí";
         } else if ("COD".equals(payment)) {
             payment = "COD";
+            statusOrder = "đang xử lí";
         }
 
         customer.setName(name);
         customer.setPhone(phone);
         customer.setAddressShipping(addressShipping);
 
+        String role = String.valueOf(customer.getRole());
+        CustomerDAO cusDao = new CustomerDAO();
 
+        cusDao.updateUser(name, email, phone, customer.getAddress(), addressShipping, role);
         session.setAttribute("customer", customer);
         int id = customer.getId();
 
@@ -57,12 +63,11 @@ public class CreateOrder extends HttpServlet {
 
         int total = cart.getTotalQuantity();
         double totalPrice = cart.getTotal();
-        String status = "đang xử lí";
         Date date = Date.valueOf(LocalDate.now());
 
         // tạo order mới
         OrderDAO ordDao = new OrderDAO();
-        int ordID = ordDao.createOrder(id, totalPrice, status, total, date);
+        int ordID = ordDao.createOrder(id, totalPrice, statusOrder, total, date);
 
         // tạo trường cho bảng quá trình vận chuyển
         ShippingDAO shippingDAO = new ShippingDAO();
@@ -74,7 +79,6 @@ public class CreateOrder extends HttpServlet {
         // bảng thanh toán
         PaymentDAO paymentDAO = new PaymentDAO();
         paymentDAO.insertPayment(ordID, payment);
-
 
         System.out.println(ordID);
         request.setAttribute("ordID", ordID);

@@ -15,8 +15,13 @@ public class ShowPageEditP extends HttpServlet {
         String id = request.getParameter("id");
         ProductDAO dao = new ProductDAO();
         Product p = dao.getProductByID(id);
-        request.setAttribute("p",p);
-        request.getRequestDispatcher("admin/EditProduct.jsp").forward(request,response);
+
+        request.setAttribute("p", p);
+        request.setAttribute("des", p.getProductDes());
+
+        request.setAttribute("cate", p.getCateID());
+
+        request.getRequestDispatcher("admin/EditProduct.jsp").forward(request, response);
     }
 
     @Override

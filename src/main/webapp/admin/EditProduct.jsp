@@ -1,10 +1,11 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page isELIgnored="false" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %><!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Header Example</title>
     <!-- Bootstrap  -->
     <link
@@ -41,47 +42,36 @@
     />
 
 
-    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleAddProduct.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleAddProduct.css"/>
 </head>
 <body class="dark-theme">
 <jsp:include page="header-admin.jsp"></jsp:include>
+<%
+    int cateID = (int) request.getAttribute("cate");
+    System.out.println(cateID);
+%>
 <div id="main-content">
     <div class="main-container">
         <div class="items-center">
             <h3>Thêm Sản Phẩm</h3>
-            <ul>
-                <li>
-                    <a href="#">Trang chủ</a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </li>
-                <li>
-                    <a href="#">Sản phẩm</a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </li>
-                <li>
-                    <p>Thêm sản phẩm</p>
-                </li>
-            </ul>
+
         </div>
         <div class="addproduct-container">
             <div class="content-inner">
                 <div class="content-wrap">
                     <div class="wrapper">
-                        <form action="<%=request.getContextPath()%>/update-product" class="form-add-product" method="post"   >
+                        <form action="<%=request.getContextPath()%>/update-product" class="form-add-product"
+                              method="post">
                             <div class="wg-box">
                                 <fieldset class="name">
                                     <div class="body-title">
                                         Tên sản phẩm
-                                        <span>*</span>
+
                                     </div>
                                     <input
                                             value="${p.productName}"
                                             name="productName"
-                                            required=""
+
                                             type="text"
                                             placeholder="Vd: Bút bi xanh"
                                     />
@@ -90,21 +80,25 @@
                                 <input type="hidden" value="${p.productID} " name="id">
                                 <div class="cols">
                                     <fieldset class="Category">
-                                        <div class="body-title">
-                                            Loại sản phẩm
-                                            <span>*</span>
-                                        </div>
+
                                         <div class="select">
-                                            <select required="" name="cateID">
-                                                <option value="" disabled selected>
-                                                    -- Vui lòng chọn --
+                                            <label class="body-title" for="cateID">Vai trò </label>
+                                            <select name="cateID" id="cateID">
+                                                <option value="6"<%=(6 == cateID) ? "selected= 'selected'" : ""%>>bút
+                                                    bi,
+                                                    bút chì
                                                 </option>
-                                                <option value="6">Chì</option>
-                                                <option value="7">Gôm thước</option>
-                                                <option value="8">Sổ tay, tập</option>
-                                                <option value="9">giấy dán, giấy nhớ</option>
-                                                <option value="10">
-                                                    Bìa
+                                                <option value="7"<%=(7 == cateID) ? "selected= 'selected'" : ""%>>Gôm
+                                                    thước
+                                                </option>
+                                                <option value="8"<%=(8 == cateID) ? "selected= 'selected'" : ""%>>Sổ
+                                                    tay,
+                                                    tập
+                                                </option>
+                                                <option value="9"<%=(9 == cateID) ? "selected= 'selected'" : ""%>>giấy
+                                                    dán, giấy nhớ
+                                                </option>
+                                                <option value="10"<%=(10 == cateID) ? "selected= 'selected'" : ""%>> Bìa
                                                 </option>
                                             </select>
                                         </div>
@@ -112,12 +106,11 @@
                                     <fieldset class="Gender">
                                         <div class="body-title">
                                             Giá sản phẩm
-                                            <span>*</span>
+
                                         </div>
                                         <div class="select">
                                             <input
                                                     name="productPrice"
-                                                    required=""
                                                     type="text"
                                                     placeholder="Vd: 100.000 "
                                                     value="${p.productPrice}"
@@ -129,46 +122,35 @@
                                 <fieldset class="description">
                                     <div class="body-title">
                                         Mô tả
-                                        <span>*</span>
+
                                     </div>
                                     <textarea
-                                            value="${p.productPrice}"
-                                            required=""
+
                                             name="productDes"
                                             placeholder="Mô tả"
-                                    ></textarea>
+                                    > ${des}</textarea>
                                     <p>Không vượt quá 100 ký tự khi nhập tên sản phẩm.</p>
                                 </fieldset>
                             </div>
                             <div class="wg-box">
+                                <img id="imgCate" style="width: 150px;"
+                                     src="<%=request.getContextPath()%>/assets/pic/products/${p.productImage}">
                                 <fieldset>
                                     <div class="body-title">Tải hình ảnh lên</div>
-
-
-
-
-                                            <input required="" type="file"  name="productImage" />
-
-
-
+                                    <input id="cateImg" type="file" name="productImage" onchange="loadImg()"/>
                                     <div class="body-text">
-                                        <p>
-                                            Bạn cần thêm 3 hình ảnh. Hãy chú ý đến chất lượng hình
-                                            ảnh bạn thêm vào, tuân thủ các tiêu chuẩn về màu nền.
-                                            Hình ảnh phải có kích thước nhất định. Lưu ý rằng sản
-                                            phẩm hiển thị tất cả các chi tiết
-                                        </p>
+
                                     </div>
                                 </fieldset>
                                 <div class="cols">
                                     <fieldset class="name">
                                         <div class="body-title">
-                                            Thêm số lượng <span>*</span>
+                                            Thêm số lượng
                                         </div>
 
                                         <div class="select">
                                             <input
-                                                    required=""
+
                                                     type="text"
                                                     name="productInventory"
                                                     value="${p.productInventory}"
@@ -179,39 +161,36 @@
                                     </fieldset>
                                     <fieldset class="name">
                                         <div class="body-title">
-                                            Miêu tả ngắn về công dụng <span>*</span>
+                                            Miêu tả ngắn về sản phẩm
                                         </div>
                                         <div class="select">
-                                            <input required="" type="text" name="shortDes" value="${
-                                            p.shortDes
-                                            }"/>
+                                            <input type="text" name="shortDes" value="${p.shortDes }"/>
                                         </div>
                                     </fieldset>
 
                                     <fieldset class="name">
                                         <div class="body-title">
-                                            số hàng đã đặt <span>*</span>
+                                            số hàng đã đặt
                                         </div>
                                         <div class="select">
-                                            <input required="" type="text" name="productOrder" value="${p.productOrder }"/>
+                                            <input type="text" name="productOrder"
+                                                   value="${p.productOrder }"/>
                                         </div>
                                     </fieldset>
 
                                     <fieldset class="name">
                                         <div class="body-title">
-                                            Tồn kho <span>*</span>
+                                            Tồn kho
                                         </div>
                                         <div class="select">
-                                            <input required="" type="text" name="productStock" value="${p.productStock }"/>
+                                            <input type="text" name="productStock"
+                                                   value="${p.productStock }"/>
                                         </div>
                                     </fieldset>
 
                                 </div>
                                 <div class="col">
-                                    <button class="btn1" type="submit">Thêm sản phẩm</button>
-                                    <button class="btn2" type="reset">
-                                        Xóa thông tin đã nhập
-                                    </button>
+                                    <button class="btn1" type="submit">Cập nhật sản phẩm</button>
                                 </div>
                             </div>
                         </form>
@@ -221,6 +200,13 @@
         </div>
     </div>
 </div>
-
+<script>
+    function loadImg() {
+        const contextPath = "<%=request.getContextPath()%>";
+        let preImg = $("#cateImg").val().trim().split("\\").pop();
+        let imgSrc = contextPath + "/assets/pic/products/" + preImg
+        $("#imgCate").attr("src", imgSrc)
+    }
+</script>
 </body>
 </html>

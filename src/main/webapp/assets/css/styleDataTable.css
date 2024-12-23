@@ -29,3 +29,7 @@ tbody > tr:nth-child(odd) {
     border-radius: 50px !important;
 }
 
+th, td {
+    text-align: center !important;
+}
+

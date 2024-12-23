@@ -62,7 +62,7 @@
                                     <img src="<%= request.getContextPath()%>/assets/pic/products/${o.productImage}"/>
                                     <div class="items-center">
                                         <div class="name">
-                                            <div class="text-tiny">Product name</div>
+                                            <div class="text-tiny">Tên sản phẩm</div>
                                             <a href="#">${o.productName}</a>
                                         </div>
                                         <div class="name">

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="f" uri="jakarta.tags.fmt" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -67,12 +68,25 @@
                     <c:forEach items="${listO}" var="o">
                         <tr>
                             <td>${o.orderID}</td>
-                            <td>${o.totalPrice}</td>
-                            <td>${o.quantity}</td>
-                            <td>${o.status}</td>
                             <td>
-                                <a class="btn btn-success btn-customize"
-                                   href="<%= request.getContextPath()%>/all-orderDetail?id=${o.orderID}" role="button">Xem</a>
+                                <f:setLocale value="vi_VN"/>
+                                <f:formatNumber value="${o.totalPrice}" type="currency"/>
+                            </td>
+                            <td>${o.quantity}</td>
+                            <td>
+                                <c:if test="${o.status eq 'đang xử lí'}">
+                                    <p style="padding: 4px; width: 130px"
+                                       class="bg-warning text-dark text-center mx-auto  my-0 rounded">Đang xử lí</p>
+                                </c:if>
+                                <c:if test="${o.status eq 'đã thanh toán'}">
+                                    <p style="padding: 4px; width: 130px"
+                                       class="bg-success text-white text-center mx-auto my-0 rounded">Đã thanh toán</p>
+                                </c:if>
+
+                            </td>
+                            <td>
+                                <a class="btn btn-info btn-customize"
+                                   href="<%= request.getContextPath()%>/all-orderDetail?id=${o.orderID}" role="button">Xem chi tiết</a>
                             </td>
                         </tr>
                     </c:forEach>

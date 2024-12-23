@@ -87,7 +87,7 @@
                                 Người dùng
                             </c:if>
                         </td>
-                        <td>
+                        <td style="width: 200px">
                             <a class="btn btn-success btn-customize" href="edit-user?cusID=${o.id}" role="button">Chỉnh sửa</a>
                             <a class="btn btn-danger btn-customize" href="delete-user?cID=${o.id}"  role="button">Xóa</a>
 
