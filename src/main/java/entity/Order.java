@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.Date;
+
 public class Order {
     private int orderID;
     private int cusID;
@@ -7,18 +9,22 @@ public class Order {
     private String status;
     private int quantity;
     private int couponID;
+    private Date date;
 
-    public Order(int orderID, int cusID, double totalPrice, String status, int quantity, int couponID) {
+    public Order(int orderID, int cusID, double totalPrice, String status, int quantity, int couponID, Date date) {
         this.orderID = orderID;
         this.cusID = cusID;
         this.totalPrice = totalPrice;
         this.status = status;
         this.quantity = quantity;
         this.couponID = couponID;
+        this.date = date;
     }
+
     public Order() {
 
     }
+
     public int getOrderID() {
         return orderID;
     }
@@ -65,6 +71,14 @@ public class Order {
 
     public void setCouponID(int couponID) {
         this.couponID = couponID;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     @Override

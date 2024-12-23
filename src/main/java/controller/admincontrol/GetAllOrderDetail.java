@@ -25,12 +25,14 @@ public class GetAllOrderDetail extends HttpServlet {
 
         OrderDAO Odao = new OrderDAO();
         Order order= Odao.getOrderById(order_id);
+
         CustomerDAO cdao = new CustomerDAO();
         Customer cus = cdao.getCusByID(order.getCusID());
-        request.setAttribute("cus", cus);
 
-        request.setAttribute("total", order.getTotalPrice());
+        request.setAttribute("cus", cus);
         request.setAttribute("cID", order.getOrderID());
+        request.setAttribute("date", order.getDate());
+        request.setAttribute("total", order.getTotalPrice());
         request.getRequestDispatcher("admin/order-detail.jsp").forward(request, response);
 
 

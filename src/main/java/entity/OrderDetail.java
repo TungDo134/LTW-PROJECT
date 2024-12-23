@@ -7,15 +7,18 @@ public class OrderDetail {
     private int quantity;
     private double price;
     private String productName;
+    private String productImage;
 
-    public OrderDetail(int orderDetailID, int orderID, int productID, int quantity, double price, String productName) {
+    public OrderDetail(int orderDetailID, int orderID, int productID, int quantity, double price, String productName, String productImage) {
         this.orderDetailID = orderDetailID;
         this.orderID = orderID;
         this.productID = productID;
         this.quantity = quantity;
         this.price = price;
         this.productName = productName;
+        this.productImage = productImage;
     }
+
     public OrderDetail() {
 
     }
@@ -66,6 +69,14 @@ public class OrderDetail {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
     }
 
     @Override

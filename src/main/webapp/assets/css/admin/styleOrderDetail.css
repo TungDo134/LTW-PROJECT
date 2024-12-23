@@ -64,7 +64,7 @@
 .items-center .name .text-tiny {
   color: var(--Body-Text);
   line-height: 20px;
-  font-size: 12px;
+  /*font-size: 12px;*/
   margin-bottom: 1px;
 }
 .items-center .name a {
@@ -95,13 +95,13 @@
 }
 .wg-box .body-title {
   width: 400px;
-  font-size: 14px;
+  /*font-size: 14px;*/
   font-weight: 700;
   line-height: 20px;
   color: var(--Heading);
 }
 .body-text {
-  font-size: 14px;
+  /*font-size: 14px;*/
   font-weight: 400;
   line-height: 20px;
 }

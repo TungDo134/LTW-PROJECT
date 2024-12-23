@@ -47,17 +47,17 @@
                     >
                 <span class="header-user wg-user">
                   <span class="image">
-                    <img src="<%=request.getContextPath()%>/assets/pic/capy.jpg" alt=""/>
+                    <img src="<%=request.getContextPath()%>/assets/pic/defaul_ava.jpg" alt=""/>
                   </span>
                   <span class="d-flex flex-column align-items-baseline">
-                    <span class="name body-title">Do Son Tung</span>
+                    <span class="name body-title"><a class="text-decoration-none text-" href="#">${sessionScope.customer.name}</a></span>
                     <span class="role text-tiny">Admin</span>
                   </span>
                 </span>
                     </button>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="<%= request.getContextPath()%>/profile.jsp"
+                            <a class="dropdown-item" href="<%= request.getContextPath()%>/load-profile"
                             ><i class="fa-regular fa-user icon-dropdown"></i>Tài
                                 Khoản</a
                             >
@@ -173,11 +173,11 @@
                                     >Danh sách đơn hàng</a
                                     >
                                 </li>
-                                <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/all-orderDetail"
-                                    >Chi tiết đơn hàng</a
-                                    >
-                                </li>
+<%--                                <li class="sub-menu-item">--%>
+<%--                                    <a href="<%= request.getContextPath()%>/all-orderDetail"--%>
+<%--                                    >Chi tiết đơn hàng</a--%>
+<%--                                    >--%>
+<%--                                </li>--%>
 
                             </ul>
                         </li>
