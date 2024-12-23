@@ -71,7 +71,7 @@
           <div class="content-inner">
             <div class="content-wrap">
               <div class="wrapper">
-                <form action="" class="form-add-product">
+                <form action="<%=request.getContextPath()%>/add-product" class="form-add-product" method="post"   >
                   <div class="wg-box">
                     <fieldset class="name">
                       <div class="body-title">
@@ -79,6 +79,7 @@
                         <span>*</span>
                       </div>
                       <input
+                        name="productName"
                         required=""
                         type="text"
                         placeholder="Vd: Bút bi xanh"
@@ -92,16 +93,16 @@
                           <span>*</span>
                         </div>
                         <div class="select">
-                          <select required="" name="select">
+                          <select required="" name="cateID">
                             <option value="" disabled selected>
                               -- Vui lòng chọn --
                             </option>
-                            <option value="2">Bút</option>
-                            <option value="3">Gôm thước</option>
-                            <option value="4">Sổ tay, tập</option>
-                            <option value="5">Bìa còng</option>
-                            <option value="6">
-                              Bút lông bản, bút lông dầu
+                            <option value="6">Chì</option>
+                            <option value="7">Gôm thước</option>
+                            <option value="8">Sổ tay, tập</option>
+                            <option value="9">giấy dán, giấy nhớ</option>
+                            <option value="10">
+                              Bìa
                             </option>
                           </select>
                         </div>
@@ -113,6 +114,7 @@
                         </div>
                         <div class="select">
                           <input
+                            name="productPrice"
                             required=""
                             type="text"
                             placeholder="Vd: 100.000 "
@@ -127,8 +129,9 @@
                         <span>*</span>
                       </div>
                       <textarea
+
                         required=""
-                        name="description"
+                        name="productDes"
                         placeholder="Mô tả"
                       ></textarea>
                       <p>Không vượt quá 100 ký tự khi nhập tên sản phẩm.</p>
@@ -137,23 +140,12 @@
                   <div class="wg-box">
                     <fieldset>
                       <div class="body-title">Tải hình ảnh lên</div>
-                      <div class="upload-img">
-                        <div class="item">
-                          <img src="/assets/pic/pen" alt="" />
-                        </div>
-                        <div class="item">
-                          <img src="/assets/pic/pen" alt="" />
-                        </div>
-                        <div class="item-upload">
-                          <label class="uploadfile" for="myFile"> </label>
-                          <input required="" type="file" id="myFile" />
-                          <i class="fa-solid fa-cloud-arrow-up"></i>
-                          <p>
-                            Thả hình ảnh của bạn vào đây hoặc chọn
-                            <span>bấm để duyệt</span>
-                          </p>
-                        </div>
-                      </div>
+
+
+                          <input required="" type="file"  name="productImage" />
+
+
+
                       <div class="body-text">
                         <p>
                           Bạn cần thêm 3 hình ảnh. Hãy chú ý đến chất lượng hình
@@ -173,7 +165,7 @@
                           <input
                             required=""
                             type="text"
-                            name=""
+                            name="productInventory"
                             id=""
                             placeholder="Vd: 100"
                           />
@@ -184,9 +176,10 @@
                           Miêu tả ngắn về công dụng <span>*</span>
                         </div>
                         <div class="select">
-                          <input required="" type="text" name="short-des" />
+                          <input required="" type="text" name="shortDes" />
                         </div>
                       </fieldset>
+
                     </div>
                     <div class="col">
                       <button class="btn1" type="submit">Thêm sản phẩm</button>

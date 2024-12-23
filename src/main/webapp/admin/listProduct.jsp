@@ -80,7 +80,7 @@
                             <td>${o.productOrder}</td>
                             <td>${o.productStock}</td>
                             <td>
-                                <a class="btn btn-success btn-customize" href="#" role="button">Chỉnh sửa</a>
+                                <a class="btn btn-success btn-customize" href="show-product-edit?id=${o.productID}" role="button">Chỉnh sửa</a>
 
                                 <a class="btn btn-danger btn-customize"
                                    href="<%=request.getContextPath()%>/delete-pro?pID=${o.productID}" role="button">Xóa</a>

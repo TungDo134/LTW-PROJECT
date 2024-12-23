@@ -74,6 +74,7 @@ public class ProductDAO {
                         .mapToBean(Product.class)
                         .list());
     }
+
     // xóa sản phẩm dựa vào ID
     public int deleteProductById(int productID) {
         return JDBIContext.getJdbi().withHandle(handle -> (
@@ -82,4 +83,51 @@ public class ProductDAO {
                         .execute())
         );
     }
+
+    public int addProduct(Product product) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate("INSERT INTO products (productName, productDes, productPrice, productInventory, productOrder, " +
+                                "productStock, productImage, cateID, shortDes) " +
+                                "VALUES (:productName, :productDes, :productPrice, :productInventory, :productOrder, " +
+                                ":productStock, :productImage, :cateID, :shortDes)")
+                        .bind("productName", product.getProductName())
+                        .bind("productDes", product.getProductDes())
+                        .bind("productPrice", product.getProductPrice())
+                        .bind("productInventory", product.getProductInventory())
+                        .bind("productOrder", product.getProductOrder())
+                        .bind("productStock", product.getProductStock())
+                        .bind("productImage", product.getProductImage())
+                        .bind("cateID", product.getCateID())
+                        .bind("shortDes", product.getShortDes())
+                        .execute()
+        );
+    }
+    public int updateProduct(Product product) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate("Update products SET productName = :productName,\n" +
+                                "                                productDes = :productDes,\n" +
+                                "                                productPrice = :productPrice,\n" +
+                                "                                productInventory = :productInventory,\n" +
+                                "                                productOrder = :productOrder, \n" +
+                                "                                productStock = :productStock, \n" +
+                                "                               productImage = :productImage,\n" +
+                                "                                cateID = :cateID,\n" +
+                                "                               shortDes = :shortDes\n" +
+                                "                                WHERE productID = :productID")
+                        .bind("productID", product.getProductID()) // ID để xác định sản phẩm cần cập nhật
+                        .bind("productName", product.getProductName())
+                        .bind("productDes", product.getProductDes())
+                        .bind("productPrice", product.getProductPrice())
+                        .bind("productInventory", product.getProductInventory())
+                        .bind("productOrder", product.getProductOrder())
+                        .bind("productStock", product.getProductStock())
+                        .bind("productImage", product.getProductImage())
+                        .bind("cateID", product.getCateID())
+                        .bind("shortDes", product.getShortDes())
+                        .execute()
+        );
+    }
+
+
+
 }

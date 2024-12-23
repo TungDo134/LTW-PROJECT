@@ -113,7 +113,7 @@ public class Product {
         return "product{" +
                 "productID=" + productID +
                 ", productName='" + productName + '\'' +
-                ", productDes='" + productDes + '\'' +
+                ", productDes='" + productPrice + '\'' +
                 ", productPrice=" + productPrice +
                 ", productInventory=" + productInventory +
                 ", productOrder=" + productOrder +
