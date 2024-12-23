@@ -86,7 +86,7 @@
                     <div class="body-title text-uppercase">Thông tin</div>
                     <div class="summary-item">
                         <div class="body-text">ID đơn hàng:</div>
-                        <div class="body-title"><%=request.getAttribute("cID")%>
+                        <div class="body-title"><%=request.getAttribute("oID")%>
                         </div>
                     </div>
                     <div class="summary-item">
@@ -97,6 +97,13 @@
                         <div class="body-text">Tên khách hàng:</div>
                         <div class="body-title">${cus.name}</div>
                     </div>
+                    <div class="summary-item">
+                        <div class="body-text">Thông tin liên lạc:</div>
+                        <div class="body-title" style="width: unset"> ${cus.email}</div>
+                        <div class="body-title" style="width: unset">${cus.phone}</div>
+
+                    </div>
+
                     <div class="summary-item">
                         <div class="body-text">Ngày tạo đơn:</div>
                         <div class="body-title"><%=request.getAttribute("date")%>
@@ -109,11 +116,23 @@
                         </div>
                     </div>
                     <div class="summary-item">
+                        <div class="body-text">Trạng thái vận chuyển:</div>
+                        <div class="body-title">
+                            <%=request.getAttribute("shipping")%>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="body-text">Phương thức thanh toán:</div>
+                        <div class="body-title">
+                            <%=request.getAttribute("payment")%>
+                        </div>
+                    </div>
+                    <div class="summary-item">
                         <div class="body-text">Tổng cộng</div>
                         <div class="tf-color-1">
-                            <f:setLocale value="vi_VN" />
-                            <c:set var="balance" value='<%= request.getAttribute("total") %>' />
-                            <f:formatNumber value="${balance}" type="currency" />
+                            <f:setLocale value="vi_VN"/>
+                            <c:set var="balance" value='<%= request.getAttribute("total") %>'/>
+                            <f:formatNumber value="${balance}" type="currency"/>
 
                         </div>
                     </div>
