@@ -26,6 +26,14 @@ public class OrderDAO {
         );
     }
 
+    public Order getOrderByCusId(int id) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("select * from orders where cusID= :cusID")
+                        .bind("cusID", id)
+                        .mapToBean(Order.class).findOne().orElse(null)
+        );
+    }
+
     public int createOrder(int id, double totalPrice, String status, int quantity, Date date) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createUpdate("INSERT INTO orders (cusID, totalPrice, status, quantity, date)\n" +

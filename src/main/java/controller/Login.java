@@ -5,6 +5,7 @@ import entity.Customer;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
+import util.MaHoaMK;
 
 import java.io.IOException;
 
@@ -22,7 +23,12 @@ public class Login extends HttpServlet {
 
 
         CustomerDAO cusDao = new CustomerDAO();
-        Customer cus = cusDao.getUserByEmailPass(emailLogin, passLogin);
+        Customer cus = new Customer();
+        cus.setEmail(emailLogin);
+        passLogin = MaHoaMK.toSHA1(passLogin);
+        cus.setPass(passLogin);
+
+        cus = cusDao.getUserByEmailPass(cus);
 
         if (cus == null) {
 //          response.sendRedirect("forms/signup-login.jsp");
@@ -31,6 +37,7 @@ public class Login extends HttpServlet {
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("customer", cus);
+            cus.setPass("");
             response.sendRedirect("home");
         }
     }

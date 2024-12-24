@@ -19,12 +19,24 @@ public class CustomerDAO {
     }
 
 
-    public Customer getUserByEmailPass(String email, String pass) {
+    public Customer getUserByEmailPass(Customer customer) {
         try (Handle handle = JDBIContext.getJdbi().open()) {
             return handle.createQuery("SELECT * FROM customers WHERE email = :email and pass = :pass")
-                    .bind("email", email)
-                    .bind("pass", pass)
+                    .bind("email", customer.getEmail())
+                    .bind("pass", customer.getPass())
                     .mapToBean(Customer.class).findOne().orElse(null);
+        }
+    }
+
+    public int createNewCustomer(Customer customer) {
+        try (Handle handle = JDBIContext.getJdbi().open()) {
+            return handle.createUpdate("INSERT INTO customers (customerName, email, pass,role)\n" +
+                            "VALUES (:customerName, :email, :pass, :role)")
+                    .bind("customerName", customer.getName())
+                    .bind("email", customer.getEmail())
+                    .bind("pass", customer.getPass())
+                    .bind("role", customer.getRole())
+                    .execute();
         }
     }
 
@@ -74,6 +86,7 @@ public class CustomerDAO {
                         .mapToBean(Customer.class).one()
                 ));
     }
+
     public Customer getCusByID(int cusID) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createQuery("select * from customers where customerID= :customerID")
@@ -81,5 +94,16 @@ public class CustomerDAO {
                         .mapToBean(Customer.class).findOne().orElse(null)
         );
     }
+
+    public boolean isUserExistsByEmail(String email) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT COUNT(*) FROM customers WHERE email = :email")
+                        .bind("email", email)
+                        .mapTo(Integer.class)
+                        .findOne()
+                        .orElse(0) > 0
+        );
+    }
+
 }
 

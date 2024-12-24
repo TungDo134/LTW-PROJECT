@@ -25,14 +25,23 @@
 <div class="login-signup-container">
     <main class="login-signup">
         <input type="checkbox" id="chk" aria-hidden="true"/>
+        <%-- Đăng ký--%>
         <div class="signup">
-            <form>
+            <%
+                String msg = (String) request.getAttribute("msg");
+            %>
+
+            <form action="<%= request.getContextPath()%>/Register" method="post">
+
                 <div class="form-group">
+
                     <label for="chk" class="label-Signup" aria-hidden="true"
                     >Đăng ký</label
                     >
                 </div>
                 <div class="form-group">
+                    <span> <%=msg != null ? msg : ""%></span>
+
                     <label for="username" class="form-label"> </label>
                     <input
                             id="username"
@@ -82,13 +91,14 @@
                     <span class="form-message"></span>
                 </div>
                 <div class="btn-blue">
-                    <button>Đăng Kí</button>
+                    <button type="submit">Đăng Kí</button>
                 </div>
             </form>
         </div>
 
-        <div class="login">
 
+        <%--  Đăng nhập--%>
+        <div class="login">
             <form id="login-form" method="post" action="<%= request.getContextPath()%>/login">
                 <label class="label-Login" for="chk" aria-hidden="true"
                 >Đăng Nhập</label
