@@ -625,8 +625,8 @@
                             </div>
                             <div class="review-comment">
                                 <form class="form-comment">
-                                    <div class="review-form">Đánh giá của bạn</div>
-                                    <textarea name="" id=""></textarea>
+                                    <input type="text" value id="Comment" name="comment" placeholder="Đánh giá của bạn"></input>
+                                    <!--<textarea name="" id=""></textarea>-->
                                     <div class="rating">
                                         <h2>Xếp hạng</h2>
                                         <div class="rating-stars">
@@ -682,7 +682,7 @@
                                         </div>
                                         <span class="score">0/5</span>
                                     </div>
-                                    <button type="submit">Gửi</button>
+                                    <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/add-review" role="button">Gửi</a>
                                 </form>
                             </div>
 

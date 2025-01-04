@@ -46,12 +46,23 @@ public class ReviewDAO {
         );
     }
 
+    // thêm mới đánh giá
+    public int addReview(int proID, String cusName,int rating, String comment) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate("INSERT INTO reviews (productID, customerName, rating, comment) VALUES (:proID, :cusName, :rating, :comment)")
+                        .bind("proID", proID)
+                        .bind("cusName", cusName)
+                        .bind("rating", rating)
+                        .bind("comment", comment)
+                        .execute()
+
+        );
+    }
 
     public static void main(String[] args) {
         ReviewDAO dao = new ReviewDAO();
-        List<Review> reviews = dao.getAllReviewByPID("19");
-        for (Review review : reviews) {
-            System.out.println(review);
-        }
+        System.out.println(dao.addReview(26,"Phạm Vũ Kiệt",4,"Sản phẩm chất lượng"));
     }
+
+
 }
