@@ -95,142 +95,89 @@
                             Tất cả lọc
                         </h5>
                         <div class="offcanvas-body">
-                            <form action="#">
+                            <form action="filter-product">
                                 <!-- Lọc giá -->
                                 <div class="filter-container">
                                     <div class="filter-title">Lọc bởi</div>
                                     <div class="filter-category">Giá +</div>
 
                                     <div class="form-check">
-                                        <input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="flexRadioDefault"
-                                                id="flexRadioDefault1"
-                                        />
+                                        <input class="form-check-input" type="radio" name="priceRange" id="flexRadioDefault1" value="1" />
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             Nhỏ hơn 50,000đ
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="flexRadioDefault"
-                                                id="flexRadioDefault1"
-                                        />
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input" type="radio" name="priceRange" id="flexRadioDefault2" value="2" />
+                                        <label class="form-check-label" for="flexRadioDefault2">
                                             50,000đ - 100,000đ
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="flexRadioDefault"
-                                                id="flexRadioDefault1"
-                                        />
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input" type="radio" name="priceRange" id="flexRadioDefault3" value="3" />
+                                        <label class="form-check-label" for="flexRadioDefault3">
                                             100,000đ - 200,000đ
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="flexRadioDefault"
-                                                id="flexRadioDefault1"
-                                        />
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input" type="radio" name="priceRange" id="flexRadioDefault4" value="4" />
+                                        <label class="form-check-label" for="flexRadioDefault4">
                                             200,000đ - 500,000đ
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="flexRadioDefault"
-                                                id="flexRadioDefault1"
-                                        />
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input" type="radio" name="priceRange" id="flexRadioDefault5" value="5" />
+                                        <label class="form-check-label" for="flexRadioDefault5">
                                             Lớn hơn 500,000đ
                                         </label>
                                     </div>
                                 </div>
+
                                 <!-- Lọc thể loại -->
                                 <div class="filter-container">
                                     <div class="filter-category">Sản phẩm +</div>
 
                                     <div class="form-check">
-                                        <input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="flexRadioDefault"
-                                                id="flexRadioDefault1"
-                                        />
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input" type="radio" name="category" id="flexRadioDefault6" value="1" />
+                                        <label class="form-check-label" for="flexRadioDefault6">
                                             Bút
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="flexRadioDefault"
-                                                id="flexRadioDefault1"
-                                        />
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input" type="radio" name="category" id="flexRadioDefault7" value="2" />
+                                        <label class="form-check-label" for="flexRadioDefault7">
                                             Gôm, thước
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="flexRadioDefault"
-                                                id="flexRadioDefault1"
-                                        />
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input" type="radio" name="category" id="flexRadioDefault8" value="3" />
+                                        <label class="form-check-label" for="flexRadioDefault8">
                                             Sổ tay, tập
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="flexRadioDefault"
-                                                id="flexRadioDefault1"
-                                        />
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input" type="radio" name="category" id="flexRadioDefault9" value="4" />
+                                        <label class="form-check-label" for="flexRadioDefault9">
                                             Bìa còng
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input
-                                                class="form-check-input"
-                                                type="radio"
-                                                name="flexRadioDefault"
-                                                id="flexRadioDefault1"
-                                        />
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input" type="radio" name="category" id="flexRadioDefault10" value="5" />
+                                        <label class="form-check-label" for="flexRadioDefault10">
                                             Bút lông bản, lông dầu
                                         </label>
                                     </div>
                                 </div>
+
                                 <!-- Nút xóa + lọc -->
                                 <div class="filter-btn-group">
                                     <a class="filter-items delete-btn">Xóa</a>
-                                    <button
-                                            class="filter-items"
-                                            data-bs-toggle="offcanvas"
-                                            data-bs-target="#offcanvasWithBothOptions"
-                                            aria-controls="offcanvasWithBothOptions"
-                                            type="submit"
-                                    >
+                                    <button class="filter-items" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" type="submit">
                                         Lọc
                                     </button>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>
