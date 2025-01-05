@@ -50,7 +50,7 @@ public class Feedback {
 
     @Override
     public String toString() {
-        return "Feedback{" +
+        return "FeedbackController{" +
                 "fID=" + fID +
                 ", customerName='" + customerName + '\'' +
                 ", email='" + email + '\'' +

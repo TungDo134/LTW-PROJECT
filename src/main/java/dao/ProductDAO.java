@@ -5,7 +5,9 @@ import context.JDBIContext;
 import entity.HomePicture;
 import entity.Product;
 import org.jdbi.v3.core.Handle;
+import org.jdbi.v3.core.mapper.reflect.BeanMapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAO {
@@ -128,6 +130,23 @@ public class ProductDAO {
         );
     }
 
+    public List<Product> getProByPriceRange(int min, int max){
+        return JDBIContext.getJdbi().withHandle(handle ->
+                    handle.createQuery("SELECT * FROM products WHERE productPrice BETWEEN :min AND :max")
+                            .bind("min",min)
+                            .bind("max", max)
+                            .map(BeanMapper.of(Product.class))
+                            .list()
+                );
 
+    }
+    public List<Product> getProductsByCategoryAndID(int categoryId, int productId) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM products WHERE cateID = :cateID AND productID != :productID")
+                        .bind("cateID", categoryId)
+                        .bind("productID", productId)
+                        .mapToBean(Product.class)
+                        .list());
+    }
 
 }

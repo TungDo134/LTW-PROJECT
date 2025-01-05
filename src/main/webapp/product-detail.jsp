@@ -142,6 +142,15 @@
                                 ${detail.productDes}
                             </p>
                         </div>
+                        <div name="cateID">
+                            <p style="
+                            margin: 0; color: #111111; font-weight: 700">
+                                Mô tả:
+                            </p>
+                            <p>
+                                ${detail.cateID}
+                            </p>
+                        </div>
                         <div class="qty-cart">
                             <form id="form_pro" action="#">
                                 <div class="quantity">
@@ -324,225 +333,39 @@
     <div class="container">
         <h2 class="text-center my-5">Có thể bạn sẽ thích</h2>
         <div id="layout">
-            <div
-                    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5"
-            >
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5">
+                <c:forEach items="${products}" var="o">
+                    <div class="col">
+                        <div class="card border border-0">
+                            <!-- Liên kết đến chi tiết sản phẩm -->
+                            <a href="detail?pid=${o.productID}&cID=${o.cateID}" class="forward-img">
+                                <div class="wrapper-img">
+                                    <!-- Ảnh sản phẩm -->
+                                    <img
+                                            src="assets/pic/products/${o.productImage}"
+                                            class="card-img-top"
+                                            style="background-color: #f4eee0; vertical-align: middle"
+                                            alt="${o.productName}"
+                                    />
+                                </div>
+                            </a>
+                            <div class="card-body bg-body ms--15">
+                                <!-- Tiêu đề sản phẩm -->
+                                <div class="card-header-cus">
+                                    <h5 class="card-title fw-semibold">${o.productName}</h5>
+                                    <!-- Giá sản phẩm -->
+                                    <h5 class="price me--15 fw-semibold">
+                                            ${o.productPrice} <span class="currency">đ</span>
+                                    </h5>
+                                </div>
+                                <!-- Mô tả ngắn -->
+                                <p class="card-text fs-7 fw-medium text-justify">
+                                        ${o.shortDes}
+                                </p>
                             </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>

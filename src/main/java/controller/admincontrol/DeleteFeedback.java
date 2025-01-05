@@ -7,14 +7,14 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "DeleteFeedback", value = "/delete-feedback")
+@WebServlet(name = "DeleteFeedback", value = "/delete-FeedbackController")
 public class DeleteFeedback extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     int feedback_id = Integer.parseInt(request.getParameter("fID"));
         FeedbackDAO dao = new FeedbackDAO();
         dao.deleteFeedback(feedback_id);
-        response.sendRedirect("all-feedback");
+        response.sendRedirect("all-FeedbackController");
     }
 
     @Override
