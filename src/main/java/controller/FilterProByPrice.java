@@ -14,31 +14,32 @@ import java.util.List;
 public class FilterProByPrice extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String price = request.getParameter("priceRange");
+        String priceRange = request.getParameter("priceRange");
+        String category = request.getParameter("category");
+
+        int minPrice = 0;
+        int maxPrice = Integer.MAX_VALUE;
+
+        // Lọc giá dựa trên giá trị priceRange từ form
+        if (priceRange != null) {
+            switch (priceRange) {
+                case "1": minPrice = 0; maxPrice = 50000; break;
+                case "2": minPrice = 50000; maxPrice = 100000; break;
+                case "3": minPrice = 100000; maxPrice = 200000; break;
+                case "4": minPrice = 200000; maxPrice = 500000; break;
+                case "5": minPrice = 500000; maxPrice = Integer.MAX_VALUE; break;
+            }
+        }
+
+
+        Integer cateID = category != null ? Integer.parseInt(category) : null;
 
         ProductDAO productDAO = new ProductDAO();
 
-        List<Product> filterPro = new ArrayList<>();
+        List<Product> filterPro = productDAO.getProByPriceRange(minPrice, maxPrice);
 
-        switch (price){
-            case "1" :
-                 filterPro = productDAO.getProByPriceRange(0,50000);
-                 break;
-            case "2" :
-                 filterPro = productDAO.getProByPriceRange(50000, 100000);
-                 break;
-            case "3" :
-                 filterPro = productDAO.getProByPriceRange(100000, 200000);
-                 break;
-            case "4" :
-                 filterPro = productDAO.getProByPriceRange(200000, 500000);
-                 break;
-            case "5" :
-                 filterPro = productDAO.getProByPriceRange(500000, Integer.MAX_VALUE);
-                 break;
-            default:
-                filterPro = productDAO.getProduct();
-                break;
+        if (cateID != null) {
+            filterPro = productDAO.getProductByCate(cateID);
         }
 
         request.setAttribute("products", filterPro);

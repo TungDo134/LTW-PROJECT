@@ -95,41 +95,31 @@
                             Tất cả lọc
                         </h5>
                         <div class="offcanvas-body">
-                            <form action="filter-product">
+                            <form action="filter-product" method="get">
                                 <!-- Lọc giá -->
                                 <div class="filter-container">
                                     <div class="filter-title">Lọc bởi</div>
                                     <div class="filter-category">Giá +</div>
 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="priceRange" id="flexRadioDefault1" value="1" />
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            Nhỏ hơn 50,000đ
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="priceRange" value="1"/> Nhỏ
+                                        hơn 50,000đ
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="priceRange" id="flexRadioDefault2" value="2" />
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            50,000đ - 100,000đ
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="priceRange" value="2"/>
+                                        50,000đ - 100,000đ
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="priceRange" id="flexRadioDefault3" value="3" />
-                                        <label class="form-check-label" for="flexRadioDefault3">
-                                            100,000đ - 200,000đ
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="priceRange" value="3"/>
+                                        100,000đ - 200,000đ
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="priceRange" id="flexRadioDefault4" value="4" />
-                                        <label class="form-check-label" for="flexRadioDefault4">
-                                            200,000đ - 500,000đ
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="priceRange" value="4"/>
+                                        200,000đ - 500,000đ
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="priceRange" id="flexRadioDefault5" value="5" />
-                                        <label class="form-check-label" for="flexRadioDefault5">
-                                            Lớn hơn 500,000đ
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="priceRange" value="5"/> Lớn
+                                        hơn 500,000đ
                                     </div>
                                 </div>
 
@@ -138,43 +128,30 @@
                                     <div class="filter-category">Sản phẩm +</div>
 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="category" id="flexRadioDefault6" value="1" />
-                                        <label class="form-check-label" for="flexRadioDefault6">
-                                            Bút
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="category" value="10"/> bìa
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="category" id="flexRadioDefault7" value="2" />
-                                        <label class="form-check-label" for="flexRadioDefault7">
-                                            Gôm, thước
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="category" value="9"/> giấy
+                                        dán, giấy nhớ
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="category" id="flexRadioDefault8" value="3" />
-                                        <label class="form-check-label" for="flexRadioDefault8">
-                                            Sổ tay, tập
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="category" value="8"/> sổ tay,
+                                        tập
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="category" id="flexRadioDefault9" value="4" />
-                                        <label class="form-check-label" for="flexRadioDefault9">
-                                            Bìa còng
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="category" value="7"/> gom,
+                                        thước
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="category" id="flexRadioDefault10" value="5" />
-                                        <label class="form-check-label" for="flexRadioDefault10">
-                                            Bút lông bản, lông dầu
-                                        </label>
+                                        <input class="form-check-input" type="radio" name="category" value="6"/> bút bi,
+                                        bút chì
                                     </div>
                                 </div>
 
                                 <!-- Nút xóa + lọc -->
                                 <div class="filter-btn-group">
                                     <a class="filter-items delete-btn">Xóa</a>
-                                    <button class="filter-items" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" type="submit">
-                                        Lọc
-                                    </button>
+                                    <button class="filter-items" type="submit">Lọc</button>
                                 </div>
                             </form>
 
@@ -256,9 +233,9 @@
                                     <div class="card-header-cus">
                                         <h5 class="card-title fw-semibold">${o.productName}</h5>
                                         <h5 class="price me--15 fw-semibold number-format">
-                                            <f:setLocale value = "vi_VN"/>
-                                            <f:formatNumber value="${o.productPrice}" type = "currency"/>
-<%--                                            <span class="currency">đ</span>--%>
+                                            <f:setLocale value="vi_VN"/>
+                                            <f:formatNumber value="${o.productPrice}" type="currency"/>
+                                                <%--                                            <span class="currency">đ</span>--%>
                                         </h5>
                                     </div>
                                     <p class="card-text fs-7 fw-medium text-justify">
