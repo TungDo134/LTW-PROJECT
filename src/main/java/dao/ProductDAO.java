@@ -28,7 +28,7 @@ public class ProductDAO {
 
     public List<Product> getProductByCate(int CateID) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                (handle.createQuery("select * from products where cateID = :cateID")
+                (handle.createQuery("select * from products where cateID = :cateID  order by productOrder limit 8")
                         .bind("cateID", CateID)
                         .mapToBean(Product.class).list())
         );
@@ -149,4 +149,8 @@ public class ProductDAO {
                         .list());
     }
 
+    public static void main(String[] args) {
+        ProductDAO dao = new ProductDAO();
+        System.out.println(dao.getProductByCate(7));
+    }
 }
