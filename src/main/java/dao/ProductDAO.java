@@ -140,5 +140,13 @@ public class ProductDAO {
                 );
 
     }
+    public List<Product> getProductsByCategoryAndID(int categoryId, int productId) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM products WHERE cateID = :cateID AND productID != :productID")
+                        .bind("cateID", categoryId)
+                        .bind("productID", productId)
+                        .mapToBean(Product.class)
+                        .list());
+    }
 
 }
