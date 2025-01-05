@@ -149,7 +149,7 @@
                                     <input
                                             type="text"
                                             name=""
-                                    <%--  id=""--%>
+
                                             class="p-quantity"
                                             value="1"
                                     />
@@ -157,10 +157,9 @@
                                     <button type="button" class="increase">+</button>
                                 </div>
                                 <div class="select-swatch">
-                                    <%--                                    <a  href="add-cart?pID=${detail.productID}" class="add-to-cart">--%>
+
                                     <a style="cursor: pointer" onclick="getIdProduct(this)"
                                        data-id="${detail.productID}" class="add-to-cart">
-
                                         Thêm vào giỏ
                                     </a>
 
