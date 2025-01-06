@@ -22,51 +22,37 @@ public class LoadProfile extends HttpServlet {
         //code = 1 khi ng dùng muốn sửa info
         String code = request.getParameter("code");
 
-
+        // lấy session customer
         HttpSession session = request.getSession(false);
         Customer cus = (Customer) session.getAttribute("customer");
+
+        // neu chua login thi chuyen ve trang login
+        if (cus == null) {
+            response.sendRedirect("forms/signup-login.jsp");
+            return;
+        }
         request.setAttribute("cus", cus);
 
-        // check xem ng dung co phai dg muon doi thong tin k
+        // check xem ng dung co phai dg muon doi thong tin hay khong
         if ("1".equals(code)) {
             request.getRequestDispatcher("editProfile.jsp").forward(request, response);
         }
 
-        // lấy order và order detail
+        // lấy danh sách order
         OrderDAO oDao = new OrderDAO();
-        Order order = oDao.getOrderByCusId(cus.getId());
-
-        // check xem kh đã mua bh chưa
-        List<OrderDetail> listOrdetail = null;
-        Payment pay = null;
+        List<Order> listOrder = oDao.getListOrderByCusId(cus.getId());
 
         // khi ng dung da mua hang
-        if (order != null) {
-            OrderDetailDAO odDao = new OrderDetailDAO();
-            listOrdetail = odDao.getAllOrderDetail(String.valueOf(order.getOrderID()));
-
-
-            // lấy payment
-            PaymentDAO pDao = new PaymentDAO();
-            pay = pDao.getPaymentByOrdID(order.getOrderID());
-
-            request.setAttribute("order", order);
-            request.setAttribute("listOrd", listOrdetail);
-            request.setAttribute("pay", pay);
-
+        if (listOrder != null) {
+            request.setAttribute("orders", listOrder);
         }
+
         // khi ng dung chua mua hang
         else {
-            request.setAttribute("order", null);
-            request.setAttribute("listOrd", listOrdetail);
-            request.setAttribute("pay", pay);
+            request.setAttribute("orders", null);
+
         }
-//        List<Order> listOrder = oDao.getListOrderByCusId(cus.getId());
-
-
-
-
-            request.getRequestDispatcher("profile.jsp").forward(request, response);
+        request.getRequestDispatcher("profile.jsp").forward(request, response);
 
 
     }

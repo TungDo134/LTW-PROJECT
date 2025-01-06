@@ -85,114 +85,62 @@
                 <div class="container-frameOrder">
                     <!-- Order Details and Summary -->
                     <div class="order-container">
-                        <!-- Order Details -->
-                        <div class="order-details">
-                            <div class="order-header">
-                                <h2>Mã đơn hàng: ${order.orderID}</h2>
-                                <p>Ngày tạo đơn: ${order.date} <span class="status">${order.status} </span></p>
+                        <div class="product-list">
+                            <div class="order-content">
+                                <c:if test="${orders==null}">
+                                    <h3>Bạn chưa mua hàng</h3>
+                                </c:if>
+                                <c:forEach items="${orders}" var="o">
+                                    <div class="order_Customer bg-white p-3 rounded">
+                                        <div>
+                                            <h4>Mã đơn hàng: </h4>
+                                            <h4>${o.orderID}</h4>
+                                        </div>
 
-                            </div>
-                            <div class="product-list">
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th>Sản phẩm</th>
-                                        <th>Số lượng</th>
-                                        <th>Giá</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach items="${listOrd}" var="o">
-                                        <tr>
-                                            <td><img src="assets/pic/products/${o.productImage}"
-                                                     alt="Women Shoes">${o.productName}</td>
-                                            <td>${o.quantity}</td>
-                                            <td>
+                                        <div>
+                                            <h4>Số lượng: </h4>
+                                            <h4>${o.quantity}</h4>
+                                        </div>
+
+
+                                        <div>
+                                            <h4>Tổng tiền: </h4>
+                                            <h4>
                                                 <f:setLocale value="vi_VN"/>
-                                                <f:formatNumber value="  ${o.price}" type="currency"/>
+                                                <f:formatNumber value="  ${o.totalPrice}" type="currency"/>
 
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
+                                            </h4>
+                                        </div>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                        <div>
+                                            <h4>Ngày tạo đơn: </h4>
+                                            <h4>${o.date}</h4>
+                                        </div>
 
-                        <div class="order-summary">
-                            <h3>Hóa đơn và Thanh toán</h3>
-                            <div class="invoice-payment">
-                                <!-- Hóa đơn -->
-                                <div class="invoice">
-                                    <h4>Hóa đơn</h4>
-                                    <ul>
-                                        <c:if test="${order != null}">
-                                            <li>Tạm tính: <span> <f:setLocale value="vi_VN"/>
-                                            <f:formatNumber value=" ${order.totalPrice}" type="currency"/></span></li>
-                                            <%--                            <li>Discount (DIS15%): <span>10%</span></li>--%>
-                                            <%--                            <li>Shipping Charge: <span>20000đ</span></li>--%>
-                                            <li><strong>Tổng tiền:</strong>
-                                                <span><strong>
-                                                  <f:setLocale value="vi_VN"/>
-                                            <f:formatNumber value=" ${order.totalPrice}" type="currency"/>
-                                            </strong></span></li>
-                                        </c:if>
-                                    </ul>
-                                </div>
+                                        <div>
+                                            <h4>Tình trạng thanh toán: </h4>
+                                            <h4>${o.status}</h4>
+                                        </div>
+                                        <div>
+                                            <a style="color: #000;text-decoration: none"
+                                               href="load-detail-ord-cus?oID=${o.orderID}" class="detail-order">Xem chi
+                                                tiết</a>
+                                        </div>
+                                    </div>
+                                </c:forEach>
 
-                                <!-- Phương thức thanh toán -->
-                                <div class="payment-method">
-                                    <h4>Phương thức thanh toán</h4>
-                                    <ul>
-                                        <li>Phương thức: <span>${pay.payMethods}</span></li>
-                                        <li>Khách hàng: <span>${sessionScope.customer.name}</span></li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
 
                     </div>
 
-                    <!-- Shipping Progress -->
-                    <!-- <div class="shipping-progress">
-                        <h3>Tiến trình giao hàng</h3>
-                        <div class="progress-container">
-                            <div class="step active">
-                                <div class="icon">
-                                    <i class="fas fa-home"></i>
-                                </div>
-                                <p>Chờ xác nhận</p>
-                            </div>
-                            <div class="connector"></div>
-                            <div class="step active">
-                                <div class="icon">
-                                    <i class="fas fa-box"></i>
-                                </div>
-                                <p>Chuẩn bị hàng</p>
-                            </div>
-                            <div class="connector"></div>
-                            <div class="step active">
-                                <div class="icon">
-                                    <i class="fas fa-truck"></i>
-                                </div>
-                                <p>Vận chuyển</p>
-                            </div>
 
-                            <div class="connector"></div>
-                            <div class="step active">
-                                <div class="icon">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <p>Hoàn thành</p>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
     </main>
 </div>
+
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const menuItems = document.querySelectorAll(".menu-item");

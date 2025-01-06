@@ -27,6 +27,7 @@ public class CreateOrderDetail extends HttpServlet {
                     cartItem.getTotalPrice(), cartItem.getTitle(), cartItem.getImg());
         }
 
+
         response.sendRedirect("home");
     }
 
