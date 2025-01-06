@@ -138,10 +138,10 @@
                         </div>
                         <div class="cate">
                             <p>Trạng thái:</p>
-                            <c:if test="${detail.productInventory ==0}">
+                            <c:if test="${detail.productStock ==0}">
                                 <p>Hết hàng</p>
                             </c:if>
-                            <c:if test="${detail.productInventory >=1}">
+                            <c:if test="${detail.productStock >=1}">
                                 <p>Còn hàng</p>
                             </c:if>
                         </div>
@@ -155,28 +155,31 @@
                         </div>
 
                         <div class="qty-cart">
-                            <form id="form_pro" action="#">
-                                <div class="quantity">
-                                    <button type="button" class="decrease">-</button>
-                                    <input
-                                            type="text"
-                                            name=""
+                            <c:if test="${detail.productStock >0}">
+                                <form id="form_pro" action="#">
+                                    <div class="quantity">
+                                        <button type="button" class="decrease">-</button>
+                                        <input
+                                                type="text"
+                                                name=""
 
-                                            class="p-quantity"
-                                            value="1"
-                                    />
+                                                class="p-quantity"
+                                                value="1"
+                                        />
 
-                                    <button type="button" class="increase">+</button>
-                                </div>
-                                <div class="select-swatch">
+                                        <button type="button" class="increase">+</button>
+                                    </div>
+                                    <div class="select-swatch">
 
-                                    <a style="cursor: pointer" onclick="getIdProduct(this)"
-                                       data-id="${detail.productID}" class="add-to-cart">
-                                        Thêm vào giỏ
-                                    </a>
+                                        <a style="cursor: pointer" onclick="getIdProduct(this)"
+                                           data-id="${detail.productID}" class="add-to-cart">
+                                            Thêm vào giỏ
+                                        </a>
 
-                                </div>
-                            </form>
+                                    </div>
+                                </form>
+                            </c:if>
+
                         </div>
                     </div>
                 </div>

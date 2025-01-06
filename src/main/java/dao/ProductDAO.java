@@ -14,7 +14,7 @@ import java.util.List;
 public class ProductDAO {
     public List<Product> getProduct() {
         return JDBIContext.getJdbi().withHandle(handle ->
-                (handle.createQuery("select * from products order by productID desc").mapToBean(Product.class).list())
+                (handle.createQuery("select * from products").mapToBean(Product.class).list())
         );
     }
 
@@ -148,6 +148,16 @@ public class ProductDAO {
                         .bind("productID", productId)
                         .mapToBean(Product.class)
                         .list());
+    }
+
+    public int UpdateQuantity(int productID, int quantity) {
+        String sql = "UPDATE products SET productStock = productStock - ?, productOrder=productOrder + ? WHERE productID = ?";
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, quantity)
+                        .bind(1, quantity)
+                        .bind(2, productID)
+                        .execute());
     }
 
 

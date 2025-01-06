@@ -212,18 +212,27 @@
                                     </div>
                                     <!-- nút thêm nhanh vào giỏ hàng -->
                                     <div class="add-to-cart">
+
+
                                         <form onsubmit="getIdProduct(this); return false">
                                             <input type="hidden" value="${o.productID}" name="pID">
-                                            <button class="btn " type="submit"
-                                                    data-bs-toggle="tooltip"
-                                                    data-bs-placement="top"
-                                                    data-bs-custom-class="custom-tooltip"
-                                                    data-bs-title="Thêm vào giỏ hàng.">
-                                                <img
-                                                        src="assets/pic/shopping_cart_icon.svg"
-                                                        alt="ảnh"
+                                            <c:if test="${o.productStock == 0}">
+                                                <p class="card-text fs-5 fw-medium text-justify text-secondary">
+                                                    Hết hàng
+                                                </p>
+                                            </c:if>
 
-                                                /></button>
+                                            <c:if test="${o.productStock > 0}">
+                                                <button class="btn" type="submit"
+                                                        data-bs-toggle="tooltip"
+                                                        data-bs-placement="top"
+                                                        data-bs-custom-class="custom-tooltip"
+                                                        data-bs-title="Thêm vào giỏ hàng.">
+                                                    <img src="assets/pic/shopping_cart_icon.svg" alt="ảnh"/>
+                                                </button>
+                                            </c:if>
+
+
                                         </form>
                                     </div>
                                 </a>

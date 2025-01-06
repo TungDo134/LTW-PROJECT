@@ -1,3 +1,8 @@
+<%@ page import="entity.Order" %>
+<%@ page import="entity.OrderDetail" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="entity.Payment" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="f" uri="jakarta.tags.fmt" %>
 <%@ page isELIgnored="false" %>
@@ -18,6 +23,7 @@
     <link rel="stylesheet" href="assets/css/styleProfile.css"/>
 </head>
 <body>
+
 <div class="Page-profile">
     <main class="container-profile">
         <div class="sidebar-profile">
@@ -121,15 +127,17 @@
                                 <div class="invoice">
                                     <h4>Hóa đơn</h4>
                                     <ul>
-                                        <li>Tạm tính: <span> <f:setLocale value="vi_VN"/>
+                                        <c:if test="${order != null}">
+                                            <li>Tạm tính: <span> <f:setLocale value="vi_VN"/>
                                             <f:formatNumber value=" ${order.totalPrice}" type="currency"/></span></li>
-                                        <%--                            <li>Discount (DIS15%): <span>10%</span></li>--%>
-                                        <%--                            <li>Shipping Charge: <span>20000đ</span></li>--%>
-                                        <li><strong>Tổng tiền:</strong>
-                                            <span><strong>
+                                            <%--                            <li>Discount (DIS15%): <span>10%</span></li>--%>
+                                            <%--                            <li>Shipping Charge: <span>20000đ</span></li>--%>
+                                            <li><strong>Tổng tiền:</strong>
+                                                <span><strong>
                                                   <f:setLocale value="vi_VN"/>
                                             <f:formatNumber value=" ${order.totalPrice}" type="currency"/>
                                             </strong></span></li>
+                                        </c:if>
                                     </ul>
                                 </div>
 

@@ -55,9 +55,26 @@ public class CreateOrder extends HttpServlet {
         int id = customer.getId();
 
         // giỏ hàng
+        // Cập nhật số lượng sp trong kho
+        ProductDAO pDao = new ProductDAO();
+        int productStock;
+        int order;
+        int cartId;
+
         Cart cart = (Cart) session.getAttribute("cart");
         for (CartItem cartItem : cart.getList()) {
             System.out.println(cartItem);
+            cartId = cartItem.getId();
+
+            // kiểm tra xem slg hàng ng dùng mua có nhỏ hơn slg tồn kho không
+            productStock = pDao.getProductByID(cartId + "").getProductStock();
+            order = cartItem.getQuantity();
+
+            if (order <= productStock) {
+                pDao.UpdateQuantity(cartId, order);
+            } else {
+                request.setAttribute("error", "san pham da het hang");
+            }
         }
 
 
