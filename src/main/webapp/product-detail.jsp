@@ -86,20 +86,20 @@
                                     ><img src="assets/pic/products/${detail.productImage}" alt=""
                                     /></a>
                                 </div>
-<%--                                <div class="swiper-slide">--%>
-<%--                                    <a href=""--%>
-<%--                                    ><img--%>
-<%--                                            src="assets/pic/sample_sub1.avif"--%>
-<%--                                            alt=""--%>
-<%--                                    /></a>--%>
-<%--                                </div>--%>
-<%--                                <div class="swiper-slide">--%>
-<%--                                    <a href=""--%>
-<%--                                    ><img--%>
-<%--                                            src="assets/pic/sample_subpicseller_2.avif"--%>
-<%--                                            alt=""--%>
-<%--                                    /></a>--%>
-<%--                                </div>--%>
+                                <%--                                <div class="swiper-slide">--%>
+                                <%--                                    <a href=""--%>
+                                <%--                                    ><img--%>
+                                <%--                                            src="assets/pic/sample_sub1.avif"--%>
+                                <%--                                            alt=""--%>
+                                <%--                                    /></a>--%>
+                                <%--                                </div>--%>
+                                <%--                                <div class="swiper-slide">--%>
+                                <%--                                    <a href=""--%>
+                                <%--                                    ><img--%>
+                                <%--                                            src="assets/pic/sample_subpicseller_2.avif"--%>
+                                <%--                                            alt=""--%>
+                                <%--                                    /></a>--%>
+                                <%--                                </div>--%>
 
                             </div>
                             <!-- Pagination -->
@@ -121,8 +121,8 @@
                                 <p>${detail.shortDes}</p>
                             </div>
                             <div class="item_2">
-                                <i class="fa-solid fa-tags"></i>
-                                <p><strong>Giảm giá từ 20%</strong></p>
+<%--                                <i class="fa-solid fa-tags"></i>--%>
+<%--                                <p><strong>Giảm giá từ 20%</strong></p>--%>
                             </div>
                         </div>
                         <div class="cate">
@@ -389,7 +389,7 @@
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                     </div>
-                                    <p>9 đánh giá</p>
+                                    <p><%= request.getAttribute("totalReviews")%> đánh giá</p>
                                 </div>
                             </div>
                             <div class="average-body">
@@ -526,8 +526,16 @@
                                                     </div>
                                                 </div>
                                                 <div class="item-right">
-                                                    <p>Rating: ${o.rating}/5</p>
-                                                    <p>★★★★★</p>
+                                                        <%-- <p>Rating: ${o.rating}/5</p>--%>
+                                                        <%-- <p>★★★★★</p>--%>
+                                                    <c:forEach var="i" begin="1" end="5">
+                                                        <c:choose>
+                                                            <c:when test="${i <= o.rating}">
+                                                                <span class="star">★</span> </c:when>
+                                                            <c:otherwise>
+                                                                <span class="star">☆</span> </c:otherwise>
+                                                        </c:choose>
+                                                    </c:forEach>
                                                 </div>
                                             </div>
                                         </div>

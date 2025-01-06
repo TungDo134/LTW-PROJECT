@@ -16,7 +16,7 @@ public class DetailProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pid = request.getParameter("pid");
-        int cId = Integer.parseInt(request.getParameter("cID"));
+
 
         // Hiển thị chi tiết sản phẩm
         ProductDAO productDAO = new ProductDAO();
@@ -26,13 +26,15 @@ public class DetailProduct extends HttpServlet {
         ReviewDAO reviewDAO = new ReviewDAO();
         List<Review> reviews = reviewDAO.getAllReviewByPID(pid);
 
+
         // Lấy các sản phẩm cùng thể loại
         ProductDAO proDao = new ProductDAO();
-        List<Product> productByCate = proDao.getProductByCate(cId);
+        List<Product> productByCate = proDao.getProductByCate(product.getCateID());
 
         // Đặt các đối tượng vào request attributes
         request.setAttribute("detail", product);
         request.setAttribute("reviews", reviews);
+        request.setAttribute("totalReviews", reviews.size());
 
         request.setAttribute("products", productByCate);
 
