@@ -46,10 +46,7 @@
 </head>
 <body class="dark-theme">
 <jsp:include page="header-admin.jsp"></jsp:include>
-<%
-    int cateID = (int) request.getAttribute("cate");
-    System.out.println(cateID);
-%>
+
 <div id="main-content">
     <div class="main-container">
         <div class="items-center">
@@ -84,22 +81,15 @@
                                         <div class="select">
                                             <label class="body-title" for="cateID">Vai trò </label>
                                             <select name="cateID" id="cateID">
-                                                <option value="6"<%=(6 == cateID) ? "selected= 'selected'" : ""%>>bút
-                                                    bi,
-                                                    bút chì
-                                                </option>
-                                                <option value="7"<%=(7 == cateID) ? "selected= 'selected'" : ""%>>Gôm
-                                                    thước
-                                                </option>
-                                                <option value="8"<%=(8 == cateID) ? "selected= 'selected'" : ""%>>Sổ
-                                                    tay,
-                                                    tập
-                                                </option>
-                                                <option value="9"<%=(9 == cateID) ? "selected= 'selected'" : ""%>>giấy
-                                                    dán, giấy nhớ
-                                                </option>
-                                                <option value="10"<%=(10 == cateID) ? "selected= 'selected'" : ""%>> Bìa
-                                                </option>
+                                                <c:forEach items="${listCate}" var="c">
+
+                                                    <option value="${c.id}" <c:choose>
+                                                        <c:when test="${c.id == cateP}">selected="selected"</c:when>
+
+                                                    </c:choose>>
+                                                            ${c.name}
+                                                    </option>
+                                                </c:forEach>
                                             </select>
                                         </div>
                                     </fieldset>
@@ -137,7 +127,8 @@
                                      src="<%=request.getContextPath()%>/assets/pic/products/${p.productImage}">
                                 <fieldset>
                                     <div class="body-title">Tải hình ảnh lên</div>
-                                    <input id="cateImg" type="file" name="productImage" onchange="loadImg()"/>
+                                    <input id="cateImg" type="file" name="productImage" value="" onchange="loadImg()"/>
+                                    <input type="hidden" name="oldImg" value="${p.productImage}" >
                                     <div class="body-text">
 
                                     </div>
@@ -145,7 +136,7 @@
                                 <div class="cols">
                                     <fieldset class="name">
                                         <div class="body-title">
-                                            Thêm số lượng
+                                            Tổng sản phẩm
                                         </div>
 
                                         <div class="select">

@@ -81,13 +81,9 @@
                                                 <option value="" disabled selected>
                                                     -- Vui lòng chọn --
                                                 </option>
-                                                <option value="6">Chì</option>
-                                                <option value="7">Gôm thước</option>
-                                                <option value="8">Sổ tay, tập</option>
-                                                <option value="9">giấy dán, giấy nhớ</option>
-                                                <option value="10">
-                                                    Bìa
-                                                </option>
+                                                <c:forEach items="${cate}" var="o">
+                                                    <option value="${o.id}">${o.name}</option>
+                                                </c:forEach>
                                             </select>
                                         </div>
                                     </fieldset>
@@ -101,7 +97,7 @@
                                                     name="productPrice"
                                                     required=""
                                                     type="text"
-                                                    placeholder="Vd: 100.000 "
+                                                    placeholder="Vd: 100000 "
                                             />
                                         </div>
                                     </fieldset>
@@ -140,7 +136,7 @@
                                 <div class="cols">
                                     <fieldset class="name">
                                         <div class="body-title">
-                                            Thêm số lượng <span>*</span>
+                                            Thêm số lượng tổng sản phẩm trong kho <span>*</span>
                                         </div>
 
                                         <div class="select">

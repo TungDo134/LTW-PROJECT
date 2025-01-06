@@ -139,8 +139,9 @@
                                     >Danh sách sản phẩm</a
                                     >
                                 </li>
+
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/addProduct.jsp">Thêm sản phẩm</a>
+                                    <a href="<%= request.getContextPath()%>/show-add-product">Thêm sản phẩm</a>
                                 </li>
                             </ul>
                         </li>

@@ -86,17 +86,28 @@
                                     ><img src="assets/pic/products/${detail.productImage}" alt=""
                                     /></a>
                                 </div>
+
+                                <div class="swiper-slide">
+                                    <a href=""
+                                    ><img
+                                            src="assets/pic/subP/${listSubImg.subImg1} "
+
+                                            alt=""
+                                    /></a>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <a href=""
+                                    ><img
+                                            src="assets/pic/subP/${listSubImg.subImg2}"
+                                            alt=""
+                                    /></a>
+                                </div>
+
                                 <%--                                <div class="swiper-slide">--%>
                                 <%--                                    <a href=""--%>
                                 <%--                                    ><img--%>
-                                <%--                                            src="assets/pic/sample_sub1.avif"--%>
-                                <%--                                            alt=""--%>
-                                <%--                                    /></a>--%>
-                                <%--                                </div>--%>
-                                <%--                                <div class="swiper-slide">--%>
-                                <%--                                    <a href=""--%>
-                                <%--                                    ><img--%>
-                                <%--                                            src="assets/pic/sample_subpicseller_2.avif"--%>
+                                <%--                                            src="assets/pic/${listSubImg.subImg3}"--%>
                                 <%--                                            alt=""--%>
                                 <%--                                    /></a>--%>
                                 <%--                                </div>--%>
@@ -121,8 +132,8 @@
                                 <p>${detail.shortDes}</p>
                             </div>
                             <div class="item_2">
-<%--                                <i class="fa-solid fa-tags"></i>--%>
-<%--                                <p><strong>Giảm giá từ 20%</strong></p>--%>
+                                <%--                                <i class="fa-solid fa-tags"></i>--%>
+                                <%--                                <p><strong>Giảm giá từ 20%</strong></p>--%>
                             </div>
                         </div>
                         <div class="cate">
@@ -142,15 +153,7 @@
                                 ${detail.productDes}
                             </p>
                         </div>
-                        <div name="cateID">
-                            <p style="
-                            margin: 0; color: #111111; font-weight: 700">
-                                Mô tả:
-                            </p>
-                            <p>
-                                ${detail.cateID}
-                            </p>
-                        </div>
+
                         <div class="qty-cart">
                             <form id="form_pro" action="#">
                                 <div class="quantity">
@@ -354,7 +357,8 @@
                                     <h5 class="card-title fw-semibold">${o.productName}</h5>
                                     <!-- Giá sản phẩm -->
                                     <h5 class="price me--15 fw-semibold">
-                                            ${o.productPrice} <span class="currency">đ</span>
+                                        <f:setLocale value="vi_VN"/>
+                                        <f:formatNumber value="  ${o.productPrice} " type="currency"/>
                                     </h5>
                                 </div>
                                 <!-- Mô tả ngắn -->
@@ -448,7 +452,11 @@
                             <div class="review-comment">
                                 <form class="form-comment">
                                     <div class="review-form">Đánh giá của bạn</div>
-                                    <textarea name="" id=""></textarea>
+                                    <div class="d-flex flex-column gap-2">
+                                        <textarea name="" id="" required></textarea>
+                                        <input type="text" name="name" placeholder="Tên" value="" required>
+                                        <input type="number" name="phone" placeholder="Số điện thoại" value="" required>
+                                    </div>
                                     <div class="rating">
                                         <h2>Xếp hạng</h2>
                                         <div class="rating-stars">

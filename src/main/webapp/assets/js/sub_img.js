@@ -1,4 +1,3 @@
-
 const images = [];
 
 // Duyệt qua tất cả các phần tử có class 'swiper-slide img'
@@ -16,8 +15,14 @@ new Swiper(".mySwiper", {
         renderBullet: function (index, className) {
             // Sử dụng index do Swiper truyền vào
             return `<span class="${className}">
-                  <img src="${images[index]}" alt="Thumbnail ${index + 1}" style="width: 68px;" />
+                  <img src="${images[index]}"  onerror="hideParent(this)" style="width: 68px;" />
                 </span>`;
         },
     },
 });
+
+function hideParent(img) {
+    // Khi xảy ra lỗi, tìm phần tử cha chứa thẻ img và ẩn đi
+    let errorEle = $(img).parent();
+    errorEle.hide();
+}

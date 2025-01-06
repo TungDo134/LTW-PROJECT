@@ -235,7 +235,7 @@
                                         <h5 class="price me--15 fw-semibold number-format">
                                             <f:setLocale value="vi_VN"/>
                                             <f:formatNumber value="${o.productPrice}" type="currency"/>
-                                                <%--                                            <span class="currency">đ</span>--%>
+
                                         </h5>
                                     </div>
                                     <p class="card-text fs-7 fw-medium text-justify">
