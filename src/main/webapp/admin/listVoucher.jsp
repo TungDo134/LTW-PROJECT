@@ -63,7 +63,7 @@
         <div class="add-voucher" style="margin-bottom: 1rem">
             <form action="<%= request.getContextPath()%>/add-coupon" method="post">
                 <div class="row">
-                    <p class="text-danger"><%=message != null ? message : "" %>
+                    <p class="text-Info"><%=message != null ? message : "" %>
                     </p>
                     <div class="col col-2 ">
                         <label for="code" class="pb-2">Tên mã giảm</label>

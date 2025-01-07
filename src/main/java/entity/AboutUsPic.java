@@ -1,6 +1,8 @@
 package entity;
 
-public class AboutUsPic {
+import java.io.Serializable;
+
+public class AboutUsPic implements Serializable {
     public int aboutUsID;
     public String img1;
     public String img2;

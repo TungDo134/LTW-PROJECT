@@ -1,10 +1,11 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class Cart {
+public class Cart  implements Serializable {
     Map<Integer, CartItem> data = new HashMap<>();
 
     public boolean add(Product p) {

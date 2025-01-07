@@ -43,8 +43,8 @@ public class CustomerDAO {
     public int insertCustomer(String customerName, String email, String pass, String phone, String address, String addressShipping, String role) {
         Byte roler = Byte.valueOf(role);
         return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createUpdate("INSERT INTO customers (customerName, email, pass, phone, address, role)\n" +
-                                "VALUES (:customerName, :email, :pass, :phone, :address, :addressShipping,:role);")
+                handle.createUpdate("INSERT INTO customers (customerName, email, pass, phone, address, addressShipping, role)\n" +
+                                "VALUES (:customerName, :email, :pass, :phone, :address, :addressShipping, :role);")
                         .bind("customerName", customerName)
                         .bind("email", email)
                         .bind("pass", pass)

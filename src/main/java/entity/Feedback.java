@@ -1,6 +1,8 @@
 package entity;
 
-public class Feedback {
+import java.io.Serializable;
+
+public class Feedback implements Serializable {
     public int fID;
     public String customerName;
     public String email;

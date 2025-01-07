@@ -24,7 +24,6 @@ public class ProductDAO {
                         .bind("productID", ProID)
                         .mapToBean(Product.class).findOne().orElse(null))
         );
-
     }
 
     public List<Product> getProductByCate(int CateID) {

@@ -66,10 +66,6 @@
                         />
                     </div>
                 </div>
-                <%--                <div class="form-group">--%>
-                <%--                    <label for="address" >Địa chỉ cá nhân</label>--%>
-                <%--                    <input type="text" name="address" id="address" placeholder="Số Nhà, Tên Đường" value="${customer.address}"/>--%>
-                <%--                </div>--%>
                 <div class="form-group">
                     <label for="addressShipping">Địa chỉ vận chuyển</label>
                     <input type="text" name="addressShipping" id="addressShipping" placeholder="Số Nhà, Tên Đường"

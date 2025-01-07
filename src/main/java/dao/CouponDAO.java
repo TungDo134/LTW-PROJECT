@@ -37,13 +37,15 @@ public class CouponDAO {
     }
 
     // lấy 1 voucher dựa vào name
-    public Coupon getCouponName(String name) {
+    public boolean isCouponExist(String name) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createQuery("select * from coupons  where code = :code")
+                handle.createQuery("SELECT EXISTS (SELECT 1 FROM coupons WHERE code = :code)")
                         .bind("code", name)
-                        .mapToBean(Coupon.class).findOne().orElse(null)
+                        .mapTo(Boolean.class)
+                        .one()
         );
     }
+
 
 
     // cập nhật voucher dựa vào ID

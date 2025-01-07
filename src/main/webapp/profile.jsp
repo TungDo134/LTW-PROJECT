@@ -116,6 +116,10 @@
                                             <h4>Ngày tạo đơn: </h4>
                                             <h4>${o.date}</h4>
                                         </div>
+                                        <div>
+                                            <h4>Địa chỉ giao hàng: </h4>
+                                            <h4>${addressShip}</h4>
+                                        </div>
 
                                         <div>
                                             <h4>Tình trạng thanh toán: </h4>

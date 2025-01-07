@@ -1,6 +1,8 @@
 package entity;
 
-public class Shipping {
+import java.io.Serializable;
+
+public class Shipping  implements Serializable {
     private int shipID;
     private int orderID;
     private String status;

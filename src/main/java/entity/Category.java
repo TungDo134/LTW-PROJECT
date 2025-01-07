@@ -2,7 +2,9 @@ package entity;
 
 import org.jdbi.v3.core.mapper.reflect.ColumnName;
 
-public class Category {
+import java.io.Serializable;
+
+public class Category implements Serializable {
     public int id;
     public String name;
     public String cateImg;

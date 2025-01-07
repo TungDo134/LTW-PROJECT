@@ -1,6 +1,8 @@
 package entity;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     public int productID;
     public String productName;
     public String productDes;

@@ -1,6 +1,8 @@
 package entity;
 
-public class SubImgProduct {
+import java.io.Serializable;
+
+public class SubImgProduct implements Serializable {
     private int id;
     private int productID;
     private String subImg1;

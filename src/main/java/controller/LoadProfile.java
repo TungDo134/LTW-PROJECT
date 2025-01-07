@@ -50,8 +50,9 @@ public class LoadProfile extends HttpServlet {
         // khi ng dung chua mua hang
         else {
             request.setAttribute("orders", null);
-
         }
+
+        request.setAttribute("addressShip", cus.getAddressShipping());
         request.getRequestDispatcher("profile.jsp").forward(request, response);
 
 

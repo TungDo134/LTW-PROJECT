@@ -97,6 +97,9 @@ public class CreateOrder extends HttpServlet {
         PaymentDAO paymentDAO = new PaymentDAO();
         paymentDAO.insertPayment(ordID, payment);
 
+
+
+
         System.out.println(ordID);
         request.setAttribute("ordID", ordID);
         response.sendRedirect("create-ord-detail?ordID=" + ordID); // Gửi qua URL

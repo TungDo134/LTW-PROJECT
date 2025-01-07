@@ -1,6 +1,8 @@
 package entity;
 
-public class HomePicture {
+import java.io.Serializable;
+
+public class HomePicture  implements Serializable {
     public int homeId;
     public String bannerImg;
     public String img1;

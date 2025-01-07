@@ -45,11 +45,17 @@
     <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleAddProduct.css"/>
 </head>
 <body class="dark-theme">
+<%
+    String message = (String) request.getAttribute("msg");
+%>
+
 <jsp:include page="header-admin.jsp"></jsp:include>
 <div id="main-content">
     <div class="main-container">
         <div class="items-center">
             <h3>Thêm Sản Phẩm</h3>
+            <h4 class="text-info"><%=message != null ? message : "" %>
+            </h4>
         </div>
         <div class="addproduct-container">
             <div class="content-inner">
