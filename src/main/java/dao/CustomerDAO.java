@@ -105,5 +105,30 @@ public class CustomerDAO {
         );
     }
 
+    public boolean changePassword(int customerID, String oldPassword, String newPassword) {
+        return JDBIContext.getJdbi().withHandle(handle -> {
+            // Kiểm tra mật khẩu cũ có đúng không
+            Customer customer = handle.createQuery("SELECT * FROM customers WHERE customerID = :customerID AND pass = :oldPassword")
+                    .bind("customerID", customerID)
+                    .bind("oldPassword", oldPassword)
+                    .mapToBean(Customer.class)
+                    .findOne()
+                    .orElse(null);
+
+            if (customer == null) {
+                return false; // Mật khẩu cũ không đúng
+            }
+
+            // Cập nhật mật khẩu mới
+            int rowsUpdated = handle.createUpdate("UPDATE customers SET pass = :newPassword WHERE customerID = :customerID")
+                    .bind("newPassword", newPassword)
+                    .bind("customerID", customerID)
+                    .execute();
+
+            return rowsUpdated > 0; // Nếu có dòng bị ảnh hưởng thì trả về true
+        });
+    }
+
+
 }
 
