@@ -387,16 +387,19 @@
                     <div class="list-aside">
                         <div class="summary-distribution">
                             <div class="average-header">
-                                <h1>4.9</h1>
+                                <!-- Hiển thị điểm trung bình -->
+                                <h1><%= request.getAttribute("averageRating") %></h1>
+
                                 <div class="rating-star">
                                     <div class="star-icon">
+                                        <!-- Tạo sao theo số điểm trung bình -->
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                     </div>
-                                    <p><%= request.getAttribute("totalReviews")%> đánh giá</p>
+                                    <p><%= request.getAttribute("totalReviews") %> đánh giá</p>
                                 </div>
                             </div>
                             <div class="average-body">
@@ -405,48 +408,50 @@
                                         <p>5</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent"></div>
+                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[4] %>%;"></div>
                                         </div>
                                     </div>
                                     <div class="average-progress-item-2">
                                         <p>4</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent"></div>
+                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[3] %>%;"></div>
                                         </div>
                                     </div>
                                     <div class="average-progress-item-3">
                                         <p>3</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent"></div>
+                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[2] %>%;"></div>
                                         </div>
                                     </div>
                                     <div class="average-progress-item-4">
                                         <p>2</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent"></div>
+                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[1] %>%;"></div>
                                         </div>
                                     </div>
                                     <div class="average-progress-item-5">
                                         <p>1</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent"></div>
+                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[0] %>%;"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="average-number">
-                                    <p>8</p>
-                                    <p>0</p>
-                                    <p>1</p>
-                                    <p>0</p>
-                                    <p>0</p>
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[4] %></p> <!-- 5 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[3] %></p> <!-- 4 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[2] %></p> <!-- 3 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[1] %></p> <!-- 2 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[0] %></p> <!-- 1 sao -->
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
                     <div class="list-main">
                         <div class="review-pane">
                             <div class="review-filter">
