@@ -22,7 +22,7 @@ public class ChangePass extends HttpServlet {
         String newPassword = request.getParameter("newPassword"); // Mật khẩu mới
         String rePassword = request.getParameter("rePassword"); // Nhập lại mật khẩu mới
 
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
         Customer cus = (Customer) session.getAttribute("customer");
 
         if (cus == null) {
@@ -40,7 +40,7 @@ public class ChangePass extends HttpServlet {
 
         if (!isChanged) {
             request.setAttribute("msg", "Mật khẩu cũ không đúng hoặc có lỗi xảy ra.");
-            request.getRequestDispatcher("/forms/changePassword.jsp").forward(request, response);
+            request.getRequestDispatcher("forms/changePassword.jsp").forward(request, response);
         } else {
             request.setAttribute("msg", "Đổi mật khẩu thành công!");
             response.sendRedirect("home");

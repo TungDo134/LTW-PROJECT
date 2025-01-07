@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Đăng Ký</title>
 
-    <link rel="stylesheet" href="../assets/css/styleChangePass.css"/>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/styleChangePass.css"/>
 </head>
 <body>
 <div class="login-signup-container">
