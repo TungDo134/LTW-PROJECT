@@ -149,6 +149,7 @@
 
                 <!-- Voucher Section -->
                 <div class="voucher-section">
+
                     <input
                             class="id-voucher"
                             name="voucher"
@@ -156,14 +157,15 @@
                             type="text"
                             placeholder="Mã giảm giá"
                     />
-                    <button class="apply-voucher-btn"><p>Sử dụng</p></button>
+                    <button id="voucher-btn" type="button" class="apply-voucher-btn"><p>Sử
+                        dụng</p></button>
 
                 </div>
                 <!-- Tổng tiền -->
                 <div class="provisional">
                     <div class="row">
                         <span>Tạm tính</span>
-                        <span>
+                        <span class="priceDiscount">
                      <% Cart c = (Cart) session.getAttribute("cart");%>
                     <c:set var="balance" value="<%= c == null ? 0 : c.getTotal() %>"/>
                          <f:setLocale value="vi_VN"/>
@@ -176,12 +178,12 @@
                 </div>
                 <div class="total-section">
                     <span>Tổng cộng</span>
-                    <span
-                    >
+                    <span class="priceDiscount">
                         <c:set var="balance" value="<%= c == null ? 0 : c.getTotal() %>"/>
                          <f:setLocale value="vi_VN"/>
                          <f:formatNumber value="${balance}" type="currency"/></span
                     >
+                    <input type="hidden" name="priceDiscount" value="noV">
                 </div>
             </div>
             <div class="finish">
@@ -246,6 +248,8 @@
         };
     }
 </script>
+
+<%--Bắt chọn pthuc thanh toán--%>
 <script>
     document.querySelector("form").addEventListener("submit", function (e) {
         const selectedPayment = document.querySelector('input[name="payment"]:checked');
@@ -254,6 +258,31 @@
             e.preventDefault(); // Ngăn gửi form
         }
     });
+</script>
+
+<%--Áp mã giảm giá--%>
+<script>
+    $("#voucher-btn").on("click", function () {
+        let data = $("#voucher").val()
+        console.log(data)
+        $.ajax({
+            url: "apply-voucher",
+            method: "POST",
+            data: {
+                "voucher": data
+            },
+            success: function (response) {
+                console.log(response);
+                $("input[name='priceDiscount']").val(response.finalPrice)
+                $(".priceDiscount").text(formatCurrency(response.finalPrice )+ ' ₫');
+
+                function formatCurrency(value) {
+                    return new Intl.NumberFormat('vi-VN').format(value);
+                }
+            },
+        })
+    })
+
 </script>
 </body>
 </html>

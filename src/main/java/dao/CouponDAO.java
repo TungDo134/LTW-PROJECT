@@ -37,6 +37,15 @@ public class CouponDAO {
     }
 
     // lấy 1 voucher dựa vào name
+    public Coupon getCouponByName(String name) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("select * from coupons  where code = :code")
+                        .bind("code", name)
+                        .mapToBean(Coupon.class).findOne().orElse(null)
+        );
+    }
+
+    // kiểm tra có tồn tại  dựa vào name
     public boolean isCouponExist(String name) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createQuery("SELECT EXISTS (SELECT 1 FROM coupons WHERE code = :code)")
@@ -45,7 +54,6 @@ public class CouponDAO {
                         .one()
         );
     }
-
 
 
     // cập nhật voucher dựa vào ID
