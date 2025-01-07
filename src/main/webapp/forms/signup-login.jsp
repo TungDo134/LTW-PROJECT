@@ -28,19 +28,20 @@
         <%-- Đăng ký--%>
         <div class="signup">
             <%
-                String msg = (String) request.getAttribute("msg");
+                String msgRegister = (String) request.getAttribute("msg");
+                String msgLogin = (String) request.getAttribute("error");
             %>
-
             <form action="<%= request.getContextPath()%>/Register" method="post">
 
                 <div class="form-group">
 
-                    <label for="chk" class="label-Signup" aria-hidden="true"
+                    <label for="chk" class="label-Signup" aria-hidden="true" style="margin-bottom: 20px"
                     >Đăng ký</label
                     >
                 </div>
                 <div class="form-group">
-                    <span> <%=msg != null ? msg : ""%></span>
+                    <span style="text-align: center; display: block; color: darkred">
+                        <%=msgRegister != null ? msgRegister : ""%></span>
 
                     <label for="username" class="form-label"> </label>
                     <input
@@ -54,7 +55,7 @@
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="form-label"> </label>
+                    <label for="email" class="form-label"></label>
                     <input
                             id="email"
                             name="email"
@@ -101,9 +102,8 @@
         <div class="login">
             <form id="login-form" method="post" action="<%= request.getContextPath()%>/login">
                 <label class="label-Login" for="chk" aria-hidden="true"
-                >Đăng Nhập</label
-                >
-                <input disabled class="msg text-danger" value="${error}">
+                >Đăng Nhập</label>
+
                 <input type="email" name="email-login" placeholder="Email" required=""/>
                 <input
                         type="password"
@@ -116,6 +116,9 @@
                 <a class="signup-image-link" href="/pages/forms/changePassword.jsp"
                 >Quên mật khẩu?</a
                 >
+                <span style=" display: block; color: darkred;
+                        margin-left:54px">
+                      <%=msgLogin != null ? msgLogin : ""%></span>
                 <button type="submit">Login</button>
             </form>
         </div>
