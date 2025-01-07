@@ -387,16 +387,19 @@
                     <div class="list-aside">
                         <div class="summary-distribution">
                             <div class="average-header">
-                                <h1>4.9</h1>
+                                <!-- Hiển thị điểm trung bình -->
+                                <h1><%= request.getAttribute("averageRating") %></h1>
+
                                 <div class="rating-star">
                                     <div class="star-icon">
+                                        <!-- Tạo sao theo số điểm trung bình -->
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                     </div>
-                                    <p><%= request.getAttribute("totalReviews")%> đánh giá</p>
+                                    <p><%= request.getAttribute("totalReviews") %> đánh giá</p>
                                 </div>
                             </div>
                             <div class="average-body">
@@ -405,48 +408,50 @@
                                         <p>5</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent"></div>
+                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[4] %>%;"></div>
                                         </div>
                                     </div>
                                     <div class="average-progress-item-2">
                                         <p>4</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent"></div>
+                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[3] %>%;"></div>
                                         </div>
                                     </div>
                                     <div class="average-progress-item-3">
                                         <p>3</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent"></div>
+                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[2] %>%;"></div>
                                         </div>
                                     </div>
                                     <div class="average-progress-item-4">
                                         <p>2</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent"></div>
+                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[1] %>%;"></div>
                                         </div>
                                     </div>
                                     <div class="average-progress-item-5">
                                         <p>1</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent"></div>
+                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[0] %>%;"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="average-number">
-                                    <p>8</p>
-                                    <p>0</p>
-                                    <p>1</p>
-                                    <p>0</p>
-                                    <p>0</p>
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[4] %></p> <!-- 5 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[3] %></p> <!-- 4 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[2] %></p> <!-- 3 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[1] %></p> <!-- 2 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[0] %></p> <!-- 1 sao -->
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
                     <div class="list-main">
                         <div class="review-pane">
                             <div class="review-filter">
@@ -454,71 +459,27 @@
                             </div>
                             <div class="review-comment">
                                 <form action="add-review" method="post">
-                                    <!--<textarea name="" id=""></textarea>-->
-
-                                    <div class="d-flex flex-column gap-2">
-                                        <input type="hidden" name="productID" id="" value="detail?pId= ?" required/>
-                                        <input type="text" name="customerName" placeholder="Tên" value="" required/>
-
-                                        <input type="text" value id="Comment" name="comment" placeholder="Đánh giá của bạn" required/>
-                                    </div>
+                                    <input type="hidden" name="productID" value="${detail.productID}" required/>
+                                    <input type="text" name="customerName" placeholder="Tên" required/>
+                                    <input type="text" name="comment" placeholder="Đánh giá của bạn" required/>
                                     <div class="rating">
                                         <h2>Xếp hạng</h2>
                                         <div class="rating-stars">
-                                            <input
-                                                    type="radio"
-                                                    id="star1"
-                                                    name="rating"
-                                                    value="1"
-                                            />
-                                            <label for="star1"
-                                            ><i class="fa-solid fa-star color-star"></i
-                                            ></label>
-
-                                            <input
-                                                    type="radio"
-                                                    id="star2"
-                                                    name="rating"
-                                                    value="2"
-                                            />
-                                            <label for="star2"
-                                            ><i class="fa-solid fa-star color-star"></i
-                                            ></label>
-
-                                            <input
-                                                    type="radio"
-                                                    id="star3"
-                                                    name="rating"
-                                                    value="3"
-                                            />
-                                            <label for="star3"
-                                            ><i class="fa-solid fa-star color-star"></i
-                                            ></label>
-
-                                            <input
-                                                    type="radio"
-                                                    id="star4"
-                                                    name="rating"
-                                                    value="4"
-                                            />
-                                            <label for="star4"
-                                            ><i class="fa-solid fa-star color-star"></i
-                                            ></label>
-
-                                            <input
-                                                    type="radio"
-                                                    id="star5"
-                                                    name="rating"
-                                                    value="5"
-                                            />
-                                            <label for="star5"
-                                            ><i class="fa-solid fa-star color-star"></i
-                                            ></label>
+                                            <input type="radio" id="star1" name="rating" value="1"/>
+                                            <label for="star1"><i class="fa-solid fa-star color-star"></i></label>
+                                            <input type="radio" id="star2" name="rating" value="2"/>
+                                            <label for="star2"><i class="fa-solid fa-star color-star"></i></label>
+                                            <input type="radio" id="star3" name="rating" value="3"/>
+                                            <label for="star3"><i class="fa-solid fa-star color-star"></i></label>
+                                            <input type="radio" id="star4" name="rating" value="4"/>
+                                            <label for="star4"><i class="fa-solid fa-star color-star"></i></label>
+                                            <input type="radio" id="star5" name="rating" value="5"/>
+                                            <label for="star5"><i class="fa-solid fa-star color-star"></i></label>
                                         </div>
-                                        <span class="score">0/5</span>
                                     </div>
-                                    <a class="btn btn-primary btn-customize" href="add-review" role="button">Gửi</a>
+                                    <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
                                 </form>
+
                             </div>
 
                             <c:forEach items="${reviews}" var="o">
@@ -528,7 +489,6 @@
                                             <div class="review-header">
                                                 <div class="item-left">
                                                     <div class="item-top">
-                                                        <!-- <img src="./assets/pic/capyyyy.jpg" alt="avt" /> -->
                                                         <div class="item-details">
                                                             <p>${o.customerName}</p>
                                                             <p>${o.date}</p>
