@@ -1,10 +1,11 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class Cart {
+public class Cart implements Serializable {
     Map<Integer, CartItem> data = new HashMap<>();
 
     public boolean add(Product p) {
@@ -63,6 +64,10 @@ public class Cart {
         return total.get();
     }
 
+    public double setTotal(Double price) {
+        return price;
+    }
+
 
     public CartItem convert(Product p) {
         CartItem re = new CartItem();
@@ -76,8 +81,7 @@ public class Cart {
     }
 
     public static void main(String[] args) {
-        Cart c= new Cart();
-        if(c.getList().isEmpty()) System.out.println("empty");;
+
     }
 
 }

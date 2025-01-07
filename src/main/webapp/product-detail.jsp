@@ -86,20 +86,31 @@
                                     ><img src="assets/pic/products/${detail.productImage}" alt=""
                                     /></a>
                                 </div>
-<%--                                <div class="swiper-slide">--%>
-<%--                                    <a href=""--%>
-<%--                                    ><img--%>
-<%--                                            src="assets/pic/sample_sub1.avif"--%>
-<%--                                            alt=""--%>
-<%--                                    /></a>--%>
-<%--                                </div>--%>
-<%--                                <div class="swiper-slide">--%>
-<%--                                    <a href=""--%>
-<%--                                    ><img--%>
-<%--                                            src="assets/pic/sample_subpicseller_2.avif"--%>
-<%--                                            alt=""--%>
-<%--                                    /></a>--%>
-<%--                                </div>--%>
+
+                                <div class="swiper-slide">
+                                    <a href=""
+                                    ><img
+                                            src="assets/pic/subP/${listSubImg.subImg1} "
+
+                                            alt=""
+                                    /></a>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <a href=""
+                                    ><img
+                                            src="assets/pic/subP/${listSubImg.subImg2}"
+                                            alt=""
+                                    /></a>
+                                </div>
+
+                                <%--                                <div class="swiper-slide">--%>
+                                <%--                                    <a href=""--%>
+                                <%--                                    ><img--%>
+                                <%--                                            src="assets/pic/${listSubImg.subImg3}"--%>
+                                <%--                                            alt=""--%>
+                                <%--                                    /></a>--%>
+                                <%--                                </div>--%>
 
                             </div>
                             <!-- Pagination -->
@@ -121,16 +132,16 @@
                                 <p>${detail.shortDes}</p>
                             </div>
                             <div class="item_2">
-                                <i class="fa-solid fa-tags"></i>
-                                <p><strong>Giảm giá từ 20%</strong></p>
+                                <%--                                <i class="fa-solid fa-tags"></i>--%>
+                                <%--                                <p><strong>Giảm giá từ 20%</strong></p>--%>
                             </div>
                         </div>
                         <div class="cate">
                             <p>Trạng thái:</p>
-                            <c:if test="${detail.productInventory ==0}">
+                            <c:if test="${detail.productStock ==0}">
                                 <p>Hết hàng</p>
                             </c:if>
-                            <c:if test="${detail.productInventory >=1}">
+                            <c:if test="${detail.productStock >=1}">
                                 <p>Còn hàng</p>
                             </c:if>
                         </div>
@@ -142,30 +153,33 @@
                                 ${detail.productDes}
                             </p>
                         </div>
+
                         <div class="qty-cart">
-                            <form id="form_pro" action="#">
-                                <div class="quantity">
-                                    <button type="button" class="decrease">-</button>
-                                    <input
-                                            type="text"
-                                            name=""
-                                    <%--  id=""--%>
-                                            class="p-quantity"
-                                            value="1"
-                                    />
+                            <c:if test="${detail.productStock >0}">
+                                <form id="form_pro" action="#">
+                                    <div class="quantity">
+                                        <button type="button" class="decrease">-</button>
+                                        <input
+                                                type="text"
+                                                name=""
 
-                                    <button type="button" class="increase">+</button>
-                                </div>
-                                <div class="select-swatch">
-                                    <%--                                    <a  href="add-cart?pID=${detail.productID}" class="add-to-cart">--%>
-                                    <a style="cursor: pointer" onclick="getIdProduct(this)"
-                                       data-id="${detail.productID}" class="add-to-cart">
+                                                class="p-quantity"
+                                                value="1"
+                                        />
 
-                                        Thêm vào giỏ
-                                    </a>
+                                        <button type="button" class="increase">+</button>
+                                    </div>
+                                    <div class="select-swatch">
 
-                                </div>
-                            </form>
+                                        <a style="cursor: pointer" onclick="getIdProduct(this)"
+                                           data-id="${detail.productID}" class="add-to-cart">
+                                            Thêm vào giỏ
+                                        </a>
+
+                                    </div>
+                                </form>
+                            </c:if>
+
                         </div>
                     </div>
                 </div>
@@ -324,225 +338,40 @@
     <div class="container">
         <h2 class="text-center my-5">Có thể bạn sẽ thích</h2>
         <div id="layout">
-            <div
-                    class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5"
-            >
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5">
+                <c:forEach items="${products}" var="o">
+                    <div class="col">
+                        <div class="card border border-0">
+                            <!-- Liên kết đến chi tiết sản phẩm -->
+                            <a href="detail?pid=${o.productID}&cID=${o.cateID}" class="forward-img">
+                                <div class="wrapper-img">
+                                    <!-- Ảnh sản phẩm -->
+                                    <img
+                                            src="assets/pic/products/${o.productImage}"
+                                            class="card-img-top"
+                                            style="background-color: #f4eee0; vertical-align: middle"
+                                            alt="${o.productName}"
+                                    />
+                                </div>
+                            </a>
+                            <div class="card-body bg-body ms--15">
+                                <!-- Tiêu đề sản phẩm -->
+                                <div class="card-header-cus">
+                                    <h5 class="card-title fw-semibold">${o.productName}</h5>
+                                    <!-- Giá sản phẩm -->
+                                    <h5 class="price me--15 fw-semibold">
+                                        <f:setLocale value="vi_VN"/>
+                                        <f:formatNumber value="  ${o.productPrice} " type="currency"/>
+                                    </h5>
+                                </div>
+                                <!-- Mô tả ngắn -->
+                                <p class="card-text fs-7 fw-medium text-justify">
+                                        ${o.shortDes}
+                                </p>
                             </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card border border-0">
-                        <a href="product-detail.jsp" class="forward-img">
-                            <!-- ảnh sản phẩm -->
-                            <div class="wrapper-img">
-                                <img
-                                        src="assets/pic/pen"
-                                        class="card-img-top"
-                                        style="background-color: #f4eee0; vertical-align: middle"
-                                        alt="..."
-                                />
-                            </div>
-                        </a>
-
-                        <div class="card-body bg-body ms--15">
-                            <div class="card-header-cus">
-                                <h5 class="card-title fw-semibold">Card title</h5>
-                                <h5 class="price me--15 fw-semibold">
-                                    300.000<span class="currency">đ</span>
-                                </h5>
-                            </div>
-                            <p class="card-text fs-7 fw-medium text-justify">
-                                Rollerball Pen
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>
@@ -567,7 +396,7 @@
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                     </div>
-                                    <p>9 đánh giá</p>
+                                    <p><%= request.getAttribute("totalReviews")%> đánh giá</p>
                                 </div>
                             </div>
                             <div class="average-body">
@@ -624,9 +453,15 @@
                                 <button>Viết đánh giá</button>
                             </div>
                             <div class="review-comment">
-                                <form class="form-comment">
-                                    <input type="text" value id="Comment" name="comment" placeholder="Đánh giá của bạn"></input>
+                                <form action="add-review" method="post">
                                     <!--<textarea name="" id=""></textarea>-->
+
+                                    <div class="d-flex flex-column gap-2">
+                                        <input type="hidden" name="productID" id="" value="detail?pId= ?" required/>
+                                        <input type="text" name="customerName" placeholder="Tên" value="" required/>
+
+                                        <input type="text" value id="Comment" name="comment" placeholder="Đánh giá của bạn" required/>
+                                    </div>
                                     <div class="rating">
                                         <h2>Xếp hạng</h2>
                                         <div class="rating-stars">
@@ -682,7 +517,7 @@
                                         </div>
                                         <span class="score">0/5</span>
                                     </div>
-                                    <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/add-review" role="button">Gửi</a>
+                                    <a class="btn btn-primary btn-customize" href="add-review" role="button">Gửi</a>
                                 </form>
                             </div>
 
@@ -704,8 +539,16 @@
                                                     </div>
                                                 </div>
                                                 <div class="item-right">
-                                                    <p>Rating: ${o.rating}/5</p>
-                                                    <p>★★★★★</p>
+                                                        <%-- <p>Rating: ${o.rating}/5</p>--%>
+                                                        <%-- <p>★★★★★</p>--%>
+                                                    <c:forEach var="i" begin="1" end="5">
+                                                        <c:choose>
+                                                            <c:when test="${i <= o.rating}">
+                                                                <span class="star">★</span> </c:when>
+                                                            <c:otherwise>
+                                                                <span class="star">☆</span> </c:otherwise>
+                                                        </c:choose>
+                                                    </c:forEach>
                                                 </div>
                                             </div>
                                         </div>

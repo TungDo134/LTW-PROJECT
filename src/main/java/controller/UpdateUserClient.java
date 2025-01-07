@@ -24,6 +24,7 @@ public class UpdateUserClient extends HttpServlet {
         String addressShipping = request.getParameter("addressShipping");
         String role = request.getParameter("role");
 
+        System.out.println(role);
         CustomerDAO cusDao = new CustomerDAO();
         int row = cusDao.updateUser(name, email, phone, address, addressShipping, role);
         HttpSession session = request.getSession(false);

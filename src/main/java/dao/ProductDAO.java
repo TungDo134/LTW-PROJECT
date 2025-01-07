@@ -4,8 +4,11 @@ package dao;
 import context.JDBIContext;
 import entity.HomePicture;
 import entity.Product;
+import entity.SubImgProduct;
 import org.jdbi.v3.core.Handle;
+import org.jdbi.v3.core.mapper.reflect.BeanMapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAO {
@@ -21,17 +24,15 @@ public class ProductDAO {
                         .bind("productID", ProID)
                         .mapToBean(Product.class).findOne().orElse(null))
         );
-
     }
 
     public List<Product> getProductByCate(int CateID) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                (handle.createQuery("select * from products where cateID = :cateID")
+                (handle.createQuery("select * from products where cateID = :cateID  order by productOrder desc limit 8")
                         .bind("cateID", CateID)
                         .mapToBean(Product.class).list())
         );
     }
-
 
     public List<Product> getProductSort(String choice) {
         return switch (choice) {
@@ -65,7 +66,6 @@ public class ProductDAO {
                     .mapToBean(Product.class).list();
         }
     }
-
 
     public List<Product> searchProductsByName(String nameP) {
         return JDBIContext.getJdbi().withHandle(handle ->
@@ -102,6 +102,7 @@ public class ProductDAO {
                         .execute()
         );
     }
+
     public int updateProduct(Product product) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createUpdate("Update products SET productName = :productName,\n" +
@@ -128,6 +129,49 @@ public class ProductDAO {
         );
     }
 
+    public List<Product> getProByPriceRange(int min, int max) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM products WHERE productPrice BETWEEN :min AND :max")
+                        .bind("min", min)
+                        .bind("max", max)
+                        .map(BeanMapper.of(Product.class))
+                        .list()
+        );
+
+    }
+
+    public List<Product> getProductsByCategoryAndID(int categoryId, int productId) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM products WHERE cateID = :cateID AND productID != :productID")
+                        .bind("cateID", categoryId)
+                        .bind("productID", productId)
+                        .mapToBean(Product.class)
+                        .list());
+    }
+
+    public int UpdateQuantity(int productID, int quantity) {
+        String sql = "UPDATE products SET productStock = productStock - ?, productOrder=productOrder + ? WHERE productID = ?";
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, quantity)
+                        .bind(1, quantity)
+                        .bind(2, productID)
+                        .execute());
+    }
 
 
+    // lấy ra ds ảnh phụ
+    public SubImgProduct getListSubImg(int pid) {
+        String sql = "Select * from productsubimages WHERE productID = ?";
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery(sql)
+                        .bind(0, pid)
+                        .mapToBean(SubImgProduct.class)
+                        .findOne().orElse(null));
+    }
+
+    public static void main(String[] args) {
+        ProductDAO dao = new ProductDAO();
+
+    }
 }

@@ -45,11 +45,17 @@
     <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleAddProduct.css"/>
 </head>
 <body class="dark-theme">
+<%
+    String message = (String) request.getAttribute("msg");
+%>
+
 <jsp:include page="header-admin.jsp"></jsp:include>
 <div id="main-content">
     <div class="main-container">
         <div class="items-center">
             <h3>Thêm Sản Phẩm</h3>
+            <h4 class="text-info"><%=message != null ? message : "" %>
+            </h4>
         </div>
         <div class="addproduct-container">
             <div class="content-inner">
@@ -81,13 +87,9 @@
                                                 <option value="" disabled selected>
                                                     -- Vui lòng chọn --
                                                 </option>
-                                                <option value="6">Chì</option>
-                                                <option value="7">Gôm thước</option>
-                                                <option value="8">Sổ tay, tập</option>
-                                                <option value="9">giấy dán, giấy nhớ</option>
-                                                <option value="10">
-                                                    Bìa
-                                                </option>
+                                                <c:forEach items="${cate}" var="o">
+                                                    <option value="${o.id}">${o.name}</option>
+                                                </c:forEach>
                                             </select>
                                         </div>
                                     </fieldset>
@@ -101,7 +103,7 @@
                                                     name="productPrice"
                                                     required=""
                                                     type="text"
-                                                    placeholder="Vd: 100.000 "
+                                                    placeholder="Vd: 100000 "
                                             />
                                         </div>
                                     </fieldset>
@@ -140,7 +142,7 @@
                                 <div class="cols">
                                     <fieldset class="name">
                                         <div class="body-title">
-                                            Thêm số lượng <span>*</span>
+                                            Thêm số lượng tổng sản phẩm trong kho <span>*</span>
                                         </div>
 
                                         <div class="select">

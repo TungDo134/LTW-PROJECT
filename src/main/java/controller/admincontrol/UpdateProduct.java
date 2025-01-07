@@ -12,24 +12,32 @@ import java.io.IOException;
 public class UpdateProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        doPost(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String productID   = request.getParameter("id");
+        String productID = request.getParameter("id");
         String productName = request.getParameter("productName");
         String productDes = request.getParameter("productDes");
         double productPrice = Double.parseDouble(request.getParameter("productPrice"));
         int productInventory = Integer.parseInt(request.getParameter("productInventory"));
         int cateID = Integer.parseInt(request.getParameter("cateID"));
         String shortDes = request.getParameter("shortDes");
+
         String productImage = request.getParameter("productImage");
+        String oldImg = request.getParameter("oldImg");
+
         int productOrder = Integer.parseInt(request.getParameter("productOrder"));
         int productStock = Integer.parseInt(request.getParameter("productStock"));
 
         ProductDAO productDAO = new ProductDAO();
-
+        String imgUpdate;
+        if (!"".equals(productImage)) {
+            imgUpdate = productImage;
+        } else {
+            imgUpdate = oldImg;
+        }
 
         Product product = productDAO.getProductByID(productID);
         product.setProductName(productName);
@@ -40,7 +48,7 @@ public class UpdateProduct extends HttpServlet {
         product.setProductStock(productStock);
         product.setCateID(cateID);
         product.setShortDes(shortDes);
-        product.setProductImage(productImage);
+        product.setProductImage(imgUpdate);
 
         System.out.println();
 

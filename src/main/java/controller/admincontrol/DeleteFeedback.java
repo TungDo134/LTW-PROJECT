@@ -11,7 +11,7 @@ import java.io.IOException;
 public class DeleteFeedback extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    int feedback_id = Integer.parseInt(request.getParameter("fID"));
+        int feedback_id = Integer.parseInt(request.getParameter("fID"));
         FeedbackDAO dao = new FeedbackDAO();
         dao.deleteFeedback(feedback_id);
         response.sendRedirect("all-feedback");

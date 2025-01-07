@@ -5,6 +5,7 @@ import entity.Customer;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
+import util.CheckValidEmail;
 import util.MaHoaMK;
 
 import java.io.IOException;
@@ -24,6 +25,15 @@ public class Register extends HttpServlet {
         String rePassword = request.getParameter("rePassword");
 
         String msg = "";
+
+        // check valid email
+        if (!CheckValidEmail.checkValidEmail(email)) {
+            msg = "Email không hợp lệ";
+            request.setAttribute("msg", msg);
+            request.getRequestDispatcher("forms/signup-login.jsp").forward(request, response);
+            return;
+        }
+
         CustomerDAO cusDao = new CustomerDAO();
         // check email
         if (cusDao.isUserExistsByEmail(email)) {
@@ -44,7 +54,14 @@ public class Register extends HttpServlet {
                 customer.setEmail(email);
                 customer.setPass(password);
                 customer.setRole((byte) 0);
+
                 cusDao.createNewCustomer(customer);
+
+                // lưu session cho đăng nhập mới
+                HttpSession session = request.getSession(true);
+                session.setAttribute("customer", customer);
+
+                customer.setPass("");
                 response.sendRedirect("home");
             }
         }

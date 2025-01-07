@@ -213,7 +213,7 @@
                     <div class="layout">
                         <div class="row">
                             <c:forEach items="${listCate}" var="o">
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-6 gy-3">
                                     <div class="card-inner">
                                         <a href="product-cate?cID=${o.id}">
                                             <div class="box">

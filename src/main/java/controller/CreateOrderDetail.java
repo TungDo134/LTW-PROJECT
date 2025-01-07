@@ -27,6 +27,8 @@ public class CreateOrderDetail extends HttpServlet {
                     cartItem.getTotalPrice(), cartItem.getTitle(), cartItem.getImg());
         }
 
+        // xóa giỏ hàng
+        session.removeAttribute("cart");
         response.sendRedirect("home");
     }
 

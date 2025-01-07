@@ -34,7 +34,6 @@ public class AddProductController extends HttpServlet {
         String productImage = request.getParameter("productImage");
 
 
-
 //         Tạo đối tượng Product
         Product product = new Product();
         product.setProductName(productName);
@@ -53,9 +52,11 @@ public class AddProductController extends HttpServlet {
 
         // Kiểm tra kết quả và chuyển hướng
         if (result > 0) {
-            response.sendRedirect("load-pAdmin");
+            request.setAttribute("msg", "Thêm sản phẩm thành công!");
+            request.getRequestDispatcher("/admin/addProduct.jsp").forward(request, response);
+            return;
         } else {
-            request.setAttribute("error", "Thêm sản phẩm thất bại!");
+            request.setAttribute("msg", "Thêm sản phẩm thất bại!");
             request.getRequestDispatcher("/admin/addProduct.jsp").forward(request, response);
         }
     }

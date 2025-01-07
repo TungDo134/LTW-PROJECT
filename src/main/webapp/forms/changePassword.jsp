@@ -4,64 +4,42 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Đăng Ký</title>
 
-    <link rel="stylesheet" href="../assets/css/styleFormSignup-login.css" />
-  </head>
-  <body>
-    <div class="login-signup-container">
-      <main class="login-signup">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/assets/css/styleChangePass.css"/>
+</head>
+<body>
+<div class="login-signup-container">
+    <main class="login-signup">
         <div class="signup">
-          <form>
-            <div class="form-group">
-              <label for="chk" class="label-Signup" aria-hidden="true"
-                >Đổi mật khẩu</label
-              >
-            </div>
+            <label class="title">
+                Đổi mật khẩu
+            </label>
+            <form action="<%= request.getContextPath() %>/change-password" method="post" class="form">
+                <div class="form-group">
+                    <input id="password" name="password" type="password" placeholder="Mật khẩu cũ" class="form-control"
+                           required/>
+                </div>
+                <div class="form-group">
 
-            <div class="form-group">
-              <label for="password" class="form-label"> </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Mật khẩu cũ"
-                class="form-control"
-                required=""
-              />
-              <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-              <label for="newPassword" class="form-label"> </label>
-              <input
-                id="newPassword"
-                name="newPassword"
-                type="password"
-                placeholder="Mật khẩu mới"
-                class="form-control"
-                required=""
-              />
-              <span class="form-message"></span>
-            </div>
-            <div class="form-group">
-              <label for="rePassword" class="form-label"> </label>
-              <input
-                id="rePassword"
-                name="rePassword"
-                type="password"
-                placeholder="Nhập lại mật khẩu"
-                class="form-control"
-                required=""
-              />
-              <span class="form-message"></span>
-            </div>
-            <button>Đổi mật khẩu</button>
-          </form>
+                    <input id="newPassword" name="newPassword" type="password" placeholder="Mật khẩu mới"
+                           class="form-control" required/>
+                </div>
+                <div class="form-group">
+                    <input id="rePassword" name="rePassword" type="password" placeholder="Nhập lại mật khẩu"
+                           class="form-control" required/>
+                </div>
+                <button type="submit">Đổi mật khẩu</button>
+                <span style="color: darkred;">
+                    <%= request.getAttribute("msg") != null ? request.getAttribute("msg") : "" %>
+                </span>
+            </form>
+
         </div>
-      </main>
-    </div>
-  </body>
+    </main>
+</div>
+</body>
 </html>

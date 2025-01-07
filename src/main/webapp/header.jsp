@@ -180,10 +180,7 @@ padding: 16px 8px;
                                         <a href="admin/admin.jsp" style="color: #000"
                                         >Admin</a>
                                     </li>
-                                    <li class="items">
-                                        <a href="load-profile" style="color: #000"
-                                        >Thông tin tài khoản</a>
-                                    </li>
+
                                     <c:if test="${sessionScope.customer == null}">
                                         <li class="items">
                                             <a
@@ -191,21 +188,33 @@ padding: 16px 8px;
                                                     style="color: #000"
                                             >Đăng nhập</a>
                                         </li>
+                                        <li class="items">
+                                            <a
+                                                    href="forms/signup-login.jsp"
+                                                    style="color: #000"
+                                            >Đăng ký</a>
+                                        </li>
                                     </c:if>
 
                                     <c:if test="${sessionScope.customer != null}">
                                         <li class="items">
-                                            <a
-                                                    href="logout"
-                                                    style="color: #000"
-                                            >Đăng xuất</a>
+                                            <a href="load-profile" style="color: #000"
+                                            >Thông tin tài khoản</a>
                                         </li>
+
 
                                         <li class="items">
                                             <a
                                                     href="forms/changePassword.jsp"
                                                     style="color: #000"
                                             >Đổi mât khẩu</a>
+                                        </li>
+
+                                        <li class="items">
+                                            <a
+                                                    href="logout"
+                                                    style="color: #000"
+                                            >Đăng xuất</a>
                                         </li>
                                     </c:if>
                                 </ul>

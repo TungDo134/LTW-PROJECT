@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="f" uri="jakarta.tags.fmt" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -53,7 +54,7 @@
         </div>
         <div id="list-product-container">
             <a class="btn btn-primary btn-customize px-5 py-2 mb-2"
-               href="<%=request.getContextPath()%>/admin/addProduct.jsp" role="button">Thêm</a>
+               href="<%=request.getContextPath()%>/show-add-product" role="button">Thêm</a>
             <div class="product-list">
 
                 <table id="myTable" class="display" style="width:100%">
@@ -75,7 +76,10 @@
                             <td><img src="assets/pic/products/${o.productImage}"></td>
                             <td>${o.productName}</td>
                             <td>${o.productID}</td>
-                            <td>${o.productPrice}</td>
+                            <td>
+                                <f:setLocale value="vi_VN"/>
+                                <f:formatNumber value="${o.productPrice}" type="currency"/>
+                                    </td>
                             <td>${o.productInventory}</td>
                             <td>${o.productOrder}</td>
                             <td>${o.productStock}</td>
@@ -90,7 +94,6 @@
                     </c:forEach>
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>

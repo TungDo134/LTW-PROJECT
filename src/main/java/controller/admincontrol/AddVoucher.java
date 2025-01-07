@@ -19,12 +19,22 @@ public class AddVoucher extends HttpServlet {
             request.getRequestDispatcher("all-coupon").forward(request, response);
 
         } else {
+            code = code.toUpperCase();
             double discount = Double.parseDouble(txt_Discount.trim());
             CouponDAO couponDAO = new CouponDAO();
-            int row = couponDAO.addCoupon(code, discount);
 
+            if (couponDAO.isCouponExist(code)) {
+                request.setAttribute("msg", "Mã giảm giá đã tồn tại");
+                request.getRequestDispatcher("all-coupon").forward(request, response);
+                return;
+            }
+
+            int row = couponDAO.addCoupon(code, discount);
             if (row >= 1) {
-                response.sendRedirect("all-coupon");
+                request.setAttribute("msg", "Thêm mã thành công");
+                request.getRequestDispatcher("all-coupon").forward(request, response);
+//                return;
+//                response.sendRedirect("all-coupon");
             }
         }
 

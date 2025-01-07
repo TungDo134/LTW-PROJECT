@@ -31,6 +31,7 @@ public class CreateOrder extends HttpServlet {
         String payment = request.getParameter("payment");
         String statusOrder = "";
 
+
         // lấy ra phương thức thanh toán
         if ("ATM".equals(payment)) {
             payment = "ATM, VISA";
@@ -55,14 +56,44 @@ public class CreateOrder extends HttpServlet {
         int id = customer.getId();
 
         // giỏ hàng
+        // Cập nhật số lượng sp trong kho
+        ProductDAO pDao = new ProductDAO();
+        int productStock;
+        int order;
+        int cartId;
+
         Cart cart = (Cart) session.getAttribute("cart");
         for (CartItem cartItem : cart.getList()) {
             System.out.println(cartItem);
+            cartId = cartItem.getId();
+
+            // kiểm tra xem slg hàng ng dùng mua có nhỏ hơn slg tồn kho không
+            productStock = pDao.getProductByID(cartId + "").getProductStock();
+            order = cartItem.getQuantity();
+
+            if (order <= productStock) {
+                pDao.UpdateQuantity(cartId, order);
+            } else {
+                request.setAttribute("error", "san pham da het hang");
+            }
         }
 
 
         int total = cart.getTotalQuantity();
-        double totalPrice = cart.getTotal();
+
+        // lấy giá sau khi giảm nếu có
+        String priceDiscount = request.getParameter("priceDiscount");
+
+        // nếu áp được mã giảm giá
+        double totalPrice;
+
+        if (("noV").equals(priceDiscount)) {
+            totalPrice = cart.getTotal();
+        } else {
+            totalPrice = Double.parseDouble(priceDiscount);
+        }
+
+        System.out.println("totalPrice: " + totalPrice);
         Date date = Date.valueOf(LocalDate.now());
 
         // tạo order mới
@@ -79,6 +110,7 @@ public class CreateOrder extends HttpServlet {
         // bảng thanh toán
         PaymentDAO paymentDAO = new PaymentDAO();
         paymentDAO.insertPayment(ordID, payment);
+
 
         System.out.println(ordID);
         request.setAttribute("ordID", ordID);

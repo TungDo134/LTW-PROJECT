@@ -2,7 +2,9 @@ package entity;
 
 import org.jdbi.v3.core.mapper.reflect.ColumnName;
 
-public class Coupon {
+import java.io.Serializable;
+
+public class Coupon implements Serializable {
     public int couponId;
     public String code;
     public double discount;
