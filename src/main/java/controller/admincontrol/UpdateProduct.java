@@ -17,7 +17,7 @@ public class UpdateProduct extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String productID = request.getParameter("id");
+        int productID = Integer.parseInt(request.getParameter("id"));
         String productName = request.getParameter("productName");
         String productDes = request.getParameter("productDes");
         double productPrice = Double.parseDouble(request.getParameter("productPrice"));

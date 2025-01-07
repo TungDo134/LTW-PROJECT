@@ -454,71 +454,27 @@
                             </div>
                             <div class="review-comment">
                                 <form action="add-review" method="post">
-                                    <!--<textarea name="" id=""></textarea>-->
-
-                                    <div class="d-flex flex-column gap-2">
-                                        <input type="hidden" name="productID" id="" value="detail?pId= ?" required/>
-                                        <input type="text" name="customerName" placeholder="Tên" value="" required/>
-
-                                        <input type="text" value id="Comment" name="comment" placeholder="Đánh giá của bạn" required/>
-                                    </div>
+                                    <input type="hidden" name="productID" value="${detail.productID}" required/>
+                                    <input type="text" name="customerName" placeholder="Tên" required/>
+                                    <input type="text" name="comment" placeholder="Đánh giá của bạn" required/>
                                     <div class="rating">
                                         <h2>Xếp hạng</h2>
                                         <div class="rating-stars">
-                                            <input
-                                                    type="radio"
-                                                    id="star1"
-                                                    name="rating"
-                                                    value="1"
-                                            />
-                                            <label for="star1"
-                                            ><i class="fa-solid fa-star color-star"></i
-                                            ></label>
-
-                                            <input
-                                                    type="radio"
-                                                    id="star2"
-                                                    name="rating"
-                                                    value="2"
-                                            />
-                                            <label for="star2"
-                                            ><i class="fa-solid fa-star color-star"></i
-                                            ></label>
-
-                                            <input
-                                                    type="radio"
-                                                    id="star3"
-                                                    name="rating"
-                                                    value="3"
-                                            />
-                                            <label for="star3"
-                                            ><i class="fa-solid fa-star color-star"></i
-                                            ></label>
-
-                                            <input
-                                                    type="radio"
-                                                    id="star4"
-                                                    name="rating"
-                                                    value="4"
-                                            />
-                                            <label for="star4"
-                                            ><i class="fa-solid fa-star color-star"></i
-                                            ></label>
-
-                                            <input
-                                                    type="radio"
-                                                    id="star5"
-                                                    name="rating"
-                                                    value="5"
-                                            />
-                                            <label for="star5"
-                                            ><i class="fa-solid fa-star color-star"></i
-                                            ></label>
+                                            <input type="radio" id="star1" name="rating" value="1"/>
+                                            <label for="star1"><i class="fa-solid fa-star color-star"></i></label>
+                                            <input type="radio" id="star2" name="rating" value="2"/>
+                                            <label for="star2"><i class="fa-solid fa-star color-star"></i></label>
+                                            <input type="radio" id="star3" name="rating" value="3"/>
+                                            <label for="star3"><i class="fa-solid fa-star color-star"></i></label>
+                                            <input type="radio" id="star4" name="rating" value="4"/>
+                                            <label for="star4"><i class="fa-solid fa-star color-star"></i></label>
+                                            <input type="radio" id="star5" name="rating" value="5"/>
+                                            <label for="star5"><i class="fa-solid fa-star color-star"></i></label>
                                         </div>
-                                        <span class="score">0/5</span>
                                     </div>
-                                    <a class="btn btn-primary btn-customize" href="add-review" role="button">Gửi</a>
+                                    <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
                                 </form>
+
                             </div>
 
                             <c:forEach items="${reviews}" var="o">
@@ -528,7 +484,6 @@
                                             <div class="review-header">
                                                 <div class="item-left">
                                                     <div class="item-top">
-                                                        <!-- <img src="./assets/pic/capyyyy.jpg" alt="avt" /> -->
                                                         <div class="item-details">
                                                             <p>${o.customerName}</p>
                                                             <p>${o.date}</p>

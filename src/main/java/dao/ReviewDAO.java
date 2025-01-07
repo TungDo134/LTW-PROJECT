@@ -3,6 +3,7 @@ package dao;
 import context.JDBIContext;
 import entity.Review;
 
+import java.util.Date;
 import java.util.List;
 
 public class ReviewDAO {
@@ -15,7 +16,7 @@ public class ReviewDAO {
     }
 
     // Hiển thị review cho sản phẩm đó (rv này đã được admin duyệt)
-    public List<Review> getAllReviewByPID(String pID) {
+    public List<Review> getAllReviewByPID(int pID) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 (handle.createQuery("select * from reviews where productID =:pID && display = 1 ")
                         .bind("pID", pID)
@@ -49,12 +50,14 @@ public class ReviewDAO {
     // thêm mới đánh giá
     public int addReview(Review review) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createUpdate("INSERT INTO reviews (productID, customerName, rating, comment) VALUES (:proID, :cusName, :rating, :comment)")
+                handle.createUpdate("INSERT INTO reviews (productID, customerName, rating, comment, display, date) VALUES (:proID, :cusName, :rating, :comment, 0, :date)")
                         .bind("proID", review.getProductID())
                         .bind("cusName", review.getCustomerName())
                         .bind("rating", review.getRating())
                         .bind("comment", review.getComment())
+                        .bind("date", new Date())
                         .execute()
+
 
         );
     }

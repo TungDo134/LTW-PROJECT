@@ -15,7 +15,7 @@ import java.util.List;
 public class ShowPageEditP extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
+        int id = Integer.parseInt(request.getParameter("id"));
         ProductDAO dao = new ProductDAO();
         Product p = dao.getProductByID(id);
 

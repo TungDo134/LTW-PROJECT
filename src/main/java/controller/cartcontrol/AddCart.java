@@ -19,7 +19,7 @@ public class AddCart extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String pID = (request.getParameter("pID"));
+        int pID = Integer.parseInt(request.getParameter("pID"));
 //        System.out.println(pID);
 
         ProductDAO productDAO = new ProductDAO();

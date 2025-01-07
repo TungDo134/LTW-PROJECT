@@ -68,7 +68,7 @@ public class CreateOrder extends HttpServlet {
             cartId = cartItem.getId();
 
             // kiểm tra xem slg hàng ng dùng mua có nhỏ hơn slg tồn kho không
-            productStock = pDao.getProductByID(cartId + "").getProductStock();
+            productStock = pDao.getProductByID(cartId).getProductStock();
             order = cartItem.getQuantity();
 
             if (order <= productStock) {

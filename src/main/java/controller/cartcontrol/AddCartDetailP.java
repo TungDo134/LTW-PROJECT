@@ -13,7 +13,7 @@ import java.io.IOException;
 public class AddCartDetailP extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String pID = request.getParameter("pID");
+        int pID = Integer.parseInt(request.getParameter("pID"));
         String quantityTxt = request.getParameter("quantity");
 //        System.out.println(pID + " " + quantityTxt);
 

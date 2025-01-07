@@ -16,7 +16,7 @@ import java.util.List;
 public class DetailProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String pid = request.getParameter("pid");
+        int pid = Integer.parseInt(request.getParameter("pid"));
 
 
         // Hiển thị chi tiết sản phẩm
