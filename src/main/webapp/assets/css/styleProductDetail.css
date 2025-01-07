@@ -865,3 +865,10 @@ li {
 .wrapper-img:hover > img {
   transform: scale(1.025);
 }
+.review-comment .form-comment input#Comment{
+  padding: 20px;
+  width: 300px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  word-wrap: break-word;
+}

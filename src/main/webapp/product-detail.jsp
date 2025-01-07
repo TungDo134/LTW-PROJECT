@@ -453,12 +453,14 @@
                                 <button>Viết đánh giá</button>
                             </div>
                             <div class="review-comment">
-                                <form class="form-comment">
-                                    <div class="review-form">Đánh giá của bạn</div>
+                                <form action="add-review" method="post">
+                                    <!--<textarea name="" id=""></textarea>-->
+
                                     <div class="d-flex flex-column gap-2">
-                                        <textarea name="" id="" required></textarea>
-                                        <input type="text" name="name" placeholder="Tên" value="" required>
-                                        <input type="number" name="phone" placeholder="Số điện thoại" value="" required>
+                                        <input type="hidden" name="productID" id="" value="detail?pId= ?" required/>
+                                        <input type="text" name="customerName" placeholder="Tên" value="" required/>
+
+                                        <input type="text" value id="Comment" name="comment" placeholder="Đánh giá của bạn" required/>
                                     </div>
                                     <div class="rating">
                                         <h2>Xếp hạng</h2>
@@ -515,7 +517,7 @@
                                         </div>
                                         <span class="score">0/5</span>
                                     </div>
-                                    <button type="submit">Gửi</button>
+                                    <a class="btn btn-primary btn-customize" href="add-review" role="button">Gửi</a>
                                 </form>
                             </div>
 
