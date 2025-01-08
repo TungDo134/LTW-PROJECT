@@ -5,12 +5,15 @@ import dao.CategoryDAO;
 import dao.ProductDAO;
 import entity.Category;
 import entity.Product;
+import entity.SubImgProduct;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.StringTokenizer;
 import java.util.UUID;
 
 @WebServlet(name = "AddProductController", value = "/add-product")
@@ -34,7 +37,8 @@ public class AddProductController extends HttpServlet {
         String productImage = request.getParameter("productImage");
 
 
-//         Tạo đối tượng Product
+        ProductDAO productDAO = new ProductDAO();
+        // Tạo đối tượng Product
         Product product = new Product();
         product.setProductName(productName);
         product.setProductDes(productDes);
@@ -46,9 +50,33 @@ public class AddProductController extends HttpServlet {
         product.setShortDes(shortDes);
         product.setProductImage(productImage);
 
-        // Thêm sản phẩm
-        ProductDAO productDAO = new ProductDAO();
+        // Thêm sản phẩm, trả về id mới thêm vô
         int result = productDAO.addProduct(product);
+
+        // lấy thông tin ảnh phụ
+        String subImg = request.getParameter("subImg");
+        SubImgProduct subImgProduct = new SubImgProduct();
+        if (subImg != null) {
+
+            String[] subImgs = subImg.split(",");
+            try {
+                Field[] fields = SubImgProduct.class.getDeclaredFields();
+                var j = 0;
+                for (int i = 2; i < fields.length; i++) {
+                    fields[i].setAccessible(true);
+                    fields[i].set(subImgProduct, subImgs[j]);
+                    j++;
+                }
+                productDAO.insertSubImg(result, subImgProduct);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            productDAO.insertSubImg(result, subImgProduct);
+
+        }
+
 
         // Kiểm tra kết quả và chuyển hướng
         if (result > 0) {

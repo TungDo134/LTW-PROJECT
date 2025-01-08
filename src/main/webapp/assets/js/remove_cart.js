@@ -12,10 +12,10 @@ function removeCart(remove_btn) {
                 $(`div[data-id="${pID}"]`).remove();
                 // formatted trước khi cập nhật
                 $(".subtotalQuantity").text(response.TotalQuantity);
-                $(".total.number-format").text(formatCurrency(response.Total) + " ₫");
+                $(".total.number-format").text(formatCurrency(response.Total));
 
                 function formatCurrency(value) {
-                    return new Intl.NumberFormat('vi-VN').format(value);
+                    return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
                 }
             } else {
                 alert("Xóa sản phẩm không thành công.");

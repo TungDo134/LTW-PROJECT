@@ -104,13 +104,62 @@
                                     /></a>
                                 </div>
 
-                                <%--                                <div class="swiper-slide">--%>
-                                <%--                                    <a href=""--%>
-                                <%--                                    ><img--%>
-                                <%--                                            src="assets/pic/${listSubImg.subImg3}"--%>
-                                <%--                                            alt=""--%>
-                                <%--                                    /></a>--%>
-                                <%--                                </div>--%>
+                                <div class="swiper-slide">
+                                    <a href=""
+                                    ><img
+                                            src="assets/pic/subP/${listSubImg.subImg3}"
+                                            alt=""
+                                    /></a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href=""
+                                    ><img
+                                            src="assets/pic/subP/${listSubImg.subImg4}"
+                                            alt=""
+                                    /></a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href=""
+                                    ><img
+                                            src="assets/pic/subP/${listSubImg.subImg5}"
+                                            alt=""
+                                    /></a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href=""
+                                    ><img
+                                            src="assets/pic/subP/${listSubImg.subImg6}"
+                                            alt=""
+                                    /></a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href=""
+                                    ><img
+                                            src="assets/pic/subP/${listSubImg.subImg7}"
+                                            alt=""
+                                    /></a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href=""
+                                    ><img
+                                            src="assets/pic/subP/${listSubImg.subImg8}"
+                                            alt=""
+                                    /></a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href=""
+                                    ><img
+                                            src="assets/pic/subP/${listSubImg.subImg9}"
+                                            alt=""
+                                    /></a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href=""
+                                    ><img
+                                            src="assets/pic/subP/${listSubImg.subImg10}"
+                                            alt=""
+                                    /></a>
+                                </div>
 
                             </div>
                             <!-- Pagination -->
@@ -388,7 +437,8 @@
                         <div class="summary-distribution">
                             <div class="average-header">
                                 <!-- Hiển thị điểm trung bình -->
-                                <h1><%= request.getAttribute("averageRating") %></h1>
+                                <h1><%= request.getAttribute("averageRating") %>
+                                </h1>
 
                                 <div class="rating-star">
                                     <div class="star-icon">
@@ -408,44 +458,54 @@
                                         <p>5</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[4] %>%;"></div>
+                                            <div class="rating-percent"
+                                                 style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[4] %>%;"></div>
                                         </div>
                                     </div>
                                     <div class="average-progress-item-2">
                                         <p>4</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[3] %>%;"></div>
+                                            <div class="rating-percent"
+                                                 style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[3] %>%;"></div>
                                         </div>
                                     </div>
                                     <div class="average-progress-item-3">
                                         <p>3</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[2] %>%;"></div>
+                                            <div class="rating-percent"
+                                                 style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[2] %>%;"></div>
                                         </div>
                                     </div>
                                     <div class="average-progress-item-4">
                                         <p>2</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[1] %>%;"></div>
+                                            <div class="rating-percent"
+                                                 style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[1] %>%;"></div>
                                         </div>
                                     </div>
                                     <div class="average-progress-item-5">
                                         <p>1</p>
                                         <i class="fa-solid fa-star"></i>
                                         <div class="bar-rating">
-                                            <div class="rating-percent" style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[0] %>%;"></div>
+                                            <div class="rating-percent"
+                                                 style="width: <%= ((double[]) request.getAttribute("ratingPercentages"))[0] %>%;"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="average-number">
-                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[4] %></p> <!-- 5 sao -->
-                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[3] %></p> <!-- 4 sao -->
-                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[2] %></p> <!-- 3 sao -->
-                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[1] %></p> <!-- 2 sao -->
-                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[0] %></p> <!-- 1 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[4] %>
+                                    </p> <!-- 5 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[3] %>
+                                    </p> <!-- 4 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[2] %>
+                                    </p> <!-- 3 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[1] %>
+                                    </p> <!-- 2 sao -->
+                                    <p><%= ((int[]) request.getAttribute("ratingCounts"))[0] %>
+                                    </p> <!-- 1 sao -->
                                 </div>
                             </div>
                         </div>

@@ -129,14 +129,23 @@
                                 <fieldset>
                                     <div class="body-title">Tải hình ảnh lên</div>
                                     <input id="cateImg" required="" type="file" name="productImage"
-                                           onchange="loadImg()"/>
+                                           multiple onchange="loadImg()"/>
+
+<%--                                    <div class="body-title">Tải hình ảnh chi tiết sản phẩm</div>--%>
+<%--                                    <input--%>
+<%--                                            class="form-control"--%>
+<%--                                            type="file"--%>
+<%--                                            id="formFileMultiple"--%>
+
+<%--                                            multiple--%>
+<%--                                            onchange="getData(this)"--%>
+<%--                                    />--%>
+<%--                                    <input type="hidden" name="subImg" id="subImg" value="">--%>
                                     <div class="body-text">
-                                        <p>
-                                            Bạn cần thêm 3 hình ảnh. Hãy chú ý đến chất lượng hình
-                                            ảnh bạn thêm vào, tuân thủ các tiêu chuẩn về màu nền.
-                                            Hình ảnh phải có kích thước nhất định. Lưu ý rằng sản
-                                            phẩm hiển thị tất cả các chi tiết
-                                        </p>
+                                        <div
+                                                id="imageContainer"
+                                                style="display: flex; flex-wrap: wrap; gap: 10px"
+                                        ></div>
                                     </div>
                                 </fieldset>
                                 <div class="cols">
@@ -185,6 +194,54 @@
         let preImg = $("#cateImg").val().trim().split("\\").pop();
         let imgSrc = contextPath + "/assets/pic/products/" + preImg
         $("#imgCate").attr("src", imgSrc)
+    }
+</script>
+
+<script>
+    function getData(event) {
+        // Kiểm tra nếu mảng và thẻ input lưu data đã có dữ liệu, thì xóa đi
+        let filesArray = [];
+        $("#subImg").val('');
+
+        // Lấy các tệp từ event
+        filesArray = Array.from(event.files);
+
+
+        // Duyệt qua mảng và cộng dồn tên của từng tệp vào value của ô input
+        filesArray.forEach((file) => {
+            let currentValue = $("#subImg").val();  // Lấy giá trị hiện tại của ô input
+            // Cập nhật lại giá trị, nối tên tệp vào hiện tại
+            $("#subImg").val(currentValue + file.name + ',');
+        });
+
+        // Duyệt qua từng tệp và tạo thẻ img
+        const container = $("#imageContainer");
+        container.innerHTML = "";
+        filesArray.forEach((file) => {
+            if (file.type.startsWith("image/")) { // Kiểm tra tệp có phải là ảnh không
+                const reader = new FileReader();
+
+                // Xử lý khi FileReader đọc xong tệp
+                reader.onload = (e) => {
+                    // Tạo thẻ img và thêm vào vùng chứa
+                    $("<img>")
+                        .attr("src", e.target.result) // URL hình ảnh
+                        .attr("alt", file.name) // Tên tệp làm thuộc tính alt
+                        .css({
+                            width: "100px",
+                            height: "auto",
+                            margin: "5px"
+                        })
+                        .appendTo("#imageContainer");
+                };
+
+                // Đọc tệp dưới dạng data URL
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // In ra giá trị cuối cùng của ô input
+        console.log($("#subImg").val());
     }
 </script>
 </body>

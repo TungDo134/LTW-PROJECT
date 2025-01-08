@@ -819,6 +819,7 @@ li {
   position: relative;
   bottom: 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: start;
   gap: 2rem;

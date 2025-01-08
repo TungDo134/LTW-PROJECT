@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="f" uri="jakarta.tags.fmt" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -249,8 +250,12 @@
                                     class="card-image"
                             />
                             <p class="badge">${o.productName}</p>
-                            <h2 class="card-title number-format">${o.productPrice}<span
-                                    style="vertical-align: super">đ</span></h2>
+                            <h2 class="card-title number-format">
+
+                                <f:setLocale value="vi_VN"/>
+                                <f:formatNumber value="${o.productPrice}" type="currency"/>
+
+                            </h2>
                             <button class="card-button">
                                 <i
                                         class="fa-solid fa-arrow-right"
@@ -276,9 +281,6 @@
 <!-- Swpier JS script -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="assets/js/swpier.js"></script>
-<script src="assets/js/formatNum.js"></script>
-<script>
-    formatNumberWithDots($(".card-title.number-format").text());
-</script>
+
 </body>
 </html>

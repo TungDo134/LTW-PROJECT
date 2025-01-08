@@ -274,10 +274,10 @@
             success: function (response) {
                 console.log(response);
                 $("input[name='priceDiscount']").val(response.finalPrice)
-                $(".priceDiscount").text(formatCurrency(response.finalPrice )+ ' ₫');
+                $(".priceDiscount").text(formatCurrency(response.finalPrice ));
 
                 function formatCurrency(value) {
-                    return new Intl.NumberFormat('vi-VN').format(value);
+                    return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
                 }
             },
         })

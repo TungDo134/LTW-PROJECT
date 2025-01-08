@@ -99,7 +99,9 @@ public class ProductDAO {
                         .bind("productImage", product.getProductImage())
                         .bind("cateID", product.getCateID())
                         .bind("shortDes", product.getShortDes())
-                        .execute()
+                        .executeAndReturnGeneratedKeys("id") // Trả về khóa tự động tăng của cột `id`
+                        .mapTo(int.class) // Map giá trị `id` sang kiểu `int`
+                        .one()
         );
     }
 
@@ -170,8 +172,45 @@ public class ProductDAO {
                         .findOne().orElse(null));
     }
 
-    public static void main(String[] args) {
-        ProductDAO dao = new ProductDAO();
 
+    public int insertSubImg(int pid, SubImgProduct subImgProduct) {
+        String sql = "INSERT INTO productsubimages ( productID, subImg1, subImg2, subImg3, subImg4, subImg5, " +
+                "subImg6, subImg7, subImg8, subImg9, subImg10) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, pid)
+                        .bind(1, subImgProduct.getSubImg1())
+                        .bind(2, subImgProduct.getSubImg2())
+                        .bind(3, subImgProduct.getSubImg3())
+                        .bind(4, subImgProduct.getSubImg4())
+                        .bind(5, subImgProduct.getSubImg5())
+                        .bind(6, subImgProduct.getSubImg6())
+                        .bind(7, subImgProduct.getSubImg7())
+                        .bind(8, subImgProduct.getSubImg8())
+                        .bind(9, subImgProduct.getSubImg9())
+                        .bind(10, subImgProduct.getSubImg10())
+                        .execute());
+    }
+
+    public int updateSubImg(int pid, SubImgProduct subImgProduct) {
+        String sql = "UPDATE productsubimages SET " +
+                "subImg1 = ?, subImg2 = ?, subImg3 = ?, subImg4 = ?, subImg5 = ?, " +
+                "subImg6 = ?, subImg7 = ?, subImg8 = ?, subImg9 = ?, subImg10 = ? " +
+                "WHERE productID = ?";
+
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, subImgProduct.getSubImg1())
+                        .bind(1, subImgProduct.getSubImg2())
+                        .bind(2, subImgProduct.getSubImg3())
+                        .bind(3, subImgProduct.getSubImg4())
+                        .bind(4, subImgProduct.getSubImg5())
+                        .bind(5, subImgProduct.getSubImg6())
+                        .bind(6, subImgProduct.getSubImg7())
+                        .bind(7, subImgProduct.getSubImg8())
+                        .bind(8, subImgProduct.getSubImg9())
+                        .bind(9, subImgProduct.getSubImg10())
+                        .bind(10, pid)
+                        .execute());
     }
 }
