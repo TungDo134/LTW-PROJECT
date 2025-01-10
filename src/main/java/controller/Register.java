@@ -62,7 +62,11 @@ public class Register extends HttpServlet {
                 session.setAttribute("customer", customer);
 
                 customer.setPass("");
-                response.sendRedirect("home");
+
+                msg = "Đăng ký thành công";
+                request.setAttribute("success", msg);
+//                response.sendRedirect("home");
+                request.getRequestDispatcher("forms/signup-login.jsp").forward(request, response);
             }
         }
 

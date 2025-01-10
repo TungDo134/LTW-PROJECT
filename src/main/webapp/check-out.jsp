@@ -69,7 +69,7 @@
                 <div class="form-group">
                     <label for="addressShipping">Địa chỉ vận chuyển</label>
                     <input type="text" name="addressShipping" id="addressShipping" placeholder="Số Nhà, Tên Đường"
-                           value="${customer.addressShipping}"/>
+                          required="required" value="${customer.addressShipping}"/>
                 </div>
                 <div class="select-address d-none">
                     <div class="form-group">

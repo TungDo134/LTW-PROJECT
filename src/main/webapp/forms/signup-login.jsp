@@ -42,6 +42,8 @@
                 <div class="form-group">
                     <span style="text-align: center; display: block; color: darkred">
                         <%=msgRegister != null ? msgRegister : ""%></span>
+                    <span style="text-align: center; display: block; color: #198754">
+                        ${success}</span>
 
                     <label for="username" class="form-label"> </label>
                     <input

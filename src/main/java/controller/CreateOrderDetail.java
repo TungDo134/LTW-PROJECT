@@ -29,7 +29,7 @@ public class CreateOrderDetail extends HttpServlet {
 
         // xóa giỏ hàng
         session.removeAttribute("cart");
-        response.sendRedirect("home");
+        response.sendRedirect("check-out-success.jsp");
     }
 
     @Override

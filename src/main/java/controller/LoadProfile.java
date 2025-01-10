@@ -23,7 +23,7 @@ public class LoadProfile extends HttpServlet {
         String code = request.getParameter("code");
 
         // lấy session customer
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession(true);
         Customer cus = (Customer) session.getAttribute("customer");
 
         // neu chua login thi chuyen ve trang login

@@ -79,16 +79,19 @@
                             <td>
                                 <f:setLocale value="vi_VN"/>
                                 <f:formatNumber value="${o.productPrice}" type="currency"/>
-                                    </td>
+                            </td>
                             <td>${o.productInventory}</td>
                             <td>${o.productOrder}</td>
                             <td>${o.productStock}</td>
                             <td>
-                                <a class="btn btn-success btn-customize" href="show-product-edit?id=${o.productID}" role="button">Chỉnh sửa</a>
-<%--                                <a class="btn btn-success btn-customize" href="edit-sub-img?id=${o.productID}" role="button">Chỉnh sửa ảnh ct</a>--%>
+                                <a class="btn btn-success btn-customize" href="show-product-edit?id=${o.productID}"
+                                   role="button">Chỉnh sửa</a>
+                                    <%--                                <a class="btn btn-success btn-customize" href="edit-sub-img?id=${o.productID}" role="button">Chỉnh sửa ảnh ct</a>--%>
 
                                 <a class="btn btn-danger btn-customize"
-                                   href="<%=request.getContextPath()%>/delete-pro?pID=${o.productID}" role="button">Xóa</a>
+                                   onclick="confirmDelete(this)"
+                                   href="<%=request.getContextPath()%>/delete-pro?pID=${o.productID}"
+                                   role="button">Xóa</a>
 
                             </td>
                         </tr>
@@ -100,6 +103,13 @@
     </div>
 </div>
 
-<script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
+<script>
+    function confirmDelete(param) {
+        if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?")) {
+           event.preventDefault(); // Hủy bỏ hành động mặc định
+        }
+    }
+
+</script>
 </body>
 </html>

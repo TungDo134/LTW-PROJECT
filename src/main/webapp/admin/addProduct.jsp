@@ -115,7 +115,6 @@
                                         <span>*</span>
                                     </div>
                                     <textarea
-
                                             required=""
                                             name="productDes"
                                             placeholder="Mô tả"
