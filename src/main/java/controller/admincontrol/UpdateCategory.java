@@ -8,7 +8,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "UpdateCategory", value = "/update-cate")
+@WebServlet(name = "UpdateCategory", value = "/admin/update-cate")
 public class UpdateCategory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

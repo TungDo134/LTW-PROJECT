@@ -11,7 +11,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ShowPageEditP", value = "/show-product-edit")
+@WebServlet(name = "ShowPageEditP", value = "/admin/show-product-edit")
 public class ShowPageEditP extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,7 +29,7 @@ public class ShowPageEditP extends HttpServlet {
         request.setAttribute("cateP", p.getCateID());
         request.setAttribute("listCate", listC);
 
-        request.getRequestDispatcher("admin/EditProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("EditProduct.jsp").forward(request, response);
     }
 
     @Override

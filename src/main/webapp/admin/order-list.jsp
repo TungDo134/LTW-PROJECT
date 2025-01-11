@@ -86,7 +86,9 @@
                             </td>
                             <td>
                                 <a class="btn btn-info btn-customize"
-                                   href="<%= request.getContextPath()%>/all-orderDetail?id=${o.orderID}" role="button">Xem chi tiết</a>
+                                    <%-- GetAllOrderDetail --%>
+                                   href="<%= request.getContextPath()%>/admin/all-orderDetail?id=${o.orderID}"
+                                   role="button">Xem chi tiết</a>
                             </td>
                         </tr>
                     </c:forEach>

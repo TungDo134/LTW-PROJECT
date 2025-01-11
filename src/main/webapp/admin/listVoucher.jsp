@@ -106,6 +106,7 @@
                                 <a class="btn btn-danger btn-customize"
                                     <%-- DeleteVoucher--%>
                                    href="<%=request.getContextPath()%>/admin/delete-voucher?vID=${o.couponId}"
+                                   onclick="confirmDelete(this)"
                                    role="button">Xóa</a>
                             </td>
                         </tr>
@@ -120,6 +121,13 @@
     </div>
 </div>
 
-<script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
+<script>
+    function confirmDelete(param) {
+        if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?")) {
+            event.preventDefault(); // Hủy bỏ hành động mặc định
+        }
+    }
+
+</script>
 </body>
 </html>

@@ -9,7 +9,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "GetAllOrderDetail", value = "/all-orderDetail")
+@WebServlet(name = "GetAllOrderDetail", value = "/admin/all-orderDetail")
 public class GetAllOrderDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,7 +45,7 @@ public class GetAllOrderDetail extends HttpServlet {
         request.setAttribute("payment", payment.getPayMethods());
 
 
-        request.getRequestDispatcher("admin/order-detail.jsp").forward(request, response);
+        request.getRequestDispatcher("order-detail.jsp").forward(request, response);
 
 
     }

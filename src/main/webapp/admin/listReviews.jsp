@@ -109,7 +109,7 @@
                                     <form class="d-inline-block modify-re" data-id="${o.reviewID}"
                                           method="post">
                                         <input name="choice" type="hidden" value="-1">
-                                        <button type="submit" class="btn btn-danger btn-customize" role="button">Xóa
+                                        <button type="submit" onclick="confirmDelete(this)" class="btn btn-danger btn-customize" role="button">Xóa
                                         </button>
                                     </form>
                                 </c:if>
@@ -123,7 +123,7 @@
         </div>
     </div>
 </div>
-<script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
+
 <script>
 
     $(".modify-re").on("submit", function () {
@@ -151,6 +151,14 @@
             }
         })
     });
+
+</script>
+<script>
+    function confirmDelete(param) {
+        if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?")) {
+            event.preventDefault(); // Hủy bỏ hành động mặc định
+        }
+    }
 
 </script>
 </body>

@@ -10,7 +10,7 @@ import util.MaHoaMK;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "AddUser", value = "/add-user")
+@WebServlet(name = "AddUser", value = "/admin/add-user")
 public class AddUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,8 +37,8 @@ public class AddUser extends HttpServlet {
 
 
         if (customerName.isBlank() || email.isBlank()) {
-            request.setAttribute("msg", "Vui lòng nhập đầy đủ những thông tin cần thiết");
-            request.getRequestDispatcher("admin/addUser.jsp").forward(request, response);
+            request.setAttribute("msg", "Vui lòng nhập đầy tên và email");
+            request.getRequestDispatcher("addUser.jsp").forward(request, response);
 
         } else {
             CustomerDAO cusDao = new CustomerDAO();
@@ -53,21 +53,21 @@ public class AddUser extends HttpServlet {
                 if (cus < 1) {
                     // Không thêm thành công
                     request.setAttribute("msg", "Có lỗi, vui lòng kiểm tra lại thông tin.");
-                    request.getRequestDispatcher("admin/addUser.jsp").forward(request, response);
+                    request.getRequestDispatcher("addUser.jsp").forward(request, response);
                     return;
                 }
 
                 // Thêm thành công
                 request.setAttribute("msg", "Thêm thành công.");
                 request.setAttribute("customer", cus);
-                request.getRequestDispatcher("admin/addUser.jsp").forward(request, response);
+                request.getRequestDispatcher("addUser.jsp").forward(request, response);
                 return;
 
             } catch (Exception e) {
                 // Bắt lỗi không mong muốn khác
                 e.printStackTrace(); // Ghi log lỗi
                 request.setAttribute("msg", "Đã có lỗi xảy ra. Vui lòng thử lại.");
-                request.getRequestDispatcher("admin/addUser.jsp").forward(request, response);
+                request.getRequestDispatcher("addUser.jsp").forward(request, response);
             }
 
         }

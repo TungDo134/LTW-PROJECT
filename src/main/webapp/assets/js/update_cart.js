@@ -13,7 +13,11 @@ function updateCart(input) {
         success: function (data) {
             // formatted trước khi cập nhật
             $(".subtotalQuantity").text(data.TotalQuantity);
-            $(".total.number-format").text(formatCurrency(data.Total) );
+
+            // tổng tiền của cart
+            $(".total-cart").text(formatCurrency(data.Total) );
+
+            // tổng tiền của từng sản phẩm
             $(`#total-price-${pID}`).text(formatCurrency(data.TotalCt) );
 
             function formatCurrency(value) {

@@ -63,8 +63,8 @@
             <h1>Thêm người dùng</h1>
             <span class="text-info"> ${msg} </span>
 
-
-            <form action="<%=request.getContextPath()%>/add-user" method="POST">
+            <%-- AddUser --%>
+            <form action="<%=request.getContextPath()%>/admin/add-user" method="POST">
 
                 <label for="username">Tên đăng nhập</label>
                 <input type="text" value="<%=customerName == null?"":customerName%>" id="username" name="username"

@@ -22,7 +22,7 @@ public class AddCate extends HttpServlet {
 
         if (name.isBlank() || img.isBlank()) {
             request.setAttribute("msg", "Dữ liệu nhập vào không được trống");
-            request.getRequestDispatcher("get-all-cate").forward(request, response);
+            request.getRequestDispatcher("admin/get-all-cate").forward(request, response);
 
         } else {
             CategoryDAO categoryDAO = new CategoryDAO();
@@ -33,7 +33,7 @@ public class AddCate extends HttpServlet {
 
             int row = categoryDAO.insertCate(category);
             if (row >= 1) {
-                response.sendRedirect("get-all-cate");
+                response.sendRedirect("admin/get-all-cate");
             }
         }
 

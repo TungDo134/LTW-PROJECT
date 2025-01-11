@@ -113,7 +113,7 @@ html {
 }
 
 #shopping-cart-container .cart-summary .subtotal,
-#shopping-cart-container .cart-summary .total {
+#shopping-cart-container .cart-summary .total-cart {
     color: #e53637;
 }
 

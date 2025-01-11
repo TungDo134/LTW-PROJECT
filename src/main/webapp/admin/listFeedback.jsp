@@ -79,6 +79,7 @@
                                     <%-- DeleteFeedback--%>
                                 <a class="btn btn-danger btn-customize"
                                    href="<%=request.getContextPath()%>/admin/delete-feedback?fID=${o.fID}"
+                                   onclick="confirmDelete(this)"
                                    role="button">Xóa</a>
 
                             </td>
@@ -92,6 +93,13 @@
     </div>
 </div>
 
-<script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
+<script>
+    function confirmDelete(param) {
+        if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?")) {
+            event.preventDefault(); // Hủy bỏ hành động mặc định
+        }
+    }
+
+</script>
 </body>
 </html>

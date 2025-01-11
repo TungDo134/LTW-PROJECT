@@ -9,7 +9,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ShowAddProduct", value = "/show-add-product")
+@WebServlet(name = "ShowAddProduct", value = "/admin/show-add-product")
 public class ShowAddProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -17,7 +17,7 @@ public class ShowAddProduct extends HttpServlet {
         List<Category> cate = cateDao.getAllCate();
 
         request.setAttribute("cate",cate);
-        request.getRequestDispatcher("admin/addProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("addProduct.jsp").forward(request, response);
     }
 
     @Override

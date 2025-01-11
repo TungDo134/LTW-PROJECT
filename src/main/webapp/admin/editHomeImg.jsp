@@ -51,7 +51,8 @@
         </div>
         <div id="addNewCate-container">
             <div class="row align-items-center">
-                <form action="<%= request.getContextPath()%>/update-homePic" method="post">
+                <%--    UpdateHomeImg--%>
+                <form action="<%= request.getContextPath()%>/admin/update-homePic" method="post">
 
                     <div class="row">
                         <div class="col">
@@ -80,7 +81,7 @@
     </div>
 </div>
 <script>
-    function loadImg(){
+    function loadImg() {
         const contextPath = "<%=request.getContextPath()%>";
         let preImg = $("#cateImg").val().trim().split("\\").pop();
         let imgSrc = contextPath + "/assets/pic/homePage/" + preImg

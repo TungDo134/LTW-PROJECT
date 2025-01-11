@@ -91,9 +91,13 @@
                             <td>${o.id}</td>
                             <td>
                                 <a class="btn btn-success btn-customize"
-                                   href="<%=request.getContextPath()%>/get-cate?cID=${o.id}" role="button">Chỉnh sửa</a>
-                                    <%--                                <a class="btn btn-primary btn-customize" href="<%=request.getContextPath()%>/admin/editCategory.jsp" role="button">Thêm</a>--%>
-                                <a class="btn btn-danger btn-customize" href="delete-cate?cID=${o.id}"
+                                    <%-- GetOneCategory --%>
+                                   href="<%=request.getContextPath()%>/admin/get-cate?cID=${o.id}" role="button">Chỉnh
+                                    sửa</a>
+
+                                    <%-- DeleteCate --%>
+                                <a class="btn btn-danger btn-customize" href="<%=request.getContextPath()%>/admin/delete-cate?cID=${o.id}"
+                                    onclick="confirmDelete(this)"
                                    role="button">Xóa</a>
 
                             </td>
@@ -105,6 +109,13 @@
         </div>
     </div>
 </div>
+<script>
+    function confirmDelete(param) {
+        if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?")) {
+            event.preventDefault(); // Hủy bỏ hành động mặc định
+        }
+    }
 
+</script>
 </body>
 </html>

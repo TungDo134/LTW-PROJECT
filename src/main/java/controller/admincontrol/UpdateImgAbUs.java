@@ -7,7 +7,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "UpdateImgAbUs", value = "/update-img-ab")
+@WebServlet(name = "UpdateImgAbUs", value = "/admin/update-img-ab")
 public class UpdateImgAbUs extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,7 +24,7 @@ public class UpdateImgAbUs extends HttpServlet {
         if ("1".equals(choice)) {
             request.setAttribute("nameImg", nameImg);
             request.setAttribute("target", target);
-            request.getRequestDispatcher("admin/editImg.jsp").forward(request,response);
+            request.getRequestDispatcher("editImg.jsp").forward(request,response);
         } else {
             // lấy thông tin để edit
             AboutUsPicDAO dao = new AboutUsPicDAO();

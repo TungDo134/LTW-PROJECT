@@ -8,7 +8,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "EditUser", value = "/edit-user")
+@WebServlet(name = "EditUser", value = "/admin/edit-user")
 public class ShowUserEdit extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,7 +23,7 @@ public class ShowUserEdit extends HttpServlet {
 
 
         request.setAttribute("customers",customers);
-        request.getRequestDispatcher("admin/editUser.jsp").forward(request,response);
+        request.getRequestDispatcher("editUser.jsp").forward(request,response);
     }
 
 

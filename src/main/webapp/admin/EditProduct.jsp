@@ -57,7 +57,8 @@
             <div class="content-inner">
                 <div class="content-wrap">
                     <div class="wrapper">
-                        <form action="<%=request.getContextPath()%>/update-product" class="form-add-product"
+                        <%--    UpdateProduct  --%>
+                        <form action="<%=request.getContextPath()%>/admin/update-product" class="form-add-product"
                               method="post">
                             <div class="wg-box">
                                 <fieldset class="name">
@@ -128,7 +129,7 @@
                                 <fieldset>
                                     <div class="body-title">Tải hình ảnh lên</div>
                                     <input id="cateImg" type="file" name="productImage" value="" onchange="loadImg()"/>
-                                    <input type="hidden" name="oldImg" value="${p.productImage}" >
+                                    <input type="hidden" name="oldImg" value="${p.productImage}">
                                     <div class="body-text">
 
                                     </div>

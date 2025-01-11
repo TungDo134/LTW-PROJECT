@@ -9,7 +9,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "getAllUserController", value = "/all-user")
+@WebServlet(name = "getAllUserController", value = "/admin/all-user")
 public class GetAllUser extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -18,7 +18,7 @@ public class GetAllUser extends HttpServlet {
         List<Customer> listC = dao.getUsers();
 
         request.setAttribute("listC", listC);
-        request.getRequestDispatcher("admin/allUser.jsp").forward(request, response);
+        request.getRequestDispatcher("allUser.jsp").forward(request, response);
     }
 
     @Override

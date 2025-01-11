@@ -12,7 +12,7 @@ public class UpdateVoucher extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        String code = request.getParameter("code");
+        String code = request.getParameter("code").toUpperCase();
         String discount = request.getParameter("discount");
 
         CouponDAO cdao = new CouponDAO();

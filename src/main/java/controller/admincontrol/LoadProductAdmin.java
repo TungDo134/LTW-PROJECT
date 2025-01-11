@@ -9,7 +9,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "LoadProductAdmin", value = "/load-pAdmin")
+@WebServlet(name = "LoadProductAdmin", value = "/admin/load-pAdmin")
 public class LoadProductAdmin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -17,7 +17,7 @@ public class LoadProductAdmin extends HttpServlet {
         List<Product> products= proDao.getProduct();
 
         request.setAttribute("products", products);
-        request.getRequestDispatcher("admin/listProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("listProduct.jsp").forward(request, response);
     }
 
     @Override

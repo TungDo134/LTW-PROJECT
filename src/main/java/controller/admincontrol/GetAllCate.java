@@ -9,14 +9,14 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "CateController", value = "/get-all-cate")
+@WebServlet(name = "CateController", value = "/admin/get-all-cate")
 public class GetAllCate extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CategoryDAO cateDao = new CategoryDAO();
         List<Category> listC = cateDao.getAllCate();
         request.setAttribute("listC", listC);
-        request.getRequestDispatcher("admin/listCategory.jsp").forward(request, response);
+        request.getRequestDispatcher("listCategory.jsp").forward(request, response);
     }
 
     @Override

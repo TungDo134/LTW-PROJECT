@@ -55,7 +55,7 @@
         <div id="all-user-container">
             <a class="btn btn-primary btn-customize px-5 py-2 mb-2"
                href="<%=request.getContextPath()%>/admin/addUser.jsp" role="button">Thêm</a>
-            <table  id="myTable" class="display" style="width:100%">
+            <table id="myTable" class="display" style="width:100%">
                 <thead>
                 <tr>
                     <th></th>
@@ -81,15 +81,22 @@
                         <td> ${o.addressShipping} </td>
                         <td>
                             <c:if test="${o.role == 1}">
-                                <p style="padding: 4px" class="bg-info text-dark text-center mx-0 my-0 rounded" >Admin</p>
+                                <p style="padding: 4px" class="bg-info text-dark text-center mx-0 my-0 rounded">
+                                    Admin</p>
                             </c:if>
                             <c:if test="${o.role == 0}">
                                 Người dùng
                             </c:if>
                         </td>
                         <td style="width: 200px">
-                            <a class="btn btn-success btn-customize" href="edit-user?cusID=${o.id}" role="button">Chỉnh sửa</a>
-                            <a class="btn btn-danger btn-customize" href="delete-user?cID=${o.id}"  role="button">Xóa</a>
+                                <%--   EditUser --%>
+                            <a class="btn btn-success btn-customize"
+                               href="<%= request.getContextPath()%>/admin/edit-user?cusID=${o.id}" role="button">Chỉnh
+                                sửa</a>
+                                <%--   DeleteUser--%>
+                            <a class="btn btn-danger btn-customize"
+                               href="<%= request.getContextPath()%>/admin/delete-user?cID=${o.id}"
+                               onclick="confirmDelete(this)" role="button">Xóa</a>
 
                         </td>
                     </tr>
@@ -102,6 +109,13 @@
     </div>
 </div>
 
-<script src="<%=request.getContextPath()%>/assets/js/search.js"></script>
+<script>
+    function confirmDelete(param) {
+        if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?")) {
+            event.preventDefault(); // Hủy bỏ hành động mặc định
+        }
+    }
+
+</script>
 </body>
 </html>

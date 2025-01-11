@@ -9,7 +9,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "GetOneCategory", value = "/get-cate")
+@WebServlet(name = "GetOneCategory", value = "/admin/get-cate")
 public class GetOneCategory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -19,7 +19,7 @@ public class GetOneCategory extends HttpServlet {
 
         if(cate==null) response.sendRedirect("get-all-cate");
         request.setAttribute("cate", cate);
-        request.getRequestDispatcher("admin/editCategory.jsp").forward(request, response);
+        request.getRequestDispatcher("editCategory.jsp").forward(request, response);
 
     }
 

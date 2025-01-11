@@ -10,13 +10,11 @@ import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
-import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.StringTokenizer;
-import java.util.UUID;
 
-@WebServlet(name = "AddProductController", value = "/add-product")
+
+@WebServlet(name = "AddProductController", value = "/admin/add-product")
 public class AddProductController extends HttpServlet {
 
     @Override
@@ -81,11 +79,11 @@ public class AddProductController extends HttpServlet {
         // Kiểm tra kết quả và chuyển hướng
         if (result > 0) {
             request.setAttribute("msg", "Thêm sản phẩm thành công!");
-            request.getRequestDispatcher("/admin/addProduct.jsp").forward(request, response);
+            request.getRequestDispatcher("addProduct.jsp").forward(request, response);
             return;
         } else {
             request.setAttribute("msg", "Thêm sản phẩm thất bại!");
-            request.getRequestDispatcher("/admin/addProduct.jsp").forward(request, response);
+            request.getRequestDispatcher("addProduct.jsp").forward(request, response);
         }
     }
 }

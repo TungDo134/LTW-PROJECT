@@ -77,6 +77,7 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${listH}" var="o">
+
                         <tr>
                             <td><a href="update-homePic?target=bannerImg&value=${o.bannerImg}&choice=1">
                                 <img style="width: 250px !important;"
@@ -104,6 +105,6 @@
     </div>
 </div>
 
-<script src="<%= request.getContextPath()%>/assets/js/search.js"></script>
+
 </body>
 </html>

@@ -61,7 +61,10 @@
             <div class="content-inner">
                 <div class="content-wrap">
                     <div class="wrapper">
-                        <form action="<%=request.getContextPath()%>/add-product" class="form-add-product" method="post">
+
+                        <%--    AddProductController    --%>
+                        <form action="<%=request.getContextPath()%>/admin/add-product" class="form-add-product"
+                              method="post">
                             <div class="wg-box">
                                 <fieldset class="name">
                                     <div class="body-title">
@@ -130,16 +133,16 @@
                                     <input id="cateImg" required="" type="file" name="productImage"
                                            multiple onchange="loadImg()"/>
 
-<%--                                    <div class="body-title">Tải hình ảnh chi tiết sản phẩm</div>--%>
-<%--                                    <input--%>
-<%--                                            class="form-control"--%>
-<%--                                            type="file"--%>
-<%--                                            id="formFileMultiple"--%>
+                                    <%--                                    <div class="body-title">Tải hình ảnh chi tiết sản phẩm</div>--%>
+                                    <%--                                    <input--%>
+                                    <%--                                            class="form-control"--%>
+                                    <%--                                            type="file"--%>
+                                    <%--                                            id="formFileMultiple"--%>
 
-<%--                                            multiple--%>
-<%--                                            onchange="getData(this)"--%>
-<%--                                    />--%>
-<%--                                    <input type="hidden" name="subImg" id="subImg" value="">--%>
+                                    <%--                                            multiple--%>
+                                    <%--                                            onchange="getData(this)"--%>
+                                    <%--                                    />--%>
+                                    <%--                                    <input type="hidden" name="subImg" id="subImg" value="">--%>
                                     <div class="body-text">
                                         <div
                                                 id="imageContainer"

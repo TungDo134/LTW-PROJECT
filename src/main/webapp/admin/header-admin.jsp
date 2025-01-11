@@ -136,13 +136,14 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/load-pAdmin"
-                                    >Danh sách sản phẩm</a
+
+                                    <%--  LoadProductAdmin --%>
+                                    <a href="<%= request.getContextPath()%>/admin/load-pAdmin">Danh sách sản phẩm</a
                                     >
                                 </li>
-
+                                <%--  ShowAddProduct --%>
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/show-add-product">Thêm sản phẩm</a>
+                                    <a href="<%= request.getContextPath()%>/admin/show-add-product">Thêm sản phẩm</a>
                                 </li>
                             </ul>
                         </li>
@@ -156,8 +157,8 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <%-- GetAllCate--%>
-                                    <a href="<%= request.getContextPath()%>/get-all-cate">Danh sách danh mục</a>
+                                    <%-- GetAllCate --%>
+                                    <a href="<%= request.getContextPath()%>/admin/get-all-cate">Danh sách danh mục</a>
                                 </li>
 
 
@@ -172,16 +173,12 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/all-order"
+
+                                    <%-- GetAllOrder --%>
+                                    <a href="<%= request.getContextPath()%>/admin/all-order"
                                     >Danh sách đơn hàng</a
                                     >
                                 </li>
-                                <%--                                <li class="sub-menu-item">--%>
-                                <%--                                    <a href="<%= request.getContextPath()%>/all-orderDetail"--%>
-                                <%--                                    >Chi tiết đơn hàng</a--%>
-                                <%--                                    >--%>
-                                <%--                                </li>--%>
-
                             </ul>
                         </li>
                         <li class="item item-dropdown">
@@ -194,8 +191,8 @@
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
 
-
-                                    <a href="<%= request.getContextPath()%>/all-user">Tất cả người dùng</a>
+                                    <%-- getAllUserController--%>
+                                    <a href="<%= request.getContextPath()%>/admin/all-user">Tất cả người dùng</a>
 
 
                                 </li>
@@ -214,10 +211,12 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/all-homePic">Trang chủ</a>
+                                    <%--   GetAllHomePic --%>
+                                    <a href="<%= request.getContextPath()%>/admin/all-homePic">Trang chủ</a>
                                 </li>
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/all-aboutUs">Trang về chúng tôi</a>
+                                    <%--   GetAllAboutUsPic --%>
+                                    <a href="<%= request.getContextPath()%>/admin/all-aboutUs">Trang về chúng tôi</a>
                                 </li>
 
                             </ul>

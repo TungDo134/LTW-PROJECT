@@ -46,17 +46,18 @@
     />
     <%--    <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleAddUser.css">--%>
     <style>
-        #form-sub{
+        #form-sub {
             display: grid;
-            grid-template-columns: repeat(4,1fr);
+            grid-template-columns: repeat(4, 1fr);
             row-gap: 2rem;
         }
-        button{
+
+        button {
             width: 100%;
             height: 50px;
         }
 
-        img{
+        img {
             width: 100px;
         }
 
@@ -72,69 +73,19 @@
             <span class="text-info"> ${msg} </span>
 
 
-            <form id="form-sub" action="<%=request.getContextPath()%>/edit-sub-img?code=1" method="POST">
+            <form id="form-sub">
+                <c:forEach var="o" items="${sub}">
+                    <div>
+                        <img src="<%=request.getContextPath()%>/assets/pic/subP/${o}" onerror="handleImageError(this);">
+                        <input type="file">
+                        <input type="hidden" name="oldImg" value="${o}">
+                    </div>
+                </c:forEach>
 
 
-                <div>
-                    <img src="<%=request.getContextPath()%>/assets/pic/subP/${sub.subImg1}" onerror="handleImageError(this);">
-                    <input type="file">
-                    <input type="hidden" value="${sub.subImg1}">
-                </div>
-
-                <div>
-                    <img src="<%=request.getContextPath()%>/assets/pic/subP/${sub.subImg2}" onerror="handleImageError(this);">
-                    <input type="file">
-                    <input type="hidden" value="${sub.subImg2}">
-                </div>
-                <div>
-                    <img src="<%=request.getContextPath()%>/assets/pic/subP/${sub.subImg3}" onerror="handleImageError(this);">
-                    <input type="file">
-                    <input type="hidden" value="${sub.subImg3}">
-                </div>
-                <div
-                ><img src="<%=request.getContextPath()%>/assets/pic/subP/${sub.subImg4}" onerror="handleImageError(this);">
-                    <input type="file">
-                    <input type="hidden" value="${sub.subImg4}">
-                </div>
-
-                <div>
-                    <img src="<%=request.getContextPath()%>/assets/pic/subP/${sub.subImg5}" onerror="handleImageError(this);">
-                    <input type="file">
-                    <input type="hidden" value="${sub.subImg5}">
-                </div>
-
-                <div>
-                    <img src="<%=request.getContextPath()%>/assets/pic/subP/${sub.subImg6}" onerror="handleImageError(this);">
-                    <input type="file">
-                    <input type="hidden" value="${sub.subImg6}">
-                </div>
-
-                <div>
-                    <img src="<%=request.getContextPath()%>/assets/pic/subP/${sub.subImg7}" onerror="handleImageError(this);">
-                    <input type="file">
-                    <input type="hidden" value="${sub.subImg7}">
-                </div>
-
-                <div>
-                    <img src="<%=request.getContextPath()%>/assets/pic/subP/${sub.subImg8}" onerror="handleImageError(this);">
-                    <input type="file">
-                    <input type="hidden" value="${sub.subImg8}">
-                </div>
-
-                <div>
-                    <img src="<%=request.getContextPath()%>/assets/pic/subP/${sub.subImg9}" onerror="handleImageError(this);">
-                    <input type="file">
-                    <input type="hidden" value="${sub.subImg9}">
-                </div>
-
-                <div>
-                    <img src="<%=request.getContextPath()%>/assets/pic/subP/${sub.subImg10}" onerror="handleImageError(this);">
-                    <input type="file">
-                    <input type="hidden" value="${sub.subImg10}">
-                </div>
-
-
-                <button type="submit">Cập nhật</button>
+                <input id="subImg" type="hidden" value="">
+                <input id="subId" type="hidden" value="${subId}">
+                <button type="button" onclick="pushData()">Cập nhật</button>
             </form>
         </div>
     </div>
@@ -142,10 +93,60 @@
 <script>
 
     function handleImageError(imgElement) {
-        imgElement.src = "assets/pic/products/empty_img"; // Thay đổi src sang ảnh mặc định onerror="handleImageError(this);"
+        imgElement.src = "assets/pic/subP/empty_img"; // Thay đổi src sang ảnh mặc định onerror="handleImageError(this);"
         imgElement.alt = "Không thể tải hình ảnh gốc"; // Cập nhật thuộc tính alt
     }
+
+
+    function getData() {
+        let arrayImg = [];
+        $("input[name='oldImg']").each(function () {
+            let nameImg = $(this).val().trim();
+            if (nameImg !== "") {
+                arrayImg.push(nameImg);
+            }
+        });
+
+
+        $("input[type='file']").each(function () {
+            let nameImg = $(this).val().trim();
+            if (nameImg !== "") {
+                arrayImg.push(nameImg.match(/[^\\/]+$/)[0]);
+            }
+        });
+
+        return arrayImg;
+    }
+
+    function pushData() {
+        // Duyệt qua mảng và cộng dồn tên của từng tệp vào value của ô input
+        getData().forEach((file) => {
+            let currentValue = $("#subImg").val();  // Lấy giá trị hiện tại của ô input
+            // Cập nhật lại giá trị, nối tên tệp vào hiện tại
+            $("#subImg").val(currentValue + file + ',');
+        });
+
+        let subImg =
+            $.ajax({
+                url: 'update-sub-img',
+                method: 'post',
+                data: {
+                    subImg: $("#subImg").val(),
+                    subId: $("#subId").val()
+                },
+                success: function (response) {
+                    alert(response)
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error occurred:", status, error);
+                }
+            })
+        console.log("Mang ten gom: " + $("#subImg").val());
+    }
+
+
+    // getData();
 </script>
-</script>
+
 </body>
 </html>

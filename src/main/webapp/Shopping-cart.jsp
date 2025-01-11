@@ -59,7 +59,7 @@
                             <p class="price number-format">
                                     <f:setLocale value="vi_VN"/>
                                     <f:formatNumber value="${cp.price}" type="currency"/>
-                                    <%--                                <span class="currency">đ</span></p>--%>
+
                         </div>
                     </div>
 
@@ -71,7 +71,7 @@
                     <div class="total-price number-format" id="total-price-${cp.id}">
                         <f:setLocale value="vi_VN"/>
                         <f:formatNumber value="${cp.totalCt}" type="currency"/>
-                            <%--                        <span>VND</span>--%>
+
                     </div>
 
                     <div class="remove-item">
@@ -104,11 +104,10 @@
 
                 <div class="cart-total-row">
                     <span>Tổng tiền:</span>
-                    <span class="total number-format">
+                    <span class="total-cart">
                          <c:set var="balance" value="<%= c == null ? 0 : c.getTotal() %>"/>
                          <f:setLocale value="vi_VN"/>
                          <f:formatNumber value="${balance}" type="currency"/>
-<%--                        <span>VND</span>--%>
                     </span>
                 </div>
                 <%String msgP = (String) request.getAttribute("msgP");%>

@@ -30,7 +30,7 @@ public class UpdateCart extends HttpServlet {
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
 
-        /* - tổng sp, tổng giá
+        /* - tổng sp, tổng giá của cart
            - tổng tiền của 1 sp
          */
         response.getWriter().write("{\"TotalQuantity\":" + c.getTotalQuantity() + ", \"Total\":" + c.getTotal() + ", \"TotalCt\":" + ct.getTotalCt() + "}");

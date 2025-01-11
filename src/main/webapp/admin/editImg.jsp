@@ -51,7 +51,7 @@
         </div>
         <div id="addNewCate-container">
             <div class="row align-items-center">
-                <form action="<%= request.getContextPath()%>/update-img-ab" method="post">
+                <form action="<%= request.getContextPath()%>/admin/update-img-ab" method="post">
 
                     <div class="row">
                         <div class="col">

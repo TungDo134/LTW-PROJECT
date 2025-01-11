@@ -54,7 +54,8 @@
         </div>
         <div id="list-product-container">
             <a class="btn btn-primary btn-customize px-5 py-2 mb-2"
-               href="<%=request.getContextPath()%>/show-add-product" role="button">Thêm</a>
+            <%-- ShowAddProduct--%>
+               href="<%=request.getContextPath()%>/admin/show-add-product" role="button">Thêm</a>
             <div class="product-list">
 
                 <table id="myTable" class="display" style="width:100%">
@@ -73,7 +74,7 @@
                     <tbody>
                     <c:forEach items="${products}" var="o">
                         <tr>
-                            <td><img src="assets/pic/products/${o.productImage}"></td>
+                            <td><img src="<%=request.getContextPath()%>/assets/pic/products/${o.productImage}"></td>
                             <td>${o.productName}</td>
                             <td>${o.productID}</td>
                             <td>
@@ -84,13 +85,17 @@
                             <td>${o.productOrder}</td>
                             <td>${o.productStock}</td>
                             <td>
-                                <a class="btn btn-success btn-customize" href="show-product-edit?id=${o.productID}"
+
+                                    <%--  ShowPageEditP --%>
+                                <a class="btn btn-success btn-customize" href="<%=request.getContextPath()%>/admin/show-product-edit?id=${o.productID}"
                                    role="button">Chỉnh sửa</a>
-                                    <%--                                <a class="btn btn-success btn-customize" href="edit-sub-img?id=${o.productID}" role="button">Chỉnh sửa ảnh ct</a>--%>
+                                        <a class="btn btn-success btn-customize" href="<%=request.getContextPath()%>/edit-sub-img?id=${o.productID}" role="button">Chỉnh sửa ảnh ct</a>
 
                                 <a class="btn btn-danger btn-customize"
                                    onclick="confirmDelete(this)"
-                                   href="<%=request.getContextPath()%>/delete-pro?pID=${o.productID}"
+
+                                    <%--  DeleteProduct --%>
+                                   href="<%=request.getContextPath()%>/admin/delete-pro?pID=${o.productID}"
                                    role="button">Xóa</a>
 
                             </td>
@@ -106,7 +111,7 @@
 <script>
     function confirmDelete(param) {
         if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?")) {
-           event.preventDefault(); // Hủy bỏ hành động mặc định
+            event.preventDefault(); // Hủy bỏ hành động mặc định
         }
     }
 
