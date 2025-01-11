@@ -7,7 +7,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "AccptReview", value = "/modify-review")
+@WebServlet(name = "ModifyReview", value = "/admin/modify-review")
 public class ModifyReview extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,7 +27,7 @@ public class ModifyReview extends HttpServlet {
 
         response.setContentType("application/json");
         response.getWriter().write("{\"isSuccess\":" + isSuccess + "}");
-        response.getWriter().flush(); // Đảm bảo dữ liệu được gửi ngay lập tức
+        response.getWriter().flush();
 
 
 //        response.sendRedirect("all-review");

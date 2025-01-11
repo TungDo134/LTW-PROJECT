@@ -9,14 +9,14 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "getAllCouponController", value = "/all-coupon")
+@WebServlet(name = "getAllCouponController", value = "/admin/all-coupon")
 public class GetAllCoupon extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CouponDAO couDao = new CouponDAO();
         List<Coupon> listV = couDao.getAllCoupon();
         request.setAttribute("listV", listV);
-        request.getRequestDispatcher("admin/listVoucher.jsp").forward(request, response);
+        request.getRequestDispatcher("listVoucher.jsp").forward(request, response);
     }
 
     @Override

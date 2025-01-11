@@ -53,12 +53,14 @@
         <div class="header">
             <h1> Thêm mã giảm giá </h1>
         </div>
-        <form action="<%=request.getContextPath()%>/update-voucher" method="post">
+        <%-- UpdateVoucher--%>
+        <form action="<%=request.getContextPath()%>/admin/update-voucher" method="post">
             <div class="row">
                 <input hidden="hidden" value="${coupon.couponId}" name="id">
                 <div class="col">
 
-                    <input value="${coupon.code}" id="name" name="code" type="text" class="form-control"  aria-label="First name">
+                    <input value="${coupon.code}" id="name" name="code" type="text" class="form-control"
+                           aria-label="First name">
                 </div>
                 <div class="col">
                     <input value="${coupon.discount}" id="discount" name="discount" type="text" class="form-control"

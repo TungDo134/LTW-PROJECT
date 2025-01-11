@@ -134,6 +134,7 @@
         // console.log(rID + ' ' + choice);
 
         $.ajax({
+            // ModifyReview
             url: "modify-review",
             type: "post",
             data: {

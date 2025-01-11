@@ -8,7 +8,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "getOneVoucher", value = "/get-voucher")
+@WebServlet(name = "getOneVoucher", value = "/admin/get-voucher")
 public class GetOneVoucher extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -18,7 +18,7 @@ public class GetOneVoucher extends HttpServlet {
 
         if(coupon==null) response.sendRedirect("all-coupon");
         request.setAttribute("coupon", coupon);
-        request.getRequestDispatcher("admin/editVoucher.jsp").forward(request, response);
+        request.getRequestDispatcher("editVoucher.jsp").forward(request, response);
 
     }
 

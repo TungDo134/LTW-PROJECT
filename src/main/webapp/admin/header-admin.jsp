@@ -50,7 +50,8 @@
                     <img src="<%=request.getContextPath()%>/assets/pic/defaul_ava.jpg" alt=""/>
                   </span>
                   <span class="d-flex flex-column align-items-baseline">
-                    <span class="name body-title"><a class="text-decoration-none text-" href="#">${sessionScope.customer.name}</a></span>
+                    <span class="name body-title"><a class="text-decoration-none text-"
+                                                     href="#">${sessionScope.customer.name}</a></span>
                     <span class="role text-tiny">Admin</span>
                   </span>
                 </span>
@@ -155,7 +156,8 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%=request.getContextPath()%>/get-all-cate">Danh sách danh mục</a>
+                                    <%-- GetAllCate--%>
+                                    <a href="<%= request.getContextPath()%>/get-all-cate">Danh sách danh mục</a>
                                 </li>
 
 
@@ -174,11 +176,11 @@
                                     >Danh sách đơn hàng</a
                                     >
                                 </li>
-<%--                                <li class="sub-menu-item">--%>
-<%--                                    <a href="<%= request.getContextPath()%>/all-orderDetail"--%>
-<%--                                    >Chi tiết đơn hàng</a--%>
-<%--                                    >--%>
-<%--                                </li>--%>
+                                <%--                                <li class="sub-menu-item">--%>
+                                <%--                                    <a href="<%= request.getContextPath()%>/all-orderDetail"--%>
+                                <%--                                    >Chi tiết đơn hàng</a--%>
+                                <%--                                    >--%>
+                                <%--                                </li>--%>
 
                             </ul>
                         </li>
@@ -229,17 +231,16 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/all-coupon">Mục mã giảm giá</a>
+                                    <a href="<%= request.getContextPath()%>/admin/all-coupon">Mục mã giảm giá</a>
                                 </li>
-<%--                                <li class="sub-menu-item">--%>
-<%--                                    <a href="<%= request.getContextPath()%>/admin/addVoucher.jsp">Thêm mã giảm giá</a>--%>
-<%--                                </li>--%>
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/all-review">Danh sách đánh
+                                    <%--GetAllReview--%>
+                                    <a href="<%= request.getContextPath()%>/admin/all-review">Danh sách đánh
                                         giá</a>
                                 </li>
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/all-feedback">Danh sách phản
+                                    <%--  GetAllFeedback--%>
+                                    <a href="<%= request.getContextPath()%>/admin/all-feedback">Danh sách phản
                                         hồi </a>
                                 </li>
 

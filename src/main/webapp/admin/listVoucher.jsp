@@ -61,7 +61,7 @@
             <h1>Danh sách mã giảm giá</h1>
         </div>
         <div class="add-voucher" style="margin-bottom: 1rem">
-            <form action="<%= request.getContextPath()%>/add-coupon" method="post">
+            <form action="<%= request.getContextPath()%>/admin/add-coupon" method="post">
                 <div class="row">
                     <p class="text-Info"><%=message != null ? message : "" %>
                     </p>
@@ -72,7 +72,8 @@
                     </div>
                     <div class="col col-2 ">
                         <label for="discount" class="pb-2">Tỉ lệ giảm</label>
-                        <input id="discount" name="discount" type="text" class="form-control" placeholder="Phần trăm giảm "
+                        <input id="discount" name="discount" type="text" class="form-control"
+                               placeholder="Phần trăm giảm "
                                aria-label="Last name">
                     </div>
                 </div>
@@ -98,10 +99,14 @@
                             <td>${o.discount}</td>
                             <td>
                                 <a class="btn btn-success btn-customize"
-                                   href="<%=request.getContextPath()%>/get-voucher?vID=${o.couponId}" role="button">Chỉnh
+                                    <%--  GetOneVoucher--%>
+                                   href="<%=request.getContextPath()%>/admin/get-voucher?vID=${o.couponId}"
+                                   role="button">Chỉnh
                                     sửa</a>
                                 <a class="btn btn-danger btn-customize"
-                                   href="<%=request.getContextPath()%>/delete-voucher?vID=${o.couponId}" role="button">Xóa</a>
+                                    <%-- DeleteVoucher--%>
+                                   href="<%=request.getContextPath()%>/admin/delete-voucher?vID=${o.couponId}"
+                                   role="button">Xóa</a>
                             </td>
                         </tr>
                     </c:forEach>

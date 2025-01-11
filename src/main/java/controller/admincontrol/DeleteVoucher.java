@@ -7,7 +7,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "deleteVoucher", value = "/delete-voucher")
+@WebServlet(name = "deleteVoucher", value = "/admin/delete-voucher")
 public class DeleteVoucher extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

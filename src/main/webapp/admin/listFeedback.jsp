@@ -76,8 +76,10 @@
                             <td>${o.email}</td>
                             <td> ${o.fContent}</td>
                             <td>
+                                    <%-- DeleteFeedback--%>
                                 <a class="btn btn-danger btn-customize"
-                                   href="<%=request.getContextPath()%>/delete-feedback?fID=${o.fID}" role="button">Xóa</a>
+                                   href="<%=request.getContextPath()%>/admin/delete-feedback?fID=${o.fID}"
+                                   role="button">Xóa</a>
 
                             </td>
                         </tr>

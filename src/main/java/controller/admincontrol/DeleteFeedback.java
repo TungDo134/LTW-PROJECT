@@ -7,7 +7,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "DeleteFeedback", value = "/delete-feedback")
+@WebServlet(name = "DeleteFeedback", value = "/admin/delete-feedback")
 public class DeleteFeedback extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
