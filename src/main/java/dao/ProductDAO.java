@@ -142,13 +142,15 @@ public class ProductDAO {
 
     }
 
-    public List<Product> getProductsByCategoryAndID(int categoryId, int productId) {
+    public List<Product> getProductsByPriceAndCategory(int minPrice, int maxPrice, int cateID) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createQuery("SELECT * FROM products WHERE cateID = :cateID AND productID != :productID")
-                        .bind("cateID", categoryId)
-                        .bind("productID", productId)
+                handle.createQuery("SELECT * FROM products WHERE productPrice BETWEEN :min AND :max AND cateID = :cateID")
+                        .bind("min", minPrice)
+                        .bind("max", maxPrice)
+                        .bind("cateID", cateID)
                         .mapToBean(Product.class)
-                        .list());
+                        .list()
+        );
     }
 
     public int UpdateQuantity(int productID, int quantity) {
@@ -213,6 +215,7 @@ public class ProductDAO {
                         .bind(10, pid)
                         .execute());
     }
+
 
 
 }

@@ -7,7 +7,6 @@ import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "FilterProByPrice", value = "/filter-product")
@@ -21,7 +20,7 @@ public class FilterProByPrice extends HttpServlet {
         int maxPrice = Integer.MAX_VALUE;
 
         // Lọc giá dựa trên giá trị priceRange từ form
-        if (priceRange != null) {
+        if (priceRange != null && !priceRange.isEmpty()) {
             switch (priceRange) {
                 case "1": minPrice = 0; maxPrice = 50000; break;
                 case "2": minPrice = 50000; maxPrice = 100000; break;
@@ -31,24 +30,33 @@ public class FilterProByPrice extends HttpServlet {
             }
         }
 
-
-        Integer cateID = category != null ? Integer.parseInt(category) : null;
+        Integer cateID = (category != null && !category.isEmpty()) ? Integer.parseInt(category) : null;
 
         ProductDAO productDAO = new ProductDAO();
+        List<Product> filteredProducts;
 
-        List<Product> filterPro = productDAO.getProByPriceRange(minPrice, maxPrice);
-
-        if (cateID != null) {
-            filterPro = productDAO.getProductByCate(cateID);
+        // Gọi DAO để lấy sản phẩm theo tiêu chí phù hợp
+        if (cateID != null && priceRange != null && !priceRange.isEmpty()) {
+            // Lọc theo cả giá và danh mục
+            filteredProducts = productDAO.getProductsByPriceAndCategory(minPrice, maxPrice, cateID);
+        } else if (cateID != null) {
+            // Chỉ lọc theo danh mục
+            filteredProducts = productDAO.getProductByCate(cateID);
+        } else if (priceRange != null && !priceRange.isEmpty()) {
+            // Chỉ lọc theo giá
+            filteredProducts = productDAO.getProByPriceRange(minPrice, maxPrice);
+        } else {
+            // Không có tiêu chí lọc, trả về tất cả sản phẩm
+            filteredProducts = productDAO.getProduct();
         }
 
-        request.setAttribute("products", filterPro);
+        // Đưa danh sách sản phẩm vào request
+        request.setAttribute("products", filteredProducts);
         request.getRequestDispatcher("product.jsp").forward(request, response);
-
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doGet(request, response);
     }
 }
