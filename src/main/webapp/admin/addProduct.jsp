@@ -77,7 +77,7 @@
                                             type="text"
                                             placeholder="Vd: Bút bi xanh"
                                     />
-                                    <p>Không vượt quá 20 ký tự khi nhập tên sản phẩm.</p>
+
                                 </fieldset>
                                 <div class="cols">
                                     <fieldset class="Category">
@@ -122,7 +122,7 @@
                                             name="productDes"
                                             placeholder="Mô tả"
                                     ></textarea>
-                                    <p>Không vượt quá 100 ký tự khi nhập tên sản phẩm.</p>
+
                                 </fieldset>
                             </div>
                             <div class="wg-box">
@@ -159,7 +159,7 @@
                                         <div class="select">
                                             <input
                                                     required=""
-                                                    type="text"
+                                                    type="number"
                                                     name="productInventory"
                                                     id=""
                                                     placeholder="Vd: 100"
@@ -181,6 +181,8 @@
                                     <button class="btn2" type="reset">
                                         Xóa thông tin đã nhập
                                     </button>
+                                    <%--  LoadProductAdmin --%>
+                                    <a href="load-pAdmin" class="btn1 text-white bg-success" type="submit">Quay lại</a>
                                 </div>
                             </div>
                         </form>

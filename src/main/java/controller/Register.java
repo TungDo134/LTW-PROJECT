@@ -5,8 +5,8 @@ import entity.Customer;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
-import util.CheckValidEmail;
-import util.MaHoaMK;
+import helper.CheckValidEmail;
+import helper.MaHoaMK;
 
 import java.io.IOException;
 

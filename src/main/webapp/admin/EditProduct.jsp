@@ -50,8 +50,9 @@
 <div id="main-content">
     <div class="main-container">
         <div class="items-center">
-            <h3>Thêm Sản Phẩm</h3>
-
+            <h3>Chỉnh sửa Sản Phẩm</h3>
+            <h4 class="text-danger"><%=request.getAttribute("msg") != null ? request.getAttribute("msg") : "" %>
+            </h4>
         </div>
         <div class="addproduct-container">
             <div class="content-inner">
@@ -73,7 +74,7 @@
                                             type="text"
                                             placeholder="Vd: Bút bi xanh"
                                     />
-                                    <p>Không vượt quá 20 ký tự khi nhập tên sản phẩm.</p>
+
                                 </fieldset>
                                 <input type="hidden" value="${p.productID} " name="id">
                                 <div class="cols">
@@ -120,7 +121,7 @@
                                             name="productDes"
                                             placeholder="Mô tả"
                                     > ${des}</textarea>
-                                    <p>Không vượt quá 100 ký tự khi nhập tên sản phẩm.</p>
+
                                 </fieldset>
                             </div>
                             <div class="wg-box">
@@ -183,6 +184,8 @@
                                 </div>
                                 <div class="col">
                                     <button class="btn1" type="submit">Cập nhật sản phẩm</button>
+                                    <%--  LoadProductAdmin --%>
+                                    <a href="load-pAdmin" class="btn1 text-white bg-success" type="submit">Quay lại</a>
                                 </div>
                             </div>
                         </form>

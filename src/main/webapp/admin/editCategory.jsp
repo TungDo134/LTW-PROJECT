@@ -47,7 +47,7 @@
 <div id="main-content">
     <div class="main-container">
         <div class="header">
-            <h1>Thêm danh mục</h1>
+            <h1>Chỉnh sửa danh mục</h1>
         </div>
         <div id="addNewCate-container">
             <div class="row align-items-center">

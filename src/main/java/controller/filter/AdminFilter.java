@@ -22,21 +22,15 @@ public class AdminFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
 //        HttpServletRequest httpRequest = (HttpServletRequest) request;
 //        HttpServletResponse httpResponse = (HttpServletResponse) response;
+//
 //        HttpSession session = httpRequest.getSession();
-//
-//        // Check if session is valid and has customer attribute
-//        if (session == null || session.getAttribute("customer") == null) {
-//            System.out.println("Session is invalid or missing customer attribute. Redirecting to login");
-//            httpResponse.sendRedirect("forms/signup-login.jsp");
-//            return;
-//        }
-//
 //        Customer admin = (Customer) session.getAttribute("customer");
 //
-//        // Redirect only if user is not admin
-//        if (admin.getRole() != 1) {
-//            System.out.println("User is not admin. Redirecting to login");
-//            httpResponse.sendRedirect("forms/signup-login.jsp");
+//        // ktra session
+//        String path = ((HttpServletRequest) request).getContextPath();
+//        if (admin == null || admin.getRole() != 1) {
+//            System.out.println("Khong phai admin hoac chua dang nhap");
+//            httpResponse.sendRedirect(path + "/forms/signup-login.jsp");
 //            return;
 //        }
 

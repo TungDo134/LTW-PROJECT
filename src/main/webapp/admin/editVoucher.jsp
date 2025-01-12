@@ -51,7 +51,7 @@
 <div id="main-content">
     <div class="main-container">
         <div class="header">
-            <h1> Thêm mã giảm giá </h1>
+            <h1> Chỉnh sửa mã giảm giá </h1>
         </div>
         <%-- UpdateVoucher--%>
         <form action="<%=request.getContextPath()%>/admin/update-voucher" method="post">

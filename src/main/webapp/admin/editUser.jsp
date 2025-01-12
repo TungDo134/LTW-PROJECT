@@ -54,7 +54,7 @@
 <main class="main-content">
 
     <div class="container">
-        <h1>Thêm người dùng</h1>
+        <h1>Chỉnh sửa người dùng</h1>
         <%--    <span> ${msg} </span>--%>
 
         <%--  UpdateUser--%>
