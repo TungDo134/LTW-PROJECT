@@ -204,7 +204,11 @@ padding: 16px 8px;
                                 style="line-height: normal; color: #333333cc">
                         shopping_bag
                         </span></a>
-                        <a href="load-profile">${sessionScope.customer.name}</a>
+                        <c:if test="${sessionScope.customer != null}"><a style="color: #000" href="load-profile">
+                            Xin chào <p
+                                style="color: #000;margin: 0;font-weight: 700;">${sessionScope.customer.name}</p>
+                        </a> </c:if>
+
                     </div>
                 </div>
             </div>

@@ -60,8 +60,18 @@ public class OrderDAO {
         );
     }
 
+    public Double totalOrderPrice() {
+        String sql = "SELECT SUM(orders.totalPrice) FROM `orders`";
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery(sql)
+                        .mapTo(Double.class) // Ánh xạ kết quả thành Double
+                        .findOnly()          // Lấy giá trị duy nhất
+        );
+
+    }
 
     public static void main(String[] args) {
-        System.out.println(Date.valueOf(LocalDate.now()));
+        OrderDAO dao = new OrderDAO();
+        System.out.println(dao.totalOrderPrice());
     }
 }
