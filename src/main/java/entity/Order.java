@@ -11,8 +11,9 @@ public class Order implements Serializable {
     private int quantity;
     private int couponID;
     private Date date;
+    private String address;
 
-    public Order(int orderID, int cusID, double totalPrice, String status, int quantity, int couponID, Date date) {
+    public Order(int orderID, int cusID, double totalPrice, String status, int quantity, int couponID, Date date, String address) {
         this.orderID = orderID;
         this.cusID = cusID;
         this.totalPrice = totalPrice;
@@ -20,10 +21,19 @@ public class Order implements Serializable {
         this.quantity = quantity;
         this.couponID = couponID;
         this.date = date;
+        this.address = address;
     }
 
     public Order() {
 
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getOrderID() {

@@ -74,7 +74,9 @@ public class CreateOrder extends HttpServlet {
             if (order <= productStock) {
                 pDao.UpdateQuantity(cartId, order);
             } else {
-                request.setAttribute("error", "san pham da het hang");
+                request.setAttribute("error", "Sản phẩm đã hết hàng hoặc vượt quá số lượng tồn kho");
+                request.getRequestDispatcher("check-out.jsp").forward(request, response);
+                return;
             }
         }
 
@@ -93,12 +95,12 @@ public class CreateOrder extends HttpServlet {
             totalPrice = Double.parseDouble(priceDiscount);
         }
 
-        System.out.println("totalPrice: " + totalPrice);
+//        System.out.println("totalPrice: " + totalPrice);
         Date date = Date.valueOf(LocalDate.now());
 
         // tạo order mới
         OrderDAO ordDao = new OrderDAO();
-        int ordID = ordDao.createOrder(id, totalPrice, statusOrder, total, date);
+        int ordID = ordDao.createOrder(id, totalPrice, statusOrder, addressShipping, total, date);
 
         // tạo trường cho bảng quá trình vận chuyển
         ShippingDAO shippingDAO = new ShippingDAO();

@@ -10,8 +10,9 @@ public class HomePicture  implements Serializable {
     public String img3;
     public String img4;
     public String img5;
+    public String logo;
 
-    public HomePicture(int homeId, String bannerImg, String img1, String img2, String img3, String img4, String img5) {
+    public HomePicture(int homeId, String bannerImg, String img1, String img2, String img3, String img4, String img5,String logo) {
         this.homeId = homeId;
         this.bannerImg = bannerImg;
         this.img1 = img1;
@@ -19,10 +20,19 @@ public class HomePicture  implements Serializable {
         this.img3 = img3;
         this.img4 = img4;
         this.img5 = img5;
+        this.logo = logo;
     }
 
     public HomePicture() {
 
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     public void setHomeId(int homeId) {

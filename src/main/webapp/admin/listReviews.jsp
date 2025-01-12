@@ -64,7 +64,6 @@
                     <thead>
                     <tr>
                         <th>Tên người dùng</th>
-                        <th>Số điện thoại</th>
                         <th>Mã sản phẩm</th>
                         <th>Đánh giá</th>
                         <th>Sao</th>
@@ -76,7 +75,6 @@
                     <c:forEach items="${reviews}" var="o">
                         <tr>
                             <td>${o.customerName}</td>
-                            <td></td>
                             <td>${o.productID}</td>
                             <td>${o.comment}</td>
                             <td>${o.rating}</td>
@@ -95,6 +93,12 @@
                                           method="post">
                                         <input name="choice" type="hidden" value="1">
                                         <button type="submit" class="btn btn-info btn-customize" role="button">Duyệt
+                                        </button>
+                                    </form>
+                                    <form class="d-inline-block modify-re" data-id="${o.reviewID}"
+                                          method="post">
+                                        <input name="choice" type="hidden" value="-1">
+                                        <button type="submit" onclick="confirmDelete(this)" class="btn btn-danger btn-customize" role="button">Xóa
                                         </button>
                                     </form>
                                 </c:if>

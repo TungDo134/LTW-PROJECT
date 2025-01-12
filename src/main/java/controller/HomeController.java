@@ -24,6 +24,8 @@ public class HomeController extends HttpServlet {
         HomePictureDAO dao = new HomePictureDAO();
         HomePicture homePic = dao.getHomePic();
 
+
+
         // tải ds sp bán chạy
         ProductDAO productDAO = new ProductDAO();
         List<Product> bestP = productDAO.getBestSeller();

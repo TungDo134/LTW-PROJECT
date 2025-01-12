@@ -38,6 +38,7 @@ public class ChangePass extends HttpServlet {
             request.setAttribute("msg", "Mật khẩu cũ không đúng hoặc có lỗi xảy ra.");
             request.getRequestDispatcher("forms/changePassword.jsp").forward(request, response);
         } else {
+            session.removeAttribute("customer");
             response.sendRedirect("forms/signup-login.jsp");
         }
     }

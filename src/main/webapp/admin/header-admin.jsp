@@ -92,6 +92,7 @@
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
                     <img
+                            id="logoName"
                             src="<%= request.getContextPath()%>/assets/pic/logo.png"
                             alt="Logo"
                             style="width: 100%; background: var(--logo-color)"
@@ -216,7 +217,7 @@
                                 </li>
                                 <li class="sub-menu-item">
                                     <%--   GetAllAboutUsPic --%>
-                                    <a href="<%= request.getContextPath()%>/admin/all-aboutUs">Trang về chúng tôi</a>
+                                    <a href="<%= request.getContextPath()%>/admin/all-aboutUs">Trang giới thiệu</a>
                                 </li>
 
                             </ul>
@@ -275,5 +276,24 @@
 <script src="<%= request.getContextPath()%>/assets/js/header_admin.js"></script>
 <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 <script src="<%= request.getContextPath()%>/assets/js/datatable.js"></script>
+<script>
+    function loadLogo() {
+        $.ajax({
+            url: "${pageContext.request.contextPath}/load-logo",
+            type: "get",
+            success: function (data) {
+                console.log(data)
+                const contextPath = "<%=request.getContextPath()%>";
+                let imgSrc = contextPath + "/assets/pic/homePage/" + data.logoName
+                $("#logoName").attr("src", imgSrc)
+            },
+            error: function () {
+                console.log("co loi")
+            }
+        })
+    }
+    loadLogo();
+</script>
+
 </body>
 </html>

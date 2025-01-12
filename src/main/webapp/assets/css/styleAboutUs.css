@@ -163,6 +163,7 @@ img {
 }
 
 #intro-team .my-team {
+  padding: 60px 0px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -60,8 +60,9 @@ padding: 16px 8px;
                     aria-labelledby="offcanvasNavbarLabel"
             >
                 <div class="offcanvas-header">
-                    <!-- <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5> -->
+
                     <img
+
                             class="offcanvas-title"
                             id="offcanvasNavbarLabel"
                             src="assets/pic/logo.png"
@@ -87,9 +88,10 @@ padding: 16px 8px;
                 </div>
                 <div class="offcanvas-body align-items-center justify-content-evenly">
                     <a
+
                             class="navbar-brand d-none d-lg-block nav-brand-custom"
                             href="home"
-                    ><img src="assets/pic/logo.png" alt="" style="width: 100%"
+                    ><img id="logoName" src="assets/pic/logo.png" alt="" style="width: 100%"
                     /></a>
 
                     <ul class="navbar-nav align-items-start">
@@ -115,32 +117,7 @@ padding: 16px 8px;
                             </ul>
 
                         </li>
-                        <li class="nav-item dropdown w-100 custom-width-lg">
-                            <a
-                                    class="nav-link"
-                                    href="#"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                            >
-                                Pages<i class="fa-solid fa-chevron-down d-lg-none"></i>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="product-detail.jsp"
-                                    >Shop-Detail</a
-                                    >
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="Shopping-cart.jsp"
-                                    >Shop-Cart</a
-                                    >
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="check-out.jsp">Check-Out</a>
-                                </li>
-                            </ul>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="AboutUsPicController">Về chúng tôi</a>
                         </li>
@@ -255,13 +232,32 @@ padding: 16px 8px;
                 type: "get",
                 success: function (data) {
                     $("#myNav").append(data);
+
                 },
                 error: function () {
                 }
             })
         }
 
+
+        function loadLogo() {
+            $.ajax({
+                url: "${pageContext.request.contextPath}/load-logo",
+                type: "get",
+                success: function (data) {
+                    console.log(data)
+                    const contextPath = "<%=request.getContextPath()%>";
+                    let imgSrc = contextPath + "/assets/pic/homePage/" + data.logoName
+                    $("#logoName").attr("src", imgSrc)
+                },
+                error: function () {
+                    console.log("co loi")
+                }
+            })
+        }
+
         loadSubMenuHead();
+        loadLogo();
     });
 </script>
 

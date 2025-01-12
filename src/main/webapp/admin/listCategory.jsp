@@ -96,8 +96,9 @@
                                     sửa</a>
 
                                     <%-- DeleteCate --%>
-                                <a class="btn btn-danger btn-customize" href="<%=request.getContextPath()%>/admin/delete-cate?cID=${o.id}"
-                                    onclick="confirmDelete(this)"
+                                <a class="btn btn-danger btn-customize"
+                                   href="<%=request.getContextPath()%>/admin/delete-cate?cID=${o.id}"
+                                   onclick="confirmDelete(this)"
                                    role="button">Xóa</a>
 
                             </td>
@@ -111,7 +112,8 @@
 </div>
 <script>
     function confirmDelete(param) {
-        if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?")) {
+        if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?" +'\n'+
+            "Điều này sẽ xóa hết sản phẩm có thể loại này")) {
             event.preventDefault(); // Hủy bỏ hành động mặc định
         }
     }

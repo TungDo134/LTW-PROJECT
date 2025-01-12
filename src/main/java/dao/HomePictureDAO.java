@@ -30,7 +30,7 @@ public class HomePictureDAO {
     public int updateImg(String target, String img) {
         //Kiểm tra tên cột hợp lệ
 
-        List<String> allowedColumns = Arrays.asList("bannerImg", "img1", "img2", "img3", "img4", "img5");
+        List<String> allowedColumns = Arrays.asList("bannerImg", "img1", "img2", "img3", "img4", "img5", "logo");
         if (!allowedColumns.contains(target)) {
             throw new IllegalArgumentException("Invalid column name: " + target);
         }

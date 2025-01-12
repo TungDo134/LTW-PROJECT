@@ -58,7 +58,7 @@
 <div id="main-content">
     <div class="main-container">
         <div class="header">
-            <h1>Danh sách ảnh về chúng tôi</h1>
+            <h1>Danh sách ảnh trang giới thiệu</h1>
         </div>
         <div id="list-reviews-container">
 

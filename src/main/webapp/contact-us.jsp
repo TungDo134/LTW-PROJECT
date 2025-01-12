@@ -66,6 +66,10 @@
                     </div>
                 </div>
                 <div class="col_contact_2 col">
+                    <div><h5
+                            class="text-primary">
+                        <%=request.getAttribute("msg") != null ? request.getAttribute("msg") : ""  %>
+                    </h5></div>
                     <div class="contact_form">
                         <form action="feedback" method="post">
                             <div class="row_second">

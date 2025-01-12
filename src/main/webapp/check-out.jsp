@@ -35,6 +35,8 @@
             <div class="info-shipping">
                 <!-- Phần Thông tin giao hàng -->
                 <h2>THÔNG TIN GIAO HÀNG</h2>
+                <h2 style="color:#dc3545"><%=request.getAttribute("error") != null ? request.getAttribute("error") : ""  %>
+                </h2>
                 <div class="form-group">
                     <label for="name">Họ và Tên</label>
                     <input type="text" id="name" name="name" placeholder="Họ và Tên" value="${customer.name}" required/>
@@ -69,7 +71,7 @@
                 <div class="form-group">
                     <label for="addressShipping">Địa chỉ vận chuyển</label>
                     <input type="text" name="addressShipping" id="addressShipping" placeholder="Số Nhà, Tên Đường"
-                          required="required" value="${customer.addressShipping}"/>
+                           required="required" value="${customer.addressShipping}"/>
                 </div>
                 <div class="select-address d-none">
                     <div class="form-group">
@@ -274,10 +276,10 @@
             success: function (response) {
                 console.log(response);
                 $("input[name='priceDiscount']").val(response.finalPrice)
-                $(".priceDiscount").text(formatCurrency(response.finalPrice ));
+                $(".priceDiscount").text(formatCurrency(response.finalPrice));
 
                 function formatCurrency(value) {
-                    return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
+                    return new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(value);
                 }
             },
         })

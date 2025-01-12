@@ -18,7 +18,7 @@ public class ReviewDAO {
     // Hiển thị review cho sản phẩm đó (rv này đã được admin duyệt)
     public List<Review> getAllReviewByPID(String pID) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                (handle.createQuery("select * from reviews where productID =:pID && display = 1 ")
+                (handle.createQuery("select * from reviews where productID =:pID")
                         .bind("pID", pID)
                         .mapToBean(Review.class).list())
         );

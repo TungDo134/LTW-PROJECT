@@ -38,11 +38,13 @@ public class FeedbackController extends HttpServlet {
             feedbackDAO.addFeedback(feedback);
 
             // Chuyển hướng tới trang xác nhận sau khi gửi phản hồi thành công
-            response.sendRedirect("contact-us.jsp");
+//            response.sendRedirect("contact-us.jsp");
+            request.setAttribute("msg", "Chúng tôi đã ghi nhận phản hổi của bạn và sẽ sớm trả lời, Chúc bạn 1 ngày tốt lành");
+            request.getRequestDispatcher("contact-us.jsp").forward(request, response);
 
         } else {
             // Nếu có dữ liệu thiếu, thông báo lỗi
-            request.setAttribute("error", "Vui lòng điền đầy đủ thông tin.");
+            request.setAttribute("msg", "Vui lòng điền đầy đủ thông tin.");
             request.getRequestDispatcher("contact-us.jsp").forward(request, response);
         }
     }

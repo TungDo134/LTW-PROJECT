@@ -124,7 +124,7 @@
                                         </div>
                                         <div>
                                             <h4>Địa chỉ giao hàng: </h4>
-                                            <h4>${addressShip}</h4>
+                                            <h4>${o.address}</h4>
                                         </div>
 
                                         <div>

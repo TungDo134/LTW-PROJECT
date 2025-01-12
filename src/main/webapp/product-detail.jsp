@@ -543,37 +543,61 @@
                             </div>
 
                             <c:forEach items="${reviews}" var="o">
-                                <div class="review-list">
-                                    <div class="review-item">
-                                        <div class="item-desktop">
-                                            <div class="review-header">
-                                                <div class="item-left">
-                                                    <div class="item-top">
-                                                        <div class="item-details">
-                                                            <p>${o.customerName}</p>
-                                                            <p>${o.date}</p>
+                                <c:if test="${o.display==0}">
+                                    <div class="review-list">
+                                        <div class="review-item">
+                                            <div class="item-desktop">
+                                                <div class="review-header">
+                                                    <div class="item-left">
+                                                        <div class="item-top">
+                                                            <div class="item-details">
+                                                                <p>${o.customerName}</p>
+                                                                <p>${o.date}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-bottom">
+                                                            <p>Bình luận đang được kiểm duyệt</p>
                                                         </div>
                                                     </div>
-                                                    <div class="item-bottom">
-                                                        <p>${o.comment}.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="item-right">
-                                                        <%-- <p>Rating: ${o.rating}/5</p>--%>
-                                                        <%-- <p>★★★★★</p>--%>
-                                                    <c:forEach var="i" begin="1" end="5">
-                                                        <c:choose>
-                                                            <c:when test="${i <= o.rating}">
-                                                                <span class="star">★</span> </c:when>
-                                                            <c:otherwise>
-                                                                <span class="star">☆</span> </c:otherwise>
-                                                        </c:choose>
-                                                    </c:forEach>
+
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </c:if>
+                                <c:if test="${o.display==1}">
+                                    <div class="review-list">
+                                        <div class="review-item">
+                                            <div class="item-desktop">
+                                                <div class="review-header">
+                                                    <div class="item-left">
+                                                        <div class="item-top">
+                                                            <div class="item-details">
+                                                                <p>${o.customerName}</p>
+                                                                <p>${o.date}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-bottom">
+                                                            <p>${o.comment}.</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-right">
+                                                            <%-- <p>Rating: ${o.rating}/5</p>--%>
+                                                            <%-- <p>★★★★★</p>--%>
+                                                        <c:forEach var="i" begin="1" end="5">
+                                                            <c:choose>
+                                                                <c:when test="${i <= o.rating}">
+                                                                    <span class="star">★</span> </c:when>
+                                                                <c:otherwise>
+                                                                    <span class="star">☆</span> </c:otherwise>
+                                                            </c:choose>
+                                                        </c:forEach>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:if>
                             </c:forEach>
 
                             <!-- Đóng thẻ review-pane -->

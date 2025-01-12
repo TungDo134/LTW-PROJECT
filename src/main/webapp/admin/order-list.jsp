@@ -60,6 +60,7 @@
                         <th>ID đơn hàng</th>
                         <th>Tổng tiền hóa đơn</th>
                         <th>Số lượng</th>
+                        <th>Địa chỉ</th>
                         <th>Trạng thái</th>
                         <th>Hoạt động</th>
                     </tr>
@@ -73,6 +74,7 @@
                                 <f:formatNumber value="${o.totalPrice}" type="currency"/>
                             </td>
                             <td>${o.quantity}</td>
+                            <td>${o.address}</td>
                             <td>
                                 <c:if test="${o.status eq 'đang xử lí'}">
                                     <p style="padding: 4px; width: 130px"

@@ -68,6 +68,7 @@
                     <thead>
                     <tr>
                         <th>Ảnh banner</th>
+                        <th>Ảnh logo</th>
                         <th>Ảnh 1</th>
                         <th>Ảnh 2</th>
                         <th>Ảnh 3</th>
@@ -83,6 +84,10 @@
                                 <img style="width: 250px !important;"
                                      src="<%=request.getContextPath()%>/assets/pic/homePage/${o.bannerImg}"/></a>
                             </td>
+                            <td><a href="update-homePic?target=logo&value=${o.logo}&choice=1">
+                                <img style="width: 250px !important;"
+                                     src="<%=request.getContextPath()%>/assets/pic/homePage/${o.logo}"/></a>
+                            </td>
                             <td><a href="update-homePic?target=img1&value=${o.img1}&choice=1"><img
                                     src="<%=request.getContextPath()%>/assets/pic/homePage/${o.img1}"/></a></td>
                             <td><a href="update-homePic?target=img2&value=${o.img2}&choice=1"><img
@@ -97,8 +102,6 @@
                     </c:forEach>
                     </tbody>
                 </table>
-
-
             </div>
 
         </div>

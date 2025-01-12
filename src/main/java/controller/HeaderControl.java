@@ -1,6 +1,7 @@
 package controller;
 
 import dao.CategoryDAO;
+import dao.HomePictureDAO;
 import entity.Category;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
@@ -17,12 +18,16 @@ public class HeaderControl extends HttpServlet {
         CategoryDAO cate=new CategoryDAO();
         PrintWriter out = response.getWriter();
 
+        HomePictureDAO hp=new HomePictureDAO();
+
+
         List<Category> listCate= cate.getAllCate();
 
         for (Category cat : listCate) {
             // trả về đoạn mã html cho từng danh mục
             out.println("<li><a class='dropdown-item' href='product-cate?cID=" + cat.getId() + "'>" + cat.getName() + "</a></li>");
         }
+
     }
 
     @Override
