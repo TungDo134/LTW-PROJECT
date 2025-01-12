@@ -25,10 +25,6 @@ public class ChangePass extends HttpServlet {
         HttpSession session = request.getSession(false);
         Customer cus = (Customer) session.getAttribute("customer");
 
-        if (cus == null) {
-            response.sendRedirect("login");
-            return;
-        }
 
         // Mã hóa mật khẩu cũ và mới
         password = MaHoaMK.toSHA1(password);
@@ -42,8 +38,7 @@ public class ChangePass extends HttpServlet {
             request.setAttribute("msg", "Mật khẩu cũ không đúng hoặc có lỗi xảy ra.");
             request.getRequestDispatcher("forms/changePassword.jsp").forward(request, response);
         } else {
-            request.setAttribute("msg", "Đổi mật khẩu thành công!");
-            response.sendRedirect("home");
+            response.sendRedirect("forms/signup-login.jsp");
         }
     }
 }

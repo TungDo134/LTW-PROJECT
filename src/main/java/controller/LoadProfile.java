@@ -26,11 +26,8 @@ public class LoadProfile extends HttpServlet {
         HttpSession session = request.getSession(true);
         Customer cus = (Customer) session.getAttribute("customer");
 
-        // neu chua login thi chuyen ve trang login
-        if (cus == null) {
-            response.sendRedirect("forms/signup-login.jsp");
-            return;
-        }
+
+
         request.setAttribute("cus", cus);
 
         // check xem ng dung co phai dg muon doi thong tin hay khong

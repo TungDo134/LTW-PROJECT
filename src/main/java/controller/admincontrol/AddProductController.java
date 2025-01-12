@@ -60,7 +60,7 @@ public class AddProductController extends HttpServlet {
             try {
                 Field[] fields = SubImgProduct.class.getDeclaredFields();
                 var j = 0;
-                for (int i = 2; i < fields.length; i++) {
+                for (int i = 2; i <= fields.length && j < subImgs.length; i++) {
                     fields[i].setAccessible(true);
                     fields[i].set(subImgProduct, subImgs[j]);
                     j++;

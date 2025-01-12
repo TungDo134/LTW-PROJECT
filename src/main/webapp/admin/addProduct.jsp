@@ -133,16 +133,16 @@
                                     <input id="cateImg" required="" type="file" name="productImage"
                                            multiple onchange="loadImg()"/>
 
-                                    <%--                                    <div class="body-title">Tải hình ảnh chi tiết sản phẩm</div>--%>
-                                    <%--                                    <input--%>
-                                    <%--                                            class="form-control"--%>
-                                    <%--                                            type="file"--%>
-                                    <%--                                            id="formFileMultiple"--%>
+                                    <div class="body-title">Tải hình ảnh chi tiết sản phẩm</div>
+                                    <input
+                                            class="form-control"
+                                            type="file"
+                                            id="formFileMultiple"
 
-                                    <%--                                            multiple--%>
-                                    <%--                                            onchange="getData(this)"--%>
-                                    <%--                                    />--%>
-                                    <%--                                    <input type="hidden" name="subImg" id="subImg" value="">--%>
+                                            multiple
+                                            onchange="getData(this)"
+                                    />
+                                    <input type="hidden" name="subImg" id="subImg" value="">
                                     <div class="body-text">
                                         <div
                                                 id="imageContainer"

@@ -89,7 +89,7 @@
                                     <%--  ShowPageEditP --%>
                                 <a class="btn btn-success btn-customize" href="<%=request.getContextPath()%>/admin/show-product-edit?id=${o.productID}"
                                    role="button">Chỉnh sửa</a>
-                                        <a class="btn btn-success btn-customize" href="<%=request.getContextPath()%>/edit-sub-img?id=${o.productID}" role="button">Chỉnh sửa ảnh ct</a>
+                                        <a class="btn btn-success btn-customize" href="<%=request.getContextPath()%>/admin/edit-sub-img?id=${o.productID}" role="button">Chỉnh sửa ảnh ct</a>
 
                                 <a class="btn btn-danger btn-customize"
                                    onclick="confirmDelete(this)"

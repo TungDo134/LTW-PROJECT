@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.lang.reflect.Field;
 
-@WebServlet(name = "EditSubImg", value = "/edit-sub-img")
+@WebServlet(name = "EditSubImg", value = "/admin/edit-sub-img")
 public class EditSubImg extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,7 +47,7 @@ public class EditSubImg extends HttpServlet {
 
         request.setAttribute("sub", values);
         request.setAttribute("subId", idTxt);
-        request.getRequestDispatcher("admin/editSubImg.jsp").
+        request.getRequestDispatcher("editSubImg.jsp").
 
                 forward(request, response);
 

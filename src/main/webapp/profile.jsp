@@ -58,6 +58,12 @@
                             <button style="width: 10%">
                                 <a href="logout">Đăng xuất</a>
                             </button>
+                            <button style="width: 15%">
+                                <a
+                                        href="forms/changePassword.jsp"
+
+                                >Đổi mât khẩu</a>
+                            </button>
                         </div>
                     </div>
 

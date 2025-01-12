@@ -9,7 +9,7 @@ import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.lang.reflect.Field;
 
-@WebServlet(name = "UpdateSubImg", value = "/update-sub-img")
+@WebServlet(name = "UpdateSubImg", value = "/admin/update-sub-img")
 public class UpdateSubImg extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,9 +33,10 @@ public class UpdateSubImg extends HttpServlet {
                         fields[i].set(subImgProduct, Integer.parseInt(subId));
                     } else {
                         fields[i].set(subImgProduct, subImgs[j]);
-                    }
                     j++;
+                    }
                 }
+
                 System.out.println(subImgProduct);
 
                 // cập nhật

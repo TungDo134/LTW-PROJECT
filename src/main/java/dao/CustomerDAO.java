@@ -3,6 +3,7 @@ package dao;
 import context.JDBIContext;
 import entity.Customer;
 import org.jdbi.v3.core.Handle;
+import util.MaHoaMK;
 
 
 import java.util.List;
@@ -127,6 +128,17 @@ public class CustomerDAO {
 
             return rowsUpdated > 0; // Nếu có dòng bị ảnh hưởng thì trả về true
         });
+    }
+
+    public int resetPassword(String customerID) {
+        String sql = "update customers set pass=? where customerID= ?";
+        String tempPass= MaHoaMK.toSHA1("0");
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, tempPass)
+                        .bind(1, customerID)
+                        .execute()
+        );
     }
 
 

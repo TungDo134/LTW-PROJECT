@@ -98,6 +98,11 @@
                                href="<%= request.getContextPath()%>/admin/delete-user?cID=${o.id}"
                                onclick="confirmDelete(this)" role="button">Xóa</a>
 
+                                <%--   ResetPassword --%>
+                                <%--   Đưa mk về 0 --%>
+                            <a class="btn btn-warning btn-customize"
+                               href="<%= request.getContextPath()%>/admin/reset-password?cID=${o.id}"
+                               onclick="confirmDelete(this)" role="button">Reset pass</a>
                         </td>
                     </tr>
                 </c:forEach>

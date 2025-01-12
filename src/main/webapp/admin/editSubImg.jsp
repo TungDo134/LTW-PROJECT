@@ -74,11 +74,11 @@
 
 
             <form id="form-sub">
-                <c:forEach var="o" items="${sub}">
+                <c:forEach var="o" items="${sub}" varStatus="status">
                     <div>
                         <img src="<%=request.getContextPath()%>/assets/pic/subP/${o}" onerror="handleImageError(this);">
                         <input type="file">
-                        <input type="hidden" name="oldImg" value="${o}">
+                        <input type="text" name="oldImg" value="${o}" data-id="${status.index}">
                     </div>
                 </c:forEach>
 
@@ -93,27 +93,40 @@
 <script>
 
     function handleImageError(imgElement) {
-        imgElement.src = "assets/pic/subP/empty_img"; // Thay đổi src sang ảnh mặc định onerror="handleImageError(this);"
+        const contextPath = "<%=request.getContextPath()%>";
+        imgElement.src = contextPath + "/assets/pic/subP/empty_img"; // Thay đổi src sang ảnh mặc định onerror="handleImageError(this);"
         imgElement.alt = "Không thể tải hình ảnh gốc"; // Cập nhật thuộc tính alt
     }
 
 
     function getData() {
         let arrayImg = [];
-        $("input[name='oldImg']").each(function () {
-            let nameImg = $(this).val().trim();
-            if (nameImg !== "") {
-                arrayImg.push(nameImg);
-            }
-        });
+        // $("input[name='oldImg']").each(function () {
+        //     let nameImg = $(this).val().trim();
+        //     if (nameImg !== "") {
+        //         arrayImg.push(nameImg);
+        //     }
+        // });
 
 
         $("input[type='file']").each(function () {
             let nameImg = $(this).val().trim();
             if (nameImg !== "") {
                 arrayImg.push(nameImg.match(/[^\\/]+$/)[0]);
+            } else {
+                arrayImg.push(null)
             }
         });
+        console.log("mang sau khi lay value cua file: " + arrayImg);
+
+        for (let i = 0; i < arrayImg.length; i++) {
+            let dataId;
+            if (arrayImg[i] === null) { // Sử dụng === để so sánh chặt chẽ
+                dataId = $("input[data-id='" + i + "']").val();
+                arrayImg[i] = dataId; // Gán trực tiếp vào phần tử hiện tại của mảng
+            }
+        }
+        console.log("mang sau khi lay value cua oldImg: " + arrayImg);
 
         return arrayImg;
     }
@@ -135,12 +148,14 @@
                     subId: $("#subId").val()
                 },
                 success: function (response) {
-                    alert(response)
+                    alert("cập nhật thành công")
                 },
                 error: function (xhr, status, error) {
                     console.error("Error occurred:", status, error);
                 }
             })
+
+        console.log("Do dai cu mang: " + getData().length);
         console.log("Mang ten gom: " + $("#subImg").val());
     }
 
