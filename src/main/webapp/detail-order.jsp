@@ -30,7 +30,7 @@
             <nav class="breadcrumb" style="width: 500px">
                 <a href="home" style="color: #338dbc">Trang chủ</a>
                 &gt;
-                <a href="load-profile" style="color: #000; text-decoration: none">Thông tin cá nhân</a>
+                <a href="load-profile" style="color: #338dbc; text-decoration: none">Thông tin cá nhân</a>
                 &gt;
                 <span>Chi tiết đơn hàng</span>
             </nav>
@@ -53,7 +53,7 @@
             <div id="frame3" class="frame order active">
                 <div class="container-frameOrder">
                     <!-- Order Details and Summary -->
-                    <div class="order-container">
+                    <div class="order-container" style="display: flex">
                         <!-- Order Details -->
                         <div class="order-details">
                             <div class="order-header">

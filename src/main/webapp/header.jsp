@@ -153,11 +153,12 @@ padding: 16px 8px;
                             <button><i class="fa-regular fa-user"></i></button>
                             <div class="show">
                                 <ul class="show-option">
-                                    <li class="items">
-                                        <a href="admin/admin.jsp" style="color: #000"
-                                        >Admin</a>
-                                    </li>
-
+                                    <c:if test="${sessionScope.customer.role==1}">
+                                        <li class="items">
+                                            <a href="admin/admin.jsp" style="color: #000"
+                                            >Admin</a>
+                                        </li>
+                                    </c:if>
                                     <c:if test="${sessionScope.customer == null}">
                                         <li class="items">
                                             <a

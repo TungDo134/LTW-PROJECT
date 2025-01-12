@@ -28,11 +28,21 @@ public class ProductDAO {
 
     public List<Product> getProductByCate(int CateID) {
         return JDBIContext.getJdbi().withHandle(handle ->
+                (handle.createQuery("select * from products where cateID = :cateID")
+                        .bind("cateID", CateID)
+                        .mapToBean(Product.class).list())
+        );
+    }
+
+    public List<Product> getProductByCateLimit(int CateID) {
+        return JDBIContext.getJdbi().withHandle(handle ->
                 (handle.createQuery("select * from products where cateID = :cateID  order by productOrder desc limit 8")
                         .bind("cateID", CateID)
                         .mapToBean(Product.class).list())
         );
     }
+
+
 
     public List<Product> getProductSort(String choice) {
         return switch (choice) {

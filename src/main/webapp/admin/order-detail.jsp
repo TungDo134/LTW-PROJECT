@@ -136,24 +136,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="wg-box" style="gap: 10px; margin-top: 38px">
-                  <div class="body-title"></div>
-                  <div class="body-text"></div>
-                </div> -->
-                <!-- <div class="wg-box" style="gap: 10px">
-                  <div class="body-title">Phương thức thanh toán</div>
-                  <div class="body-text" style="width: 300px">COD</div>
-                </div> -->
-                <!-- <div class="wg-box" style="gap: 10px; display: none">
-                  <div class="body-title">Ngày giao hàng dự kiến</div>
-                  <div class="tf-color-2">22 tháng 11 năm 2023</div>
-                  <a class="tf-button" href="#">
-                    <i class="fa-solid fa-truck"></i>
-                    theo dõi đơn hàng
-                  </a>
-                </div> -->
             </div>
         </div>
+        <div><a href="all-order" class="btn bg-success px-4 py-2 float-end">Quay lại</a></div>
     </div>
 </div>
 
