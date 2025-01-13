@@ -84,7 +84,7 @@
                 </div>
                 <div class="icon">
                     <i class="fa-solid fa-headphones-simple"></i>
-                    <p>Luôn lắng nghe khách hàng</p>
+                    <p>Luôn lắng nghe khách hànggit </p>
                 </div>
                 <div class="icon">
                     <i class="fa-solid fa-box"></i>

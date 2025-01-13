@@ -29,7 +29,7 @@ public class ApplyVoucher extends HttpServlet {
 
             // truyen mã giảm giá vào để tính toán với tổng tiền của cart
             cart.getTotal();
-            double priceAfterDiscount = cart.getTotal() * coupon.getDiscount();
+            double priceAfterDiscount = cart.getTotal() - (cart.getTotal() * coupon.getDiscount());
 
 
             response.setContentType("application/json");
