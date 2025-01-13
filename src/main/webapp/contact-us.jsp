@@ -42,7 +42,7 @@
                             <span>Thông tin</span>
                             <h2>Liên hệ với chúng tôi</h2>
                             <p>
-                                Chúng tôi sẽ đáp ứng những tốt nhất như bạn mong đợi, chúng
+                                Chúng tôi sẽ đáp ứng những yêu cầu tốt nhất như bạn mong đợi, chúng
                                 tôi đặc biệt chú ý đến trải nghiệm cũng như chất lượng sản
                                 phẩm
                             </p>

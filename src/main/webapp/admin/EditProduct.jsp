@@ -104,7 +104,7 @@
                                             <input
                                                     name="productPrice"
                                                     type="text"
-                                                    placeholder="Vd: 100.000 "
+                                                    placeholder="Vd: 100000"
                                                     value="${p.productPrice}"
                                             />
                                         </div>

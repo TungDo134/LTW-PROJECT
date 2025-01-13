@@ -155,7 +155,7 @@ padding: 16px 8px;
                                 <ul class="show-option">
                                     <c:if test="${sessionScope.customer.role==1}">
                                         <li class="items">
-                                            <a href="admin/admin.jsp" style="color: #000"
+                                            <a href="admin/index" style="color: #000"
                                             >Admin</a>
                                         </li>
                                     </c:if>
@@ -256,7 +256,7 @@ padding: 16px 8px;
                     $("#logoName").attr("src", imgSrc)
                 },
                 error: function () {
-                    console.log("co loi")
+                    console.log("error")
                 }
             })
         }

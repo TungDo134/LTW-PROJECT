@@ -167,7 +167,7 @@
                                         </div>
                                     </fieldset>
                                     <fieldset class="name">
-                                        <div class="body-title">
+                                        <div class="body-title" style="margin-bottom: 28px">
                                             Miêu tả ngắn về sản phẩm <span>*</span>
                                         </div>
                                         <div class="select">
