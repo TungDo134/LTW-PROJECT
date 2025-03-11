@@ -36,7 +36,7 @@
     <nav
             class="navbar navbar-expand-lg bg-body-tertiary"
             style="
-background-color: #faf7f0 !important;
+background-color: #d1d1d1 !important;
 box-shadow: 0 0 5px 0 rgba(102, 102, 102, 0.4);
 padding: 16px 8px;
 "
