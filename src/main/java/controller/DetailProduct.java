@@ -34,7 +34,7 @@ public class DetailProduct extends HttpServlet {
 
         // Lấy các sản phẩm cùng thể loại
         ProductDAO proDao = new ProductDAO();
-        List<Product> productByCate = proDao.getProductByCate(product.getCateID());
+        List<Product> productByCate = proDao.getProductByCateLimit(product.getCateID());
 
 
         // Thống kê số lượng đánh giá theo các mức sao

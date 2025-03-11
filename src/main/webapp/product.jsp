@@ -53,7 +53,7 @@
                             data-bs-target="#offcanvasWithBothOptions"
                             aria-controls="offcanvasWithBothOptions"
                     >
-                        Filter
+                        Lọc
                         <i class="fa-solid fa-caret-down"></i>
                     </button>
 

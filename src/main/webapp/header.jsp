@@ -153,11 +153,12 @@ padding: 16px 8px;
                             <button><i class="fa-regular fa-user"></i></button>
                             <div class="show">
                                 <ul class="show-option">
-                                    <li class="items">
-                                        <a href="admin/admin.jsp" style="color: #000"
-                                        >Admin</a>
-                                    </li>
-
+                                    <c:if test="${sessionScope.customer.role==1}">
+                                        <li class="items">
+                                            <a href="admin/index" style="color: #000"
+                                            >Admin</a>
+                                        </li>
+                                    </c:if>
                                     <c:if test="${sessionScope.customer == null}">
                                         <li class="items">
                                             <a
@@ -204,7 +205,11 @@ padding: 16px 8px;
                                 style="line-height: normal; color: #333333cc">
                         shopping_bag
                         </span></a>
-                        <a href="load-profile">${sessionScope.customer.name}</a>
+                        <c:if test="${sessionScope.customer != null}"><a style="color: #000" href="load-profile">
+                            Xin chào <p
+                                style="color: #000;margin: 0;font-weight: 700;">${sessionScope.customer.name}</p>
+                        </a> </c:if>
+
                     </div>
                 </div>
             </div>
@@ -251,7 +256,7 @@ padding: 16px 8px;
                     $("#logoName").attr("src", imgSrc)
                 },
                 error: function () {
-                    console.log("co loi")
+                    console.log("error")
                 }
             })
         }

@@ -148,7 +148,7 @@
                     subId: $("#subId").val()
                 },
                 success: function (response) {
-                    alert("cập nhật thành công")
+                    location.reload();
                 },
                 error: function (xhr, status, error) {
                     console.error("Error occurred:", status, error);

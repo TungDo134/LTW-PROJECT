@@ -22,7 +22,7 @@ $("button").click(function () {
     let value = parseInt(quantity.find(".p-quantity").val(), 10);
     if ("increase" === upOrDown) {
         value++;
-    } else {
+    } else if ("decrease" === upOrDown) {
         value--;
         if (value < 1) return;
     }

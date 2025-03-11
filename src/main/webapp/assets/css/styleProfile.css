@@ -9,13 +9,16 @@
 body,
 html {
     font-family: "Nunito Sans", sans-serif;
+    background-color: #faf7f0;
+
 }
 
 .Page-profile {
+    margin-top: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     background-color: #faf7f0;
 }
 
@@ -271,8 +274,7 @@ button:hover > a {
 }
 
 .container-profile .content .frame.order .container-frameOrder .order-container {
-    display: flex;
-    gap: 20px;
+
 }
 
 .container-profile .content .frame.order .container-frameOrder .order-container .order-details {

@@ -33,13 +33,13 @@ public class CreateOrder extends HttpServlet {
 
 
         // lấy ra phương thức thanh toán
-        if ("ATM".equals(payment)) {
+        if ("ATM".equalsIgnoreCase(payment)) {
             payment = "ATM, VISA";
             statusOrder = "đã thanh toán";
-        } else if ("MOMO".equals(payment)) {
+        } else if ("MoMo".equalsIgnoreCase(payment)) {
             payment = "MOMO";
-            statusOrder = "đang xử lí";
-        } else if ("COD".equals(payment)) {
+            statusOrder = "đã thanh toán";
+        } else {
             payment = "COD";
             statusOrder = "đang xử lí";
         }
