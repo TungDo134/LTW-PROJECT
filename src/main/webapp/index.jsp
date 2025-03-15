@@ -236,6 +236,41 @@
         </div>
     </section>
 
+    <!-- Slider Sản phẩm mới -->
+    <h2 class="section-title">Sản phẩm Mới</h2>
+    <div class="slider-container swiper">
+        <div class="card-wrapper">
+            <ul class="card-list swiper-wrapper">
+                <c:forEach items="${newProducts}" var="product">
+                    <li class="card-item swiper-slide">
+                        <a href="detail?pid=${product.productID}" class="card-link">
+                            <img src="./assets/pic/products/${product.productImage}"
+                                 alt="${product.productName}" class="card-image"/>
+                            <p class="badge">${product.productName}</p>
+                            <h2 class="card-title number-format">
+                                <f:setLocale value="vi_VN"/>
+                                <f:formatNumber value="${product.productPrice}" type="currency"/>
+                            </h2>
+                            <button class="card-button">
+                                <i class="fa-solid fa-arrow-right" style="font-size: 1rem"></i>
+                            </button>
+                        </a>
+                    </li>
+                </c:forEach>
+            </ul>
+
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- Swiper Navigation -->
+            <div class="swiper-slide-button swiper-button-prev"></div>
+            <div class="swiper-slide-button swiper-button-next"></div>
+        </div>
+    </div>
+
+    <!-- Kết thúc Slider Sản phẩm mới -->
+
+
     <!-- Slider -->
     <h2 class="section-title">Sản phẩm nổi bật</h2>
     <div class="slider-container swiper">

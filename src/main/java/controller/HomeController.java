@@ -1,6 +1,5 @@
 package controller;
 
-import context.JDBIContext;
 import dao.CategoryDAO;
 import dao.HomePictureDAO;
 import dao.ProductDAO;
@@ -10,7 +9,6 @@ import entity.Product;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
-import org.jdbi.v3.core.Jdbi;
 
 import java.io.IOException;
 import java.util.List;
@@ -20,25 +18,28 @@ public class HomeController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // tải ảnh của trang home
+        // Tải ảnh của trang home
         HomePictureDAO dao = new HomePictureDAO();
         HomePicture homePic = dao.getHomePic();
 
-
-
-        // tải ds sp bán chạy
+        // Tải danh sách sản phẩm bán chạy
         ProductDAO productDAO = new ProductDAO();
         List<Product> bestP = productDAO.getBestSeller();
 
-        // tải ds cate
+        // Tải danh sách sản phẩm mới
+        List<Product> newProducts = productDAO.getNewPro();
+
+        // Tải danh sách danh mục
         CategoryDAO cateDao = new CategoryDAO();
         List<Category> listCate = cateDao.getAllCate();
 
+        // Truyền dữ liệu sang JSP
         request.setAttribute("homepictures", homePic);
         request.setAttribute("products", bestP);
+        request.setAttribute("newProducts", newProducts);
         request.setAttribute("listCate", listCate);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
 
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     @Override
