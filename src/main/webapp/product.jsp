@@ -45,7 +45,7 @@
         <div class="fs_bar py-3">
             <div class="row">
                 <!-- Filter -->
-                <div class="col-6">
+                <div class="col-6 fs-5">
                     <button
                             class="btn_filter"
                             type="button"
@@ -162,7 +162,7 @@
                 <!-- Sort -->
                 <div class="col">
                     <div class="sort" style="display: inline-block">
-                        <span>Sắp xếp:</span>
+                        <span class="fs-5 fw-medium">Sắp xếp:</span>
                         <div class="custom-select">
                             <div class="select-selected">Giá: Thấp đến cao</div>
                             <div class="select-options">
@@ -198,7 +198,7 @@
                         class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"
                 >
                     <c:forEach items="${products}" var="o">
-                        <div class="col">
+                        <div class="col px-4">
                             <div class="card border border-0">
                                 <a href="detail?pid=${o.productID}" class="forward-img">
                                     <!-- ảnh sản phẩm -->
@@ -206,7 +206,6 @@
                                         <img
                                                 src="assets/pic/products/${o.productImage}"
                                                 class="card-img-top"
-                                                style="background-color: #f4eee0"
                                                 alt="..."
                                         />
                                     </div>

@@ -24,7 +24,8 @@ public class RemoveCart extends HttpServlet {
         c.getTotal();
         isSuccess = true;
         response.setContentType("application/json");
-        response.getWriter().write("{\"isSuccess\":" + isSuccess + ", \"TotalQuantity\":" + c.getTotalQuantity() + ", \"Total\":" + c.getTotal() + "}");
+        response.getWriter().write("{\"isSuccess\":" + isSuccess + ", \"TotalQuantity\":"
+                + c.getTotalQuantity() + ", \"Total\":" + c.getTotal() + "}");
 
 
 //        request.getRequestDispatcher("Shopping-cart.jsp").forward(request,response);
