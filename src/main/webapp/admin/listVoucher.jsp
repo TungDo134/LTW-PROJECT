@@ -77,7 +77,7 @@
                                aria-label="Last name">
                     </div>
                 </div>
-                <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm">Thêm mã</button>
+                <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm" onclick="addVoucher(this)">Thêm mã</button>
             </form>
         </div>
         <div id="list-reviews-container">
@@ -127,7 +127,29 @@
             event.preventDefault(); // Hủy bỏ hành động mặc định
         }
     }
+</script>
+<script>
+    async function addVoucher() {
+        try {
+            const code = document.getElementById("code").value;
+            const discount = document.getElementById("discount").value;
+
+            const response = await fetch('<%= request.getContextPath()%>/admin/add-coupon', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ code, discount })
+            });
+
+            if (!response.ok) throw new Error("Lỗi khi thêm mã giảm giá");
+
+            alert("Thêm mã giảm giá thành công!");
+            location.reload();
+        } catch (error) {
+            alert('Lỗi: ' + error.message);
+        }
+    }
 
 </script>
+
 </body>
 </html>

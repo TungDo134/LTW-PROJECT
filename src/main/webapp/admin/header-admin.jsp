@@ -231,7 +231,8 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/all-coupon">Mục mã giảm giá</a>
+                                    <a href="<%= request.getContextPath()%>/a
+                                    dmin/all-coupon">Mục mã giảm giá</a>
                                 </li>
                                 <li class="sub-menu-item">
                                     <%--GetAllReview--%>
@@ -292,8 +293,10 @@
             }
         })
     }
+
     loadLogo();
 </script>
 
 </body>
+
 </html>
