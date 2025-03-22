@@ -33,8 +33,7 @@ public class AdminFilter implements Filter {
             httpResponse.sendRedirect(path + "/forms/signup-login.jsp");
             return;
         }
-
-        System.out.println("You in admin page");
+//        System.out.println("You in admin page");
         chain.doFilter(request, response);
     }
 }

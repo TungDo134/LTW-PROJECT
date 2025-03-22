@@ -19,6 +19,8 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
     ></script>
+    <!-- Load reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/styleFormSignup-login.css">
 </head>
 <body>
@@ -121,6 +123,8 @@
                 <span style=" display: block; color: darkred;
                         margin-left:54px">
                       <%=msgLogin != null ? msgLogin : ""%></span>
+                <!-- Google reCAPTCHA -->
+                <div class="g-recaptcha" data-sitekey="6LdjZ_wqAAAAAF5P3or0nPOS_jw9YXaEcnic3kQg"></div>
                 <button type="submit">Login</button>
             </form>
         </div>
