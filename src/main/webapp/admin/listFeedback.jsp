@@ -71,15 +71,15 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${listF}" var="o">
-                        <tr>
+                        <tr data-id=${o.fID}>
                             <td>${o.customerName}</td>
                             <td>${o.email}</td>
                             <td> ${o.fContent}</td>
                             <td>
                                     <%-- DeleteFeedback--%>
                                 <a class="btn btn-danger btn-customize"
-                                   href="<%=request.getContextPath()%>/admin/delete-feedback?fID=${o.fID}"
-                                   onclick="confirmDelete(this)"
+                                    <%--  href="<%=request.getContextPath()%>/admin/delete-feedback?fID=${o.fID}"--%>
+                                   onclick="confirmDelete(${o.fID}, this)"
                                    role="button">Xóa</a>
 
                             </td>
@@ -93,13 +93,32 @@
     </div>
 </div>
 
+<%--Ajax delete feedback--%>
 <script>
-    function confirmDelete(param) {
-        if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?")) {
-            event.preventDefault(); // Hủy bỏ hành động mặc định
+    async function confirmDelete(id, button) {
+        if (!confirm("Bạn có chắc chắn muốn xóa không?")) return;
+
+
+
+        let url = `${pageContext.request.contextPath}/admin/delete-feedback?fID=` + id;
+        try {
+            let response = await fetch(url, {method: 'Get'});
+            let data = await response.json();
+            if (data.isSuccess) {
+                let table = $("#myTable").DataTable();
+                let row = table.row("tr[data-id='" + id + "']");
+                row.remove().draw(false);
+                alert("Xóa thành công!");
+            } else {
+                alert("Có lỗi xảy ra!");
+            }
+        } catch (error) {
+            console.error("Có lỗi xảy ra:", error);
+        } finally {
+            button.disabled = false;
+            button.innerText = "Xóa";
         }
     }
-
 </script>
 </body>
 </html>

@@ -13,8 +13,13 @@ public class DeleteFeedback extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int feedback_id = Integer.parseInt(request.getParameter("fID"));
         FeedbackDAO dao = new FeedbackDAO();
-        dao.deleteFeedback(feedback_id);
-        response.sendRedirect("all-feedback");
+        boolean isSuccess = dao.deleteFeedback(feedback_id) > 0;
+
+        //  response.sendRedirect("all-feedback");
+        response.setContentType("application/json");
+        response.getWriter().write("{\"isSuccess\":" + isSuccess + "}");
+
+
     }
 
     @Override
