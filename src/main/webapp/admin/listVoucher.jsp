@@ -61,7 +61,7 @@
             <h1>Danh sách mã giảm giá</h1>
         </div>
         <div class="add-voucher" style="margin-bottom: 1rem">
-            <form action="<%= request.getContextPath()%>/admin/add-coupon" method="post">
+            <form id="voucherForm">
                 <div class="row">
                     <p class="text-Info"><%=message != null ? message : "" %>
                     </p>
@@ -77,7 +77,7 @@
                                aria-label="Last name">
                     </div>
                 </div>
-                <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm" onclick="addVoucher(this)">Thêm mã</button>
+                <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm" >Thêm mã</button>
             </form>
         </div>
         <div id="list-reviews-container">
@@ -129,11 +129,13 @@
     }
 </script>
 <script>
-    async function addVoucher() {
-        try {
-            const code = document.getElementById("code").value;
-            const discount = document.getElementById("discount").value;
+    document.getElementById("voucherForm").addEventListener("submit", async function (event) {
+        event.preventDefault(); // Ngăn chặn gửi form mặc định
 
+        const code = document.getElementById("code").value;
+        const discount = document.getElementById("discount").value;
+
+        try {
             const response = await fetch('<%= request.getContextPath()%>/admin/add-coupon', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -143,11 +145,12 @@
             if (!response.ok) throw new Error("Lỗi khi thêm mã giảm giá");
 
             alert("Thêm mã giảm giá thành công!");
-            location.reload();
+            location.reload(); // Reload lại danh sách mã giảm giá
         } catch (error) {
             alert('Lỗi: ' + error.message);
         }
-    }
+    });
+
 
 </script>
 
