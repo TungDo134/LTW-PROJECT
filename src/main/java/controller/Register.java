@@ -39,13 +39,13 @@ public class Register extends HttpServlet {
         if (cusDao.isUserExistsByEmail(email)) {
             msg = "Email đã tồn tại, vui lòng kiểm tra lại";
             request.setAttribute("msg", msg);
-            request.getRequestDispatcher("forms/signup-login.jsp").forward(request, response);
+            request.getRequestDispatcher("forms/signup.jsp").forward(request, response);
         } else {
             // check password
             if (!password.equals(rePassword)) {
                 msg = "Mật khẩu nhập lại không chính xác";
                 request.setAttribute("msg", msg);
-                request.getRequestDispatcher("forms/signup-login.jsp").forward(request, response);
+                request.getRequestDispatcher("forms/signup.jsp").forward(request, response);
 
             } else {
                 password = MaHoaMK.toSHA1(password);
@@ -66,7 +66,7 @@ public class Register extends HttpServlet {
                 msg = "Đăng ký thành công";
                 request.setAttribute("success", msg);
 //                response.sendRedirect("home");
-                request.getRequestDispatcher("forms/signup-login.jsp").forward(request, response);
+                request.getRequestDispatcher("forms/signup.jsp").forward(request, response);
             }
         }
 

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Đăng nhập - Đăng ký</title>
+    <title>Đăng ký</title>
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
@@ -19,13 +19,14 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
     ></script>
+
     <!-- Load reCAPTCHA script -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/styleFormSignup-login.css">
 </head>
 <body>
 <div class="login-signup-container">
-    <main class="login-signup">
+    <main class="login-signup ">
         <input type="checkbox" id="chk" aria-hidden="true"/>
         <%-- Đăng ký--%>
         <div class="signup">
@@ -36,7 +37,6 @@
             <form action="<%= request.getContextPath()%>/Register" method="post">
 
                 <div class="form-group">
-
                     <label for="chk" class="label-Signup" aria-hidden="true" style="margin-bottom: 20px"
                     >Đăng ký</label
                     >
@@ -96,36 +96,12 @@
                     <span class="form-message"></span>
                 </div>
                 <div class="btn-blue">
-                    <button type="submit">Đăng Kí</button>
+                    <button type="submit">Đăng Ký</button>
                 </div>
-            </form>
-        </div>
-
-
-        <%--  Đăng nhập--%>
-        <div class="login">
-            <form id="login-form" method="post" action="<%= request.getContextPath()%>/login">
-                <label class="label-Login" for="chk" aria-hidden="true"
-                >Đăng Nhập</label>
-
-                <input type="email" name="email-login" placeholder="Email" required=""/>
-                <input
-                        type="password"
-                        name="password-login"
-                        placeholder="Password"
-                        required=""
-                />
-                <i class="fa-regular fa-eye icon-show-hide"></i>
-
-                <a class="signup-image-link" href="/pages/forms/changePassword.jsp"
-                >Quên mật khẩu?</a
-                >
-                <span style=" display: block; color: darkred;
-                        margin-left:54px">
-                      <%=msgLogin != null ? msgLogin : ""%></span>
-                <!-- Google reCAPTCHA -->
-                <div class="g-recaptcha" data-sitekey="6LdjZ_wqAAAAAF5P3or0nPOS_jw9YXaEcnic3kQg"></div>
-                <button type="submit">Login</button>
+                <div class="forward-login">
+                    <p>Bạn đã có tài khoản?</p>
+                    <a class="login-btn" href="login.jsp">Đăng nhập</a>
+                </div>
             </form>
         </div>
     </main>

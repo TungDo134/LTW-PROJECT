@@ -162,13 +162,13 @@ padding: 16px 8px;
                                     <c:if test="${sessionScope.customer == null}">
                                         <li class="items">
                                             <a
-                                                    href="forms/signup-login.jsp"
+                                                    href="forms/login.jsp"
                                                     style="color: #000"
                                             >Đăng nhập</a>
                                         </li>
                                         <li class="items">
                                             <a
-                                                    href="forms/signup-login.jsp"
+                                                    href="forms/signup.jsp"
                                                     style="color: #000"
                                             >Đăng ký</a>
                                         </li>
