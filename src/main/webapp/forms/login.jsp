@@ -50,14 +50,20 @@
                 <span style="text-align: center; display: block; color: #198754">
                     ${success}</span>
 
-                <input type="email" name="email-login" placeholder="Email" required=""/>
-                <input
-                        type="password"
-                        name="password-login"
-                        placeholder="Password"
-                        required=""
-                />
-                <i class="fa-regular fa-eye icon-show-hide"></i>
+                <label for="email-login" class="form-label"> </label>
+                <input id="email-login" type="email" name="email-login" placeholder="Email" required=""/>
+
+                <label for="password-login" class="form-label"> </label>
+                <a class="show-hide-pass">
+                    <input
+                            id="password-login"
+                            type="password"
+                            name="password-login"
+                            placeholder="Password"
+                            required=""
+                    />
+                    <i class="fa-solid fa-eye" onclick="showHidePass(this)"></i>
+                </a>
 
                 <a class="signup-image-link" href="/pages/forms/changePassword.jsp"
                 >Quên mật khẩu?</a
@@ -75,5 +81,18 @@
         </div>
     </main>
 </div>
+<script>
+    // ẩn hiển mật khẩu
+    function showHidePass(icon) {
+        const input = icon.parentElement.querySelector("input");
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.replace("fa-eye", "fa-eye-slash");
+        } else {
+            input.type = "password";
+            icon.classList.replace("fa-eye-slash", "fa-eye");
+        }
+    }
+</script>
 </body>
 </html>

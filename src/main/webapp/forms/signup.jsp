@@ -32,7 +32,7 @@
         <div class="signup">
             <%
                 String msgRegister = (String) request.getAttribute("msg");
-                String msgLogin = (String) request.getAttribute("error");
+
             %>
             <form action="<%= request.getContextPath()%>/Register" method="post">
 
@@ -72,14 +72,19 @@
                 </div>
                 <div class="form-group">
                     <label for="password" class="form-label"> </label>
-                    <input
-                            id="password"
-                            name="password"
-                            type="password"
-                            placeholder="Mật khẩu"
-                            class="form-control"
-                            required=""
-                    />
+                    <a class="show-hide-pass">
+                        <input
+                                id="password"
+                                name="password"
+                                type="password"
+                                placeholder="Mật khẩu"
+                                class="form-control"
+                                required=""
+                                onblur="checkPass(this)"
+                                onfocus="clearError()"
+                        />
+                        <i class="fa-solid fa-eye" onclick="showHidePass(this)"></i>
+                    </a>
                     <span class="form-message"></span>
                 </div>
                 <div class="form-group">
@@ -91,10 +96,15 @@
                             placeholder="Nhập lại mật khẩu"
                             class="form-control"
                             required=""
+                            onblur="checkRePassword(this)"
+                            onfocus="clearError()"
                     />
 
                     <span class="form-message"></span>
                 </div>
+
+                <!-- Google reCAPTCHA -->
+                <div class="g-recaptcha" data-sitekey="6LdjZ_wqAAAAAF5P3or0nPOS_jw9YXaEcnic3kQg"></div>
                 <div class="btn-blue">
                     <button type="submit">Đăng Ký</button>
                 </div>
@@ -107,22 +117,45 @@
     </main>
 </div>
 <script>
-    // ẩn hiện mật khẩu
-    const password = $(".login input[type='password']");
-    const password_signup = $(".signup input[type='password']");
 
-    $(".icon-show-hide").on("click", function () {
-        // Kiểm tra nếu trường mật khẩu hiện tại là 'password'
-        if (password.attr("type") === "password") {
-            password.attr("type", "text"); // Đổi thành text
-            $(this).removeClass("fa-regular fa-eye");
-            $(this).addClass("fa-regular fa-eye-slash");
+    // ẩn hiển mật khẩu
+    function showHidePass(icon) {
+        const input = icon.parentElement.querySelector("input");
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.replace("fa-eye", "fa-eye-slash");
         } else {
-            password.attr("type", "password"); // Đổi lại thành password
-            $(this).removeClass("fa-regular fa-eye-slash");
-            $(this).addClass("fa-regular fa-eye");
+            input.type = "password";
+            icon.classList.replace("fa-eye-slash", "fa-eye");
         }
-    });
+    }
+
+    // ktra format password
+    function checkPass(input) {
+        let target = input.parentElement.parentElement.querySelector(".form-message")
+        if (input.value.length < 6) {
+            target.textContent = 'Mật khẩu tối thiểu 6 kí tự'
+        }
+    }
+
+    // ktra mật khẩu nhập lại
+    function checkRePassword(input) {
+        const password = document.getElementById("password").value
+        let re_pass = input.value
+        let error = input.parentElement.querySelector(".form-message")
+        if (re_pass !== password && re_pass !== '') {
+            error.textContent = 'Mật khẩu nhập lại không chính xác'
+        } else {
+            error.textContent = '';
+        }
+    }
+
+    function clearError() {
+        let messages = document.querySelectorAll(".form-message");
+        messages.forEach(message => {
+            message.textContent = ''; // Xóa nội dung từng phần tử
+        });
+    }
 </script>
 </body>
 </html>

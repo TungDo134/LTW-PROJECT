@@ -23,7 +23,7 @@ html {
 }
 .login-signup-container .login-signup {
   width: 350px;
-  height: 520px;
+  height: 600px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
@@ -153,4 +153,24 @@ button:hover {
 
 .g-recaptcha > div{
   margin: 26px;
+}
+
+.show-hide-pass{
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 42px;
+}
+
+.show-hide-pass > i{
+  position: absolute;
+  right: 62px;
+}
+
+.form-message{
+  text-align: center;
+  margin-right: 20px;
+  display: flow;
+  font-size: 14px;
+  color: red;
 }
