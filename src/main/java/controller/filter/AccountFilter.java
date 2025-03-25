@@ -30,7 +30,7 @@ public class AccountFilter implements Filter {
 
         // neu chua login thi chuyen ve trang login
         if (cus == null) {
-            httpResponse.sendRedirect("forms/signup-login.jsp");
+            httpResponse.sendRedirect("forms/login.jsp");
             return;
         }
 

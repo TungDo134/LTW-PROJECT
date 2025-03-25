@@ -46,7 +46,7 @@ public class Login extends HttpServlet {
             if (cus == null) {
 //          response.sendRedirect("forms/signup-login.jsp");
                 request.setAttribute("error", "Sai tài khoản hoặc mật khẩu");
-                request.getRequestDispatcher("forms/signup-login.jsp").forward(request, response);
+                request.getRequestDispatcher("forms/login.jsp").forward(request, response);
             } else {
                 HttpSession session = request.getSession();
                 session.setAttribute("customer", cus);
@@ -55,7 +55,7 @@ public class Login extends HttpServlet {
             }
         } else {
             request.setAttribute("error", "Chưa tích vào captcha");
-            request.getRequestDispatcher("forms/signup-login.jsp").forward(request, response);
+            request.getRequestDispatcher("forms/login.jsp").forward(request, response);
         }
     }
 
