@@ -5,14 +5,16 @@ import java.io.Serializable;
 public class OrderDetail implements Serializable {
     private int orderDetailID;
     private int orderID;
+    private int productID;
     private int quantity;
     private double price;
     private String productName;
     private String productImage;
 
-    public OrderDetail(int orderDetailID, int orderID, int quantity, double price, String productName, String productImage) {
+    public OrderDetail(int orderDetailID, int orderID, int productID, int quantity, double price, String productName, String productImage) {
         this.orderDetailID = orderDetailID;
         this.orderID = orderID;
+        this.productID = productID;
         this.quantity = quantity;
         this.price = price;
         this.productName = productName;
@@ -69,6 +71,14 @@ public class OrderDetail implements Serializable {
 
     public void setProductImage(String productImage) {
         this.productImage = productImage;
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
     }
 
     @Override

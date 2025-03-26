@@ -791,7 +791,7 @@ li {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #f4ecdf;
+  /*background: #f4ecdf;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -808,7 +808,7 @@ li {
 .swiper-pagination-bullet {
   width: 68px;
   height: 68px;
-  background: #f4eee0;
+  background: #fff;
   border-radius: 0;
   opacity: 1;
 }
