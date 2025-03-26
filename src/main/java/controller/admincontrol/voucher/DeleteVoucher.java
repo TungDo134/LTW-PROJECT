@@ -12,9 +12,11 @@ public class DeleteVoucher extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int voucher_id = Integer.parseInt(request.getParameter("vID").trim());
-        CouponDAO dao= new CouponDAO();
-        dao.deleteCoupon(voucher_id);
-        response.sendRedirect("all-coupon");
+        CouponDAO dao = new CouponDAO();
+        boolean isSuccess = dao.deleteCoupon(voucher_id) > 0;
+
+        response.setContentType("application/json");
+        response.getWriter().write("{\"isSuccess\":" + isSuccess + "}");
     }
 
     @Override

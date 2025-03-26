@@ -21,9 +21,9 @@ public class CouponDAO {
                 handle.createUpdate("INSERT INTO coupons (code, discount) VALUES (:code, :discount)")
                         .bind("code", code)
                         .bind("discount", discount)
-                        .execute())
-
-
+                        .executeAndReturnGeneratedKeys("id") // Trả về khóa tự động tăng của cột `id`
+                        .mapTo(int.class) // Map giá trị `id` sang kiểu `int`
+                        .one()) // Lấy giá trị duy nhất (ID)
         );
     }
 

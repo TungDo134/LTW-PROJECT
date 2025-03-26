@@ -61,10 +61,9 @@
             <h1>Danh sách mã giảm giá</h1>
         </div>
         <div class="add-voucher" style="margin-bottom: 1rem">
-            <form action="<%= request.getContextPath()%>/admin/add-coupon" method="post">
+            <form id="myForm">
                 <div class="row">
-                    <p class="text-Info"><%=message != null ? message : "" %>
-                    </p>
+                    <p id="message" class="text-info"></p>
                     <div class="col col-2 ">
                         <label for="code" class="pb-2">Tên mã giảm</label>
                         <input id="code" name="code" type="text" class="form-control" placeholder="Mã giảm"
@@ -94,7 +93,7 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${listV}" var="o">
-                        <tr>
+                        <tr data-id="${o.couponId}">
                             <td>${o.code}</td>
                             <td>${o.discount}</td>
                             <td>
@@ -105,29 +104,87 @@
                                     sửa</a>
                                 <a class="btn btn-danger btn-customize"
                                     <%-- DeleteVoucher--%>
-                                   href="<%=request.getContextPath()%>/admin/delete-voucher?vID=${o.couponId}"
-                                   onclick="confirmDelete(this)"
+                                    <%--  href="<%=request.getContextPath()%>/admin/delete-voucher?vID=${o.couponId}"--%>
+                                   onclick="confirmDelete(this,${o.couponId})"
                                    role="button">Xóa</a>
                             </td>
                         </tr>
                     </c:forEach>
                     </tbody>
                 </table>
-
-
             </div>
-
         </div>
     </div>
 </div>
 
 <script>
-    function confirmDelete(param) {
-        if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?")) {
-            event.preventDefault(); // Hủy bỏ hành động mặc định
+    const url = `${pageContext.request.contextPath}/admin/add-coupon`
+    const url_custom = `${pageContext.request.contextPath}/admin/get-voucher?vID=`
+    const url_delete = `${pageContext.request.contextPath}/admin/delete-voucher?vID=`
+
+    document.getElementById("myForm").addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        // lấy data từ form
+        let formData = new URLSearchParams(new FormData(this));
+
+
+        // Duyệt qua cặp key-value trong FormData
+
+        try {
+            let response = await fetch(url, {
+                method: 'Post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: formData,
+            })
+
+            if (response.ok) {
+                let result = await response.json();
+                let vId = result.vId;
+                let table = $("#myTable").DataTable();
+                let actionButtons =
+                    "<a class='btn btn-success btn-customize' role='button'>Chỉnh sửa</a> " +
+                    "<a class='btn btn-danger btn-customize' onclick='confirmDelete(this, " + vId + ")' role='button'>Xóa</a>"
+                let newData = [
+                    document.getElementById("code").value.toUpperCase(),
+                    document.getElementById("discount").value,
+                    actionButtons
+                ];
+                table.row.add(newData).draw(false);
+                document.getElementById("message").textContent = "Thêm thành công"
+            } else {
+
+            }
+        } catch (error) {
+            console.error("Lỗi khi gửi request:", error);
+        }
+    })
+
+
+</script>
+
+<script>
+    async function confirmDelete(button, vId) {
+        if (!confirm("Bạn có chắc chắn muốn xóa không?")) return;
+        let url = `${pageContext.request.contextPath}/admin/delete-voucher?vID=` + vId;
+        let target = button.parentElement.parentElement
+        try {
+            let response = await fetch(url, {method: 'Get'});
+            let data = await response.json();
+            if (data.isSuccess) {
+                let table = $("#myTable").DataTable();
+                let row = table.row(target);
+                row.remove().draw(false);
+                alert("Xóa thành công!");
+            } else {
+                alert("Có lỗi xảy ra!");
+            }
+        } catch (error) {
+            console.error("Có lỗi xảy ra:", error);
         }
     }
-
 </script>
 </body>
 </html>

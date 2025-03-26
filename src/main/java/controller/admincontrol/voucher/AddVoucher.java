@@ -14,29 +14,26 @@ public class AddVoucher extends HttpServlet {
         String code = request.getParameter("code");
         String txt_Discount = request.getParameter("discount");
 
+        String msg = "";
+        int id = 0;
         if (code.isBlank() || txt_Discount.isBlank()) {
-            request.setAttribute("msg", "Thiếu mã giảm hoặc giá trị của mã");
-            request.getRequestDispatcher("all-coupon").forward(request, response);
+            msg = "Thiếu mã giảm hoặc giá trị của mã";
 
         } else {
             code = code.toUpperCase();
             double discount = Double.parseDouble(txt_Discount.trim());
             CouponDAO couponDAO = new CouponDAO();
 
-            if (couponDAO.isCouponExist(code)) {
-                request.setAttribute("msg", "Mã giảm giá đã tồn tại");
-                request.getRequestDispatcher("all-coupon").forward(request, response);
-                return;
-            }
+            if (couponDAO.isCouponExist(code)) msg = "Mã giảm giá đã tồn tại";
 
-            int row = couponDAO.addCoupon(code, discount);
-            if (row >= 1) {
-                request.setAttribute("msg", "Thêm mã thành công");
-                request.getRequestDispatcher("all-coupon").forward(request, response);
-//                return;
-//                response.sendRedirect("all-coupon");
+            id = couponDAO.addCoupon(code, discount);
+            if (id >= 1) {
+                msg = "Thêm mã thành công";
             }
         }
+
+        response.setContentType("application/json");
+        response.getWriter().write("{\"msg\": \"" + msg + "\", \"vId\": " + id + "}");
 
 
     }

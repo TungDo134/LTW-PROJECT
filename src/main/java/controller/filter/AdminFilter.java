@@ -30,7 +30,7 @@ public class AdminFilter implements Filter {
         String path = ((HttpServletRequest) request).getContextPath();
         if (admin == null || admin.getRole() != 1) {
             System.out.println("Khong phai admin hoac chua dang nhap");
-            httpResponse.sendRedirect(path + "/forms/signup-login.jsp");
+            httpResponse.sendRedirect(path + "/forms/signup.jsp");
             return;
         }
 //        System.out.println("You in admin page");
