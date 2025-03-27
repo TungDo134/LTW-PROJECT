@@ -54,9 +54,9 @@
             <h1> Chỉnh sửa mã giảm giá </h1>
         </div>
         <%-- UpdateVoucher--%>
-        <form action="<%=request.getContextPath()%>/admin/update-voucher" method="post">
+        <form id="myForm">
             <div class="row">
-                <input hidden="hidden" value="${coupon.couponId}" name="id">
+                <input hidden="hidden" value="${coupon.couponId}" name="id" id="id">
                 <div class="col">
 
                     <input value="${coupon.code}" id="name" name="code" type="text" class="form-control"
@@ -68,8 +68,36 @@
                 </div>
             </div>
             <button style="margin-top: 1rem" type="submit" class="btn btn-primary btn-sm">Cập nhật</button>
+            <a style="margin-top: 1rem" class="btn btn-primary btn-sm"
+               href="<%= request.getContextPath()%>/admin/all-coupon">Quay lại</a>
         </form>
     </div>
 </div>
+<script>
+    document.getElementById("myForm").addEventListener("submit", async function (event) {
+        event.preventDefault();
+        // lấy data từ form
+        let formData = new URLSearchParams(new FormData(this));
+        let url = `${pageContext.request.contextPath}/admin/update-voucher`
+        try {
+            let response = await fetch(url, {
+                method: 'Post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: formData,
+            })
+
+            let result = await response.json();
+            if (result.isSuccess) {
+                alert("CẬP NHẬT THÀNH CÔNG")
+            } else {
+                alert("CẬP NHẬT THẤT BẠI")
+            }
+        } catch (error) {
+
+        }
+    })
+</script>
 </body>
 </html>

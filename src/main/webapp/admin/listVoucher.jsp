@@ -63,7 +63,7 @@
         <div class="add-voucher" style="margin-bottom: 1rem">
             <form id="myForm">
                 <div class="row">
-                    <p id="message" class="text-info"></p>
+                    <p id="message" class="text-white"></p>
                     <div class="col col-2 ">
                         <label for="code" class="pb-2">Tên mã giảm</label>
                         <input id="code" name="code" type="text" class="form-control" placeholder="Mã giảm"
@@ -128,9 +128,6 @@
         // lấy data từ form
         let formData = new URLSearchParams(new FormData(this));
 
-
-        // Duyệt qua cặp key-value trong FormData
-
         try {
             let response = await fetch(url, {
                 method: 'Post',
@@ -140,12 +137,13 @@
                 body: formData,
             })
 
-            if (response.ok) {
-                let result = await response.json();
+            let result = await response.json();
+            console.log(result.isSuccess)
+            if (result.isSuccess) {
                 let vId = result.vId;
                 let table = $("#myTable").DataTable();
                 let actionButtons =
-                    "<a class='btn btn-success btn-customize' role='button'>Chỉnh sửa</a> " +
+                    "<a class='btn btn-success btn-customize' href='" + url_custom + vId + "' role='button'>Chỉnh sửa</a> " +
                     "<a class='btn btn-danger btn-customize' onclick='confirmDelete(this, " + vId + ")' role='button'>Xóa</a>"
                 let newData = [
                     document.getElementById("code").value.toUpperCase(),
@@ -154,14 +152,21 @@
                 ];
                 table.row.add(newData).draw(false);
                 document.getElementById("message").textContent = "Thêm thành công"
+                setTimeout(function () {
+                    document.getElementById("message").textContent = "";
+                }, 5000)
             } else {
-
+                document.getElementById("message").classList.replace("text-white", "text-danger");
+                document.getElementById("message").textContent = result.msg
+                setTimeout(function () {
+                    document.getElementById("message").classList.replace("text-danger", "text-white");
+                    document.getElementById("message").textContent = "";
+                }, 5000)
             }
         } catch (error) {
             console.error("Lỗi khi gửi request:", error);
         }
     })
-
 
 </script>
 
@@ -177,7 +182,10 @@
                 let table = $("#myTable").DataTable();
                 let row = table.row(target);
                 row.remove().draw(false);
-                alert("Xóa thành công!");
+                document.getElementById("message").textContent = "Xóa thành công"
+                setTimeout(function () {
+                    document.getElementById("message").textContent = "";
+                }, 5000)
             } else {
                 alert("Có lỗi xảy ra!");
             }

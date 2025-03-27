@@ -16,9 +16,11 @@ public class UpdateVoucher extends HttpServlet {
         String discount = request.getParameter("discount");
 
         CouponDAO cdao = new CouponDAO();
-        int row = cdao.updateCoupon(id, code, discount);
+        boolean isSuccess = cdao.updateCoupon(id, code, discount) > 0;
 
-        response.sendRedirect("all-coupon");
+        response.setContentType("application/json");
+        response.getWriter().write("{\"isSuccess\":" + isSuccess + "}");
+
 
     }
 
