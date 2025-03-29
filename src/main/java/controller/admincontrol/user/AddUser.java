@@ -5,6 +5,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 import helper.MaHoaMK;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -33,10 +34,11 @@ public class AddUser extends HttpServlet {
         request.setAttribute("address", address);
         request.setAttribute("addressShipping", addressShipping);
 
+        String msg = "";
+        boolean isSuccess = false;
 
         if (customerName.isBlank() || email.isBlank()) {
-            request.setAttribute("msg", "Vui lòng nhập đầy tên và email");
-            request.getRequestDispatcher("addUser.jsp").forward(request, response);
+            msg = "Vui lòng nhập đầy đủ tên và email";
 
         } else {
             CustomerDAO cusDao = new CustomerDAO();
@@ -50,24 +52,26 @@ public class AddUser extends HttpServlet {
                 // Kiểm tra kết quả trả về từ phương thức insert
                 if (cus < 1) {
                     // Không thêm thành công
-                    request.setAttribute("msg", "Có lỗi, vui lòng kiểm tra lại thông tin.");
-                    request.getRequestDispatcher("addUser.jsp").forward(request, response);
-                    return;
-                }
+                    msg = "Có lỗi, vui lòng kiểm tra lại thông tin.";
 
-                // Thêm thành công
-                request.setAttribute("msg", "Thêm thành công.");
-                request.setAttribute("customer", cus);
-                request.getRequestDispatcher("addUser.jsp").forward(request, response);
-                return;
+                } else {
+                    // Thêm thành công
+                    msg = "Thêm thành công.";
+                    isSuccess = true;
+                }
 
             } catch (Exception e) {
                 // Bắt lỗi không mong muốn khác
                 e.printStackTrace(); // Ghi log lỗi
-                request.setAttribute("msg", "Đã có lỗi xảy ra. Vui lòng thử lại.");
-                request.getRequestDispatcher("addUser.jsp").forward(request, response);
+                msg = "Đã có lỗi xảy ra. Vui lòng thử lại.";
             }
-
         }
+
+        JSONObject jsonResponse = new JSONObject();
+        jsonResponse.put("msg", msg);
+        jsonResponse.put("isSuccess", isSuccess);
+
+        response.setContentType("application/json");
+        response.getWriter().write(jsonResponse.toString());
     }
 }

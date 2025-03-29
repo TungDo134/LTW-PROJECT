@@ -90,12 +90,13 @@
         let url = `${pageContext.request.contextPath}/admin/update-voucher`
         let formObj = {};
 
+
         for (let [key, value] of formData) {
             formObj[key] = value.trim();
 
             // Kiểm tra giá trị rỗng và xem giá trị có phải số
             if (!formObj[key] || isNaN(formObj['discount'])) {
-                return notify(false)
+                notify(false)
             } else {
                 notify(formObj[key])
             }
