@@ -17,7 +17,6 @@ public class UpdateVoucher extends HttpServlet {
 
         CouponDAO cdao = new CouponDAO();
         boolean isSuccess = cdao.updateCoupon(id, code, discount) > 0;
-
         response.setContentType("application/json");
         response.getWriter().write("{\"isSuccess\":" + isSuccess + "}");
 

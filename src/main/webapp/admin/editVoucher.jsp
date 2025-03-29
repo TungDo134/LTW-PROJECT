@@ -43,6 +43,13 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
+    <style>
+        #message {
+            font-size: 20px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body class="dark-theme">
 
@@ -55,14 +62,16 @@
         </div>
         <%-- UpdateVoucher--%>
         <form id="myForm">
+            <p id="message" class="text-white"></p>
             <div class="row">
                 <input hidden="hidden" value="${coupon.couponId}" name="id" id="id">
                 <div class="col">
-
+                    <label for="name" class="pb-2">Tên mã giảm</label>
                     <input value="${coupon.code}" id="name" name="code" type="text" class="form-control"
                            aria-label="First name">
                 </div>
                 <div class="col">
+                    <label for="discount" class="pb-2">Giá trị mã giảm</label>
                     <input value="${coupon.discount}" id="discount" name="discount" type="text" class="form-control"
                            aria-label="Last name">
                 </div>
@@ -79,6 +88,19 @@
         // lấy data từ form
         let formData = new URLSearchParams(new FormData(this));
         let url = `${pageContext.request.contextPath}/admin/update-voucher`
+        let formObj = {};
+
+        for (let [key, value] of formData) {
+            formObj[key] = value.trim();
+
+            // Kiểm tra giá trị rỗng và xem giá trị có phải số
+            if (!formObj[key] || isNaN(formObj['discount'])) {
+                return notify(false)
+            } else {
+                notify(formObj[key])
+            }
+        }
+
         try {
             let response = await fetch(url, {
                 method: 'Post',
@@ -90,14 +112,30 @@
 
             let result = await response.json();
             if (result.isSuccess) {
-                alert("CẬP NHẬT THÀNH CÔNG")
+                notify(result.isSuccess)
             } else {
-                alert("CẬP NHẬT THẤT BẠI")
+                notify(result.isSuccess)
             }
         } catch (error) {
-
         }
     })
+
+    // hàm thông báo trạng thái cập nhật
+    function notify(valid) {
+        if (valid) {
+            document.getElementById("message").textContent = 'Cập nhật thành công'
+            setTimeout(function () {
+                document.getElementById("message").textContent = "";
+            }, 5000)
+        } else {
+            document.getElementById("message").classList.replace("text-white", "text-danger");
+            document.getElementById("message").textContent = 'Cập nhật thất bại'
+            setTimeout(function () {
+                document.getElementById("message").classList.replace("text-danger", "text-white");
+                document.getElementById("message").textContent = "";
+            }, 5000)
+        }
+    }
 </script>
 </body>
 </html>
