@@ -292,10 +292,8 @@
             }
         })
     }
-
     loadLogo();
 </script>
 
 </body>
-
 </html>
