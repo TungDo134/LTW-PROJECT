@@ -46,8 +46,6 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
-
-
     <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleListReviews.css"/>
 </head>
 <body class="dark-theme">
@@ -73,18 +71,19 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${reviews}" var="o">
-                        <tr>
+                        <tr data-id="${o.reviewID}">
                             <td>${o.customerName}</td>
                             <td>${o.productID}</td>
                             <td>${o.comment}</td>
                             <td>${o.rating}</td>
                             <td>
                                 <c:if test="${o.display == 0}">
-                                    <p class="text-warning mx-0 my-0"> Chưa duyệt</p>
+                                    <p class="text-warning mx-0 my-0 " data-id="${o.reviewID}"> Chưa
+                                        duyệt</p>
                                 </c:if>
 
                                 <c:if test="${o.display == 1}">
-                                    <p class="text-info mx-0 my-0" data-id="${o.reviewID}"> Đã duyệt</p>
+                                    <p class="text-info mx-0 my-0 " data-id="${o.reviewID}"> Đã duyệt</p>
                                 </c:if>
                             </td>
                             <td>
@@ -98,7 +97,8 @@
                                     <form class="d-inline-block modify-re" data-id="${o.reviewID}"
                                           method="post">
                                         <input name="choice" type="hidden" value="-1">
-                                        <button type="submit" onclick="confirmDelete(this)" class="btn btn-danger btn-customize" role="button">Xóa
+                                        <button type="submit" onclick="confirmDelete(this)"
+                                                class="btn btn-danger btn-customize" role="button">Xóa
                                         </button>
                                     </form>
                                 </c:if>
@@ -113,7 +113,8 @@
                                     <form class="d-inline-block modify-re" data-id="${o.reviewID}"
                                           method="post">
                                         <input name="choice" type="hidden" value="-1">
-                                        <button type="submit" onclick="confirmDelete(this)" class="btn btn-danger btn-customize" role="button">Xóa
+                                        <button type="submit" onclick="confirmDelete(this)"
+                                                class="btn btn-danger btn-customize" role="button">Xóa
                                         </button>
                                     </form>
                                 </c:if>
@@ -123,19 +124,19 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 </div>
 
 <script>
-
     $(".modify-re").on("submit", function () {
         event.preventDefault();
         let form = $(this);
         let rID = $(this).data("id");
+
         let choice = parseInt($(this).find('input[name="choice"]').val());
         // console.log(rID + ' ' + choice);
+
 
         $.ajax({
             // ModifyReview
@@ -146,8 +147,27 @@
                 choice: choice
             },
             success: function (response) {
-                if (response.isSuccess) {
-                    location.reload()
+                let p = $("p[data-id='" + rID + "']");
+                console.log(p.length)
+                if (response.isSuccess && response.choose == 0) {
+                    // ẩn
+                    form.find(".btn").removeClass("btn-warning").addClass("btn-info");
+                    p.removeClass("text-info").addClass("text-warning").text("Đã ẩn");
+                    form.find(".btn").text("Duyệt")
+                    form.find('input[name="choice"]').val("1")
+
+                } else if (response.isSuccess && response.choose == 1) {
+                    // duyệt
+                    form.find(".btn").removeClass("btn-info").addClass("btn-warning");
+                    p.removeClass("text-warning").addClass("text-info").text("Đã duyệt");
+                    form.find(".btn").text("Ẩn")
+                    form.find('input[name="choice"]').val("0")
+                } else {
+                    // xóa
+                    let table = $("#myTable").DataTable();
+                    let row = table.row("tr[data-id='" + rID + "']");
+                    row.remove().draw(false);
+                    alert("Xóa thành công!");
                 }
             },
             error: function (status, error) {
@@ -155,7 +175,6 @@
             }
         })
     });
-
 </script>
 <script>
     function confirmDelete(param) {

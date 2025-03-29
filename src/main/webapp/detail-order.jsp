@@ -73,8 +73,13 @@
                                     <tbody>
                                     <c:forEach items="${listOrd}" var="o">
                                         <tr>
-                                            <td><img src="assets/pic/products/${o.productImage}"
-                                                     alt="Women Shoes">${o.productName}</td>
+
+                                            <td>
+                                                <a href="detail?pid=${o.productID}" class="forward-img">
+                                                    <img src="assets/pic/products/${o.productImage}"
+                                                         alt="Women Shoes">${o.productName}
+                                                </a>
+                                            </td>
                                             <td>${o.quantity}</td>
                                             <td>
                                                 <f:setLocale value="vi_VN"/>

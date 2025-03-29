@@ -97,9 +97,6 @@
 <script>
     async function confirmDelete(id, button) {
         if (!confirm("Bạn có chắc chắn muốn xóa không?")) return;
-
-
-
         let url = `${pageContext.request.contextPath}/admin/delete-feedback?fID=` + id;
         try {
             let response = await fetch(url, {method: 'Get'});

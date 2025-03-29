@@ -445,9 +445,10 @@ button:hover > a {
     margin-bottom: 1rem;
 
 }
-.order-content{
+
+.order-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
 
@@ -467,6 +468,11 @@ button:hover > a {
     border-radius: 10px;
 }
 
-.order_Customer .detail-order:hover{
+.order_Customer .detail-order:hover {
 
+}
+
+.forward-img {
+    color: #000;
+    text-decoration: none;
 }

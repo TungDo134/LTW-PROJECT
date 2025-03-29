@@ -48,8 +48,6 @@
 <body class="dark-theme">
 <jsp:include page="header-admin.jsp"></jsp:include>
 <%
-    String msg = request.getAttribute("msg") + "";
-    msg = msg != null ? msg : "";
     String customerName = (String) request.getAttribute("customerName");
     String email = (String) request.getAttribute("email");
     String pass = (String) request.getAttribute("pass");
@@ -61,10 +59,10 @@
     <div class="main-container">
         <div class="container">
             <h1>Thêm người dùng</h1>
-            <span class="text-info"> ${msg} </span>
+            <span class="text-info" id="message">  </span>
 
             <%-- AddUser --%>
-            <form action="<%=request.getContextPath()%>/admin/add-user" method="POST">
+            <form id="myForm">
 
                 <label for="username">Tên đăng nhập</label>
                 <input type="text" value="<%=customerName == null?"":customerName%>" id="username" name="username"
@@ -87,7 +85,7 @@
                        placeholder="Nhập địa chỉ người dùng">
 
                 <label for="role">Vai trò</label>
-                <select id="role" name="role">
+                <select id="role" name="role" required>
                     <option value="0">Người dùng</option>
                     <option value="1">Admin</option>
                 </select>
@@ -97,6 +95,55 @@
         </div>
     </div>
 </main>
+
+<script>
+    // Add user (ajax)
+    document.querySelector('#myForm').addEventListener('submit', async function (e) {
+        e.preventDefault()
+
+        // lấy data từ form
+        let formData = new URLSearchParams(new FormData(this))
+        let url = '${pageContext.request.contextPath}/admin/add-user'
+
+        try {
+            let response = await fetch(url, {
+                method: 'Post',
+                headers: {
+                    'Content-type': 'application/x-www-form-urlencoded'
+                },
+                body: formData
+            })
+
+            // xử lí logic
+            let rs = await response.json();
+            if (rs.isSuccess) {
+                notify(rs.isSuccess)
+            } else {
+                notify(rs.isSuccess, rs.msg)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+    })
+
+    // hàm thông báo trạng thái cập nhật
+    function notify(valid, msg) {
+        if (valid) {
+            document.getElementById("message").textContent = 'Thêm thành công'
+            setTimeout(function () {
+                document.getElementById("message").textContent = "";
+            }, 5000)
+        } else {
+            document.getElementById("message").classList.replace("text-info", "text-danger");
+            document.getElementById("message").textContent = msg
+            setTimeout(function () {
+                document.getElementById("message").classList.replace("text-danger", "text-info");
+                document.getElementById("message").textContent = "";
+            }, 5000)
+        }
+    }
+</script>
 </body>
 
 </html>

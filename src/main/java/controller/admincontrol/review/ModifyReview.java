@@ -24,13 +24,10 @@ public class ModifyReview extends HttpServlet {
             default -> false;
         };
 
-
         response.setContentType("application/json");
-        response.getWriter().write("{\"isSuccess\":" + isSuccess + "}");
+        response.getWriter().write("{\"isSuccess\":" + isSuccess + ", \"choose\":" + choice + "}");
         response.getWriter().flush();
 
-
-//        response.sendRedirect("all-review");
 
     }
 
