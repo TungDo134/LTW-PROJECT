@@ -4,6 +4,7 @@ import dao.CustomerDAO;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -21,8 +22,13 @@ public class UpdateUser extends HttpServlet {
 
         CustomerDAO cusDao = new CustomerDAO();
 
-        int row = cusDao.updateUser(customerName, email, phone, address, addressShipping, role);
-        response.sendRedirect("all-user");
+        boolean isSuccess = cusDao.updateUser(customerName, email, phone, address, addressShipping, role) > 0;
+
+        JSONObject jsonResponse = new JSONObject();
+        jsonResponse.put("isSuccess", isSuccess);
+
+        response.setContentType("application/json");
+        response.getWriter().write(jsonResponse.toString());
     }
 
     @Override
