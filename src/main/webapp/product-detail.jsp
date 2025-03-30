@@ -69,8 +69,8 @@
                 <div class="product-images">
                     <%-- Kiểm tra nếu có ảnh sản phẩm --%>
                     <% if (product.getProductImage() != null && !product.getProductImage().isEmpty()) { %>
-                    <img class="main-image" src="assets/pic/products/${detail.productImage}" alt="<%= product.getProductName() %>">
-                    <% } else { %>
+                        <img class="main-image" src="assets/pic/products/<%= product.getProductImage() %>" alt="<%= product.getProductName() %>">
+                        <% } else { %>
                     <p>Hình ảnh sản phẩm không có</p>
                     <% } %>
 
@@ -78,13 +78,15 @@
                     <% if (subImgP != null) { %>
                     <div class="thumbnail-container">
                         <% if (subImgP.getSubImg1() != null) { %>
-                        <img class="thumbnail" src="assets/pic/subP/${listSubImg.subImg1} " alt="Thumb 1">
+                        <img class="thumbnail" src="assets/pic/subP/<%= subImgP.getSubImg1() %>" alt="Thumb 1">
                         <% } %>
                         <% if (subImgP.getSubImg2() != null) { %>
-                        <img class="thumbnail" src="assets/pic/subP/${listSubImg.subImg2}" alt="Thumb 2">
+                        <img class="thumbnail" src="assets/pic/subP/<%= subImgP.getSubImg2() %>" alt="Thumb 2">
+
                         <% } %>
                         <% if (subImgP.getSubImg3() != null) { %>
-                        <img class="thumbnail" src="assets/pic/subP/${listSubImg.subImg3} " alt="Thumb 3">
+                        <img class="thumbnail" src="assets/pic/subP/<%= subImgP.getSubImg3() %>" alt="Thumb 3">
+
                         <% } %>
                     </div>
                     <% } %>
@@ -94,8 +96,9 @@
                     <h1 class="product-title"><%= product.getProductName() %></h1>
                     <p class="price">Giá: <%= product.getProductPrice() %> VND</p>
 
+
                     <div class="btn-container">
-                        <button class="btn">Thêm vào giỏ hàng</button>
+                        <button type="submit" class="btn addBtn btn-primary add-to-cart" form="add-to-cart-form" data-id="<%= product.getProductID() %>" onclick="getIdProduct(this)" >Thêm vào giỏ hàng</button>
                         <button class="btn btn-buy">Mua ngay</button>
                     </div>
 
@@ -175,16 +178,23 @@
                         </ul>
                     </div>
                 </div>
-                <div class="quantity">
+            <c:if test="${detail.productStock >0}">
+                <form id="add-to-cart-form" class="quantity" >
                     <div><strong>Số lượng:</strong></div>
                     <div class="change_quantity">
                         <button class="decrease">-</button>
-                        <div class="quantity_product">
-                            1
-                        </div>
+                        <input
+                                type="text"
+                                name=""
+                                id="quantity-input"
+                                class="p-quantity"
+                                value="1"
+                                min-value="1"
+                        />
                         <button class="increase">+</button>
                     </div>
-                </div>
+                </form>
+            </c:if>
             </div>
             <div class="detailInfo">
                 <table class="product-table">
@@ -562,28 +572,26 @@
 
 <%--  Add to cart AJAX (Detail Product) --%>
 <script>
-    function getIdProduct(tag) {
-        const pID = $(tag).data('id');
-        const quantity = $(".p-quantity").val().trim();
-        console.log(pID + ' ' + quantity)
+    document.querySelector("#add-to-cart-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Ngăn form load lại trang
+
+        const productId = document.querySelector(".add-to-cart").getAttribute("data-id");
+        const quantity = document.querySelector("#quantity-input").value;
+
         $.ajax({
-            url: 'add-card-dp', // Servlet URL
-            type: 'GET',
-            data: {
-                pID: pID,
-                quantity: quantity
+            url: "add-card-dp",
+            type: "GET",
+            data: { pID: productId, quantity },
+            success: function () {
+                alert("Sản phẩm đã thêm vào giỏ hàng!");
             },
-            success: function (response) {
-                const button = document.querySelector('.icon-p');
-                if (button) {
-                    button.click(); // Kích hoạt sự kiện click
-                }
-            },
-            error: function (xhr, status, error) {
-                alert('Error: ' + xhr.responseText);
+            error: function (xhr) {
+                console.error("Lỗi:", xhr.responseText);
             }
         });
-    }
+    });
+
+
 </script>
 
 
