@@ -22,7 +22,7 @@ $(".sub-menu-item a").on("click", function () {
 
 //
 var current_component=localStorage.getItem("submenuItem");
-console.log(current_component);
+// console.log(current_component);
 
 $(".sub-menu > li > a").on("click", function () {
     let component = $(this).text();

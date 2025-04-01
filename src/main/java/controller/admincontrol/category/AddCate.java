@@ -1,5 +1,7 @@
 package controller.admincontrol.category;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import dao.CategoryDAO;
 import entity.Category;
 import jakarta.servlet.*;
@@ -17,26 +19,35 @@ public class AddCate extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json");
+
         String name = request.getParameter("nameCate");
         String img = request.getParameter("imgCate");
+        boolean isSuccess = false;
+        String msg = "";
+        int cID = 0;
 
         if (name.isBlank() || img.isBlank()) {
-            request.setAttribute("msg", "Dữ liệu nhập vào không được trống");
-            request.getRequestDispatcher("admin/get-all-cate").forward(request, response);
-
+            msg = "Dữ liệu nhập vào không được trống";
         } else {
             CategoryDAO categoryDAO = new CategoryDAO();
             Category category = new Category();
             category.setName(name.trim());
-            System.out.println(name);
             category.setCateImg(img.trim());
-
-            int row = categoryDAO.insertCate(category);
-            if (row >= 1) {
-                response.sendRedirect("admin/get-all-cate");
+            cID = categoryDAO.insertCate(category);
+            if (cID > 0) {
+                isSuccess = true;
             }
         }
 
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("isSuccess", isSuccess);
+        jsonObject.addProperty("msg", msg);
+        jsonObject.addProperty("cID", cID);
+
+        Gson gson = new Gson();
+        String json = gson.toJson(jsonObject);
+        response.getWriter().write(json);
 
     }
 }
