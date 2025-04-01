@@ -23,11 +23,13 @@ public class CategoryDAO {
                 (handle.createUpdate(" INSERT INTO categories (cateName,cateImg) VALUES ( :cateName, :cateImg)")
                         .bind("cateName", category.getName())
                         .bind("cateImg", category.getCateImg())
-                        .execute())
+                        .executeAndReturnGeneratedKeys("id") // Trả về khóa tự động tăng của cột `id`
+                        .mapTo(int.class) // Map giá trị `id` sang kiểu `int`
+                        .one()) // Lấy giá trị duy nhất (ID))
         );
     }
 
-    // thêm danh mục
+    // xóa danh mục
     public int removeCate(String cID) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 (handle.createUpdate(" DELETE FROM categories WHERE  cateID =:cateID")
@@ -35,6 +37,7 @@ public class CategoryDAO {
                         .execute())
         );
     }
+
     // lấy 1 category dựa vào ID
     public Category getCateByID(int cateID) {
         return JDBIContext.getJdbi().withHandle(handle ->
@@ -43,6 +46,7 @@ public class CategoryDAO {
                         .mapToBean(Category.class).findOne().orElse(null)
         );
     }
+
     // cập nhật danh mục dựa vào ID
     public int updateCate(int cateID, String cateName, String cateImg) {
         return JDBIContext.getJdbi().withHandle(handle -> (
