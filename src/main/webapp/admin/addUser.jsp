@@ -59,7 +59,7 @@
     <div class="main-container">
         <div class="container">
             <h1>Thêm người dùng</h1>
-            <span class="text-info" id="message">  </span>
+            <span class="text-info" id="message"></span>
 
             <%-- AddUser --%>
             <form id="myForm">
@@ -91,7 +91,11 @@
                 </select>
 
                 <button type="submit">Thêm người dùng</button>
+                <a href="" id="btnBack" class="text-decoration-none text-white p-2 text-center bg-success mt-2 rounded"
+                   hidden>Quay
+                    lại</a>
             </form>
+
         </div>
     </div>
 </main>
@@ -117,9 +121,9 @@
             // xử lí logic
             let rs = await response.json();
             if (rs.isSuccess) {
-                notify(rs.isSuccess)
+                notify(rs.isSuccess, this)
             } else {
-                notify(rs.isSuccess, rs.msg)
+                notify(rs.isSuccess, rs.msg, this)
             }
         } catch (error) {
             console.log(error)
@@ -128,20 +132,28 @@
     })
 
     // hàm thông báo trạng thái cập nhật
-    function notify(valid, msg) {
+    // true trong addEventListener kích hoạt sự kiện trong capture phase, giúp focus trên input lan đến form.
+    function notify(valid, msg, form) {
         if (valid) {
             document.getElementById("message").textContent = 'Thêm thành công'
-            setTimeout(function () {
+            toggleHidden()
+            form.addEventListener('focus', function () {
                 document.getElementById("message").textContent = "";
-            }, 5000)
+            }, true)
         } else {
             document.getElementById("message").classList.replace("text-info", "text-danger");
             document.getElementById("message").textContent = msg
-            setTimeout(function () {
+            form.addEventListener('focus', function () {
                 document.getElementById("message").classList.replace("text-danger", "text-info");
                 document.getElementById("message").textContent = "";
-            }, 5000)
+            }, true)
         }
+    }
+
+    // ẩn hiển thẻ quay lại
+    function toggleHidden() {
+        let link = document.getElementById("btnBack");
+        link.hidden = !link.hidden; // Đảo ngược trạng thái hidden
     }
 </script>
 </body>

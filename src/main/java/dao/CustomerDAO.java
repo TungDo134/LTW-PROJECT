@@ -106,6 +106,16 @@ public class CustomerDAO {
         );
     }
 
+    public boolean isUserExistsByPhoneNumber(String phone) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT COUNT(*) FROM customers WHERE phone = :phone")
+                        .bind("phone", phone)
+                        .mapTo(Integer.class)
+                        .findOne()
+                        .orElse(0) > 0
+        );
+    }
+
     public boolean changePassword(int customerID, String oldPassword, String newPassword) {
         return JDBIContext.getJdbi().withHandle(handle -> {
             // Kiểm tra mật khẩu cũ có đúng không
@@ -140,6 +150,7 @@ public class CustomerDAO {
                         .execute()
         );
     }
+
 
 
 }

@@ -36,15 +36,17 @@ public class AddUser extends HttpServlet {
 
         String msg = "";
         boolean isSuccess = false;
+        CustomerDAO cusDao = new CustomerDAO();
 
         if (customerName.isBlank() || email.isBlank()) {
             msg = "Vui lòng nhập đầy đủ tên và email";
-
+        } else if (cusDao.isUserExistsByEmail(email)) {
+            msg = "Email đã tồn tại vui lòng kiểm tra lại";
+        } else if (cusDao.isUserExistsByPhoneNumber(phone)) {
+            msg = "Số điện thoại đã được đăng ký, vui lòng kiểm tra lại";
         } else {
-            CustomerDAO cusDao = new CustomerDAO();
             // Mã hóa mk
             String hashPass = MaHoaMK.toSHA1(pass);
-
             try {
                 // Gọi hàm thêm khách hàng
                 int cus = cusDao.insertCustomer(customerName, email, hashPass, phone, address, addressShipping, role);

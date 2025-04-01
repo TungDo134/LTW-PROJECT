@@ -55,10 +55,10 @@
 
     <div class="container">
         <h1>Chỉnh sửa người dùng</h1>
-        <%--    <span> ${msg} </span>--%>
+        <span class="text-info" id="message">  </span>
 
         <%--  UpdateUser--%>
-        <form action="<%=request.getContextPath()%>/admin/update-user" method="POST">
+        <form id="myForm">
 
             <label for="username">Tên đăng nhập</label>
             <input type="text" value="${customers.name}" id="username" name="username" placeholder="Nhập tên người dùng"
@@ -73,7 +73,7 @@
                    placeholder="Nhập password người dùng" required>
 
             <label for="numberPhone">Số điện thoại</label>
-            <input type="tel" value="${customers.phone}" id="numberPhone" name="numberPhone"
+            <input readonly type="tel" value="${customers.phone}" id="numberPhone" name="numberPhone"
                    placeholder="Nhập số điện thoại người dùng">
 
             <label for="Address">Địa chỉ cá nhân</label>
@@ -92,10 +92,72 @@
             </select>
 
             <button type="submit">Lưu chỉnh sửa</button>
-
+            <a href="<%= request.getContextPath()%>/admin/all-user" id="btnBack"
+               class="text-decoration-none text-white p-2 text-center bg-success mt-2 rounded"
+               hidden
+            >Quay lại</a>
         </form>
     </div>
 </main>
+
+<script>
+    // Edit user (ajax)
+    document.querySelector('#myForm').addEventListener('submit', async function (e) {
+        e.preventDefault()
+
+        // lấy data từ form
+        let formData = new URLSearchParams(new FormData(this))
+        let url = '${pageContext.request.contextPath}/admin/update-user'
+
+        try {
+            let response = await fetch(url, {
+                method: 'Post',
+                headers: {
+                    'Content-type': 'application/x-www-form-urlencoded'
+                },
+                body: formData
+            })
+
+            // xử lí logic
+            let rs = await response.json();
+            if (rs.ok) {
+                notify(rs.isSuccess, this)
+            } else {
+                notify(rs.isSuccess, rs.msg, this)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+    })
+
+    // hàm thông báo trạng thái cập nhật
+    // true trong addEventListener kích hoạt sự kiện trong capture phase, giúp focus trên input lan đến form.
+    function notify(valid, msg, form) {
+        if (valid) {
+            document.getElementById("message").textContent = 'Cập nhật thành công'
+            toggleHidden()
+            form.addEventListener('focus', function () {
+                document.getElementById("message").textContent = "";
+            }, true)
+        } else {
+            document.getElementById("message").classList.replace("text-info", "text-danger");
+            document.getElementById("message").textContent = msg
+            form.addEventListener('focus', function () {
+                document.getElementById("message").classList.replace("text-danger", "text-info");
+                document.getElementById("message").textContent = "";
+            }, true)
+        }
+    }
+
+    // ẩn hiển thẻ quay lại
+    function toggleHidden() {
+        let link = document.getElementById("btnBack");
+        link.hidden = !link.hidden; // Đảo ngược trạng thái hidden
+    }
+
+
+</script>
 </body>
 
 </html>
