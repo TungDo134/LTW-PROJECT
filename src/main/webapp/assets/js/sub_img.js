@@ -21,6 +21,8 @@ new Swiper(".mySwiper", {
     },
 });
 
+
+
 function hideParent(img) {
     // Khi xảy ra lỗi, tìm phần tử cha chứa thẻ img và ẩn đi
     let errorEle = $(img).parent();

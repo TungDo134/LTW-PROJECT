@@ -2,6 +2,8 @@
 <%@ taglib prefix="f" uri="jakarta.tags.fmt" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="entity.Product, entity.SubImgProduct, java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,21 +33,24 @@
     ></script>
     <!-- Link BOOTSTRAP -->
 
+    <!-- Link Swiper's CSS -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <!-- Link MY CSS -->
     <link rel="stylesheet" href="assets/css/styleProductDetail.css"/>
 </head>
 
 <body class="bg-body px-0 overflow-visible">
 <jsp:include page="header.jsp"></jsp:include>
-<div class="breadcrumb">
-    <a href="#">VĂN PHÒNG PHẨM - DỤNG CỤ HỌC SINH</a> &gt;
-    <a href="#">SẢN PHẨM VỀ GIẤY</a> &gt;
-    <a href="#">SỔ CÁC LOẠI</a>
-</div>
+<%--<div class="breadcrumb">--%>
+<%--    <a href="#">VĂN PHÒNG PHẨM - DỤNG CỤ HỌC SINH</a> &gt;--%>
+<%--    <a href="#">SẢN PHẨM VỀ GIẤY</a> &gt;--%>
+<%--    <a href="#">SỔ CÁC LOẠI</a>--%>
+<%--</div>--%>
 <div class="container">
     <div class="container_Info">
-        <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-        <%@ page import="entity.Product, entity.SubImgProduct, java.util.List" %>
 
         <%
             Product product = (Product) request.getAttribute("detail");
@@ -53,44 +58,119 @@
             List<Product> products = (List<Product>) request.getAttribute("products");
         %>
 
-        <!-- Kiểm tra nếu có lỗi -->
-        <% if (request.getAttribute("error") != null) { %>
-        <p><%= request.getAttribute("error") %></p>
-        <% } else { %>
-
         <div class="left-column">
-            <div class="detailProduct">
+            <div class="detailProduct ">
                 <div class="product-images">
-                    <%-- Kiểm tra nếu có ảnh sản phẩm --%>
-                    <% if (product.getProductImage() != null && !product.getProductImage().isEmpty()) { %>
-                    <img class="main-image" src="assets/pic/products/${detail.productImage}" alt="<%= product.getProductName() %>">
-                    <% } else { %>
-                    <p>Hình ảnh sản phẩm không có</p>
-                    <% } %>
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <!-- Content -->
+                            <div class="swiper-slide">
+                                <a href=""
+                                ><img src="assets/pic/products/${detail.productImage}" alt=""
+                                /></a>
+                            </div>
 
-                    <%-- Hiển thị ảnh phụ nếu có --%>
-                    <% if (subImgP != null) { %>
-                    <div class="thumbnail-container">
-                        <% if (subImgP.getSubImg1() != null) { %>
-                        <img class="thumbnail" src="assets/pic/subP/${listSubImg.subImg1} " alt="Thumb 1">
-                        <% } %>
-                        <% if (subImgP.getSubImg2() != null) { %>
-                        <img class="thumbnail" src="assets/pic/subP/${listSubImg.subImg2}" alt="Thumb 2">
-                        <% } %>
-                        <% if (subImgP.getSubImg3() != null) { %>
-                        <img class="thumbnail" src="assets/pic/subP/${listSubImg.subImg3} " alt="Thumb 3">
-                        <% } %>
+                            <div class="swiper-slide">
+                                <a href=""
+                                ><img
+                                        src="assets/pic/subP/${listSubImg.subImg1} "
+
+                                        alt=""
+                                /></a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href=""
+                                ><img
+                                        src="assets/pic/subP/${listSubImg.subImg2}"
+                                        alt=""
+                                /></a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href=""
+                                ><img
+                                        src="assets/pic/subP/${listSubImg.subImg3}"
+                                        alt=""
+                                /></a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href=""
+                                ><img
+                                        src="assets/pic/subP/${listSubImg.subImg4}"
+                                        alt=""
+                                /></a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href=""
+                                ><img
+                                        src="assets/pic/subP/${listSubImg.subImg5}"
+                                        alt=""
+                                /></a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href=""
+                                ><img
+                                        src="assets/pic/subP/${listSubImg.subImg6}"
+                                        alt=""
+                                /></a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href=""
+                                ><img
+                                        src="assets/pic/subP/${listSubImg.subImg7}"
+                                        alt=""
+                                /></a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href=""
+                                ><img
+                                        src="assets/pic/subP/${listSubImg.subImg8}"
+                                        alt=""
+                                /></a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href=""
+                                ><img
+                                        src="assets/pic/subP/${listSubImg.subImg9}"
+                                        alt=""
+                                /></a>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <a href=""
+                                ><img
+                                        src="assets/pic/subP/${listSubImg.subImg10}"
+                                        alt=""
+                                /></a>
+                            </div>
+
+                        </div>
+                        <!-- Pagination -->
+                        <div class="swiper-pagination"></div>
                     </div>
-                    <% } %>
                 </div>
 
+
                 <div class="product-info">
-                    <h1 class="product-title"><%= product.getProductName() %></h1>
-                    <p class="price">Giá: <%= product.getProductPrice() %> VND</p>
+                    <h1 class="product-title"><%= product.getProductName() %>
+                    </h1>
+                    <p class="price">
+                        Giá:
+                        <f:setLocale value="vi_VN"/>
+                        <f:formatNumber value="<%= product.getProductPrice() %>" type="currency"/>
+                    </p>
 
 
                     <div class="btn-container">
-                        <button type="submit" class="btn addBtn btn-primary add-to-cart" form="add-to-cart-form" data-id="<%= product.getProductID() %>">
+                        <button type="submit" class="btn addBtn btn-primary add-to-cart" form="add-to-cart-form"
+                                data-id="<%= product.getProductID() %>">
                             Thêm vào giỏ hàng
                         </button>
                         <button class="btn btn-buy">Mua ngay</button>
@@ -106,11 +186,13 @@
             </div>
         </div>
 
-        <% } %>
 
         <div class="right-column">
             <div class="infoPro">
-                <h2><button class="new" >MỚI</button> <%= product.getProductName() %></h2>
+                <h2>
+                    <button class="new">MỚI</button>
+                    <%= product.getProductName() %>
+                </h2>
                 <p>Nhà cung cấp: <strong>Branbuil Co., Ltd</strong></p>
                 <p>Xuất xứ: <strong>Thương Hiệu Hàn Quốc</strong></p>
                 <div class="frameRatingSell">
@@ -126,7 +208,11 @@
                         Đã bán: <%= product.getProductOrder() %>
                     </div>
                 </div>
-                <p class="price"><%= product.getProductPrice() %> VND</p>
+                <p class="price">
+                    <f:setLocale value="vi_VN"/>
+                    <f:formatNumber value="<%= product.getProductPrice() %>" type="currency"/>
+                </p>
+
             </div>
             <div class="infoShip">
                 <h2>Thông tin vận chuyển</h2>
@@ -173,7 +259,7 @@
                     </div>
                 </div>
                 <c:if test="${detail.productStock >0}">
-                    <form id="add-to-cart-form" class="quantity" >
+                    <form id="add-to-cart-form" class="quantity">
                         <div><strong>Số lượng:</strong></div>
                         <div class="change_quantity">
                             <button class="decrease">-</button>
@@ -232,103 +318,107 @@
                         <td>Top 100 sản phẩm Sổ Các Loại bán chạy của tháng</td>
                     </tr>
                 </table>
-                <p>Giá sản phẩm trên Fahasa.com đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như Phụ phí đóng gói, phí vận chuyển, phụ phí hàng cồng kềnh,...</p>
-                <p style="color: brown;">Chính sách khuyến mãi trên Fahasa.com không áp dụng cho Hệ thống Nhà sách Fahasa trên toàn quốc</p>
+                <p>Giá sản phẩm trên Fahasa.com đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm,
+                    hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như Phụ phí đóng gói, phí vận
+                    chuyển, phụ phí hàng cồng kềnh,...</p>
+                <p style="color: brown;">Chính sách khuyến mãi trên Fahasa.com không áp dụng cho Hệ thống Nhà sách
+                    Fahasa trên toàn quốc</p>
             </div>
             <div class="describe">
                 <h2><strong>Mô tả sản phẩm</strong></h2>
-                <p><%= product.getProductDes()%> </p>
+                <p><%= product.getProductDes()%>
+                </p>
             </div>
         </div>
     </div>
 
-<%--    <div class="rating-container">--%>
-<%--        <div class="left_rate">--%>
-<%--            <h2>Đánh giá sản phẩm</h2>--%>
-<%--            <div class="score_rating">--%>
-<%--                <div class="rating-score"><%= request.getAttribute("averageRating") %><span>/5</span></div>--%>
-<%--                <div class="stars">--%>
-<%--                    <% int avgRating = (int) Math.round((double) request.getAttribute("averageRating")); %>--%>
-<%--                    <% for(int i = 0; i < avgRating; i++) { %>--%>
-<%--                    ★--%>
-<%--                    <% } %>--%>
-<%--                    <% for(int i = avgRating; i < 5; i++) { %>--%>
-<%--                    ☆--%>
-<%--                    <% } %>--%>
-<%--                    <span>(<%= request.getAttribute("totalReviews") %> đánh giá)</span>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="right_rating">--%>
-<%--            <div class="rating-bars">--%>
-<%--                <% double[] ratingPercentages = (double[]) request.getAttribute("ratingPercentages"); %>--%>
-<%--                <% int[] ratingCounts = (int[]) request.getAttribute("ratingCounts"); %>--%>
-<%--                <% for(int i = 5; i >= 1; i--) { %>--%>
-<%--                <div class="rating-bar">--%>
-<%--                    <span><%= i %> sao</span>--%>
-<%--                    <div class="bar">--%>
-<%--                        <div class="bar-filled" style="width: <%= ratingPercentages[i - 1] %>%"></div>--%>
-<%--                    </div>--%>
-<%--                    <span><%= ratingCounts[i - 1] %></span>--%>
-<%--                </div>--%>
-<%--                <% } %>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--        <div class="review-comment">--%>
-<%--            <form action="add-review" method="post">--%>
-<%--                <input type="hidden" name="productID" value="${detail.productID}" required/>--%>
-<%--                <input type="text" name="customerName" placeholder="Tên" required/>--%>
-<%--                <input type="text" name="comment" placeholder="Đánh giá của bạn" required/>--%>
-<%--                <div class="rating">--%>
-<%--                    <h2>Xếp hạng</h2>--%>
-<%--                    <div class="rating-stars">--%>
-<%--                        <% for(int i = 1; i <= 5; i++) { %>--%>
-<%--                        <input type="radio" id="star<%= i %>" name="rating" value="<%= i %>"/>--%>
-<%--                        <label for="star<%= i %>"><i class="fa-solid fa-star color-star"></i></label>--%>
-<%--                        <% } %>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--                <button type="submit" class="btn btn-primary">Gửi đánh giá</button>--%>
-<%--            </form>--%>
-<%--        </div>--%>
-<%--        <div class="login-message">--%>
-<%--            &lt;%&ndash;            Chỉ có thành viên mới có thể viết nhận xét. Vui lòng <a href="#">đăng nhập</a> hoặc <a href="#">đăng ký</a>.&ndash;%&gt;--%>
-<%--        </div>--%>
-<%--        <div class="review-list">--%>
-<%--            <c:forEach items="${reviews}" var="o">--%>
-<%--                <div class="review-item">--%>
-<%--                    <div class="review-header">--%>
-<%--                        <div class="item-details">--%>
-<%--                            <p>${o.customerName}</p>--%>
-<%--                            <p>${o.date}</p>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                    <div class="review-content">--%>
-<%--                        <c:choose>--%>
-<%--                            <c:when test="${o.display == 0}">--%>
-<%--                                <p>Bình luận đang được kiểm duyệt</p>--%>
-<%--                            </c:when>--%>
-<%--                            <c:otherwise>--%>
-<%--                                <p>${o.comment}</p>--%>
-<%--                                <div class="review-stars">--%>
-<%--                                    <c:forEach var="i" begin="1" end="5">--%>
-<%--                                        <c:choose>--%>
-<%--                                            <c:when test="${i <= o.rating}">--%>
-<%--                                                <span class="star">★</span>--%>
-<%--                                            </c:when>--%>
-<%--                                            <c:otherwise>--%>
-<%--                                                <span class="star">☆</span>--%>
-<%--                                            </c:otherwise>--%>
-<%--                                        </c:choose>--%>
-<%--                                    </c:forEach>--%>
-<%--                                </div>--%>
-<%--                            </c:otherwise>--%>
-<%--                        </c:choose>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </c:forEach>--%>
-<%--        </div>--%>
-<%--    </div>--%>
+    <%--    <div class="rating-container">--%>
+    <%--        <div class="left_rate">--%>
+    <%--            <h2>Đánh giá sản phẩm</h2>--%>
+    <%--            <div class="score_rating">--%>
+    <%--                <div class="rating-score"><%= request.getAttribute("averageRating") %><span>/5</span></div>--%>
+    <%--                <div class="stars">--%>
+    <%--                    <% int avgRating = (int) Math.round((double) request.getAttribute("averageRating")); %>--%>
+    <%--                    <% for(int i = 0; i < avgRating; i++) { %>--%>
+    <%--                    ★--%>
+    <%--                    <% } %>--%>
+    <%--                    <% for(int i = avgRating; i < 5; i++) { %>--%>
+    <%--                    ☆--%>
+    <%--                    <% } %>--%>
+    <%--                    <span>(<%= request.getAttribute("totalReviews") %> đánh giá)</span>--%>
+    <%--                </div>--%>
+    <%--            </div>--%>
+    <%--        </div>--%>
+    <%--        <div class="right_rating">--%>
+    <%--            <div class="rating-bars">--%>
+    <%--                <% double[] ratingPercentages = (double[]) request.getAttribute("ratingPercentages"); %>--%>
+    <%--                <% int[] ratingCounts = (int[]) request.getAttribute("ratingCounts"); %>--%>
+    <%--                <% for(int i = 5; i >= 1; i--) { %>--%>
+    <%--                <div class="rating-bar">--%>
+    <%--                    <span><%= i %> sao</span>--%>
+    <%--                    <div class="bar">--%>
+    <%--                        <div class="bar-filled" style="width: <%= ratingPercentages[i - 1] %>%"></div>--%>
+    <%--                    </div>--%>
+    <%--                    <span><%= ratingCounts[i - 1] %></span>--%>
+    <%--                </div>--%>
+    <%--                <% } %>--%>
+    <%--            </div>--%>
+    <%--        </div>--%>
+    <%--        <div class="review-comment">--%>
+    <%--            <form action="add-review" method="post">--%>
+    <%--                <input type="hidden" name="productID" value="${detail.productID}" required/>--%>
+    <%--                <input type="text" name="customerName" placeholder="Tên" required/>--%>
+    <%--                <input type="text" name="comment" placeholder="Đánh giá của bạn" required/>--%>
+    <%--                <div class="rating">--%>
+    <%--                    <h2>Xếp hạng</h2>--%>
+    <%--                    <div class="rating-stars">--%>
+    <%--                        <% for(int i = 1; i <= 5; i++) { %>--%>
+    <%--                        <input type="radio" id="star<%= i %>" name="rating" value="<%= i %>"/>--%>
+    <%--                        <label for="star<%= i %>"><i class="fa-solid fa-star color-star"></i></label>--%>
+    <%--                        <% } %>--%>
+    <%--                    </div>--%>
+    <%--                </div>--%>
+    <%--                <button type="submit" class="btn btn-primary">Gửi đánh giá</button>--%>
+    <%--            </form>--%>
+    <%--        </div>--%>
+    <%--        <div class="login-message">--%>
+    <%--            &lt;%&ndash;            Chỉ có thành viên mới có thể viết nhận xét. Vui lòng <a href="#">đăng nhập</a> hoặc <a href="#">đăng ký</a>.&ndash;%&gt;--%>
+    <%--        </div>--%>
+    <%--        <div class="review-list">--%>
+    <%--            <c:forEach items="${reviews}" var="o">--%>
+    <%--                <div class="review-item">--%>
+    <%--                    <div class="review-header">--%>
+    <%--                        <div class="item-details">--%>
+    <%--                            <p>${o.customerName}</p>--%>
+    <%--                            <p>${o.date}</p>--%>
+    <%--                        </div>--%>
+    <%--                    </div>--%>
+    <%--                    <div class="review-content">--%>
+    <%--                        <c:choose>--%>
+    <%--                            <c:when test="${o.display == 0}">--%>
+    <%--                                <p>Bình luận đang được kiểm duyệt</p>--%>
+    <%--                            </c:when>--%>
+    <%--                            <c:otherwise>--%>
+    <%--                                <p>${o.comment}</p>--%>
+    <%--                                <div class="review-stars">--%>
+    <%--                                    <c:forEach var="i" begin="1" end="5">--%>
+    <%--                                        <c:choose>--%>
+    <%--                                            <c:when test="${i <= o.rating}">--%>
+    <%--                                                <span class="star">★</span>--%>
+    <%--                                            </c:when>--%>
+    <%--                                            <c:otherwise>--%>
+    <%--                                                <span class="star">☆</span>--%>
+    <%--                                            </c:otherwise>--%>
+    <%--                                        </c:choose>--%>
+    <%--                                    </c:forEach>--%>
+    <%--                                </div>--%>
+    <%--                            </c:otherwise>--%>
+    <%--                        </c:choose>--%>
+    <%--                    </div>--%>
+    <%--                </div>--%>
+    <%--            </c:forEach>--%>
+    <%--        </div>--%>
+    <%--    </div>--%>
 
     <div class="rating-container">
         <!-- Hàng 1: 3 cột -->
@@ -340,8 +430,8 @@
                     <div class="rating-score"><%= request.getAttribute("averageRating") %><span>/5</span></div>
                     <div class="stars">
                         <% int avgRating = (int) Math.round((double) request.getAttribute("averageRating")); %>
-                        <% for(int i = 0; i < avgRating; i++) { %> ★ <% } %>
-                        <% for(int i = avgRating; i < 5; i++) { %> ☆ <% } %>
+                        <% for (int i = 0; i < avgRating; i++) { %> ★ <% } %>
+                        <% for (int i = avgRating; i < 5; i++) { %> ☆ <% } %>
                         <span>(<%= request.getAttribute("totalReviews") %> đánh giá)</span>
                     </div>
                 </div>
@@ -352,7 +442,7 @@
                 <div class="rating-bars">
                     <% double[] ratingPercentages = (double[]) request.getAttribute("ratingPercentages"); %>
                     <% int[] ratingCounts = (int[]) request.getAttribute("ratingCounts"); %>
-                    <% for(int i = 5; i >= 1; i--) { %>
+                    <% for (int i = 5; i >= 1; i--) { %>
                     <div class="rating-bar">
                         <span><%= i %> sao</span>
                         <div class="bar">
@@ -373,8 +463,9 @@
                     <div class="rating">
                         <h2>Xếp hạng</h2>
                         <div class="rating-stars">
-                            <% for(int i = 1; i <= 5; i++) { %>
-                            <input type="radio" id="star<%= i %>" name="rating" value="<%= i %>" onclick="updateRating(<%= i %>)"/>
+                            <% for (int i = 1; i <= 5; i++) { %>
+                            <input type="radio" id="star<%= i %>" name="rating" value="<%= i %>"
+                                   onclick="updateRating(<%= i %>)"/>
                             <label for="star<%= i %>"><i class="fa-solid fa-star"></i></label>
                             <% } %>
                         </div>
@@ -428,7 +519,8 @@
         <div class="product-list">
             <!-- Sản phẩm 1 -->
             <div class="product-item">
-                <img src="https://cdn0.fahasa.com/media/catalog/product/8/8/8809387693926-mau3.jpg" alt="Sổ Bonicrew A5">
+                <img src="https://cdn0.fahasa.com/media/catalog/product/8/8/8809387693926-mau3.jpg"
+                     alt="Sổ Bonicrew A5">
                 <p class="product-name">Sổ Bonicrew A5 - Giấy Trơn - 64 Trang - Oxford SWN1A5 - Màu Tím</p>
                 <div class="product-price">
                     <span class="sale-price">20.700 đ</span>
@@ -440,7 +532,8 @@
 
             <!-- Sản phẩm 2 -->
             <div class="product-item">
-                <img src="https://cdn0.fahasa.com/media/catalog/product/8/8/8809387693926-mau3.jpg" alt="Sổ Bonicrew A5">
+                <img src="https://cdn0.fahasa.com/media/catalog/product/8/8/8809387693926-mau3.jpg"
+                     alt="Sổ Bonicrew A5">
                 <p class="product-name">Sổ Bonicrew A5 - Giấy Trơn - 64 Trang - Oxford SWN1A5 - Màu Xanh</p>
                 <div class="product-price">
                     <span class="sale-price">20.700 đ</span>
@@ -452,7 +545,8 @@
 
             <!-- Sản phẩm 3 -->
             <div class="product-item">
-                <img src="https://cdn0.fahasa.com/media/catalog/product/8/8/8809387693926-mau3.jpg" alt="Sổ Bonicrew A5">
+                <img src="https://cdn0.fahasa.com/media/catalog/product/8/8/8809387693926-mau3.jpg"
+                     alt="Sổ Bonicrew A5">
                 <p class="product-name">Sổ Bonicrew A5 - Giấy Trơn - 64 Trang - Oxford SWN1A5 - Màu Đỏ</p>
                 <div class="product-price">
                     <span class="sale-price">20.700 đ</span>
@@ -464,7 +558,8 @@
 
             <!-- Sản phẩm 4 -->
             <div class="product-item">
-                <img src="https://cdn0.fahasa.com/media/catalog/product/8/8/8809387693926-mau3.jpg" alt="Sổ Bonicrew A5">
+                <img src="https://cdn0.fahasa.com/media/catalog/product/8/8/8809387693926-mau3.jpg"
+                     alt="Sổ Bonicrew A5">
                 <p class="product-name">Sổ Bonicrew A5 - Giấy Trơn - 64 Trang - Oxford SWN1A5 - Màu Vàng</p>
                 <div class="product-price">
                     <span class="sale-price">20.700 đ</span>
@@ -503,14 +598,15 @@
                     <p class="product-name">${o.productName}</p>
                     <div class="product-price">
                         <span class="sale-price">20.700 đ</span>
-                        <span class="original-price">${o.productPrice}</span>
+
+                        <span class="original-price"><f:setLocale value="vi_VN"/>
+                        <f:formatNumber value="${o.productPrice}" type="currency"/></span>
                         <span class="discount">-10%</span>
                     </div>
                 </a>
             </c:forEach>
         </div>
     </div>
-
 
 
 </div>
@@ -632,6 +728,8 @@
 
 </script>
 <script>
+
+
     document.addEventListener("DOMContentLoaded", function () {
         const quantityInput = document.querySelector("#quantity-input");
         const increaseBtn = document.querySelector(".increase");
@@ -684,7 +782,7 @@
             $.ajax({
                 url: "add-cart",
                 type: "GET",
-                data: { pID: productId, quantity: quantity },
+                data: {pID: productId, quantity: quantity},
                 success: function () {
                     alert(`Sản phẩm (ID: ${o.productId}) đã thêm vào giỏ hàng với số lượng ${o.quantity}!`);
                 },
@@ -699,7 +797,6 @@
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <!-- Khởi tạo Swiper -->
-<script src="assets/js/sub_img.js">
-</script>
+<script src="assets/js/sub_img.js"></script>
 </body>
 </html>

@@ -678,3 +678,57 @@ body {
     gap: 5px;
     flex-wrap: wrap; /* Giúp tránh tràn chữ */
 }
+
+
+/* Slideer*/
+.swiper {
+    margin: 2rem auto;
+    width: 400px;
+    height: auto;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /*background: #f4ecdf;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    /* width: 100%; */
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+    width: 68px;
+    height: 68px;
+    background: #fff;
+    border-radius: 0;
+    opacity: 1;
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    margin-left: -4px;
+    margin-top: 16px;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+}
+
+.swiper-pagination-bullet > img {
+    width: 100% !important;
+}
+
+.swiper-pagination-bullet-active {
+    border: 1px solid #000;
+}
+/* Slider*/
