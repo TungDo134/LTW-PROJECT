@@ -139,13 +139,21 @@
                                 <li class="sub-menu-item">
 
                                     <%--  LoadProductAdmin --%>
-                                    <a href="<%= request.getContextPath()%>/admin/load-pAdmin">Danh sách sản phẩm</a
-                                    >
+                                    <a href="<%= request.getContextPath()%>/admin/load-pAdmin">Danh sách sản phẩm</a>
+
                                 </li>
                                 <%--  ShowAddProduct --%>
                                 <li class="sub-menu-item">
                                     <a href="<%= request.getContextPath()%>/admin/show-add-product">Thêm sản phẩm</a>
                                 </li>
+
+                                <%-- LoadDiscount  --%>
+                                <li class="sub-menu-item">
+                                    <%-- <a href="<%= request.getContextPath()%>/admin/">Giảm giá sản phẩm</a>--%>
+                                    <a href="<%= request.getContextPath()%>/admin/load-discount">Giảm giá sản phẩm</a>
+                                </li>
+
+
                             </ul>
                         </li>
                         <li class="item item-dropdown">
@@ -292,6 +300,7 @@
             }
         })
     }
+
     loadLogo();
 </script>
 
