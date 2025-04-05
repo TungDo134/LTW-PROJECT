@@ -27,7 +27,7 @@ public class LoadDiscount extends HttpServlet {
 
             request.setAttribute("list_cate", list_cate);
             request.setAttribute("list_discount", list_discount);
-            request.getRequestDispatcher("discount_Product.jsp").forward(request, response);
+            request.getRequestDispatcher("discountProduct.jsp").forward(request, response);
 
     }
 

@@ -1,6 +1,7 @@
 package controller.admincontrol.discount;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import dao.CategoryDAO;
 import dao.ProductDAO;
@@ -31,12 +32,15 @@ public class LoadCateDiscount extends HttpServlet {
 
         response.setContentType("application/json");
         JsonObject jsonObject = new JsonObject();
+
         jsonObject.addProperty("isSuccess", isSuccess);
         jsonObject.addProperty("error", error);
 
         Gson gson = new Gson();
-//        String json = gson.toJson(jsonObject);
-        String json = gson.toJson(list_p);
+        JsonElement listJson = gson.toJsonTree(list_p);
+        jsonObject.add("products", listJson);
+
+        String json = gson.toJson(jsonObject);
         response.getWriter().write(json);
     }
 

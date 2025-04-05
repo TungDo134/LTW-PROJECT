@@ -25,6 +25,7 @@ public class AddCart extends HttpServlet {
         ProductDAO productDAO = new ProductDAO();
         Product product = productDAO.getProductByID(pID);
 
+
         HttpSession session = request.getSession(true);
         Cart c = (Cart) session.getAttribute("cart");
         if (c == null) c = new Cart();

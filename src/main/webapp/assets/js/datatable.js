@@ -9,5 +9,6 @@ $(document).ready(function () {
             infoEmpty: "Không có dữ liệu để hiển thị",
             emptyTable:"Không có dữ liệu để hiển thị"
         },
+
     });
 });

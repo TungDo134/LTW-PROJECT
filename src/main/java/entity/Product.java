@@ -13,8 +13,13 @@ public class Product implements Serializable {
     public String productImage;
     public int cateID;
     public String shortDes;
+    public double discountPrice;
+    public byte isDiscount;
 
-    public Product(int productID, String productName, String productDes, double productPrice, int productInventory, int productOrder, int productStock, String productImage, int cateID, String shortDes) {
+
+    public Product(int productID, String productName, String productDes, double productPrice, int productInventory,
+                   int productOrder, int productStock, String productImage, int cateID, String shortDes,
+                   double discountPrice, byte isDiscount) {
         this.productID = productID;
         this.productName = productName;
         this.productDes = productDes;
@@ -25,9 +30,11 @@ public class Product implements Serializable {
         this.productImage = productImage;
         this.cateID = cateID;
         this.shortDes = shortDes;
+        this.discountPrice = discountPrice;
+        this.isDiscount = isDiscount;
     }
 
-    public Product(){
+    public Product() {
     }
 
     public int getProductID() {
@@ -68,6 +75,22 @@ public class Product implements Serializable {
 
     public String getShortDes() {
         return shortDes;
+    }
+
+    public double getDiscountPrice() {
+        return discountPrice;
+    }
+
+    public void setDiscountPrice(double discountPrice) {
+        this.discountPrice = discountPrice;
+    }
+
+    public byte getIsDiscount() {
+        return isDiscount;
+    }
+
+    public void setIsDiscount(byte isDiscount) {
+        this.isDiscount = isDiscount;
     }
 
     public void setProductID(int productID) {
@@ -112,10 +135,10 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "product{" +
+        return "Product{" +
                 "productID=" + productID +
                 ", productName='" + productName + '\'' +
-                ", productDes='" + productPrice + '\'' +
+                ", productDes='" + productDes + '\'' +
                 ", productPrice=" + productPrice +
                 ", productInventory=" + productInventory +
                 ", productOrder=" + productOrder +
@@ -123,8 +146,8 @@ public class Product implements Serializable {
                 ", productImage='" + productImage + '\'' +
                 ", cateID=" + cateID +
                 ", shortDes='" + shortDes + '\'' +
+                ", discountPrice=" + discountPrice +
+                ", isDiscount=" + isDiscount +
                 '}';
     }
-
-
 }

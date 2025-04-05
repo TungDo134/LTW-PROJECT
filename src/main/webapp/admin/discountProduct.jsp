@@ -64,7 +64,7 @@
             <label for="discountSelect" class="form-label">Chọn mã giảm giá:</label>
             <select id="discountSelect" class="form-select mb-3">
                 <option value="" disabled selected>
-                    Tất cả mã giảm
+                    -- Vui lòng chọn --
                 </option>
                 <option value="custom">NHẬP MÃ MỚI</option>
                 <c:forEach items="${list_discount}" var="d">
@@ -94,7 +94,7 @@
             <label for="categorySelect" class="form-label">Chọn danh mục:</label>
             <select required="" id="categorySelect" class="form-select mb-3">
                 <option value="" disabled selected>
-                    Tất cả danh mục
+                    -- Vui lòng chọn --
                 </option>
                 <c:forEach items="${list_cate}" var="o">
                     <option value="${o.id}">${o.name}</option>
@@ -102,22 +102,17 @@
 
             </select>
 
-            <table  class="table table-bordered">
+            <table id="myTable" class="">
                 <thead>
                 <tr>
                     <th><input type="checkbox" id="selectAll"></th>
+                    <th>Mã Sản phẩm</th>
                     <th>Sản phẩm</th>
                     <th>Giá</th>
                     <th>Danh mục</th>
                 </tr>
                 </thead>
                 <tbody id="productTable">
-                <tr data-category="1">
-                    <td><input type="checkbox" class="product-checkbox" value="1"></td>
-                    <td>Áo Thun</td>
-                    <td>200,000 VND</td>
-                    <td>Áo Thun</td>
-                </tr>
                 </tbody>
             </table>
 
@@ -126,43 +121,9 @@
     </div>
 </div>
 <script>
-    document.getElementById("discountSelect").addEventListener("change", function () {
-        document.getElementById("customDiscountDiv").classList.toggle("d-none", this.value !== "custom");
-    });
-
-    document.getElementById("selectAll").addEventListener("change", function () {
-        document.querySelectorAll(".product-checkbox").forEach(cb => cb.checked = this.checked);
-    });
-
-    document.getElementById("categorySelect").addEventListener("change", async function () {
-        let cateId = document.getElementById("categorySelect").value;
-        let url = `${pageContext.request.contextPath}/admin/load-cate-discount`;
-        console.log(cateId);
-
-
-        let response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: "cateId=" + encodeURIComponent(cateId),
-        });
-
-        let product = await response.json();
-        // Gọi hàm cập nhật giao diện
-        updateProductTable(product,cateId);
-
-        // try {
-        //     if (result.isSuccess) {
-        //         alert("Gửi về servlet thành công");
-        //     } else {
-        //         alert(result.error);
-        //     }
-        // } catch (error) {
-        //     alert(error)
-        // }
-    });
+    let contextPath = "${pageContext.request.contextPath}";
 </script>
-<script src="../assets/js/load-productbycate-discount.js"></script>
+
+<script src="../assets/js/discount.js"></script>
 </body>
 </html>

@@ -43,7 +43,6 @@ public class ProductDAO {
     }
 
 
-
     public List<Product> getProductSort(String choice) {
         return switch (choice) {
             case "1" -> JDBIContext.getJdbi().withHandle(handle ->
@@ -226,26 +225,20 @@ public class ProductDAO {
                         .execute());
     }
 
-    public List<Product> getNewPro(){
-            String sql = "SELECT * FROM products ORDER BY productID DESC LIMIT 10;\n";
-
+    public List<Product> getNewPro() {
+        String sql = "SELECT * FROM products ORDER BY productID DESC LIMIT 10;\n";
 
         return JDBIContext.getJdbi().withHandle(handle ->
-                    handle.createQuery(sql)
-                            .map((rs, ctx) -> new Product(
-                                    rs.getInt("productID"),
-                                    rs.getString("productName"),
-                                    rs.getString("productDes"),
-                                    rs.getDouble("productPrice"),
-                                    rs.getInt("productInventory"),
-                                    rs.getInt("productOrder"),
-                                    rs.getInt("productStock"),
-                                    rs.getString("productImage"),
-                                    rs.getInt("cateID"),
-                                    rs.getString("shortDes")
-                            )).list()
-            );
-        }
+                handle.createQuery(sql)
+                        .mapToBean(Product.class)
+                        .list()
+        );
     }
+
+    public static void main(String[] args) {
+        ProductDAO dao= new ProductDAO();
+        System.out.println(dao.getNewPro());
+    }
+}
 
 
