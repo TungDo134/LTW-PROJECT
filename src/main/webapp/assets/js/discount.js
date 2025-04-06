@@ -61,6 +61,10 @@ document.getElementById('productTable').addEventListener('change', function (e) 
     }
 });
 
+// hiển thị giao diện thêm mã mới
+document.getElementById("discountSelect").addEventListener("change", function () {
+    document.getElementById("customDiscountDiv").classList.toggle("d-none", this.value !== "custom");
+});
 
 // Khi click vào nút "Áp dụng giảm giá"
 document.getElementById("applyDiscountBtn").addEventListener('click', async function () {
@@ -97,8 +101,44 @@ document.getElementById("applyDiscountBtn").addEventListener('click', async func
     } catch (err) {
         console.error("Lỗi khi gửi dữ liệu:", err);
     }
-
 });
+
+// thêm mã giảm mới
+document.getElementById('customDiscountDiv').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    let formData = new URLSearchParams(new FormData(this));
+    let url = `${contextPath}/admin/add-discount`;
+
+    let value = formData.get('discountValue');
+    let type = formData.get('discountType');
+
+    if (type === 'Percent' && value.trim().length > 2) {
+        console.log('Phần trăm không được lớn hơn 2 chữ số');
+        return;
+    }
+    for (let value of formData) {
+        console.log(value)
+    }
+    // return;
+
+    let response = await fetch(url, {
+        method: 'POST',
+        header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: formData
+    })
+    let result = await response.json();
+    try {
+        if (result.isSuccess) {
+            alert("Thêm mục giảm giá mới Thành công")
+        } else {
+            alert("Thêm mục giảm giá mới thất bại")
+        }
+    } catch (error) {
+        alert(error)
+    }
+})
 
 
 

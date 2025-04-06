@@ -87,9 +87,49 @@
 
             </select>
 
-            <div id="customDiscountDiv" class="mb-3 d-none">
-                <input type="text" id="customDiscount" class="form-control" placeholder="Nhập mã giảm giá mới">
-            </div>
+            <%--            <form id="customDiscountDiv" class="mb-3 d-none">--%>
+            <%--                <label for="customDiscount">Nhập mã giảm giá mới:</label>--%>
+            <%--                <input type="text" name="valueDiscount" id="customDiscount" class="form-control">--%>
+
+            <%--                <label for="startDateTime">Thời gian bắt đầu:</label>--%>
+            <%--                <input type="datetime-local" id="startDateTime" name="startDateTime">--%>
+
+            <%--                <label for="endDateTime">Thời gian kết thúc:</label>--%>
+            <%--                <input type="datetime-local" id="endDateTime" name="endDateTime">--%>
+
+            <%--                <button class="btn btn-primary my-2" type="submit" id="addDiscountBtn">Thêm mã</button>--%>
+            <%--            </form>--%>
+
+            <form id="customDiscountDiv" class="p-3 border d-none">
+
+                <div class="mb-3">
+                    <label for="discountType" class="form-label">Loại giảm</label>
+                    <select class="form-select" id="discountType" name="discountType" required>
+                        <option value="" disabled selected>-- Chọn loại giảm --</option>
+                        <option value="Percent">Phần trăm (%)</option>
+                        <option value="FixedAmount">Số tiền cụ thể (VNĐ)</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="discountValue" class="form-label">Giá trị giảm</label>
+                    <input type="number" class="form-control" id="discountValue" name="discountValue"
+                           placeholder="Nhập giá trị" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="startDateTime" class="form-label">Ngày giờ bắt đầu</label>
+                    <input type="datetime-local" class="form-control" id="startDateTime" name="startDateTime" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="endDateTime" class="form-label">Ngày giờ kết thúc</label>
+                    <input type="datetime-local" class="form-control" id="endDateTime" name="endDateTime" required>
+                </div>
+
+                <button type="submit" class="btn btn-success">Thêm mã giảm</button>
+            </form>
+
 
             <label for="categorySelect" class="form-label">Chọn danh mục:</label>
             <select required="" id="categorySelect" class="form-select mb-3">
