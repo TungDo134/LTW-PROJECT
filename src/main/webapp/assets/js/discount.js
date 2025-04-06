@@ -89,7 +89,7 @@ document.getElementById("applyDiscountBtn").addEventListener('click', async func
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: formData, discount
+            body: formData
         });
 
         let result = await response.json();

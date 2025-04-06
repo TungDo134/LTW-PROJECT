@@ -2,13 +2,11 @@ package dao;
 
 
 import context.JDBIContext;
-import entity.HomePicture;
 import entity.Product;
 import entity.SubImgProduct;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.mapper.reflect.BeanMapper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAO {
@@ -236,9 +234,25 @@ public class ProductDAO {
     }
 
     public static void main(String[] args) {
-        ProductDAO dao= new ProductDAO();
+        ProductDAO dao = new ProductDAO();
         System.out.println(dao.getNewPro());
     }
+
+
+    public void updateDiscountInfo(String productId, double discountPrice) {
+        String sql = "UPDATE products " +
+                "SET discountPrice = :discountPrice, isDiscount = :isDiscount " +
+                "WHERE productID = :productID";
+
+        JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind("productID", productId)
+                        .bind("discountPrice", discountPrice)
+                        .bind("isDiscount", 1)
+                        .execute()
+        );
+    }
+
 }
 
 

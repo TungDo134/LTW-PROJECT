@@ -43,12 +43,30 @@ public class DiscountDAO {
         );
     }
 
-    public static void main(String[] args) {
-        DiscountDAO dao = new DiscountDAO();
-        System.out.println(dao.getDiscountedProducts() + "\n");
-
-        System.out.println("Sp khong co giam gia:");
-        System.out.println(dao.getNonDiscountedProducts());
+    // thêm các sản phẩm và mã giảm tương ứng
+    public void addProductAndDiscount(String pId, String discountID) {
+        String sql = "INSERT INTO productdiscount (productID, discountID) VALUES (:productID, :discountID)";
+        JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind("productID", pId)
+                        .bind("discountID", discountID)
+                        .execute()
+        );
     }
 
+    // lấy object discount từ id
+    public Discount getDiscount(String discountId) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                (handle.createQuery("select * from discount where discountID = :discountID ")
+                        .bind("discountID", discountId)
+                        .mapToBean(Discount.class)
+                        .one())
+        );
+
+    }
+
+    public static void main(String[] args) {
+        DiscountDAO dao = new DiscountDAO();
+        System.out.println(dao.getDiscount("3"));
+    }
 }
