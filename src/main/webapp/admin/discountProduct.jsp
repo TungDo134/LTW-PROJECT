@@ -55,50 +55,50 @@
 <jsp:include page="header-admin.jsp"></jsp:include>
 <div id="main-content">
     <div class="main-container">
-        <%--        <div class="header">--%>
-        <%--            <h1>Danh sách sản phẩm được giảm giá</h1>--%>
-        <%--        </div>--%>
+
         <div class="container mt-4">
             <h2 class="mb-4">Quản lý Giảm Giá Sản Phẩm</h2>
 
-            <label for="discountSelect" class="form-label">Chọn mã giảm giá:</label>
-            <select id="discountSelect" class="form-select mb-3">
-                <option value="" disabled selected>
-                    -- Vui lòng chọn --
-                </option>
-                <option value="custom">NHẬP MÃ MỚI</option>
-                <c:forEach items="${list_discount}" var="d">
-                    <c:choose>
+            <div class="d-flex column-gap-3">
+                <div>
+                    <label for="discountSelect" class="form-label">Chọn mã giảm giá:</label>
+                    <select id="discountSelect" class="form-select mb-3">
+                        <option value="" disabled selected>
+                            -- Vui lòng chọn --
+                        </option>
+                        <option value="custom">NHẬP MÃ MỚI</option>
+                        <c:forEach items="${list_discount}" var="d">
+                            <c:choose>
 
-                        <c:when test="${d.discountType == 'Percent'}">
-                            <option value="${d.discountID}"> Giảm ${d.discountValue} %</option>
-                        </c:when>
+                                <c:when test="${d.discountType == 'Percent'}">
+                                    <option value="${d.discountID}"> Giảm ${d.discountValue} %</option>
+                                </c:when>
 
-                        <c:when test="${d.discountType == 'FixedAmount'}">
-                            <f:setLocale value="vi_VN"/>
+                                <c:when test="${d.discountType == 'FixedAmount'}">
+                                    <f:setLocale value="vi_VN"/>
 
-                            <option value="${d.discountID}">
-                                Giảm <f:formatNumber value="${d.discountValue}" type="currency"/>
-                            </option>
-                        </c:when>
-                    </c:choose>
+                                    <option value="${d.discountID}">
+                                        Giảm <f:formatNumber value="${d.discountValue}" type="currency"/>
+                                    </option>
+                                </c:when>
+                            </c:choose>
+                        </c:forEach>
+                    </select>
+                </div>
 
-                </c:forEach>
+                <div>
+                    <label for="categorySelect" class="form-label">Chọn danh mục:</label>
+                    <select required="" id="categorySelect" class="form-select mb-3">
+                        <option value="" disabled selected>
+                            -- Vui lòng chọn --
+                        </option>
+                        <c:forEach items="${list_cate}" var="o">
+                            <option value="${o.id}">${o.name}</option>
+                        </c:forEach>
 
-            </select>
-
-            <%--            <form id="customDiscountDiv" class="mb-3 d-none">--%>
-            <%--                <label for="customDiscount">Nhập mã giảm giá mới:</label>--%>
-            <%--                <input type="text" name="valueDiscount" id="customDiscount" class="form-control">--%>
-
-            <%--                <label for="startDateTime">Thời gian bắt đầu:</label>--%>
-            <%--                <input type="datetime-local" id="startDateTime" name="startDateTime">--%>
-
-            <%--                <label for="endDateTime">Thời gian kết thúc:</label>--%>
-            <%--                <input type="datetime-local" id="endDateTime" name="endDateTime">--%>
-
-            <%--                <button class="btn btn-primary my-2" type="submit" id="addDiscountBtn">Thêm mã</button>--%>
-            <%--            </form>--%>
+                    </select>
+                </div>
+            </div>
 
             <form id="customDiscountDiv" class="p-3 border d-none">
 
@@ -130,26 +130,15 @@
                 <button type="submit" class="btn btn-success">Thêm mã giảm</button>
             </form>
 
-
-            <label for="categorySelect" class="form-label">Chọn danh mục:</label>
-            <select required="" id="categorySelect" class="form-select mb-3">
-                <option value="" disabled selected>
-                    -- Vui lòng chọn --
-                </option>
-                <c:forEach items="${list_cate}" var="o">
-                    <option value="${o.id}">${o.name}</option>
-                </c:forEach>
-
-            </select>
-
+            <%--   table chọn sp được giảm giá--%>
             <table id="myTable" class="">
                 <thead>
                 <tr>
                     <th><input type="checkbox" id="selectAll"></th>
                     <th>Mã Sản phẩm</th>
                     <th>Sản phẩm</th>
-                    <th>Giá</th>
-                    <th>Danh mục</th>
+                    <th>Giá gốc</th>
+                    <th>Giá sau giảm</th>
                 </tr>
                 </thead>
                 <tbody id="productTable">
@@ -157,13 +146,41 @@
             </table>
 
             <button class="btn btn-primary" id="applyDiscountBtn">Áp dụng</button>
+            <button class="btn btn-info" id="editDiscountBtn">Chỉnh sửa</button>
+
+            <table id="myTable2">
+                <thead>
+                <tr>
+                    <th>Loại mã giảm</th>
+                    <th>Giá trị</th>
+                    <th>Ngày bắt đầu giảm</th>
+                    <th>Ngày kết thúc giảm</th>
+                    <th>Hành động</th>
+                </tr>
+                </thead>
+                <tbody id="productTable2">
+                <c:forEach items="${list_discount}" var="d">
+                    <tr>
+                        <td>${d.discountType}</td>
+                        <td>${d.discountValue}</td>
+                        <td>${d.startDate}</td>
+                        <td>${d.endDate}</td>
+                        <td>
+                            <button class="btn btn-danger" id="deleteDiscountBtn" onclick="deleteDiscount(${d.discountID})">Xóa
+                            </button>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>
+
 <script>
     let contextPath = "${pageContext.request.contextPath}";
 </script>
-
 <script src="../assets/js/discount.js"></script>
 </body>
 </html>

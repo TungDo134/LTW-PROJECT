@@ -150,7 +150,7 @@
                                 <%-- LoadDiscount  --%>
                                 <li class="sub-menu-item">
                                     <%-- <a href="<%= request.getContextPath()%>/admin/">Giảm giá sản phẩm</a>--%>
-                                    <a href="<%= request.getContextPath()%>/admin/load-discount">Giảm giá sản phẩm</a>
+                                    <a href="<%= request.getContextPath()%>/admin/load-discount">Giảm giá sản phẩm hàng loạt</a>
                                 </li>
 
 

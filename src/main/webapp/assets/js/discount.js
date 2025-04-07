@@ -28,14 +28,16 @@ document.getElementById("categorySelect").addEventListener("change", async funct
 function updateProductTable(products, cateId) {
     let table = $('#myTable').DataTable();
     table.clear(); // Xóa dữ liệu cũ
-
     products.forEach(product => {
+        console.log(product.isDiscount)
+        let checkedAttr = product.isDiscount == 1 ? 'checked' : '';
         table.row.add([
-            `<input type="checkbox" class="product-checkbox" value="${product.productID}">`,
+            `<input type="checkbox" class="product-checkbox" ${checkedAttr} value="${product.productID}" >`,
             product.productID,
             product.productName,
-            product.productPrice.toLocaleString() + " VND",
-            cateId
+            product.productPrice.toLocaleString('Vi') + " đ",
+            product.discountPrice.toLocaleString('Vi') + " đ",
+            // cateId
         ]);
     });
 
@@ -66,6 +68,12 @@ document.getElementById("discountSelect").addEventListener("change", function ()
     document.getElementById("customDiscountDiv").classList.toggle("d-none", this.value !== "custom");
 });
 
+// hiển thị nút xóa mã giảm giá
+document.getElementById("discountSelect").addEventListener("change", function () {
+    document.getElementById("delete").classList.remove("d-none");
+});
+
+
 // Khi click vào nút "Áp dụng giảm giá"
 document.getElementById("applyDiscountBtn").addEventListener('click', async function () {
     let selectedProducts = [];
@@ -78,9 +86,7 @@ document.getElementById("applyDiscountBtn").addEventListener('click', async func
 
     // lấy id mã giảm
     let discount = document.getElementById('discountSelect').value
-    console.log(`Mã giảm được chọn có id là: ${discount}`)
 
-    // console.log("Sản phẩm đã chọn:", selectedProducts, typeof selectedProducts);
     // send data về servlet
     let formData = new URLSearchParams();
     selectedProducts.forEach(p => formData.append("productIds", p));
@@ -140,5 +146,41 @@ document.getElementById('customDiscountDiv').addEventListener('submit', async fu
     }
 })
 
+// Hiển thị bảng để chỉnh sửa
+document.getElementById("editDiscountBtn").addEventListener("click", function () {
+    let table = document.getElementById('myTable2_wrapper')
+    let btn = document.getElementById('editDiscountBtn')
+    //  lấy  CSS
+    let
+        currentDisplay = window.getComputedStyle(table).display;
+    if (currentDisplay === "none") {
+        table.style.display = "block";  // Hiển thị bảng
+        btn.textContent = 'Quay lại'
+    } else {
+        table.style.display = "none";  // Ẩn bảng
+        btn.textContent = 'Chỉnh sửa'
+    }
+
+});
+
+// Xóa mã giảm
+async function deleteDiscount(dID) {
+    let url = `${contextPath}/admin/delete-discount?discountId=${dID}`;
+
+    let response = await fetch(url, {
+        method: "POST",
+    });
+
+    let result = await response.json();
+    try {
+        if (result.isSuccess) {
+            alert('Xóa thành công')
+        } else {
+            alert('Xóa thất bại')
+        }
+    } catch (error) {
+        alert(error)
+    }
+}
 
 

@@ -4,3 +4,7 @@
     background: transparent;
     color: var(--Heading);
 }
+
+#myTable2_wrapper{
+    display: none;
+}

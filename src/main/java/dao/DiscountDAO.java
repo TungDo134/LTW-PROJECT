@@ -12,7 +12,7 @@ public class DiscountDAO {
     // lấy hết các giảm giá
     public List<Discount> getAllDiscount() {
         return JDBIContext.getJdbi().withHandle(handle ->
-                (handle.createQuery("select * from discounts ")
+                (handle.createQuery("select * from discounts order by discountType desc")
                         .mapToBean(Discount.class)
                         .list())
         );
@@ -78,6 +78,31 @@ public class DiscountDAO {
                         .execute()
         ));
     }
+
+    // cập nhật lại giá sản phẩm khi 1 mã giảm giá bất kì bị xóa và xóa nó
+    public void deleteDiscountAndUpdateProducts(String discountID) {
+        JDBIContext.getJdbi().useTransaction(handle -> {
+            // 1. Cập nhật bảng products
+            String updateProductsSql = """
+                        UPDATE products
+                        SET discountPrice = NULL,
+                            isDiscount = 0
+                        WHERE productID IN (
+                            SELECT productID FROM productdiscount WHERE discountID = :discountID
+                        )
+                    """;
+            handle.createUpdate(updateProductsSql)
+                    .bind("discountID", discountID)
+                    .execute();
+
+            // 2. Xóa discount (cascade sẽ lo productdiscount)
+            String deleteDiscountSql = "DELETE FROM discounts WHERE discountID = :discountID";
+            handle.createUpdate(deleteDiscountSql)
+                    .bind("discountID", discountID)
+                    .execute();
+        });
+    }
+
 
     public static void main(String[] args) {
         DiscountDAO dao = new DiscountDAO();

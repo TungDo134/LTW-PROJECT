@@ -21,7 +21,7 @@ public class ApplyDiscount extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String[] productIds = request.getParameterValues("productIds");
         String discountId = request.getParameter("discountId");
-
+        boolean isSuccess = false;
         /*
          * Thêm data vào bảng productDiscount
          * Từ id mã giảm lấy ra mã ==> lấy ra giá trị của mã và type
@@ -42,12 +42,13 @@ public class ApplyDiscount extends HttpServlet {
                 // update cột discountPrice va isDiscount (table products)
                 productDAO.updateDiscountInfo(id, discountPrice);
             }
+            isSuccess = true;
         }
 
 
         // Phản hồi về client
         JsonObject result = new JsonObject();
-        result.addProperty("isSuccess", true);
+        result.addProperty("isSuccess", isSuccess);
         response.setContentType("application/json");
 
         Gson gson = new Gson();
