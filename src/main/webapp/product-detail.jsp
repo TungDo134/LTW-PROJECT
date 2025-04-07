@@ -162,9 +162,26 @@
                     <h1 class="product-title"><%= product.getProductName() %>
                     </h1>
                     <p class="price">
-                        Giá:
+                        Giá ne:
                         <f:setLocale value="vi_VN"/>
-                        <f:formatNumber value="<%= product.getProductPrice() %>" type="currency"/>
+                        <c:choose>
+                            <c:when test="<%= product.getIsDiscount()==1 %>">
+                                                       <span class="text-danger fw-bold">
+                                                    <f:formatNumber value="<%= product.getDiscountPrice() %>"
+                                                                    type="currency"/>
+                                                    </span>
+                                <del class="text-muted me-2" style="font-size: 14px">
+                                    <f:formatNumber value="<%= product.getProductPrice() %>" type="currency"/>
+                                </del>
+
+                            </c:when>
+                            <c:otherwise>
+                                                <span class="text-dark fw-bold">
+                                            <f:formatNumber value="<%= product.getProductPrice() %>"
+                                                            type="currency"/></span>
+                            </c:otherwise>
+                        </c:choose>
+                        <%--                        <f:formatNumber value="<%= product.getProductPrice() %>" type="currency"/>--%>
                     </p>
 
 
@@ -210,7 +227,24 @@
                 </div>
                 <p class="price">
                     <f:setLocale value="vi_VN"/>
-                    <f:formatNumber value="<%= product.getProductPrice() %>" type="currency"/>
+                    <c:choose>
+                        <c:when test="<%= product.getIsDiscount()==1 %>">
+                                                       <span class="text-danger fw-bold">
+                                                    <f:formatNumber value="<%= product.getDiscountPrice() %>"
+                                                                    type="currency"/>
+                                                    </span>
+                            <del class="text-muted me-2" style="font-size: 14px">
+                                <f:formatNumber value="<%= product.getProductPrice() %>" type="currency"/>
+                            </del>
+
+                        </c:when>
+                        <c:otherwise>
+                                                <span class="text-dark fw-bold">
+                                            <f:formatNumber value="<%= product.getProductPrice() %>"
+                                                            type="currency"/></span>
+                        </c:otherwise>
+                    </c:choose>
+                    <%--                    <f:formatNumber value="<%= product.getProductPrice() %>" type="currency"/>--%>
                 </p>
 
             </div>
@@ -718,7 +752,7 @@
                 $.ajax({
                     url: "add-card-dp",
                     type: "GET",
-                    data: { pID: productId, quantity },
+                    data: {pID: productId, quantity},
                     success: function () {
                         alert("Sản phẩm đã thêm vào giỏ hàng!");
                     },
