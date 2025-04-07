@@ -211,8 +211,6 @@
                                     </div>
                                     <!-- nút thêm nhanh vào giỏ hàng -->
                                     <div class="add-to-cart">
-
-
                                         <form onsubmit="getIdProduct(this); return false">
                                             <input type="hidden" value="${o.productID}" name="pID">
                                             <c:if test="${o.productStock == 0}">
@@ -231,7 +229,6 @@
                                                 </button>
                                             </c:if>
 
-
                                         </form>
                                     </div>
                                 </a>
@@ -242,9 +239,23 @@
                                         <h5 class="card-title fw-semibold">${o.productName}</h5>
                                         <h5 class="price me--15 fw-semibold number-format">
                                             <f:setLocale value="vi_VN"/>
-                                            <f:formatNumber value="${o.productPrice}" type="currency"/>
+                                            <c:choose>
+                                                <c:when test="${o.isDiscount == 1}">
+                                                       <span class="text-danger fw-bold">
+                                                    <f:formatNumber value="${o.discountPrice}" type="currency"/>
+                                                    </span>
+                                                    <del class="text-muted me-2" style="font-size: 14px">
+                                                        <f:formatNumber value="${o.productPrice}" type="currency"/>
+                                                    </del>
 
+                                                </c:when>
+                                                <c:otherwise>
+                                                <span class="text-dark fw-bold">
+                                            <f:formatNumber value="${o.productPrice}" type="currency"/></span>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </h5>
+
                                     </div>
                                     <p class="card-text fs-7 fw-medium text-justify">
                                             ${o.shortDes}

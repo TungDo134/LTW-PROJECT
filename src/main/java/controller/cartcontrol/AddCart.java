@@ -25,6 +25,10 @@ public class AddCart extends HttpServlet {
         ProductDAO productDAO = new ProductDAO();
         Product product = productDAO.getProductByID(pID);
 
+        // xem có giảm giá không
+        if (product.getIsDiscount() == 1) {
+            product.setProductPrice(product.getDiscountPrice());
+        }
 
         HttpSession session = request.getSession(true);
         Cart c = (Cart) session.getAttribute("cart");
