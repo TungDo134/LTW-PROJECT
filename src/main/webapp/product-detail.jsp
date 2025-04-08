@@ -186,12 +186,21 @@
 
 
                     <div class="btn-container">
-                        <button type="submit" class="btn addBtn btn-primary add-to-cart" form="add-to-cart-form"
+                        <button type="button" class="btn addBtn btn-primary add-to-cart"
+                        <%-- form="add-to-cart-form"--%>
+
                                 data-id="<%= product.getProductID() %>">
                             Thêm vào giỏ hàng
                         </button>
                         <button class="btn btn-buy">Mua ngay</button>
                     </div>
+                    <%--  Hiện thông báo nếu thêm vô giỏ thành công --%>
+                    <span data-bs-target="#exampleModal" data-bs-toggle="modal">
+                    <button
+                            class="icon-p"
+                            type="button"
+                            style="display: none"
+                    ></button> </span>
 
                     <div class="policy">
                         <h2>Chính sách ưu đãi:</h2>
@@ -506,7 +515,9 @@
                         </div>
                         <p id="selected-rating">Chưa chọn</p>
                     </div>
-                    <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
+                    <button type="submit" class="btn btn-primary"><a class="m-auto text-white">
+                        Gửi đánh giá
+                    </a></button>
                 </form>
             </div>
         </div>
@@ -640,6 +651,57 @@
                     </div>
                 </a>
             </c:forEach>
+            <!-- Modal -->
+            <div
+                    class="modal fade"
+                    id="exampleModal"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+            >
+                <div class="modal-dialog modal-sm" style="margin-top: 10rem">
+                    <div class="modal-content rounded-0">
+                        <div
+                                class="modal-header bg-dark border border-0 rounded-0"
+                                style="height: 25px; padding: 20px 0px"
+                        >
+                            <h1
+                                    class="modal-title fs-6 fw- text-light text-center w-100 ps-2"
+                                    id="exampleModalLabel"
+                            >
+                                THÔNG BÁO
+                            </h1>
+                            <button
+                                    type="button"
+                                    class="btn-close btn-custom"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                            ></button>
+                        </div>
+                        <div
+                                class="modal-body text-center text-secondary-emphasis fst-italic"
+                                style="height: 20px"
+                        >
+                            Thêm vào giỏ hàng thành công...
+                        </div>
+                        <div class="modal-footer border border-0">
+                            <button
+                                    type="button"
+                                    class="btn btn-secondary w-50 mx-auto bg-dark rounded-0"
+                                    style="display: unset;
+                                    padding: 6px 12px"
+                                    data-bs-dismiss="modal"
+                            >
+                                <a
+                                        href="show-cart"
+                                        style="color: #fff; font-size: 14px; font-weight: 600"
+                                >XEM GIỎ HÀNG</a
+                                >
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -754,7 +816,11 @@
                     type: "GET",
                     data: {pID: productId, quantity},
                     success: function () {
-                        alert("Sản phẩm đã thêm vào giỏ hàng!");
+                        // alert("Sản phẩm đã thêm vào giỏ hàng!");
+                        const button = document.querySelector('.icon-p');
+                        if (button) {
+                            button.click(); // Kích hoạt sự kiện click
+                        }
                     },
                     error: function (xhr) {
                         console.error("Lỗi:", xhr.responseText);
@@ -765,9 +831,11 @@
     });
 
 </script>
+
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <!-- Khởi tạo Swiper -->
 <script src="assets/js/sub_img.js"></script>
+
 </body>
 </html>

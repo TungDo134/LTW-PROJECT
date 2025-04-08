@@ -732,3 +732,18 @@ body {
     border: 1px solid #000;
 }
 /* Slider*/
+
+/* Modal */
+.btn-custom {
+    background: url(../pic/button_modal.webp) top left no-repeat;
+    position: absolute;
+    right: -20px;
+    top: -12px;
+    width: 35px;
+    border-radius: 50%;
+}
+
+.btn-close:focus {
+    box-shadow: none;
+}
+/* Modal */
