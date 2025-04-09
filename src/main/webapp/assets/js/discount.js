@@ -29,7 +29,6 @@ function updateProductTable(products, cateId) {
     let table = $('#myTable').DataTable();
     table.clear(); // Xóa dữ liệu cũ
     products.forEach(product => {
-        console.log(product.isDiscount)
         let checkedAttr = product.isDiscount == 1 ? 'checked' : '';
         table.row.add([
             `<input type="checkbox" class="product-checkbox" ${checkedAttr} value="${product.productID}" >`,
@@ -37,11 +36,12 @@ function updateProductTable(products, cateId) {
             product.productName,
             product.productPrice.toLocaleString('Vi') + " đ",
             product.discountPrice.toLocaleString('Vi') + " đ",
-            // cateId
+            `<input type="checkbox" class="product-unCheckbox" value="${product.productID}" >`
         ]);
     });
 
     table.draw(); // Cập nhật bảng
+    // getAllCheckedProductIds()
 }
 
 // Sự kiện khi click vào checkbox "Chọn tất cả"
@@ -63,6 +63,25 @@ document.getElementById('productTable').addEventListener('change', function (e) 
     }
 });
 
+// Sự kiện khi click vào checkbox "Hủy chọn tất cả"
+document.getElementById('unSelectAll').addEventListener('click', function (e) {
+    e.stopPropagation(); // Ngăn không cho sự kiện lan ra ngoài (ví dụ sorting table)
+    let checked = this.checked; // Trạng thái hiện tại của checkbox
+    let checkboxes = document.querySelectorAll('.product-unCheckbox');
+    checkboxes.forEach(function (checkbox) {
+        checkbox.checked = checked; // Set tất cả cùng trạng thái
+    });
+});
+
+// Sự kiện khi người dùng hủy click vào từng unCheckbox sản phẩm
+document.getElementById('productTable').addEventListener('change', function (e) {
+    if (e.target.classList.contains('product-unCheckbox')) {
+        if (!e.target.checked) {
+            document.getElementById('unSelectAll').checked = false;
+        }
+    }
+});
+
 // hiển thị giao diện thêm mã mới
 document.getElementById("discountSelect").addEventListener("change", function () {
     document.getElementById("customDiscountDiv").classList.toggle("d-none", this.value !== "custom");
@@ -72,7 +91,6 @@ document.getElementById("discountSelect").addEventListener("change", function ()
 document.getElementById("discountSelect").addEventListener("change", function () {
     document.getElementById("delete").classList.remove("d-none");
 });
-
 
 // Khi click vào nút "Áp dụng giảm giá"
 document.getElementById("applyDiscountBtn").addEventListener('click', async function () {
@@ -182,5 +200,59 @@ async function deleteDiscount(dID) {
         alert(error)
     }
 }
+
+// // lấy ra các checkbox được click khi load trang (đã áp mã giảm)
+// function getAllCheckedProductIds() {
+//     let table = $('#myTable').DataTable();
+//     let selectedIds = [];
+//
+//     table.rows().every(function () {
+//         let rowData = this.data(); // rowData là mảng chứa các cột bạn đã add
+//         let html = rowData[0]; // Cột đầu tiên là nơi chứa input checkbox
+//
+//         // Tạo element tạm để phân tích HTML
+//         let tempDiv = document.createElement('div');
+//         tempDiv.innerHTML = html;
+//
+//         let checkbox = tempDiv.querySelector('.product-checkbox');
+//         if (checkbox && checkbox.checked) {
+//             selectedIds.push(checkbox.value);
+//         }
+//     });
+//
+//     console.log("Sản phẩm đã được áp mã (checkbox đã tích):", selectedIds);
+//     return selectedIds;
+// }
+
+// Hủy giảm giá
+document.getElementById("removeDiscountBtn").addEventListener("click", async () => {
+    let selected = Array.from(document.querySelectorAll(".product-unCheckbox:checked"))
+        .map(cb => cb.value);
+
+    if (selected.length === 0) {
+        alert("Chọn sản phẩm để hủy giảm giá");
+        return;
+    }
+
+    let formData = new URLSearchParams();
+    selected.forEach(id => formData.append("productIds", id));
+
+
+    let response = await fetch(`${contextPath}/admin/remove-discount-products`, {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: formData
+    });
+
+    const result = await response.json();
+    if (result.isSuccess) {
+        alert("Đã hủy giảm giá thành công");
+
+    } else {
+        alert("Hủy thất bại!");
+    }
+});
+
+
 
 

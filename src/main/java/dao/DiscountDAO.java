@@ -3,6 +3,7 @@ package dao;
 import context.JDBIContext;
 import entity.Discount;
 import entity.Product;
+import org.jdbi.v3.core.Handle;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -101,6 +102,31 @@ public class DiscountDAO {
                     .bind("discountID", discountID)
                     .execute();
         });
+    }
+
+    public boolean removeDiscountBatch(List<String> productIds) {
+        String deleteSql = "DELETE FROM productdiscount WHERE productID IN (<ids>)";
+        String updateSql = "UPDATE products SET discountPrice = NULL, isDiscount = 0 WHERE productID IN (<ids>)";
+
+        try (Handle handle = JDBIContext.getJdbi().open()) {
+            handle.begin();
+
+            // Xóa liên kết
+            handle.createUpdate(deleteSql)
+                    .bindList("ids", productIds)
+                    .execute();
+
+            // Cập nhật bảng products
+            handle.createUpdate(updateSql)
+                    .bindList("ids", productIds)
+                    .execute();
+
+            handle.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 

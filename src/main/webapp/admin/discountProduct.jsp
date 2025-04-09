@@ -139,6 +139,7 @@
                     <th>Sản phẩm</th>
                     <th>Giá gốc</th>
                     <th>Giá sau giảm</th>
+                    <th>Hủy giảm giá <input type="checkbox" id="unSelectAll"></th>
                 </tr>
                 </thead>
                 <tbody id="productTable">
@@ -147,6 +148,7 @@
 
             <button class="btn btn-primary" id="applyDiscountBtn">Áp dụng</button>
             <button class="btn btn-info" id="editDiscountBtn">Chỉnh sửa</button>
+            <button class="d-block mt-2 btn btn-danger" id="removeDiscountBtn">Hủy giảm giá</button>
 
             <table id="myTable2">
                 <thead>

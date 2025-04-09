@@ -147,11 +147,6 @@
                                     <a href="<%= request.getContextPath()%>/admin/show-add-product">Thêm sản phẩm</a>
                                 </li>
 
-                                <%-- LoadDiscount  --%>
-                                <li class="sub-menu-item">
-                                    <%-- <a href="<%= request.getContextPath()%>/admin/">Giảm giá sản phẩm</a>--%>
-                                    <a href="<%= request.getContextPath()%>/admin/load-discount">Giảm giá sản phẩm hàng loạt</a>
-                                </li>
 
 
                             </ul>
@@ -239,7 +234,7 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/all-coupon">Mục mã giảm giá</a>
+                                    <a href="<%= request.getContextPath()%>/admin/all-coupon">Mã giảm giá cho đơn hàng</a>
                                 </li>
                                 <li class="sub-menu-item">
                                     <%--GetAllReview--%>
@@ -251,7 +246,11 @@
                                     <a href="<%= request.getContextPath()%>/admin/all-feedback">Danh sách phản
                                         hồi </a>
                                 </li>
-
+                                <%-- LoadDiscount  --%>
+                                <li class="sub-menu-item">
+                                    <%-- <a href="<%= request.getContextPath()%>/admin/">Giảm giá sản phẩm</a>--%>
+                                    <a href="<%= request.getContextPath()%>/admin/load-discount">Giảm giá sản phẩm hàng loạt</a>
+                                </li>
                             </ul>
                         </li>
 
