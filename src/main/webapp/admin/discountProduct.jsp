@@ -148,7 +148,7 @@
 
             <button class="btn btn-primary" id="applyDiscountBtn">Áp dụng</button>
             <button class="btn btn-info" id="editDiscountBtn">Chỉnh sửa</button>
-            <button class="d-block mt-2 btn btn-danger" id="removeDiscountBtn">Hủy giảm giá</button>
+            <button class="d-none mt-2 btn btn-danger" id="removeDiscountBtn">Hủy giảm giá</button>
 
             <table id="myTable2">
                 <thead>
@@ -168,17 +168,24 @@
                         <td>${d.startDate}</td>
                         <td>${d.endDate}</td>
                         <td>
-                            <button class="btn btn-danger" id="deleteDiscountBtn" onclick="deleteDiscount(${d.discountID})">Xóa
+                            <button class="btn btn-danger" id="deleteDiscountBtn"
+                                    onclick="deleteDiscount(this,${d.discountID})">Xóa
                             </button>
                         </td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
-
+        </div>
+    </div>
+    //
+    <div id="loadingSpinner" class="d-none position-fixed top-50 start-50 translate-middle">
+        <div class="spinner-border text-white p-3" role="status">
+            <span class="visually-hidden">Loading...</span>
         </div>
     </div>
 </div>
+
 
 <script>
     let contextPath = "${pageContext.request.contextPath}";

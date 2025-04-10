@@ -233,12 +233,6 @@ public class ProductDAO {
         );
     }
 
-    public static void main(String[] args) {
-        ProductDAO dao = new ProductDAO();
-        System.out.println(dao.getNewPro());
-    }
-
-
     public void updateDiscountInfo(String productId, double discountPrice) {
         String sql = "UPDATE products " +
                 "SET discountPrice = :discountPrice, isDiscount = :isDiscount " +

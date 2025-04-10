@@ -104,7 +104,8 @@ public class DiscountDAO {
         });
     }
 
-    public boolean removeDiscountBatch(List<String> productIds) {
+    // Hủy giảm giá dựa vào id sản phẩm
+    public boolean UnDiscount(List<String> productIds) {
         String deleteSql = "DELETE FROM productdiscount WHERE productID IN (<ids>)";
         String updateSql = "UPDATE products SET discountPrice = NULL, isDiscount = 0 WHERE productID IN (<ids>)";
 
@@ -129,9 +130,24 @@ public class DiscountDAO {
         }
     }
 
+    // lấy id các sp có mã giảm giá hết hạn
+    public List<String> getExpiredDiscountProductIds() {
+        String sql = """
+                    SELECT p.productID FROM products p
+                    JOIN productdiscount pd ON p.productID = pd.productID
+                    JOIN discounts d ON pd.discountID = d.discountID
+                    WHERE p.isDiscount = 1 AND d.endDate < NOW()
+                """;
+
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery(sql)
+                        .mapTo(String.class)
+                        .list()
+        );
+    }
 
     public static void main(String[] args) {
         DiscountDAO dao = new DiscountDAO();
-        System.out.println(dao.getDiscount("3"));
+        System.out.println(dao.getExpiredDiscountProductIds());
     }
 }
