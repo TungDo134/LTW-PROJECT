@@ -60,6 +60,7 @@ document.getElementById('productTable').addEventListener('change', function (e) 
         if (!e.target.checked) {
             document.getElementById('selectAll').checked = false;
         }
+
     }
 });
 
@@ -69,17 +70,27 @@ document.getElementById('unSelectAll').addEventListener('click', function (e) {
     let checked = this.checked; // Trạng thái hiện tại của checkbox
     let checkboxes = document.querySelectorAll('.product-unCheckbox');
     checkboxes.forEach(function (checkbox) {
-        checkbox.checked = checked; // Set tất cả cùng trạng thái
+        checkbox.checked = checked;
     });
+   if(checked){
+       document.getElementById('removeDiscountBtn').classList.remove('d-none');
+       document.getElementById('removeDiscountBtn').classList.add('d-block');
+   }else{
+       document.getElementById('removeDiscountBtn').classList.add('d-none');
+       document.getElementById('removeDiscountBtn').classList.remove('d-block');
+   }
 });
 
-// Sự kiện khi người dùng hủy click vào từng unCheckbox sản phẩm
+// Sự kiện khi người dùng 'HỦY' click vào từng 'unCheckbox' sản phẩm
 document.getElementById('productTable').addEventListener('change', function (e) {
     if (e.target.classList.contains('product-unCheckbox')) {
         if (!e.target.checked) {
             document.getElementById('unSelectAll').checked = false;
         }
+        document.getElementById('removeDiscountBtn').classList.remove('d-none');
+        document.getElementById('removeDiscountBtn').classList.add('d-block');
     }
+
 });
 
 // hiển thị giao diện thêm mã mới
@@ -140,10 +151,10 @@ document.getElementById('customDiscountDiv').addEventListener('submit', async fu
         console.log('Phần trăm không được lớn hơn 2 chữ số');
         return;
     }
-    for (let value of formData) {
-        console.log(value)
-    }
-    // return;
+    // for (let value of formData) {
+    //     console.log(value)
+    // }
+    //  return;
 
     let response = await fetch(url, {
         method: 'POST',
@@ -155,7 +166,7 @@ document.getElementById('customDiscountDiv').addEventListener('submit', async fu
     let result = await response.json();
     try {
         if (result.isSuccess) {
-            alert("Thêm mục giảm giá mới Thành công")
+            reloadWithSpinner('Thêm mã mới thành công')
         } else {
             alert("Thêm mục giảm giá mới thất bại")
         }
@@ -181,10 +192,12 @@ document.getElementById("editDiscountBtn").addEventListener("click", function ()
 
 });
 
-// Xóa mã giảm
-async function deleteDiscount(dID) {
-    let url = `${contextPath}/admin/delete-discount?discountId=${dID}`;
+// Xóa mã giảm (ko load lại trang)
+async function deleteDiscount(button, dID) {
+    if (!confirm("Bạn có chắc chắn muốn xóa không?")) return;
 
+    let url = `${contextPath}/admin/delete-discount?discountId=${dID}`;
+    let target = button.parentElement.parentElement
     let response = await fetch(url, {
         method: "POST",
     });
@@ -192,6 +205,9 @@ async function deleteDiscount(dID) {
     let result = await response.json();
     try {
         if (result.isSuccess) {
+            let table = $("#myTable2").DataTable();
+            let row = table.row(target);
+            row.remove().draw(false);
             alert('Xóa thành công')
         } else {
             alert('Xóa thất bại')
@@ -200,29 +216,6 @@ async function deleteDiscount(dID) {
         alert(error)
     }
 }
-
-// // lấy ra các checkbox được click khi load trang (đã áp mã giảm)
-// function getAllCheckedProductIds() {
-//     let table = $('#myTable').DataTable();
-//     let selectedIds = [];
-//
-//     table.rows().every(function () {
-//         let rowData = this.data(); // rowData là mảng chứa các cột bạn đã add
-//         let html = rowData[0]; // Cột đầu tiên là nơi chứa input checkbox
-//
-//         // Tạo element tạm để phân tích HTML
-//         let tempDiv = document.createElement('div');
-//         tempDiv.innerHTML = html;
-//
-//         let checkbox = tempDiv.querySelector('.product-checkbox');
-//         if (checkbox && checkbox.checked) {
-//             selectedIds.push(checkbox.value);
-//         }
-//     });
-//
-//     console.log("Sản phẩm đã được áp mã (checkbox đã tích):", selectedIds);
-//     return selectedIds;
-// }
 
 // Hủy giảm giá
 document.getElementById("removeDiscountBtn").addEventListener("click", async () => {
@@ -236,7 +229,6 @@ document.getElementById("removeDiscountBtn").addEventListener("click", async () 
 
     let formData = new URLSearchParams();
     selected.forEach(id => formData.append("productIds", id));
-
 
     let response = await fetch(`${contextPath}/admin/remove-discount-products`, {
         method: "POST",
@@ -252,6 +244,21 @@ document.getElementById("removeDiscountBtn").addEventListener("click", async () 
         alert("Hủy thất bại!");
     }
 });
+
+// xoay xoay
+function reloadWithSpinner(msg) {
+    // Hiện spinner
+    document.getElementById('loadingSpinner').classList.remove('d-none');
+
+    // Sau 1 khoảng thời gian ngắn mới reload (cho user thấy hiệu ứng)
+    setTimeout(() => {
+        alert(msg)
+        location.reload(); // Tự load lại trang
+    }, 1500); // 1 giây (tùy chỉnh)
+}
+
+
+
 
 
 

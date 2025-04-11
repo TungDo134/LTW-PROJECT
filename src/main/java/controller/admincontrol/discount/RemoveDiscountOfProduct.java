@@ -16,7 +16,7 @@ public class RemoveDiscountOfProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String[] productIds = request.getParameterValues("productIds");
         DiscountDAO dao = new DiscountDAO();
-        boolean isSuccess = dao.removeDiscountBatch(List.of(productIds));
+        boolean isSuccess = dao.UnDiscount(List.of(productIds));
 
 
         // Phản hồi về client
