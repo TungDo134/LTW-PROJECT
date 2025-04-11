@@ -199,12 +199,18 @@ padding: 16px 8px;
                             </div>
                         </div>
                         <!-- Shopping bag -->
-                        <a href="show-cart"
-                        ><span
-                                class="material-symbols-outlined"
-                                style="line-height: normal; color: #333333cc">
+                        <a class="shopping-bag" href="show-cart">
+                            <span
+                                    class="material-symbols-outlined"
+                                    style="line-height: normal; color: #333333cc">
                         shopping_bag
-                        </span></a>
+                        </span>
+                            <div>
+                                <span class="quantity-bag">
+                                    <c:out value="${cartSize}"/>
+                                </span>
+                            </div>
+                        </a>
                         <c:if test="${sessionScope.customer != null}"><a style="color: #000" href="load-profile">
                             Xin chào <p
                                 style="color: #000;margin: 0;font-weight: 700;">${sessionScope.customer.name}</p>

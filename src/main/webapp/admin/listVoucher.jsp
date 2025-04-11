@@ -138,7 +138,6 @@
             })
 
             let result = await response.json();
-            console.log(result.isSuccess)
             if (result.isSuccess) {
                 let vId = result.vId;
                 let table = $("#myTable").DataTable();

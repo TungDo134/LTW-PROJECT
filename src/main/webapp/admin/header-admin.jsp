@@ -139,13 +139,16 @@
                                 <li class="sub-menu-item">
 
                                     <%--  LoadProductAdmin --%>
-                                    <a href="<%= request.getContextPath()%>/admin/load-pAdmin">Danh sách sản phẩm</a
-                                    >
+                                    <a href="<%= request.getContextPath()%>/admin/load-pAdmin">Danh sách sản phẩm</a>
+
                                 </li>
                                 <%--  ShowAddProduct --%>
                                 <li class="sub-menu-item">
                                     <a href="<%= request.getContextPath()%>/admin/show-add-product">Thêm sản phẩm</a>
                                 </li>
+
+
+
                             </ul>
                         </li>
                         <li class="item item-dropdown">
@@ -231,7 +234,7 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/all-coupon">Mục mã giảm giá</a>
+                                    <a href="<%= request.getContextPath()%>/admin/all-coupon">Mã giảm giá cho đơn hàng</a>
                                 </li>
                                 <li class="sub-menu-item">
                                     <%--GetAllReview--%>
@@ -243,7 +246,11 @@
                                     <a href="<%= request.getContextPath()%>/admin/all-feedback">Danh sách phản
                                         hồi </a>
                                 </li>
-
+                                <%-- LoadDiscount  --%>
+                                <li class="sub-menu-item">
+                                    <%-- <a href="<%= request.getContextPath()%>/admin/">Giảm giá sản phẩm</a>--%>
+                                    <a href="<%= request.getContextPath()%>/admin/load-discount">Giảm giá sản phẩm hàng loạt</a>
+                                </li>
                             </ul>
                         </li>
 
@@ -282,7 +289,7 @@
             url: "${pageContext.request.contextPath}/load-logo",
             type: "get",
             success: function (data) {
-                console.log(data)
+                // console.log(data)
                 const contextPath = "<%=request.getContextPath()%>";
                 let imgSrc = contextPath + "/assets/pic/homePage/" + data.logoName
                 $("#logoName").attr("src", imgSrc)
@@ -292,6 +299,7 @@
             }
         })
     }
+
     loadLogo();
 </script>
 

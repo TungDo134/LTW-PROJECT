@@ -53,13 +53,13 @@
             <h1>Hiển thị danh mục</h1>
         </div>
         <div class="add-voucher" style="margin-bottom: 1rem">
-            <form action="<%= request.getContextPath()%>/add-newCate" method="post">
+            <form id="myForm">
                 <div class="row">
                     <p class="text-danger"><%=message != null ? message : "" %>
                     </p>
                     <div class="col col-2">
-                        <label class="pb-2" id="nameCate" for="nameCate">Tên danh mục</label>
-                        <input name="nameCate" type="text" class="form-control" placeholder="Tên danh mục"
+                        <label class="pb-2" for="nameCate">Tên danh mục</label>
+                        <input id="nameCate" name="nameCate" type="text" class="form-control" placeholder="Tên danh mục"
                                aria-label="Last name">
                     </div>
                     <div class="col col-2">
@@ -85,7 +85,7 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${listC}" var="o">
-                        <tr>
+                        <tr data-id="${o.id}">
                             <td><img src="<%=request.getContextPath()%>/assets/pic/products/${o.cateImg}" alt=""></td>
                             <td>${o.name}</td>
                             <td>${o.id}</td>
@@ -97,8 +97,8 @@
 
                                     <%-- DeleteCate --%>
                                 <a class="btn btn-danger btn-customize"
-                                   href="<%=request.getContextPath()%>/admin/delete-cate?cID=${o.id}"
-                                   onclick="confirmDelete(this)"
+                                    <%--   href="<%=request.getContextPath()%>/admin/delete-cate?cID=${o.id}"--%>
+                                   onclick="confirmDelete(this,${o.id})"
                                    role="button">Xóa</a>
 
                             </td>
@@ -111,10 +111,74 @@
     </div>
 </div>
 <script>
-    function confirmDelete(param) {
-        if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?" +'\n'+
-            "Điều này sẽ xóa hết sản phẩm có thể loại này")) {
-            event.preventDefault(); // Hủy bỏ hành động mặc định
+    // add
+    document.getElementById("myForm").addEventListener("submit", async function (event) {
+        event.preventDefault();
+        let url = `${pageContext.request.contextPath}/add-newCate`
+        let url_custom = `${pageContext.request.contextPath}/admin/get-cate?cID=`
+
+        let formData = new URLSearchParams(new FormData(this))
+        let fileName = document.querySelector("#imgCate").files[0].name; // Lấy tên file
+        formData.delete("imgCate");
+        formData.append("imgCate", fileName);
+
+        // src img
+        let src_img = `${pageContext.request.contextPath}/assets/pic/products/` + fileName
+
+
+        try {
+            let response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: formData
+            })
+
+            let result = await response.json();
+            console.log('Result:' + result)
+            if (result.isSuccess) {
+                alert('Thêm thành công')
+                let cID = result.cID;
+                let table = $("#myTable").DataTable();
+                let actionButtons =
+                    "<a class='btn btn-success btn-customize' href='" + url_custom + cID + "' role='button'>Chỉnh sửa</a> " +
+                    "<a class='btn btn-danger btn-customize' onclick='confirmDelete(this, " + cID + ")' role='button'>Xóa</a>"
+                let newData = [
+                    "<img alt='' src='" + src_img + "' '></img>",
+                    document.getElementById("nameCate").value,
+                    cID,
+                    actionButtons
+                ];
+                table.row.add(newData).draw(false);
+            } else {
+                alert('Thêm thất bại')
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    })
+
+    async function confirmDelete(button, cid) {
+        if (!confirm("Bạn có chắc chắn muốn thực hiện hành động này?" + '\n' +
+            "Điều này sẽ xóa hết sản phẩm có thể loại này")) return;
+
+        let url = `${pageContext.request.contextPath}/admin/delete-cate?cID=` + cid
+        let target = button.parentElement.parentElement
+
+        try {
+            let response = await fetch(url, {method: 'Post'});
+            let rs = await response.json();
+            if (rs.isSuccess) {
+                let table = $("#myTable").DataTable();
+                let row = table.row(target);
+                row.remove().draw(false);
+                alert("Xóa thành công!");
+            } else {
+                alert("Có lỗi xảy ra!");
+            }
+        } catch (error) {
+            console.log(error)
         }
     }
 

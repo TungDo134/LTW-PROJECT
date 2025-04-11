@@ -211,8 +211,6 @@
                                     </div>
                                     <!-- nút thêm nhanh vào giỏ hàng -->
                                     <div class="add-to-cart">
-
-
                                         <form onsubmit="getIdProduct(this); return false">
                                             <input type="hidden" value="${o.productID}" name="pID">
                                             <c:if test="${o.productStock == 0}">
@@ -231,7 +229,6 @@
                                                 </button>
                                             </c:if>
 
-
                                         </form>
                                     </div>
                                 </a>
@@ -242,9 +239,23 @@
                                         <h5 class="card-title fw-semibold">${o.productName}</h5>
                                         <h5 class="price me--15 fw-semibold number-format">
                                             <f:setLocale value="vi_VN"/>
-                                            <f:formatNumber value="${o.productPrice}" type="currency"/>
+                                            <c:choose>
+                                                <c:when test="${o.isDiscount == 1}">
+                                                       <span class="text-danger fw-bold">
+                                                    <f:formatNumber value="${o.discountPrice}" type="currency"/>
+                                                    </span>
+                                                    <del class="text-muted me-2" style="font-size: 14px">
+                                                        <f:formatNumber value="${o.productPrice}" type="currency"/>
+                                                    </del>
 
+                                                </c:when>
+                                                <c:otherwise>
+                                                <span class="text-dark fw-bold">
+                                            <f:formatNumber value="${o.productPrice}" type="currency"/></span>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </h5>
+
                                     </div>
                                     <p class="card-text fs-7 fw-medium text-justify">
                                             ${o.shortDes}
@@ -390,5 +401,66 @@
     }
 </script>
 
+
+<%--<script>--%>
+<%--    document.addEventListener("DOMContentLoaded", function () {--%>
+<%--        const addToCartBtn = document.querySelector(".add-to-cart");--%>
+<%--        const quantityInput = document.querySelector("#quantity-input");--%>
+<%--        const increaseBtn = document.querySelector(".increase");--%>
+<%--        const decreaseBtn = document.querySelector(".decrease");--%>
+
+<%--        // Xử lý tăng số lượng--%>
+<%--        if (increaseBtn) {--%>
+<%--            increaseBtn.addEventListener("click", function (event) {--%>
+<%--                event.preventDefault();--%>
+<%--                let quantity = parseInt(quantityInput.value) || 1;--%>
+<%--                quantityInput.value = quantity + 1;--%>
+<%--            });--%>
+<%--        }--%>
+
+<%--        // Xử lý giảm số lượng (tối thiểu là 1)--%>
+<%--        if (decreaseBtn) {--%>
+<%--            decreaseBtn.addEventListener("click", function (event) {--%>
+<%--                event.preventDefault();--%>
+<%--                let quantity = parseInt(quantityInput.value) || 1;--%>
+<%--                if (quantity > 1) {--%>
+<%--                    quantityInput.value = quantity - 1;--%>
+<%--                }--%>
+<%--            });--%>
+<%--        }--%>
+
+<%--        // Xử lý thêm sản phẩm vào giỏ hàng khi nhấn "Thêm vào giỏ hàng"--%>
+<%--        if (addToCartBtn) {--%>
+<%--            addToCartBtn.addEventListener("click", function (event) {--%>
+<%--                event.preventDefault(); // Ngăn form bị reload--%>
+
+<%--                const productId = addToCartBtn.getAttribute("data-id");--%>
+<%--                const quantity = quantityInput.value;--%>
+
+<%--                if (quantity <= 0 || isNaN(quantity)) {--%>
+<%--                    alert("Vui lòng nhập số lượng hợp lệ!");--%>
+<%--                    return;--%>
+<%--                }--%>
+
+<%--                $.ajax({--%>
+<%--                    url: "add-cart", // Servlet URL--%>
+<%--                    type: "GET",--%>
+<%--                    data: { pID: productId, quantity: quantity },--%>
+<%--                    success: function (response) {--%>
+<%--                        alert("Sản phẩm đã thêm vào giỏ hàng!");--%>
+<%--                        const button = document.querySelector('.icon-p');--%>
+<%--                        if (button) {--%>
+<%--                            button.click(); // Kích hoạt sự kiện cập nhật giỏ hàng--%>
+<%--                        }--%>
+<%--                    },--%>
+<%--                    error: function (xhr, status, error) {--%>
+<%--                        alert("Lỗi: " + xhr.responseText);--%>
+<%--                    }--%>
+<%--                });--%>
+<%--            });--%>
+<%--        }--%>
+<%--    });--%>
+
+<%--</script>--%>
 </body>
 </html>
