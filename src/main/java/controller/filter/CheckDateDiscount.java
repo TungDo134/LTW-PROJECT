@@ -22,9 +22,10 @@ public class CheckDateDiscount implements Filter {
 
         // lấy id các sp có mã hết hạn
         List<String> pIds = discountDAO.getExpiredDiscountProductIds();
-
-        // hủy giảm giá với các sp  có mã hết hạn
-        discountDAO.UnDiscount(pIds);
+        if (!pIds.isEmpty()) {
+            // hủy giảm giá với các sp  có mã hết hạn
+            discountDAO.UnDiscount(pIds);
+        }
 
         chain.doFilter(request, response);
     }
