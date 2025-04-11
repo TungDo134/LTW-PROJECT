@@ -212,24 +212,38 @@
             <div class="list-content container-full">
                 <div class="colection-list">
                     <div class="layout">
-                        <div class="row">
+                        <%--                        <div class="row">--%>
+                        <%--                            <c:forEach items="${listCate}" var="o">--%>
+                        <%--                                <div class="col-lg-3 col-md-3 col-sm-4 col-6 gy-3">--%>
+                        <%--                                    <div class="card-inner">--%>
+                        <%--                                        <a href="product-cate?cID=${o.id}">--%>
+                        <%--                                            <div class="box">--%>
+                        <%--                                                <img src="<%=request.getContextPath()%>/assets/pic/products/${o.cateImg}"/>--%>
+                        <%--                                            </div>--%>
+                        <%--                                        </a>--%>
+                        <%--                                        <div class="card-info">--%>
+                        <%--                                            <div class="card-title">--%>
+                        <%--                                                <a href="#">${o.name}</a>--%>
+                        <%--                                            </div>--%>
+                        <%--                                        </div>--%>
+                        <%--                                    </div>--%>
+                        <%--                                </div>--%>
+                        <%--                            </c:forEach>--%>
+                        <%--                        </div>--%>
+                        <div class="row text-center justify-content-center">
                             <c:forEach items="${listCate}" var="o">
-                                <div class="col-lg-3 col-md-3 col-sm-4 col-6 gy-3">
-                                    <div class="card-inner">
-                                        <a href="product-cate?cID=${o.id}">
-                                            <div class="box">
-                                                <img src="<%=request.getContextPath()%>/assets/pic/products/${o.cateImg}"/>
-                                            </div>
-                                        </a>
-                                        <div class="card-info">
-                                            <div class="card-title">
-                                                <a href="#">${o.name}</a>
-                                            </div>
+                                <div class="col-4 col-sm-3 col-md-2 mb-3">
+                                    <a href="product-cate?cID=${o.id}" class="text-decoration-none text-dark">
+                                        <div class="category-item">
+                                            <img src="<%=request.getContextPath()%>/assets/pic/products/${o.cateImg}"
+                                                 alt="${o.name}" class="img-fluid cate-img">
+                                            <div class="mt-2 cate-name">${o.name}</div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </c:forEach>
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -424,3 +424,30 @@
 .list-content .card-title a {
   color: #000;
 }
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s;
+}
+
+.category-item:hover {
+  transform: scale(1.05);
+}
+
+.cate-img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.cate-name {
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80px;
+}

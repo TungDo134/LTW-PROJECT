@@ -15,7 +15,7 @@ function toggleFAQ(para) {
 // JS cho phần tăng giảm số lượng sp ng dùng chọn
 $("button").click(function () {
     let upOrDown = $(this).attr("class");
-    console.log(upOrDown);
+    // console.log(upOrDown);
 
     // Tăng số lượng hoặc giảm số lượng
     let quantity = $(this).parent();
