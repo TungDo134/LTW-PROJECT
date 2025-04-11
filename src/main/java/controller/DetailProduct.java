@@ -1,14 +1,18 @@
 //detail
 package controller;
 
+import dao.ManufacturerDAO;
 import dao.ProductDAO;
 import dao.ReviewDAO;
+import entity.Manufacturer;
 import entity.Product;
 import entity.Review;
 import entity.SubImgProduct;
-import jakarta.servlet.*;
-import jakarta.servlet.annotation.*;
-import jakarta.servlet.http.*;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.List;
@@ -25,7 +29,7 @@ public class DetailProduct extends HttpServlet {
         Product product = productDAO.getProductByID(pid);
 
         // Hiển thị sub img của sản phẩm
-        SubImgProduct subImgP =  productDAO.getListSubImg(product.getProductID());
+        SubImgProduct subImgP = productDAO.getListSubImg(product.getProductID());
 
         // Hiển thị reviews của sản phẩm
         ReviewDAO reviewDAO = new ReviewDAO();
@@ -35,6 +39,11 @@ public class DetailProduct extends HttpServlet {
         // Lấy các sản phẩm cùng thể loại
         ProductDAO proDao = new ProductDAO();
         List<Product> productByCate = proDao.getProductByCateLimit(product.getCateID());
+
+        //nhà sx
+        ManufacturerDAO manufacturerDAO = new ManufacturerDAO();
+        Manufacturer manufacturer = manufacturerDAO.getByCateID(product.getCateID());
+            request.setAttribute("manufacturer", manufacturer);
 
 
         // Thống kê số lượng đánh giá theo các mức sao
@@ -69,6 +78,7 @@ public class DetailProduct extends HttpServlet {
         request.setAttribute("ratingCounts", ratingCounts);  // Truyền số lượng đánh giá
         request.setAttribute("ratingPercentages", ratingPercentages);  // Truyền tỷ lệ phần trăm
         request.setAttribute("totalReviews", totalReviews);  // Truyền tổng số đánh giá
+        request.setAttribute("manufacturer", manufacturer);  // Truyền tổng số đánh giá
 
         request.setAttribute("products", productByCate);
 

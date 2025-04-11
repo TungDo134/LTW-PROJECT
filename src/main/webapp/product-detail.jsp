@@ -320,48 +320,92 @@
                 </c:if>
             </div>
             <div class="detailInfo">
-                <table class="product-table">
-                    <tr>
-                        <th>Mã hàng</th>
-                        <td>8809387693926-mau3</td>
-                    </tr>
-                    <tr>
-                        <th>Tên Nhà Cung Cấp</th>
-                        <td>Branbuil Co., Ltd</td>
-                    </tr>
-                    <tr>
-                        <th>Thương Hiệu</th>
-                        <td>Oxford</td>
-                    </tr>
-                    <tr>
-                        <th>Xuất Xứ Thương Hiệu</th>
-                        <td>Thương Hiệu Hàn Quốc</td>
-                    </tr>
-                    <tr>
-                        <th>Nơi Gia Công & Sản Xuất</th>
-                        <td>Hàn Quốc</td>
-                    </tr>
-                    <tr>
-                        <th>Màu sắc</th>
-                        <td>Tím</td>
-                    </tr>
-                    <tr>
-                        <th>Chất liệu</th>
-                        <td>Giấy</td>
-                    </tr>
-                    <tr>
-                        <th>Trọng lượng (gr)</th>
-                        <td>95</td>
-                    </tr>
-                    <tr>
-                        <th>Kích Thước Bao Bì</th>
-                        <td>21 x 15 x 0.4 cm</td>
-                    </tr>
-                    <tr>
-                        <th>Sản phẩm bán chạy nhất</th>
-                        <td>Top 100 sản phẩm Sổ Các Loại bán chạy của tháng</td>
-                    </tr>
-                </table>
+                <!-- Thông tin sản phẩm -->
+                <h2>${product.name}</h2>
+                <p>Giá: ${product.price}</p>
+                <p>Mô tả: ${product.description}</p>
+
+                <h3>Thông tin nhà sản xuất</h3>
+
+<%--                --%>
+<%--                    <table class="product-table">--%>
+<%--                        <tr><th>Mã hàng</th><td>${manufacturer.id}</td></tr>--%>
+<%--                        <tr><th>Tên Nhà Cung Cấp</th><td>${manufacturer.supplierName}</td></tr>--%>
+<%--                        <tr><th>Thương Hiệu</th><td>${manufacturer.brand}</td></tr>--%>
+<%--                        <tr><th>Xuất Xứ Thương Hiệu</th><td>${manufacturer.brandOrigin}</td></tr>--%>
+<%--                        <tr><th>Nơi Gia Công & Sản Xuất</th><td>${manufacturer.manufactureLocation}</td></tr>--%>
+<%--                        <tr><th>Màu sắc</th><td>${manufacturer.color}</td></tr>--%>
+<%--                        <tr><th>Chất liệu</th><td>${manufacturer.material}</td></tr>--%>
+<%--                        <tr><th>Trọng lượng (gr)</th><td>${manufacturer.weight}</td></tr>--%>
+<%--                        <tr><th>Kích Thước Bao Bì</th><td>${manufacturer.dimensions}</td></tr>--%>
+<%--                        <tr><th>Sản phẩm bán chạy nhất</th>--%>
+<%--                            <td>--%>
+<%--                                <c:choose>--%>
+<%--                                    <c:when test="${manufacturer.bestSeller}">Top 100 sản phẩm Sổ Các Loại bán chạy của tháng</c:when>--%>
+<%--                                    <c:otherwise>Không nổi bật</c:otherwise>--%>
+<%--                                </c:choose>--%>
+<%--                            </td>--%>
+<%--                        </tr>--%>
+<%--                    </table>--%>
+
+                <c:if test="${not empty manufacturer}">
+                    <table class="product-table">
+                        <tbody>
+                        <tr>
+                            <th scope="row">Mã hàng</th>
+                            <td>${manufacturer.manuID}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tên Nhà Cung Cấp</th>
+                            <td>${manufacturer.supplierName}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Thương Hiệu</th>
+                            <td>${manufacturer.brand}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Xuất Xứ Thương Hiệu</th>
+                            <td>${manufacturer.brandOrigin}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nơi Gia Công & Sản Xuất</th>
+                            <td>${manufacturer.manufactureLocation}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Màu sắc</th>
+                            <td>${manufacturer.color}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Chất liệu</th>
+                            <td>${manufacturer.material}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Trọng lượng (gr)</th>
+                            <td>${manufacturer.weight}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Kích Thước Bao Bì</th>
+                            <td>${manufacturer.dimensions}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sản phẩm bán chạy nhất</th>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${manufacturer.bestSeller}">
+                                        Top 100 sản phẩm Sổ Các Loại bán chạy của tháng
+                                    </c:when>
+                                    <c:otherwise>
+                                        Không nổi bật
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </c:if>
+
+
+
                 <p>Giá sản phẩm trên Fahasa.com đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm,
                     hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như Phụ phí đóng gói, phí vận
                     chuyển, phụ phí hàng cồng kềnh,...</p>
