@@ -27,6 +27,7 @@ public class resetService {
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 
         Session session = Session.getInstance(props, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -42,11 +43,10 @@ public class resetService {
             msg.setFrom(from);
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to, false));
             msg.setSubject("Reset Password", "UTF-8");
-            String content = "<h1>Hello"+name+"</h1>"+"<p>Click the link to reset password"
-                    +"<a href="+linkReset+">Click here</a></p>";
+            String content = "<h1>Hello" + name + "</h1>" + "<p>Click the link to reset password"
+                    + "<a href=" + linkReset + ">Click here</a></p>";
             msg.setContent(content, "text/html; charset=UTF-8");
             Transport.send(msg);
-            System.out.println("Sent successfully");
             return true;
         } catch (Exception e) {
             System.out.println("Send error");

@@ -22,11 +22,12 @@ public class TokenForgotDAO {
     }
     public tokenForgotPassword getTokenPassword(String token) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                (handle.createQuery("select * from tokenforgotpassword where token = :token")
+                (handle.createQuery("select * from tokenforgotpassword where token = :token and isUsed = false")
                         .bind("token", token)
-                        .mapToBean(tokenForgotPassword.class).one()
+                        .mapToBean(tokenForgotPassword.class).findOne().orElse(null)
                 ));
     }
+
     public void updateStatus(tokenForgotPassword token){
         System.out.println("token= "+token);
         JDBIContext.getJdbi().withHandle(handle ->

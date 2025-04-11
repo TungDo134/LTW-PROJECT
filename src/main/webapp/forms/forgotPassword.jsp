@@ -41,7 +41,7 @@
         String msgLogin = (String) request.getAttribute("error");
       %>
       <form id="forgotPass-form" method="post" action="<%=request.getContextPath()%>/requestPass">
-        <label class="label-Login" aria-hidden="true" style="margin-bottom: 20px;font-size: 30px">Quên mật khẩu </label>
+        <label class="label-Login" aria-hidden="true" style="margin-bottom: 20px;font-size: 30px;display: flex;justify-content: center;color: #000;">Quên mật khẩu </label>
 
         <span style="text-align: center; display: block; color: darkred">
                         ${error}</span>

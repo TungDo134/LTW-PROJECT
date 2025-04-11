@@ -33,6 +33,8 @@
         String msgRegister = (String) request.getAttribute("msg");
 
       %>
+        <span style="text-align: center; display: block; color: #198754">
+            ${success}</span>
       <form action="<%= request.getContextPath()%>/resetPass" method="post">
 
         <div class="form-group">
@@ -40,28 +42,17 @@
           >Reset Password</label
           >
         </div>
-        <div class="form-group">
-                    <span style="text-align: center; display: block; color: darkred">
-                        <%=msgRegister != null ? msgRegister : ""%></span>
-          <span style="text-align: center; display: block; color: #198754">
-            ${success}</span>
+<%--        <div class="form-group">--%>
 
-<%--          <label for="username" class="form-label"> </label>--%>
-<%--          <input--%>
-<%--                  id="username"--%>
-<%--                  name="username"--%>
-<%--                  type="text"--%>
-<%--                  placeholder="Tên đăng nhập"--%>
-<%--                  class="form-control"--%>
-<%--                  required=""--%>
-<%--          />--%>
-          <span class="form-message"></span>
-        </div>
-        <div class="form-group">
-          <label for="email" class="form-label"></label>
-          <input id="email" name="email" type="email" placeholder="Email của bạn" class="form-control" required=""/>
-          <span class="form-message"></span>
-        </div>
+<%--          <span class="form-message"></span>--%>
+<%--        </div>--%>
+<%--        <div class="form-group">--%>
+<%--                <form action="resetPass" method="get">--%>
+<%--                  <label for="email" class="form-label"></label>--%>
+<%--                  <input id="email" name="email" type="email" class="form-control" value="${email}" required=""/>--%>
+<%--                  <span class="form-message"></span>--%>
+<%--                </form>--%>
+<%--        </div>--%>
         <div class="form-group">
           <label for="password" class="form-label"> </label>
           <a class="show-hide-pass">

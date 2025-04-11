@@ -26,7 +26,6 @@ public class requestPass extends HttpServlet {
         if(cus == null) {
             request.setAttribute("error", "Email không tồn tại");
             request.getRequestDispatcher("/forms/forgotPassword.jsp").forward(request, response);
-            return;
         }
         resetService service = new resetService();
         String token = service.generateToken();
