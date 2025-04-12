@@ -129,11 +129,7 @@
 <%--Update cart--%>
 <script src="assets/js/update_cart.js"></script>
 <script src="assets/js/remove_cart.js"></script>
-<script>
-    let value = $("#total-price-20")
-    console.log(value.text())
-    console.log(typeof value.text())
+<script src="assets/js/UpdateCartQuantitySession.js"></script>
 
-</script>
 </body>
 </html>

@@ -19,6 +19,9 @@ function removeCart(remove_btn) {
                     function formatCurrency(value) {
                         return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
                     }
+                    let value=response.TotalQuantity
+                    console.log(value)
+                    updateQuantity(value)
                 } else {
                     alert("Xóa sản phẩm không thành công.");
                 }
