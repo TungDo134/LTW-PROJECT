@@ -11,8 +11,8 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "requestPass", value = "/requestPass")
-public class requestPass extends HttpServlet {
+@WebServlet(name = "requestPass", value = "/forgotPass")
+public class forgotPassword extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/forms/forgotPassword.jsp").forward(request, response);
@@ -28,25 +28,25 @@ public class requestPass extends HttpServlet {
             request.getRequestDispatcher("/forms/forgotPassword.jsp").forward(request, response);
         }
         resetService service = new resetService();
-        String token = service.generateToken();
-        String linkReset ="http://localhost:8080/LTW_Project/forms/resetPassword.jsp?token="+ token;
-        tokenForgotPassword newTokenForgot = new tokenForgotPassword(
-                token, service.expireDateTime(),false,cus.getId());
+        int otp = service.generateOTP();
+        HttpSession session = request.getSession();
+        session.setAttribute("otp", otp);
+        session.setAttribute("email", email);
 
-        TokenForgotDAO daoToken = new TokenForgotDAO();
-        boolean isInsert = daoToken.insertTokenForgot(newTokenForgot);
-        if (!isInsert){
-            request.setAttribute("mess", "have error in server");
-            request.getRequestDispatcher("/forms/forgotPassword.jsp").forward(request, response);
-            return;
-        }
-        boolean isService = service.sendEmail(email, linkReset, cus.getName());
+//        TokenForgotDAO daoToken = new TokenForgotDAO();
+//        boolean isInsert = daoToken.insertTokenForgot(newTokenForgot);
+//        if (!isInsert){
+//            request.setAttribute("mess", "have error in server");
+//            request.getRequestDispatcher("/forms/forgotPassword.jsp").forward(request, response);
+//            return;
+//        }
+        boolean isService = service.sendEmail(email, cus.getName(), otp);
         if (!isService){
             request.setAttribute("mess", "can not send request");
             request.getRequestDispatcher("/forms/forgotPassword.jsp").forward(request, response);
             return;
         }
-        request.setAttribute("success", "Yêu cầu đặt lại mật khẩu đã được gửi, vui lòng kiểm tra email của bạn.");
-        request.getRequestDispatcher("/forms/forgotPassword.jsp").forward(request, response);
+        request.setAttribute("success", "OTP is sent to your email id");
+        request.getRequestDispatcher("/forms/EnterOtp.jsp").forward(request, response);
     }
 }

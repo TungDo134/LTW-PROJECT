@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Đăng nhập</title>
+  <title>Nhập OTP</title>
   <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
@@ -40,23 +40,23 @@
       <%
         String msgLogin = (String) request.getAttribute("error");
       %>
-      <form id="forgotPass-form" method="post" action="<%=request.getContextPath()%>/forgotPass">
-        <label class="label-Login" aria-hidden="true" style="margin-bottom: 20px;font-size: 30px;display: flex;justify-content: center;color: #000;">Quên mật khẩu </label>
+      <form id="forgotPass-form" method="post" action="<%=request.getContextPath()%>/validateOTP">
+        <label class="label-Login" aria-hidden="true" style="margin-bottom: 20px;font-size: 30px;display: flex;justify-content: center;color: #000;">Nhập OTP </label>
 
         <span style="text-align: center; display: block; color: darkred">
-                        ${error}</span>
-          <span style="text-align: center; display: block; color: green">
-              ${success}
-          </span>
-          <label for="email" class="form-label"> </label>
-        <input id="email" type="email" name="email" placeholder="Email" required=""/>
+          ${status}</span>
+        <span style="text-align: center; display: block; color: green">
+          ${message}
+        </span>
+        <label for="otp" class="form-label"> </label>
+        <input id="otp" type="text" name="otp" placeholder="Nhâp OTP" required=""/>
 
 
 
         <!-- Google reCAPTCHA -->
         <div class="g-recaptcha" data-sitekey="6LdjZ_wqAAAAAF5P3or0nPOS_jw9YXaEcnic3kQg"></div>
 
-        <button type="submit">Gửi yêu cầu</button>
+        <button type="submit">Enter</button>
         <div class="forward-login">
           <p>Bạn chưa có tài khoản?</p>
           <a class="login-btn" href="signup.jsp">Đăng ký ngay</a>

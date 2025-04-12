@@ -1,5 +1,8 @@
 package entity;
 
+import dao.CustomerDAO;
+import helper.MaHoaMK;
+
 import java.time.LocalDateTime;
 
 public class tokenForgotPassword {
@@ -53,7 +56,7 @@ public class tokenForgotPassword {
         return isUsed;
     }
 
-    public void setUsed(boolean used) {
+    public void setIsUsed(boolean used) {
         isUsed = used;
     }
 
@@ -76,3 +79,4 @@ public class tokenForgotPassword {
                 '}';
     }
 }
+
