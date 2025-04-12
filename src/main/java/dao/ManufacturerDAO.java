@@ -3,6 +3,8 @@ package dao;
 import context.JDBIContext;
 import entity.Manufacturer;
 
+import java.util.List;
+
 public class ManufacturerDAO {
 
     // Lấy danh sách tất cả nhà sản xuất
@@ -16,8 +18,24 @@ public class ManufacturerDAO {
         );
     }
 
+    public Manufacturer getManufacturerById(int manuID) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM manufacturers WHERE manuID = :manuID")
+                        .bind("manuID", manuID)
+                        .mapToBean(Manufacturer.class)
+                        .findOne()
+                        .orElse(null)
+        );
+    }
 
 
+    public List<Manufacturer> getAllManufacturers() {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM manufacturers")
+                        .mapToBean(Manufacturer.class)
+                        .list()
+        );
+    }
 
     // Thêm nhà sản xuất mới
     public int addManufacturer(Manufacturer m) {
@@ -37,28 +55,37 @@ public class ManufacturerDAO {
         );
     }
 
-    // Xoá nhà sản xuất theo ID
+    // Xóa
     public int deleteManufacturer(int id) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createUpdate("DELETE FROM manufacturers WHERE id = :id")
+                handle.createUpdate("DELETE FROM manufacturers WHERE manuID = :id")
                         .bind("id", id)
                         .execute()
         );
     }
 
-    // (Tùy chọn) Tìm theo ID
-    public Manufacturer getManufacturerById(int id) {
+    // Cập nhật
+    public int updateManufacturer(Manufacturer m) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createQuery("SELECT * FROM manufacturers WHERE id = :id")
-                        .bind("id", id)
-                        .mapToBean(Manufacturer.class)
-                        .findOne()
-                        .orElse(null)
+                handle.createUpdate("UPDATE manufacturers SET " +
+                                "supplierName = :supplierName, brand = :brand, brandOrigin = :brandOrigin, " +
+                                "manufactureLocation = :manufactureLocation, color = :color, material = :material, " +
+                                "weight = :weight, dimensions = :dimensions, bestSeller = :bestSeller " +
+                                "WHERE manuID = :manuID")
+                        .bind("supplierName", m.getSupplierName())
+                        .bind("brand", m.getBrand())
+                        .bind("brandOrigin", m.getBrandOrigin())
+                        .bind("manufactureLocation", m.getManufactureLocation())
+                        .bind("color", m.getColor())
+                        .bind("material", m.getMaterial())
+                        .bind("weight", m.getWeight())
+                        .bind("dimensions", m.getDimensions())
+                        .bind("bestSeller", m.isBestSeller())
+                        .bind("manuID", m.getManuID())
+                        .execute()
         );
     }
 
-    public static void main(String[] args) {
-        ManufacturerDAO manufacturer= new ManufacturerDAO();
-        System.out.println(manufacturer.getByCateID(10));
-    }
+
+
 }

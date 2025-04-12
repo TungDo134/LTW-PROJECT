@@ -253,7 +253,27 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="item item-dropdown">
+                            <div class="d-flex">
+                    <span class="material-symbols-outlined pr-10">
+warehouse
+</span>
+                                <a href="#">Nhà sản xuất</a>
+                            </div>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
 
+                                    <%-- getAllManuController--%>
+                                    <a href="<%= request.getContextPath()%>/admin/all-manufacturer">Tất cả nhà sản xuất</a>
+
+
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="<%= request.getContextPath()%>/admin/addManufacturer.jsp">Thêm nhà sản xuất</a>
+                                </li>
+
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <div class="container_social">
