@@ -1,0 +1,111 @@
+body.dark-theme {
+    background-color: #0f172a;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.main-container {
+    padding: 30px;
+    background-color: #1e293b;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.header h1 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+#all-user-container .btn-customize {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+}
+
+#all-user-container .btn-customize:hover {
+    background-color: #1d4ed8;
+}
+
+table {
+    width: 100%;
+    background-color: #1e293b;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #334155;
+    color: #f1f5f9;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #273349;
+}
+
+table tbody tr:hover {
+    background-color: #3b475d;
+    transition: background-color 0.2s;
+}
+
+.badge.bg-info.text-dark {
+    background-color: #0ea5e9 !important;
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.btn-success {
+    background-color: #22c55e;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #16a34a;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
+/* Responsive tối thiểu */
+@media screen and (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #475569;
+    }
+
+    table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: bold;
+        text-align: left;
+    }
+}

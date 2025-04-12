@@ -12,7 +12,7 @@ public class Manufacturer {
     private String dimensions;
     private boolean bestSeller;
 
-    public Manufacturer(int id, String supplierName, String brand, String brandOrigin, String manufactureLocation, String color, String material, double weight, String dimensions, boolean bestSeller) {
+    public Manufacturer(int manuID, String supplierName, String brand, String brandOrigin, String manufactureLocation, String color, String material, double weight, String dimensions, boolean bestSeller) {
         this.manuID = manuID;
         this.supplierName = supplierName;
         this.brand = brand;
