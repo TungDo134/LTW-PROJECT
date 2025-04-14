@@ -22,8 +22,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
 
   <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleAllManufacturer.css"/>
-</head>
 
+</head>
 <body class="dark-theme">
 <jsp:include page="header-admin.jsp"></jsp:include>
 
@@ -36,7 +36,7 @@
       <a class="btn btn-primary btn-customize px-5 py-2 mb-2"
          href="<%=request.getContextPath()%>/admin/AddManufacturer" role="button">Thêm</a>
 
-      <table id="myTable" class="display table table-striped table-bordered" style="width:100%">
+      <table id="myTable" class="display" style="width:100%">
         <thead>
         <tr>
           <th>STT</th>
