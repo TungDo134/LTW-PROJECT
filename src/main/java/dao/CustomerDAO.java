@@ -2,10 +2,13 @@ package dao;
 
 import context.JDBIContext;
 import entity.Customer;
+import entity.tokenForgotPassword;
 import org.jdbi.v3.core.Handle;
 import helper.MaHoaMK;
 
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 public class CustomerDAO {
@@ -149,6 +152,22 @@ public class CustomerDAO {
                         .bind(1, customerID)
                         .execute()
         );
+    }
+    public Customer getUserByEmail(String email) {
+        try (Handle handle = JDBIContext.getJdbi().open()) {
+            return handle.createQuery("SELECT * FROM customers WHERE email = :email")
+                    .bind("email", email)
+                    .mapToBean(Customer.class).findOne().orElse(null);
+        }
+    }
+    public boolean updatePasswordById(String email, String encryptedPass) {
+        int rowsAffected = JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate("UPDATE customers SET pass = :pass WHERE email = :email")
+                        .bind("pass", encryptedPass)
+                        .bind("email", email)
+                        .execute()
+        );
+        return rowsAffected > 0;
     }
 
 

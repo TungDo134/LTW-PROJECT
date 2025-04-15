@@ -7,6 +7,19 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Cart implements Serializable {
     Map<Integer, CartItem> data = new HashMap<>();
+    public int cartID;
+    public int customerID;
+    public byte isCheckedOut;
+
+    public Cart(Map<Integer, CartItem> data, int cartID, int customerID, byte isCheckedOut) {
+        this.data = data;
+        this.cartID = cartID;
+        this.customerID = customerID;
+        this.isCheckedOut = isCheckedOut;
+    }
+
+    public Cart() {
+    }
 
     public boolean add(Product p) {
         if (data.containsKey(p.getProductID())) {
@@ -18,14 +31,13 @@ public class Cart implements Serializable {
     }
 
     // thêm sp với số lượng mà user chọn
-    public boolean addWithQuantity(Product p, int quantity) {
+    public void addWithQuantity(Product p, int quantity) {
         if (data.containsKey(p.getProductID())) {
-            return update(p.getProductID(), data.get(p.getProductID()).getQuantity() + quantity);
+            update(p.getProductID(), data.get(p.getProductID()).getQuantity() + quantity);
         } else {
             // them sp moi
             data.put(p.productID, convert(p));
             data.get(p.getProductID()).setQuantity(quantity);
-            return true;
         }
     }
 
@@ -80,8 +92,41 @@ public class Cart implements Serializable {
         return re;
     }
 
-    public static void main(String[] args) {
-
+    public void setData(Map<Integer, CartItem> data) {
+        this.data = data;
     }
 
+    public int getCartID() {
+        return cartID;
+    }
+
+    public void setCartID(int cartID) {
+        this.cartID = cartID;
+    }
+
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
+
+    public byte getIsCheckedOut() {
+        return isCheckedOut;
+    }
+
+    public void setIsCheckedOut(byte isCheckedOut) {
+        this.isCheckedOut = isCheckedOut;
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "data=" + data +
+                ", cartID=" + cartID +
+                ", customerID=" + customerID +
+                ", isCheckedOut=" + isCheckedOut +
+                '}';
+    }
 }

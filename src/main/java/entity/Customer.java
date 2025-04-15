@@ -38,7 +38,7 @@ public class Customer implements Serializable {
     public String getName() {
         return name;
     }
-
+    @ColumnName("email")
     public String getEmail() {
         return email;
     }
