@@ -33,8 +33,8 @@
                 String msgRegister = (String) request.getAttribute("msg");
 
             %>
-            <form action="<%= request.getContextPath()%>/resetPass" method="post">
-
+            <form id="form-reset">
+                <input type="hidden" name="token" value="${token}" />
                 <div class="form-group">
                     <label for="chk" class="label-Signup" aria-hidden="true"
                            style="margin-bottom: 20px; font-size: 30px"
@@ -47,11 +47,12 @@
                     <span style="text-align: center; display: block; color: #198754">
                         ${success}</span>
                 </div>
-<%--                <div class="form-group">--%>
-<%--                    <label for="email" class="form-label"></label>--%>
-<%--                    <input id="email" name="email" type="email" placeholder="Email của bạn" class="form-control" value="${email}" required=""/>--%>
-<%--                    <span class="form-message"></span>--%>
-<%--                </div>--%>
+                <div class="form-group">
+                    <label for="email" class="form-label"></label>
+                    <input readonly id="email" name="email" type="email" placeholder="Email của bạn"
+                           class="form-control" value="${email}" required=""/>
+                    <span class="form-message"></span>
+                </div>
                 <div class="form-group">
                     <label for="password" class="form-label"> </label>
                     <a class="show-hide-pass">
@@ -90,15 +91,45 @@
                 <div class="btn-blue">
                     <button type="submit">Cập nhật</button>
                 </div>
-                <div class="forward-login">
-                    <p>Bạn đã có tài khoản?</p>
-                    <a class="login-btn" href="login.jsp">Đăng nhập</a>
-                </div>
+
             </form>
+            <div class="forward-login">
+                <p>Bạn đã có tài khoản?</p>
+                <a class="login-btn" href="login.jsp">Đăng nhập</a>
+            </div>
         </div>
     </main>
 </div>
 <script>
+
+    // gửi ajax
+    document.getElementById('form-reset').addEventListener('submit', async function (e) {
+        e.preventDefault()
+        let url = `${pageContext.request.contextPath}/resetPass`;
+        let formData = new URLSearchParams(new FormData(this))
+
+        try {
+            let response = await fetch(url,
+                {
+                    method: 'Post',
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: formData
+
+                },
+            );
+            let data = await response.json();
+            if (data.isSuccess) {
+                alert('Nhan thanh cong');
+            } else {
+                alert("Có lỗi xảy ra!");
+            }
+        } catch (error) {
+            console.error("Có lỗi xảy ra:", error);
+        }
+    })
+
 
     // ẩn hiển mật khẩu
     function showHidePass(icon) {

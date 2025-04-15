@@ -39,6 +39,7 @@
     <div class="forgot-pass">
       <%
         String msgLogin = (String) request.getAttribute("error");
+        String token = (String) request.getAttribute("token");
       %>
       <form id="forgotPass-form" method="post" action="<%=request.getContextPath()%>/validateOTP">
         <label class="label-Login" aria-hidden="true" style="margin-bottom: 20px;font-size: 30px;display: flex;justify-content: center;color: #000;">Nhập OTP </label>
@@ -52,9 +53,6 @@
         <input id="otp" type="text" name="otp" placeholder="Nhâp OTP" required=""/>
 
 
-
-        <!-- Google reCAPTCHA -->
-        <div class="g-recaptcha" data-sitekey="6LdjZ_wqAAAAAF5P3or0nPOS_jw9YXaEcnic3kQg"></div>
 
         <button type="submit">Enter</button>
         <div class="forward-login">

@@ -28,18 +28,21 @@ public class forgotPassword extends HttpServlet {
             request.getRequestDispatcher("/forms/forgotPassword.jsp").forward(request, response);
         }
         resetService service = new resetService();
+
+        String token = service.generateToken();
+        String linkReset ="http://localhost:8080/LTW_Project/forms/resetPassword.jsp?token="+ token;
+        tokenForgotPassword newTokenForgot = new tokenForgotPassword(
+                token, service.expireDateTime(),false,cus.getId());
+
+        TokenForgotDAO daoToken = new TokenForgotDAO();
+        boolean isInsert = daoToken.insertTokenForgot(newTokenForgot);
+
         int otp = service.generateOTP();
         HttpSession session = request.getSession();
         session.setAttribute("otp", otp);
         session.setAttribute("email", email);
+        session.setAttribute("token", newTokenForgot.getToken());
 
-//        TokenForgotDAO daoToken = new TokenForgotDAO();
-//        boolean isInsert = daoToken.insertTokenForgot(newTokenForgot);
-//        if (!isInsert){
-//            request.setAttribute("mess", "have error in server");
-//            request.getRequestDispatcher("/forms/forgotPassword.jsp").forward(request, response);
-//            return;
-//        }
         boolean isService = service.sendEmail(email, cus.getName(), otp);
         if (!isService){
             request.setAttribute("mess", "can not send request");

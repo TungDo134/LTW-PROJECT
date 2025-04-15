@@ -1,5 +1,7 @@
 package controller;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import dao.CustomerDAO;
 import dao.TokenForgotDAO;
 import entity.Customer;
@@ -16,6 +18,7 @@ import java.io.IOException;
 public class resetPass extends HttpServlet {
     TokenForgotDAO daoToken = new TokenForgotDAO();
     CustomerDAO cusDao = new CustomerDAO();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String token = request.getParameter("token");
@@ -52,31 +55,34 @@ public class resetPass extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String rePassword = request.getParameter("rePassword");
-        if (!password.equals(rePassword)) {
-            request.setAttribute("mess", "Mật khẩu nhập lại không khớp.");
-            request.setAttribute("email", email);
-            request.getRequestDispatcher("/forms/resetPassword.jsp").forward(request, response);
-            return;
-        }
+        boolean isSuccess;
+
         String encryptedPassword = MaHoaMK.toSHA1(password);
         HttpSession session = request.getSession();
+
         String tokenStr = (String) session.getAttribute("token");
         tokenForgotPassword tokenPassword = daoToken.getTokenPassword(tokenStr);
         resetService service = new resetService();
+
         if (tokenPassword == null || tokenPassword.isIsUsed()) {
-            request.setAttribute("mess", "Token không hợp lệ hoặc đã sử dụng.");
-            request.getRequestDispatcher("/forms/resetPassword.jsp").forward(request, response);
-            return;
+            isSuccess = false;
+        } else {
+            tokenPassword.setToken(tokenStr);
+            tokenPassword.setIsUsed(true);
+            cusDao.updatePasswordById(email, encryptedPassword);
+            daoToken.updateStatus(tokenPassword);
+            isSuccess = true;
         }
 
-        tokenPassword.setToken(tokenStr);
-        tokenPassword.setIsUsed(true);
-        cusDao.updatePasswordById(tokenPassword.getUserId(), encryptedPassword);
-        daoToken.updateStatus(tokenPassword);
+//        request.setAttribute("success", "Đổi mật khẩu thành công!");
+//        request.getRequestDispatcher("/forms/login.jsp").forward(request, response);
 
-        request.setAttribute("success", "Đổi mật khẩu thành công!");
-        request.getRequestDispatcher("/forms/login.jsp").forward(request, response);
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("isSuccess", isSuccess);
+
+        Gson gson = new Gson();
+        String json = gson.toJson(jsonObject);
+        response.getWriter().write(json);
 
     }
 }

@@ -160,11 +160,11 @@ public class CustomerDAO {
                     .mapToBean(Customer.class).findOne().orElse(null);
         }
     }
-    public boolean updatePasswordById(int customerID, String encryptedPass) {
+    public boolean updatePasswordById(String email, String encryptedPass) {
         int rowsAffected = JDBIContext.getJdbi().withHandle(handle ->
-                handle.createUpdate("UPDATE customers SET pass = :pass WHERE customerID = :customerID")
+                handle.createUpdate("UPDATE customers SET pass = :pass WHERE email = :email")
                         .bind("pass", encryptedPass)
-                        .bind("customerID", customerID)
+                        .bind("email", email)
                         .execute()
         );
         return rowsAffected > 0;
