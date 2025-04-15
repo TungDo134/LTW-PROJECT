@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:wght@300..800&display=swap");
+
+
+#all-user-container {
+    padding: 24px;
+    background-color: #1e293b;
+    border-radius: 10px;
+}
+
+#all-user-container .btn-customize {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+}
+
+#all-user-container .btn-customize:hover {
+    background-color: #1d4ed8;
+}
+
+.badge.bg-info.text-dark {
+    background-color: #0ea5e9 !important;
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.btn-success {
+    background-color: #22c55e;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #16a34a;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
