@@ -65,7 +65,7 @@
                     <i class="fa-solid fa-eye" onclick="showHidePass(this)"></i>
                 </a>
 
-                <a class="signup-image-link" href="/pages/forms/changePassword.jsp"
+                <a class="signup-image-link" href="forgotPassword.jsp"
                 >Quên mật khẩu?</a
                 >
 
