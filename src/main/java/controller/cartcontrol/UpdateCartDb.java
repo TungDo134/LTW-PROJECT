@@ -1,22 +1,16 @@
-package controller;
+package controller.cartcontrol;
 
-import dao.CartDAO;
-import entity.Cart;
-import entity.CartItem;
-import entity.Customer;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "LogoutControl", value = "/logout")
-public class Logout extends HttpServlet {
+@WebServlet(name = "UpdateCartDb", value = "/update-cart-db")
+public class UpdateCartDb extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
-        session.invalidate();
-        response.sendRedirect("home");
+
     }
 
     @Override
