@@ -2,6 +2,7 @@ package dao;
 
 import context.JDBIContext;
 import entity.Cart;
+import entity.CartItem;
 
 import java.util.List;
 
@@ -26,8 +27,8 @@ public class CartDAO {
         );
     }
 
-    // Ktra user có cart 'CHƯA' check out ?
-    public Cart getCartCheckOutByCusId(int cusId) {
+    // Ktra user đã có cart check out || chưa có cart nào
+    public Cart getCartCheckedOutOrExitsByCusId(int cusId) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createQuery("select * from carts where customerID= :customerID AND isCheckedOut= :isCheckedOut")
                         .bind("customerID", cusId)
@@ -48,8 +49,19 @@ public class CartDAO {
     }
 
     // thêm cart item từ cartID
-    public void insertCartItemByCartID(int cartID) {
-
+    public void insertCartItemByCartID(int cartID, CartItem cartItem) {
+        JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate("INSERT INTO cartitems (cartID, title, price, img, quantity, totalCt, productID)" +
+                                "VALUES (:cartID, :title, :price, :img, :quantity, :totalCt, :productID);")
+                        .bind("cartID", cartID)
+                        .bind("title", cartItem.getTitle())
+                        .bind("price", cartItem.getPrice())
+                        .bind("img", cartItem.getImg())
+                        .bind("quantity", cartItem.getQuantity())
+                        .bind("totalCt", cartItem.getTotalCt())
+                        .bind("productID", cartItem.getId())
+                        .execute()
+        );
     }
 
     public static void main(String[] args) {

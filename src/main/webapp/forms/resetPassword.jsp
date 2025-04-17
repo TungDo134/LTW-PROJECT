@@ -95,7 +95,7 @@
             </form>
             <div class="forward-login">
                 <p>Bạn đã có tài khoản?</p>
-                <a class="login-btn" href="login.jsp">Đăng nhập</a>
+                <a class="login-btn" href="forms/login.jsp">Đăng nhập</a>
             </div>
         </div>
     </main>
