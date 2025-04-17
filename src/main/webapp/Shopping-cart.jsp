@@ -50,9 +50,9 @@
             </div>
             <c:forEach items="${sessionScope.cart.list}" var="cp">
                 <!-- Product Rows -->
-                <div class="cart-item" data-id="${cp.id}">
+                <div class="cart-item" data-id="${cp.productID}">
                     <div class="product-info">
-                        <a href="detail?pid=${cp.id}">
+                        <a href="detail?pid=${cp.productID}">
                             <img src="<%=request.getContextPath()%>/assets/pic/products/${cp.img}" alt="Sản phẩm 1"></a>
                         <div>
                             <p>${cp.title}</p>
@@ -65,10 +65,10 @@
 
                     <div class="quantity" style="width: 100px">
                         <input onblur="updateCart(this)" name="quantity" id="" class="p-quantity"
-                               data-id="${cp.id}" value="${cp.quantity}" autocomplete="off"/>
+                               data-id="${cp.productID}" value="${cp.quantity}" autocomplete="off"/>
                     </div>
 
-                    <div class="total-price number-format" id="total-price-${cp.id}">
+                    <div class="total-price number-format" id="total-price-${cp.productID}">
                         <f:setLocale value="vi_VN"/>
                         <f:formatNumber value="${cp.totalCt}" type="currency"/>
 
@@ -76,7 +76,7 @@
 
                     <div class="remove-item">
                         <div class="i-container">
-                            <a id="remove-cart" data-id="${cp.id}" onclick="removeCart(this)"><i
+                            <a id="remove-cart" data-id="${cp.productID}" onclick="removeCart(this)"><i
                                     class="fa fa-times"></i></a>
                         </div>
                     </div>

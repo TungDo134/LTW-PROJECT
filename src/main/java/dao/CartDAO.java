@@ -14,6 +14,7 @@ public class CartDAO {
         );
     }
 
+
     // Tạo mới 1 cart
     public int createCart(int customerID, byte isCheckedOut) {
         return JDBIContext.getJdbi().withHandle(handle ->
@@ -28,11 +29,11 @@ public class CartDAO {
     }
 
     // Ktra user đã có cart check out || chưa có cart nào
-    public Cart getCartCheckedOutOrExitsByCusId(int cusId) {
+    public Cart getCartCheckedOutOrExistByCusId(int cusId) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createQuery("select * from carts where customerID= :customerID AND isCheckedOut= :isCheckedOut")
                         .bind("customerID", cusId)
-                        .bind("isCheckedOut", 1)
+                        .bind("isCheckedOut", 0)
                         .mapToBean(Cart.class).findOne().orElse(null)
         );
     }
@@ -44,7 +45,8 @@ public class CartDAO {
                 handle.createQuery("SELECT cartID FROM carts WHERE customerID = :customerID")
                         .bind("customerID", cusId)
                         .mapTo(Integer.class)
-                        .one() // Lấy một giá trị duy nhất
+                        .findOne()
+                        .orElse(-1)
         );
     }
 
@@ -59,13 +61,46 @@ public class CartDAO {
                         .bind("img", cartItem.getImg())
                         .bind("quantity", cartItem.getQuantity())
                         .bind("totalCt", cartItem.getTotalCt())
-                        .bind("productID", cartItem.getId())
+                        .bind("productID", cartItem.getProductID())
                         .execute()
+        );
+    }
+
+    public boolean getCartItemByProductID(int productID) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT 1 FROM cartitems WHERE productID = :productID LIMIT 1")
+                        .bind("productID", productID)
+                        .mapTo(Integer.class)
+                        .findOne()
+                        .isPresent()
+        );
+    }
+
+    // lấy cart item
+    public List<CartItem> getCartItemByCartID(int cartID) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM cartitems WHERE cartID = :cartID ")
+                        .bind("cartID", cartID)
+                        .mapToBean(CartItem.class)
+                        .list()
+        );
+    }
+
+
+    // "ERROR WAITING FIX"
+    public void updateProductInCartItem(int productID, int quantity, double totalCt) {
+        JDBIContext.getJdbi().withHandle(handle -> (
+                handle.createUpdate("Update cartitems  set quantity =:quantity, totalCt =:totalCt  where productID =:productID")
+                        .bind("productID", productID)
+                        .bind("quantity", quantity)
+                        .bind("totalCt", totalCt)
+                        .execute())
         );
     }
 
     public static void main(String[] args) {
         CartDAO cartDAO = new CartDAO();
+        System.out.println(cartDAO.getCartIDByCusID(1));
     }
 
 
