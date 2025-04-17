@@ -65,7 +65,7 @@ public class CreateOrder extends HttpServlet {
         Cart cart = (Cart) session.getAttribute("cart");
         for (CartItem cartItem : cart.getList()) {
             System.out.println(cartItem);
-            cartId = cartItem.getId();
+            cartId = cartItem.getProductID();
 
             // kiểm tra xem slg hàng ng dùng mua có nhỏ hơn slg tồn kho không
             productStock = pDao.getProductByID(cartId + "").getProductStock();

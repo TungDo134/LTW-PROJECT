@@ -23,7 +23,7 @@ public class CreateOrderDetail extends HttpServlet {
         OrderDetailDAO orderDetaiD = new OrderDetailDAO();
 
         for (CartItem cartItem : cart.getList()) {
-            orderDetaiD.createOrderDetail(ordID, cartItem.getId(), cartItem.getQuantity(),
+            orderDetaiD.createOrderDetail(ordID, cartItem.getProductID(), cartItem.getQuantity(),
                     cartItem.getTotalPrice(), cartItem.getTitle(), cartItem.getImg());
         }
 
