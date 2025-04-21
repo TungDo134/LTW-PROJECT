@@ -1,10 +1,16 @@
 package controller;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 import java.util.Scanner;
+
+import dao.CartDAO;
 import dao.CustomerDAO;
+import entity.Cart;
+import entity.CartItem;
 import entity.Customer;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
@@ -19,6 +25,7 @@ import static javax.crypto.Cipher.SECRET_KEY;
 @WebServlet(name = "LoginControl", value = "/login")
 public class Login extends HttpServlet {
     private static final String SECRET_KEY = "6LdjZ_wqAAAAAJn2ysFxobW5IL-0n7qcoVSWNRhg";
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -51,6 +58,20 @@ public class Login extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("customer", cus);
                 cus.setPass("");
+
+                // LOAD USER CART
+                CartDAO cartDao = new CartDAO();
+                int cartId = cartDao.getCartIDByCusID(cus.getId());
+
+                if (cartId != -1) {
+                    Cart c = new Cart();
+                    List<CartItem> cartItem = cartDao.getCartItemByCartID(cartId);
+                    for (CartItem item : cartItem) {
+                        c.addCT(item);
+                    }
+                    session.setAttribute("cart", c);
+                }
+
                 response.sendRedirect("home");
             }
         } else {

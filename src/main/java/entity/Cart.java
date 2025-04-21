@@ -30,6 +30,16 @@ public class Cart implements Serializable {
         return true;
     }
 
+    public boolean addCT(CartItem c) {
+        if (data.containsKey(c.getProductID())) {
+            return update(c.getProductID(), data.get(c.getProductID()).getQuantity() + 1);
+        }
+        // them sp moi
+        data.put(c.getProductID(), c);
+        return true;
+    }
+
+
     // thêm sp với số lượng mà user chọn
     public void addWithQuantity(Product p, int quantity) {
         if (data.containsKey(p.getProductID())) {
@@ -83,12 +93,13 @@ public class Cart implements Serializable {
 
     public CartItem convert(Product p) {
         CartItem re = new CartItem();
-        re.setId(p.getProductID());
+//        re.setCartItemID(p.getProductID());
         re.setTitle(p.getProductName());
         re.setPrice(p.getProductPrice());
         re.setImg(p.getProductImage());
         re.setQuantity(1);
 //        re.setTotalCt(re.getTotalCt());
+        re.setProductID(p.getProductID());
         return re;
     }
 

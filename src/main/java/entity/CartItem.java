@@ -3,22 +3,25 @@ package entity;
 import java.io.Serializable;
 
 public class CartItem implements Serializable {
-    private int id;
+    private int cartItemID;
+    private int cartID;
     private String title;
     private double price;
     private String img;
     private int quantity;
     private double totalCt;
+    private int productID;
 
-    public CartItem(int id, String title, double price, String img, int quantity, double totalCt) {
-        this.id = id;
+    public CartItem(int cartItemID, int cartID, String title, double price, String img, int quantity, double totalCt, int productID) {
+        this.cartItemID = cartItemID;
+        this.cartID = cartID;
         this.title = title;
         this.price = price;
         this.img = img;
         this.quantity = quantity;
         this.totalCt = totalCt;
+        this.productID = productID;
     }
-
 
     public CartItem() {
     }
@@ -33,13 +36,7 @@ public class CartItem implements Serializable {
         this.totalCt = price * quantity;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
@@ -77,17 +74,45 @@ public class CartItem implements Serializable {
         return this.price * this.quantity;
     }
 
+    public void setTotalCt(double totalCt) {
+        this.totalCt = totalCt;
+    }
+
+    public int getCartItemID() {
+        return cartItemID;
+    }
+
+    public void setCartItemID(int cartItemID) {
+        this.cartItemID = cartItemID;
+    }
+
+    public int getCartID() {
+        return cartID;
+    }
+
+    public void setCartID(int cartID) {
+        this.cartID = cartID;
+    }
+
+    public int getProductID() {
+        return productID;
+    }
+
+    public void setProductID(int productID) {
+        this.productID = productID;
+    }
+
     @Override
     public String toString() {
         return "CartItem{" +
-                "id=" + id +
+                "cartItemID=" + cartItemID +
+                ", cartID=" + cartID +
                 ", title='" + title + '\'' +
                 ", price=" + price +
                 ", img='" + img + '\'' +
                 ", quantity=" + quantity +
                 ", totalCt=" + totalCt +
+                ", productID=" + productID +
                 '}';
     }
-
-
 }
