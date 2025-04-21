@@ -23,7 +23,6 @@ public class DetailProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pid = request.getParameter("pid");
 
-
         // Hiển thị chi tiết sản phẩm
         ProductDAO productDAO = new ProductDAO();
         Product product = productDAO.getProductByID(pid);
@@ -35,16 +34,21 @@ public class DetailProduct extends HttpServlet {
         ReviewDAO reviewDAO = new ReviewDAO();
         List<Review> reviews = reviewDAO.getAllReviewByPID(pid);
 
-
         // Lấy các sản phẩm cùng thể loại
         ProductDAO proDao = new ProductDAO();
         List<Product> productByCate = proDao.getProductByCateLimit(product.getCateID());
 
-        //nhà sx
-        ManufacturerDAO manufacturerDAO = new ManufacturerDAO();
-        Manufacturer manufacturer = manufacturerDAO.getByCateID(product.getCateID());
-            request.setAttribute("manufacturer", manufacturer);
+        //nsx
+        ManufacturerDAO manuDAO = new ManufacturerDAO();
+        Manufacturer manufacturer = manuDAO.getManufacturerById(product.getManuID());
+        request.setAttribute("manufacturer", manufacturer);
 
+
+        // Đặt các đối tượng vào request attributes
+        request.setAttribute("detail", product); // Truyền thông tin sản phẩm
+        request.setAttribute("reviews", reviews); // Truyền danh sách đánh giá
+        request.setAttribute("listSubImg", subImgP); // Truyền danh sách hình ảnh phụ
+        request.setAttribute("products", productByCate); // Truyền các sản phẩm cùng thể loại
 
         // Thống kê số lượng đánh giá theo các mức sao
         int[] ratingCounts = new int[5]; // Mảng để đếm số lượng đánh giá cho mỗi sao (1 sao đến 5 sao)
@@ -69,22 +73,18 @@ public class DetailProduct extends HttpServlet {
             ratingPercentages[i] = totalReviews == 0 ? 0 : (ratingCounts[i] / (double) totalReviews) * 100;
         }
 
-
-        // Đặt các đối tượng vào request attributes
-        request.setAttribute("detail", product);
-        request.setAttribute("reviews", reviews);
-        request.setAttribute("listSubImg", subImgP);
+        // Truyền các thông tin đánh giá vào request attributes
         request.setAttribute("averageRating", averageRating);  // Truyền điểm trung bình
         request.setAttribute("ratingCounts", ratingCounts);  // Truyền số lượng đánh giá
         request.setAttribute("ratingPercentages", ratingPercentages);  // Truyền tỷ lệ phần trăm
         request.setAttribute("totalReviews", totalReviews);  // Truyền tổng số đánh giá
-        request.setAttribute("manufacturer", manufacturer);  // Truyền tổng số đánh giá
-
-        request.setAttribute("products", productByCate);
 
         // Chuyển tiếp đến trang JSP
         request.getRequestDispatcher("product-detail.jsp").forward(request, response);
     }
+
+
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

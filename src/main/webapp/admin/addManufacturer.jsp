@@ -68,39 +68,33 @@
       <h1>Thêm nhà sản xuất</h1>
       <span class="text-info" id="message"></span>
 
-      <%-- AddUser --%>
+      <%-- AddManu --%>
       <form id="manufacturerForm">
+
+        <label for="manuName">Tên nhà sản xuất</label>
+        <input type="text" id="manuName" name="manuName"
+               value="<%= supplierName == null ? "" : supplierName %>"
+               placeholder="Nhập tên nhà sản xuất" required>
 
 
         <label for="brandOrigin">Xuất xứ thương hiệu</label>
-        <input type="text" value="<%= brandOrigin == null ? "" : brandOrigin %>" id="brandOrigin" name="brandOrigin" placeholder="Nhập xuất xứ thương hiệu">
+        <input type="text" id="brandOrigin" name="brandOrigin"
+               value="<%= brandOrigin == null ? "" : brandOrigin %>"
+               placeholder="Nhập xuất xứ thương hiệu">
 
-        <label for="manufactureLocation">Nơi gia công & sản xuất</label>
-        <input type="text" value="<%= manufactureLocation == null ? "" : manufactureLocation %>" id="manufactureLocation" name="manufactureLocation" placeholder="Nhập nơi sản xuất">
-
-        <label for="color">Màu sắc</label>
-        <input type="text" value="<%= color == null ? "" : color %>" id="color" name="color" placeholder="Nhập màu sắc">
-
-        <label for="material">Chất liệu</label>
-        <input type="text" value="<%= material == null ? "" : material %>" id="material" name="material" placeholder="Nhập chất liệu">
-
-        <label for="weight">Trọng lượng (gram)</label>
-        <input type="text" step="0.01" value="<%= weight %>" id="weight" name="weight" placeholder="Nhập trọng lượng sản phẩm">
-
-        <label for="dimensions">Kích thước bao bì</label>
-        <input type="text" value="<%= dimensions == null ? "" : dimensions %>" id="dimensions" name="dimensions" placeholder="Nhập kích thước">
-
-        <label for="bestSeller">Sản phẩm bán chạy?</label>
-        <select id="bestSeller" name="bestSeller" required>
-          <option value="true" <%= bestSeller ? "selected" : "" %>>Có</option>
-          <option value="false" <%= !bestSeller ? "selected" : "" %>>Không</option>
-        </select>
+        <label for="manufactureLocation">Nơi sản xuất</label>
+        <input type="text" id="manufactureLocation" name="manufactureLocation"
+               value="<%= manufactureLocation == null ? "" : manufactureLocation %>"
+               placeholder="Nhập nơi sản xuất">
 
         <button type="submit">Thêm nhà sản xuất</button>
-        <a href="" id="btnAddManufacturer" class="text-decoration-none text-white p-2 text-center bg-success mt-2 rounded" hidden>
+        <a href="<%=request.getContextPath()%>/admin/all-manufacturer" id="btnAddManufacturer" class="text-decoration-none text-white p-2 text-center bg-success mt-2 rounded" hidden>
           Quay lại
         </a>
+
       </form>
+
+
 
 
     </div>

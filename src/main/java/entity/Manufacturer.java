@@ -1,55 +1,20 @@
 package entity;
 
 public class Manufacturer {
-    private int manuID;
-    private String supplierName;
-    private String brand;
-    private String brandOrigin;
-    private String manufactureLocation;
-    private String color;
-    private String material;
-    private double weight;
-    private String dimensions;
-    private boolean bestSeller;
+    public int manuID;
+    public String manuName;
 
-    public Manufacturer(int manuID, String supplierName, String brand, String brandOrigin, String manufactureLocation, String color, String material, double weight, String dimensions, boolean bestSeller) {
+    public String brandOrigin;
+
+    public String manufactureLocation;
+
+    public Manufacturer(int manuID, String manuName) {
         this.manuID = manuID;
-        this.supplierName = supplierName;
-        this.brand = brand;
-        this.brandOrigin = brandOrigin;
-        this.manufactureLocation = manufactureLocation;
-        this.color = color;
-        this.material = material;
-        this.weight = weight;
-        this.dimensions = dimensions;
-        this.bestSeller = bestSeller;
+        this.manuName = manuName;
+
     }
 
     public Manufacturer() {
-    }
-
-    public int getManuID() {
-        return manuID;
-    }
-
-    public void setManuID(int manuID) {
-        this.manuID = manuID;
-    }
-
-    public String getSupplierName() {
-        return supplierName;
-    }
-
-    public void setSupplierName(String supplierName) {
-        this.supplierName = supplierName;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
     }
 
     public String getBrandOrigin() {
@@ -68,59 +33,29 @@ public class Manufacturer {
         this.manufactureLocation = manufactureLocation;
     }
 
-    public String getColor() {
-        return color;
+    public int getManuID() {
+        return manuID;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setManuID(int manuID) {
+        this.manuID = manuID;
     }
 
-    public String getMaterial() {
-        return material;
+    public String getManuName() {
+        return manuName;
     }
 
-    public void setMaterial(String material) {
-        this.material = material;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public String getDimensions() {
-        return dimensions;
-    }
-
-    public void setDimensions(String dimensions) {
-        this.dimensions = dimensions;
-    }
-
-    public boolean isBestSeller() {
-        return bestSeller;
-    }
-
-    public void setBestSeller(boolean bestSeller) {
-        this.bestSeller = bestSeller;
+    public void setManuName(String manuName) {
+        this.manuName = manuName;
     }
 
     @Override
     public String toString() {
         return "Manufacturer{" +
                 "manuID=" + manuID +
-                ", supplierName='" + supplierName + '\'' +
-                ", brand='" + brand + '\'' +
+                ", manuName='" + manuName + '\'' +
                 ", brandOrigin='" + brandOrigin + '\'' +
                 ", manufactureLocation='" + manufactureLocation + '\'' +
-                ", color='" + color + '\'' +
-                ", material='" + material + '\'' +
-                ", weight=" + weight +
-                ", dimensions='" + dimensions + '\'' +
-                ", bestSeller=" + bestSeller +
                 '}';
     }
 }

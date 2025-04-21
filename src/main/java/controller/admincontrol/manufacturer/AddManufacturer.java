@@ -14,51 +14,33 @@ import java.io.PrintWriter;
 public class AddManufacturer extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8"); // Nhận đúng tiếng Việt
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
 
-        // Lấy dữ liệu từ request
-        String supplierName = request.getParameter("supplierName");
-        String brand = request.getParameter("brand");
+        String manuName = request.getParameter("manuName");
         String brandOrigin = request.getParameter("brandOrigin");
         String manufactureLocation = request.getParameter("manufactureLocation");
-        String color = request.getParameter("color");
-        String material = request.getParameter("material");
-        String weightStr = request.getParameter("weight");
-        String dimensions = request.getParameter("dimensions");
-        String bestSellerStr = request.getParameter("bestSeller");
 
         JsonObject json = new JsonObject();
 
         try {
-            double weight = Double.parseDouble(weightStr);
-            boolean bestSeller = Boolean.parseBoolean(bestSellerStr);
-
             Manufacturer m = new Manufacturer();
-            m.setSupplierName(supplierName);
-            m.setBrand(brand);
+            m.setManuName(manuName);
             m.setBrandOrigin(brandOrigin);
             m.setManufactureLocation(manufactureLocation);
-            m.setColor(color);
-            m.setMaterial(material);
-            m.setWeight(weight);
-            m.setDimensions(dimensions);
-            m.setBestSeller(bestSeller);
 
             ManufacturerDAO dao = new ManufacturerDAO();
             int row = dao.addManufacturer(m);
 
-            if (row > 0) {
-                json.addProperty("isSuccess", true);
-            } else {
-                json.addProperty("isSuccess", false);
+            json.addProperty("isSuccess", row > 0);
+            if (row <= 0) {
                 json.addProperty("msg", "Không thể thêm nhà sản xuất vào database.");
             }
 
         } catch (Exception e) {
             e.printStackTrace();
             json.addProperty("isSuccess", false);
-            json.addProperty("msg", "Dữ liệu không hợp lệ: " + e.getMessage());
+            json.addProperty("msg", "Lỗi: " + e.getMessage());
         }
 
         PrintWriter out = response.getWriter();
@@ -66,3 +48,5 @@ public class AddManufacturer extends HttpServlet {
         out.flush();
     }
 }
+
+
