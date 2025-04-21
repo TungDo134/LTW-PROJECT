@@ -50,15 +50,9 @@
 <jsp:include page="header-admin.jsp"></jsp:include>
 <%
   int manuID = (request.getAttribute("manuID") != null) ? (Integer) request.getAttribute("manuID") : 0;
-  String supplierName = (String) request.getAttribute("supplierName");
-  String brand = (String) request.getAttribute("brand");
+  String manuName = (String) request.getAttribute("manuName");
   String brandOrigin = (String) request.getAttribute("brandOrigin");
   String manufactureLocation = (String) request.getAttribute("manufactureLocation");
-  String color = (String) request.getAttribute("color");
-  String material = (String) request.getAttribute("material");
-  double weight = (request.getAttribute("weight") != null) ? (Double) request.getAttribute("weight") : 0.0;
-  String dimensions = (String) request.getAttribute("dimensions");
-  boolean bestSeller = (request.getAttribute("bestSeller") != null) ? (Boolean) request.getAttribute("bestSeller") : false;
 %>
 
 
@@ -73,36 +67,16 @@
       <form method="post" action="<%=request.getContextPath()%>/admin/update-manufacturer">
         <input type="hidden" name="manuID" value="<%=manuID%>"/>
 
-        <label>Supplier Name:</label>
-        <input type="text" name="supplierName" value="<%= supplierName%>" required />
+        <label>Tên nhà sản xuất:</label>
+        <input type="text" name="manuName" value="<%= manuName %>" required />
 
-        <label>Brand:</label>
-        <input type="text" name="brand" value="<%=brand %>" required />
-
-        <label>Brand Origin:</label>
+        <label>Xuất xứ thương hiệu:</label>
         <input type="text" name="brandOrigin" value="<%= brandOrigin %>" required />
 
-        <label>Manufacture Location:</label>
+        <label>Nơi sản xuất:</label>
         <input type="text" name="manufactureLocation" value="<%= manufactureLocation %>" required />
 
-        <label>Color:</label>
-        <input type="text" name="color" value="<%= color %>" required />
-
-        <label>Material:</label>
-        <input type="text" name="material" value="<%= material %>" required />
-
-        <label>Weight (kg):</label>
-        <input type="text" step="0.01" name="weight" value="<%= weight %>" required />
-
-        <label>Dimensions:</label>
-        <input type="text" name="dimensions" value="<%= dimensions %>" required />
-
-        <label>
-          <input type="checkbox" name="bestSeller" <%= bestSeller ? "checked" : "" %> />
-          Best Seller
-        </label>
-
-        <button type="submit" >Cập nhật</button>
+        <button type="submit">Cập nhật</button>
       </form>
 
 

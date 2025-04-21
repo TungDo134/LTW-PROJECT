@@ -14,32 +14,26 @@ import java.io.IOException;
 public class UpdateManu extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         int manuID = Integer.parseInt(request.getParameter("manuID"));
-        String supplierName = request.getParameter("supplierName");
-        String brand = request.getParameter("brand");
+        String manuName = request.getParameter("manuName");
         String brandOrigin = request.getParameter("brandOrigin");
         String manufactureLocation = request.getParameter("manufactureLocation");
-        String color = request.getParameter("color");
-        String material = request.getParameter("material");
-        double weight = Double.parseDouble(request.getParameter("weight"));
-        String dimensions = request.getParameter("dimensions");
-        boolean bestSeller = Boolean.parseBoolean(request.getParameter("bestSeller"));
 
-        Manufacturer m = new Manufacturer(manuID, supplierName, brand, brandOrigin,
-                manufactureLocation, color, material, weight, dimensions, bestSeller);
+        Manufacturer m = new Manufacturer();
+        m.setManuID(manuID);
+        m.setManuName(manuName);
+        m.setBrandOrigin(brandOrigin);
+        m.setManufactureLocation(manufactureLocation);
 
         ManufacturerDAO dao = new ManufacturerDAO();
-        int result = dao.updateManufacturer(m);
+        dao.updateManufacturer(m);
 
-        System.out.println("Ngu lắm mới sai được z'");
         response.sendRedirect(request.getContextPath() + "/admin/all-manufacturer");
-
-
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
     }
+
 }

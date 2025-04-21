@@ -348,50 +348,51 @@
 <%--                        </tr>--%>
 <%--                    </table>--%>
 
-                <c:if test="${not empty manufacturer}">
+
+                <c:if test="${not empty detail}">
                     <table class="product-table">
                         <tbody>
                         <tr>
                             <th scope="row">Mã hàng</th>
-                            <td>${manufacturer.manuID}</td>
+                            <td>${detail.productID}</td>
                         </tr>
                         <tr>
                             <th scope="row">Tên Nhà Cung Cấp</th>
-                            <td>${manufacturer.supplierName}</td>
+                            <td>${manufacturer.manuName}</td>
                         </tr>
                         <tr>
                             <th scope="row">Thương Hiệu</th>
-                            <td>${manufacturer.brand}</td>
+                            <td>${detail.brand}</td>
                         </tr>
                         <tr>
                             <th scope="row">Xuất Xứ Thương Hiệu</th>
-                            <td>${manufacturer.brandOrigin}</td>
+                            <td>${detail.brandOrigin}</td>
                         </tr>
                         <tr>
                             <th scope="row">Nơi Gia Công & Sản Xuất</th>
-                            <td>${manufacturer.manufactureLocation}</td>
+                            <td>${detail.manufactureLocation}</td>
                         </tr>
                         <tr>
                             <th scope="row">Màu sắc</th>
-                            <td>${manufacturer.color}</td>
+                            <td>${detail.color}</td>
                         </tr>
                         <tr>
                             <th scope="row">Chất liệu</th>
-                            <td>${manufacturer.material}</td>
+                            <td>${detail.material}</td>
                         </tr>
                         <tr>
                             <th scope="row">Trọng lượng (gr)</th>
-                            <td>${manufacturer.weight}</td>
+                            <td>${detail.weight}</td>
                         </tr>
                         <tr>
                             <th scope="row">Kích Thước Bao Bì</th>
-                            <td>${manufacturer.dimensions}</td>
+                            <td>${detail.dimensions}</td>
                         </tr>
                         <tr>
                             <th scope="row">Sản phẩm bán chạy nhất</th>
                             <td>
                                 <c:choose>
-                                    <c:when test="${manufacturer.bestSeller}">
+                                    <c:when test="${detail.bestSeller}">
                                         Top 100 sản phẩm Sổ Các Loại bán chạy của tháng
                                     </c:when>
                                     <c:otherwise>
@@ -403,6 +404,8 @@
                         </tbody>
                     </table>
                 </c:if>
+
+
 
 
 
