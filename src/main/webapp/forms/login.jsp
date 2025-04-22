@@ -73,11 +73,21 @@
                 <div class="g-recaptcha" data-sitekey="6LdjZ_wqAAAAAF5P3or0nPOS_jw9YXaEcnic3kQg"></div>
 
                 <button type="submit">Login</button>
-                <div class="forward-login">
-                    <p>Bạn chưa có tài khoản?</p>
-                    <a class="login-btn" href="signup.jsp">Đăng ký ngay</a>
-                </div>
             </form>
+            <hr class="my-4" style="margin-top: 13px">
+
+            <a style="text-decoration: none" href="http://accounts.google.com/o/oauth2/auth?scope=email profile openid&redirect_uri=http://localhost:8080/LTW_Project/login&response_type=code&client_id=809996787821-dr6g65vj9cbhn9ppk1ca7olan47ld6au.apps.googleusercontent.com&approval_prompt=force">
+                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-lg btn-block btn-primary"
+                        style="background-color: #dd4b39; border: none"
+                        type="submit"><i class="fab fa-google me-2"></i> Sign in with google
+                </button>
+            </a>
+            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;border: none"
+                    type="submit"><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</button>
+            <div class="forward-login">
+                <p>Bạn chưa có tài khoản?</p>
+                <a class="login-btn" href="signup.jsp">Đăng ký ngay</a>
+            </div>
         </div>
     </main>
 </div>
