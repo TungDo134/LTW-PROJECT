@@ -169,7 +169,16 @@ public class CustomerDAO {
         );
         return rowsAffected > 0;
     }
+    public int insertCustomerFromGoogle(Customer cus) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate("INSERT INTO customers (customerName, email)\n" +
+                                "VALUES (:customerName, :email);")
+                        .bind("customerName", cus.getName())
+                        .bind("email", cus.getEmail())
+                        .execute()
 
+        );
+    }
 
 
 }
