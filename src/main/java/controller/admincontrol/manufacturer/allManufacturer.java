@@ -15,13 +15,20 @@ import java.util.List;
 public class allManufacturer extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ManufacturerDAO dao = new ManufacturerDAO();
-        List<Manufacturer> list = dao.getAllManufacturers(); // phương thức cần viết thêm
-        request.setAttribute("listManu", list);
+        ManufacturerDAO manufacturerDAO = new ManufacturerDAO();
+        // Lấy danh sách nhà sản xuất kèm theo sản phẩm của họ
+        List<Manufacturer> manufacturers = manufacturerDAO.getAllManufacturers();
+
+        // Truyền dữ liệu vào JSP
+        request.setAttribute("manufacturers", manufacturers);
         request.getRequestDispatcher("/admin/allManufacturer.jsp").forward(request, response);
     }
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
     }
 }
+
+
+

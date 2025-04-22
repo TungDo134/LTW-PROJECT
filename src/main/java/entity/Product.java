@@ -16,10 +16,18 @@ public class Product implements Serializable {
     public double discountPrice;
     public byte isDiscount;
 
+    // Các trường từ Manufacturer
+    public int manuID;
+    public String brand;
 
-    public Product(int productID, String productName, String productDes, double productPrice, int productInventory,
-                   int productOrder, int productStock, String productImage, int cateID, String shortDes,
-                   double discountPrice, byte isDiscount) {
+    public String color;
+    public String material;
+    public String weight;
+    public String dimensions;
+    public boolean bestSeller;
+
+    public Product(int productID, String productName, String productDes, double productPrice, int productInventory, int productOrder, int productStock, String productImage, int cateID, String shortDes, double discountPrice,
+                   byte isDiscount, int manuID, String brand,  String color, String material, String weight, String dimensions, boolean bestSeller) {
         this.productID = productID;
         this.productName = productName;
         this.productDes = productDes;
@@ -32,6 +40,13 @@ public class Product implements Serializable {
         this.shortDes = shortDes;
         this.discountPrice = discountPrice;
         this.isDiscount = isDiscount;
+        this.manuID = manuID;
+        this.brand = brand;
+        this.color = color;
+        this.material = material;
+        this.weight = weight;
+        this.dimensions = dimensions;
+        this.bestSeller = bestSeller;
     }
 
     public Product() {
@@ -41,40 +56,80 @@ public class Product implements Serializable {
         return productID;
     }
 
+    public void setProductID(int productID) {
+        this.productID = productID;
+    }
+
     public String getProductName() {
         return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getProductDes() {
         return productDes;
     }
 
+    public void setProductDes(String productDes) {
+        this.productDes = productDes;
+    }
+
     public double getProductPrice() {
         return productPrice;
+    }
+
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
     }
 
     public int getProductInventory() {
         return productInventory;
     }
 
+    public void setProductInventory(int productInventory) {
+        this.productInventory = productInventory;
+    }
+
     public int getProductOrder() {
         return productOrder;
+    }
+
+    public void setProductOrder(int productOrder) {
+        this.productOrder = productOrder;
     }
 
     public int getProductStock() {
         return productStock;
     }
 
+    public void setProductStock(int productStock) {
+        this.productStock = productStock;
+    }
+
     public String getProductImage() {
         return productImage;
+    }
+
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
     }
 
     public int getCateID() {
         return cateID;
     }
 
+    public void setCateID(int cateID) {
+        this.cateID = cateID;
+    }
+
     public String getShortDes() {
         return shortDes;
+    }
+
+    public void setShortDes(String shortDes) {
+        this.shortDes = shortDes;
     }
 
     public double getDiscountPrice() {
@@ -93,45 +148,62 @@ public class Product implements Serializable {
         this.isDiscount = isDiscount;
     }
 
-    public void setProductID(int productID) {
-        this.productID = productID;
+    public int getManuID() {
+        return manuID;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setManuID(int manuID) {
+        this.manuID = manuID;
     }
 
-    public void setProductDes(String productDes) {
-        this.productDes = productDes;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setProductPrice(double productPrice) {
-        this.productPrice = productPrice;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public void setProductInventory(int productInventory) {
-        this.productInventory = productInventory;
+    public String getColor() {
+        return color;
     }
 
-    public void setProductOrder(int productOrder) {
-        this.productOrder = productOrder;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public void setProductStock(int productStock) {
-        this.productStock = productStock;
+    public String getMaterial() {
+        return material;
     }
 
-    public void setProductImage(String productImage) {
-        this.productImage = productImage;
+    public void setMaterial(String material) {
+        this.material = material;
     }
 
-    public void setCateID(int cateID) {
-        this.cateID = cateID;
+    public String getWeight() {
+        return weight;
     }
 
-    public void setShortDes(String shortDes) {
-        this.shortDes = shortDes;
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
+
+    public String getDimensions() {
+        return dimensions;
+    }
+
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
+    }
+
+    public boolean isBestSeller() {
+        return bestSeller;
+    }
+
+    public void setBestSeller(boolean bestSeller) {
+        this.bestSeller = bestSeller;
+    }
+
 
     @Override
     public String toString() {
@@ -148,6 +220,13 @@ public class Product implements Serializable {
                 ", shortDes='" + shortDes + '\'' +
                 ", discountPrice=" + discountPrice +
                 ", isDiscount=" + isDiscount +
+                ", manuID=" + manuID +
+                ", brand='" + brand + '\'' +
+                ", color='" + color + '\'' +
+                ", material='" + material + '\'' +
+                ", weight='" + weight + '\'' +
+                ", dimensions='" + dimensions + '\'' +
+                ", bestSeller=" + bestSeller +
                 '}';
     }
 }

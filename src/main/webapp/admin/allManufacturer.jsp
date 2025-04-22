@@ -22,7 +22,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
 
   <link rel="stylesheet" href="<%= request.getContextPath()%>/assets/css/admin/styleAllManufacturer.css"/>
-
 </head>
 <body class="dark-theme">
 <jsp:include page="header-admin.jsp"></jsp:include>
@@ -34,45 +33,28 @@
     </div>
     <div id="all-user-container">
       <a class="btn btn-primary btn-customize px-5 py-2 mb-2"
-         href="<%=request.getContextPath()%>/admin/AddManufacturer" role="button">Thêm</a>
+         href="<%=request.getContextPath()%>/admin/addManufacturer.jsp" role="button">Thêm</a>
 
-      <table id="myTable" class="display" style="width:100%">
+      <table id="myTable" class="">
         <thead>
         <tr>
           <th>STT</th>
           <th>Tên nhà cung cấp</th>
-          <th>Thương hiệu</th>
-          <th>Xuất xứ</th>
           <th>Nơi sản xuất</th>
-          <th>Màu sắc</th>
-          <th>Chất liệu</th>
-          <th>Khối lượng</th>
-          <th>Kích thước</th>
-          <th>Best Seller</th>
-          <th>Hành động</th>
+          <th>Xuất xứ</th>
+          <th>Thao tác</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${listManu}" var="m" varStatus="i">
+        <!-- Lặp qua danh sách nhà sản xuất -->
+        <c:forEach items="${manufacturers}" var="m" varStatus="i">
           <tr>
             <td>${i.index + 1}</td>
-            <td>${m.supplierName}</td>
-            <td>${m.brand}</td>
-            <td>${m.brandOrigin}</td>
+            <td>${m.manuName}</td>
             <td>${m.manufactureLocation}</td>
-            <td>${m.color}</td>
-            <td>${m.material}</td>
-            <td>${m.weight} kg</td>
-            <td>${m.dimensions}</td>
-            <td>
-              <c:choose>
-                <c:when test="${m.bestSeller}">✔️</c:when>
-                <c:otherwise>❌</c:otherwise>
-              </c:choose>
-            </td>
+            <td>${m.brandOrigin}</td>
             <td>
               <a class="btn btn-success btn-sm" href="<%=request.getContextPath()%>/admin/edit-manufacturer?manuID=${m.manuID}">Sửa</a>
-
               <a class="btn btn-danger btn-sm" href="<%=request.getContextPath()%>/admin/delete-manufacturer?manuID=${m.manuID}" onclick="return confirmDelete();">Xoá</a>
             </td>
           </tr>

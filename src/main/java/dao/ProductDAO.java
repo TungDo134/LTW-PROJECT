@@ -246,7 +246,14 @@ public class ProductDAO {
                         .execute()
         );
     }
-
+    public List<Product> getProductsByManufacturer(int manuID) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM products WHERE manuID = :manuID")
+                        .bind("manuID", manuID)
+                        .mapTo(Product.class)
+                        .list()
+        );
+    }
 }
 
 
