@@ -366,11 +366,11 @@
                         </tr>
                         <tr>
                             <th scope="row">Xuất Xứ Thương Hiệu</th>
-                            <td>${detail.brandOrigin}</td>
+                            <td>${manufacturer.brandOrigin}</td>
                         </tr>
                         <tr>
                             <th scope="row">Nơi Gia Công & Sản Xuất</th>
-                            <td>${detail.manufactureLocation}</td>
+                            <td>${manufacturer.manufactureLocation}</td>
                         </tr>
                         <tr>
                             <th scope="row">Màu sắc</th>
