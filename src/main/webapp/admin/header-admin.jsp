@@ -148,7 +148,6 @@
                                 </li>
 
 
-
                             </ul>
                         </li>
                         <li class="item item-dropdown">
@@ -234,7 +233,8 @@
                             </div>
                             <ul class="sub-menu">
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/all-coupon">Mã giảm giá cho đơn hàng</a>
+                                    <a href="<%= request.getContextPath()%>/admin/all-coupon">Mã giảm giá cho đơn
+                                        hàng</a>
                                 </li>
                                 <li class="sub-menu-item">
                                     <%--GetAllReview--%>
@@ -249,7 +249,8 @@
                                 <%-- LoadDiscount  --%>
                                 <li class="sub-menu-item">
                                     <%-- <a href="<%= request.getContextPath()%>/admin/">Giảm giá sản phẩm</a>--%>
-                                    <a href="<%= request.getContextPath()%>/admin/load-discount">Giảm giá sản phẩm hàng loạt</a>
+                                    <a href="<%= request.getContextPath()%>/admin/load-discount">Giảm giá sản phẩm hàng
+                                        loạt</a>
                                 </li>
                             </ul>
                         </li>
@@ -264,12 +265,29 @@ warehouse
                                 <li class="sub-menu-item">
 
                                     <%-- getAllManuController--%>
-                                    <a href="<%= request.getContextPath()%>/admin/all-manufacturer">Tất cả nhà sản xuất</a>
+                                    <a href="<%= request.getContextPath()%>/admin/all-manufacturer">Tất cả nhà sản
+                                        xuất</a>
 
 
                                 </li>
                                 <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/addManufacturer.jsp">Thêm nhà sản xuất</a>
+                                    <a href="<%= request.getContextPath()%>/admin/addManufacturer.jsp">Thêm nhà sản
+                                        xuất</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="item item-dropdown">
+                            <div class="d-flex">
+                    <span class="material-symbols-outlined pr-10">
+passkey
+</span>
+                                <a href="#">Quản lí phân quyền</a>
+                            </div>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <%--  <a href="<%= request.getContextPath()%>/admin/addManufacturer.jsp">Phân quyền</a>--%>
+                                    <a href="<%= request.getContextPath()%>/admin/show-auth">Phân quyền</a>
                                 </li>
 
                             </ul>
