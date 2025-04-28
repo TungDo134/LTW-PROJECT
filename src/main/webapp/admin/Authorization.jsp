@@ -7,6 +7,7 @@
 --%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page isELIgnored="false" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -178,10 +179,150 @@
                 </div>
             </div>
         </div>
+
+        <!-- Bảng phân quyền VERSION-2 -->
+<%--        <form method="post" action="/admin/role/permissions/save">--%>
+<%--            <!-- Chọn Role -->--%>
+<%--            <div class="mb-4">--%>
+<%--                <label for="role" class="form-label">Chọn vai trò (Role):</label>--%>
+<%--                <select class="form-select" name="roleId" id="role">--%>
+<%--                    <option value="1">Admin</option>--%>
+<%--                    <option value="2">Manager</option>--%>
+<%--                    <option value="3">User</option>--%>
+<%--                    <!-- Load động role nếu cần -->--%>
+<%--                </select>--%>
+<%--            </div>--%>
+<%--            --%>
+<%--            <table--%>
+<%--                    class="myTable"--%>
+<%--            >--%>
+<%--                <thead class="">--%>
+<%--                <tr>--%>
+<%--                    <th>Chức năng</th>--%>
+<%--                    <th>Create</th>--%>
+<%--                    <th>Read</th>--%>
+<%--                    <th>Update</th>--%>
+<%--                    <th>Delete</th>--%>
+<%--                    <th>Manage (Tổng quát)</th>--%>
+<%--                </tr>--%>
+<%--                </thead>--%>
+<%--                <tbody>--%>
+<%--                <!-- 1 dòng cho 1 chức năng -->--%>
+<%--                <tr data-function="PRODUCT">--%>
+<%--                    <td>Sản phẩm</td>--%>
+<%--                    <td>--%>
+<%--                        <input--%>
+<%--                                type="checkbox"--%>
+<%--                                name="permissions"--%>
+<%--                                value="PRODUCT_CREATE"--%>
+<%--                                class="crud-checkbox"--%>
+<%--                        />--%>
+<%--                    </td>--%>
+<%--                    <td>--%>
+<%--                        <input--%>
+<%--                                type="checkbox"--%>
+<%--                                name="permissions"--%>
+<%--                                value="PRODUCT_READ"--%>
+<%--                                class="crud-checkbox"--%>
+<%--                        />--%>
+<%--                    </td>--%>
+<%--                    <td>--%>
+<%--                        <input--%>
+<%--                                type="checkbox"--%>
+<%--                                name="permissions"--%>
+<%--                                value="PRODUCT_UPDATE"--%>
+<%--                                class="crud-checkbox"--%>
+<%--                        />--%>
+<%--                    </td>--%>
+<%--                    <td>--%>
+<%--                        <input--%>
+<%--                                type="checkbox"--%>
+<%--                                name="permissions"--%>
+<%--                                value="PRODUCT_DELETE"--%>
+<%--                                class="crud-checkbox"--%>
+<%--                        />--%>
+<%--                    </td>--%>
+<%--                    <td><input type="checkbox" class="manage-checkbox"/></td>--%>
+<%--                </tr>--%>
+<%--                <tr data-function="CATEGORY">--%>
+<%--                    <td>Danh mục</td>--%>
+<%--                    <td>--%>
+<%--                        <input--%>
+<%--                                type="checkbox"--%>
+<%--                                name="permissions"--%>
+<%--                                value="CATEGORY_CREATE"--%>
+<%--                                class="crud-checkbox"--%>
+<%--                        />--%>
+<%--                    </td>--%>
+<%--                    <td>--%>
+<%--                        <input--%>
+<%--                                type="checkbox"--%>
+<%--                                name="permissions"--%>
+<%--                                value="CATEGORY_READ"--%>
+<%--                                class="crud-checkbox"--%>
+<%--                        />--%>
+<%--                    </td>--%>
+<%--                    <td>--%>
+<%--                        <input--%>
+<%--                                type="checkbox"--%>
+<%--                                name="permissions"--%>
+<%--                                value="CATEGORY_UPDATE"--%>
+<%--                                class="crud-checkbox"--%>
+<%--                        />--%>
+<%--                    </td>--%>
+<%--                    <td>--%>
+<%--                        <input--%>
+<%--                                type="checkbox"--%>
+<%--                                name="permissions"--%>
+<%--                                value="CATEGORY_DELETE"--%>
+<%--                                class="crud-checkbox"--%>
+<%--                        />--%>
+<%--                    </td>--%>
+<%--                    <td><input type="checkbox" class="manage-checkbox"/></td>--%>
+<%--                </tr>--%>
+<%--                <!-- Thêm các chức năng khác (ORDER, USER, COUPON...) -->--%>
+<%--                </tbody>--%>
+<%--            </table>--%>
+
+<%--            <div class="text-center mt-4">--%>
+<%--                <button type="submit" class="btn btn-primary px-5">--%>
+<%--                    Lưu Phân Quyền--%>
+<%--                </button>--%>
+<%--            </div>--%>
+<%--        </form>--%>
+
     </div>
 </div>
 
+<script>
+    // Tự động tick/un-tick khi chọn Manage
+    document
+        .querySelectorAll(".manage-checkbox")
+        .forEach(function (manageCheckbox) {
+            manageCheckbox.addEventListener("change", function () {
+                const row = manageCheckbox.closest("tr");
+                const crudCheckboxes = row.querySelectorAll(".crud-checkbox");
+                crudCheckboxes.forEach(function (checkbox) {
+                    checkbox.checked = manageCheckbox.checked;
+                });
+            });
+        });
 
+    // Nếu tick hết CRUD thì tự tick Manage
+    document
+        .querySelectorAll(".crud-checkbox")
+        .forEach(function (crudCheckbox) {
+            crudCheckbox.addEventListener("change", function () {
+                const row = crudCheckbox.closest("tr");
+                const crudCheckboxes = row.querySelectorAll(".crud-checkbox");
+                const manageCheckbox = row.querySelector(".manage-checkbox");
+
+                manageCheckbox.checked = Array.from(crudCheckboxes).every(
+                    (cb) => cb.checked
+                );
+            });
+        });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
