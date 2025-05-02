@@ -255,9 +255,9 @@
                         </li>
                         <li class="item item-dropdown">
                             <div class="d-flex">
-                    <span class="material-symbols-outlined pr-10">
-warehouse
-</span>
+                                <span class="material-symbols-outlined pr-10">
+                                    warehouse
+                                    </span>
                                 <a href="#">Nhà sản xuất</a>
                             </div>
                             <ul class="sub-menu">
@@ -270,6 +270,27 @@ warehouse
                                 </li>
                                 <li class="sub-menu-item">
                                     <a href="<%= request.getContextPath()%>/admin/addManufacturer.jsp">Thêm nhà sản xuất</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="item item-dropdown">
+                            <div class="d-flex">
+                                <span class="material-symbols-outlined pr-10">
+                                     inventory_2
+                                </span>
+                                <a href="#">Kho</a>
+                            </div>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+
+                                    <%-- getAllManuController--%>
+                                    <a href="<%= request.getContextPath()%>/admin/list-warehouse">Danh sách kho hàng</a>
+
+
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="<%= request.getContextPath()%>/admin/addWarehouse.jsp">Nhập hàng</a>
                                 </li>
 
                             </ul>

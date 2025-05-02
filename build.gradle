@@ -1,0 +1,119 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id "org.hidetake.ssh" version "2.11.2"
+    id 'war'
+    id 'java'
+}
+repositories {
+    mavenCentral()
+}
+apply plugin: 'org.hidetake.ssh'
+
+ssh.settings {
+    knownHosts = allowAnyHosts
+}
+remotes {
+    host {
+        host = '192.168.1.126'
+        user = 'root'
+        password = 'tung123'
+    }
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+ext {
+    junitVersion = '5.11.0'
+}
+test {
+    useJUnitPlatform()
+}
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+sourceCompatibility = '21'
+targetCompatibility = '21'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    compileOnly('jakarta.servlet:jakarta.servlet-api:6.1.0')
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+dependencies {
+    api libs.mysql.mysql.connector.java
+    api libs.jakarta.servlet.jsp.jstl.jakarta.servlet.jsp.jstl.api
+    api libs.org.glassfish.web.jakarta.servlet.jsp.jstl
+    api libs.org.json.json
+    api libs.com.google.code.gson.gson
+    api libs.org.jdbi.jdbi3.core
+    api libs.org.apache.logging.log4j.log4j.api
+    api libs.org.apache.logging.log4j.log4j.core
+    api libs.org.apache.logging.log4j.log4j.slf4j.impl
+    api libs.javax.mail.javax.mail.api
+    api libs.com.sun.mail.javax.mail
+    api libs.org.apache.httpcomponents.fluent.hc
+    api("com.google.guava:guava:33.4.8-jre")
+    testImplementation libs.junit.junit
+    compileOnly libs.javax.servlet.javax.servlet.api
+    compileOnly libs.jakarta.servlet.jakarta.servlet.api
+    compileOnly libs.jakarta.servlet.jsp.jakarta.servlet.jsp.api
+    compileOnly libs.jakarta.el.jakarta.el.api
+    compileOnly libs.jakarta.websocket.jakarta.websocket.api
+    compileOnly libs.jakarta.security.enterprise.jakarta.security.enterprise.api
+}
+
+
+task docker_app_start  {
+    doLast {
+        println 'begin docker_app_start'
+        ssh.run {
+            session(remotes.host) {
+                execute 'docker stop tomcat10', ignoreError: true
+                execute 'docker run -it --rm -d ' +
+                        '--name tomcat10 ' +
+                        '-v /usr/deploy:/usr/local/tomcat/webapps ' +
+                        '-p 80:8080 ' +
+                        'tomcat:10.1.31'
+            }
+        }
+    }
+}
+
+task docker_upload_file_to_server {
+    doLast {
+        println 'Uploading file to Linux server...'
+        ssh.run {
+            session(remotes.host) {
+                // Tạo thư mục nếu chưa có
+                execute 'mkdir -p /usr/deploy'
+
+                // Xóa file cũ nếu có
+                remove '/usr/deploy/Project-LTW.war'
+                remove '/usr/deploy/Project-LTW'
+
+                // Upload file
+                put from: "${project.projectDir}/build/libs/Project-LTW-1.0-SNAPSHOT.war",
+                        into: "/usr/deploy/Project-LTW.war"
+            }
+        }
+    }
+}
+
+task docker_deploy {
+    docker_deploy.dependsOn docker_app_start
+    docker_deploy.dependsOn docker_upload_file_to_server
+    docker_deploy.dependsOn build
+    tasks.getByName('docker_app_start').mustRunAfter docker_upload_file_to_server
+}
