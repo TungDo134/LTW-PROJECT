@@ -1,15 +1,49 @@
 package dao;
 
 import context.JDBIContext;
-import entity.Permission;
-import entity.Role;
-import entity.RolePermission;
-import entity.UserRole;
+import entity.*;
+import entity.authorization.*;
 
 import java.util.List;
+import java.util.Optional;
 
 public class AuthorizationDAO {
-    // lấy all Role
+
+    // LẤY DANH SÁCH TẤT CẢ ACTIONS
+    public List<Action> getAllActions() {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM actions ORDER BY actionID")
+                        .mapToBean(Action.class)
+                        .list()
+        );
+    }
+
+    // LẤY TẤT CẢ PERMISSIONS
+    public List<Permission> getAllPermissions() {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM permissions")
+                        .mapToBean(Permission.class)
+                        .list()
+        );
+    }
+
+    // LẤY PERMISSIONS CỦA MỘT ROLE
+    public List<Permission> getPermissionsByRole(int roleID) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("""
+                                    SELECT p.permissionID, p.function_name, p.actionID
+                                    FROM role_permission rp
+                                    JOIN permissions p ON rp.permissionID = p.permissionID
+                                    WHERE rp.roleID = :roleID
+                                """)
+                        .bind("roleID", roleID)
+                        .mapToBean(Permission.class)
+                        .list()
+        );
+    }
+
+
+    // LẤY DANH SÁCH ROLE
     public List<Role> getAllRoles() {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createQuery("SELECT * FROM roles")
@@ -18,40 +52,43 @@ public class AuthorizationDAO {
         );
     }
 
-    // lấy all UserRole
-    public List<UserRole> getAllUserRoles() {
+    // LẤY ROLE CỦA 1 CUSTOMER
+    public List<Role> getRolesByCustomer(int customerID) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createQuery("SELECT * FROM user_role")
-                        .mapToBean(UserRole.class)
+                handle.createQuery("""
+                                    SELECT r.roleID, r.name
+                                    FROM user_role cr
+                                    JOIN roles r ON cr.roleID = r.roleID
+                                    WHERE cr.customerID = :customerID
+                                """)
+                        .bind("customerID", customerID)
+                        .mapToBean(Role.class)
                         .list()
         );
     }
 
-    // lấy all Permission
-    public List<Permission> getAllPermissions() {
+    // LẤY ACTION THEO ID
+    public Optional<Action> getActionByID(int id) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createQuery("SELECT * FROM permission")
+                handle.createQuery("SELECT * FROM actions WHERE actionID = :id")
+                        .bind("id", id)
+                        .mapToBean(Action.class)
+                        .findOne()
+        );
+    }
+
+    // LẤY PERMISSION THEO ID
+    public Optional<Permission> getPermissionByID(int permissionID) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT * FROM permissions WHERE permissionID = :id")
+                        .bind("id", permissionID)
                         .mapToBean(Permission.class)
-                        .list()
-        );
-    }
-
-    // lấy all RolePermission
-    public List<RolePermission> getAllRolePermissions() {
-        return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createQuery("SELECT * FROM role_permission")
-                        .mapToBean(RolePermission.class)
-                        .list()
+                        .findOne()
         );
     }
 
     public static void main(String[] args) {
         AuthorizationDAO dao = new AuthorizationDAO();
-        System.out.println(dao.getAllRoles());
-        System.out.println(dao.getAllUserRoles());
-        System.out.println(dao.getAllPermissions());
-        System.out.println(dao.getAllRolePermissions());
+        System.out.println(dao.getPermissionsByRole(3));
     }
-
-
 }

@@ -1,4 +1,4 @@
-package entity;
+package entity.authorization;
 
 public class RolePermission {
     private int roleId;
