@@ -86,8 +86,7 @@ public class CartDAO {
         );
     }
 
-
-    // "ERROR WAITING FIX"
+    // Update slq nếu đã có sp trước đó
     public void updateProductInCartItem(int productID, int quantity, double totalCt) {
         JDBIContext.getJdbi().withHandle(handle -> (
                 handle.createUpdate("Update cartitems  set quantity =:quantity, totalCt =:totalCt  where productID =:productID")
@@ -96,6 +95,16 @@ public class CartDAO {
                         .bind("totalCt", totalCt)
                         .execute())
         );
+    }
+
+    // Xóa cart-item
+    public void deleteCartByCartIDAndPID(int cartID, int productID) {
+            JDBIContext.getJdbi().useHandle(handle -> {
+            handle.createUpdate("DELETE FROM cartitems WHERE cartID = :cartID and productID= :productID")
+                    .bind("cartID", cartID)
+                    .bind("productID", productID)
+                    .execute();
+        });
     }
 
     public static void main(String[] args) {

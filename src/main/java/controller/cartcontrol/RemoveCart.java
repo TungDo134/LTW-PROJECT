@@ -2,6 +2,7 @@ package controller.cartcontrol;
 
 import entity.Cart;
 import entity.CartItem;
+import helper.CartManagerDB;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -23,13 +24,15 @@ public class RemoveCart extends HttpServlet {
         c.getTotalQuantity();
         c.getTotal();
         isSuccess = true;
+
+        // ========= DELETE CART ITEM DB ========= //
+        CartManagerDB cartManagerDB = new CartManagerDB();
+        cartManagerDB.deleteCartDB(request, proID);
+
         response.setContentType("application/json");
         response.getWriter().write("{\"isSuccess\":" + isSuccess + ", \"TotalQuantity\":"
                 + c.getTotalQuantity() + ", \"Total\":" + c.getTotal() + "}");
 
-
-//        request.getRequestDispatcher("Shopping-cart.jsp").forward(request,response);
-//        response.sendRedirect("show-cart");
     }
 
     @Override

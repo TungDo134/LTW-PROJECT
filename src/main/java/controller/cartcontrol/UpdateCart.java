@@ -2,6 +2,7 @@ package controller.cartcontrol;
 
 import entity.Cart;
 import entity.CartItem;
+import helper.CartManagerDB;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -27,13 +28,18 @@ public class UpdateCart extends HttpServlet {
         // lấy ra cụ thể 1 cart item
         CartItem ct = c.getData().get(id);
 
+        // ========= SAVE CART DB ========= //
+        CartManagerDB cartManagerDB = new CartManagerDB();
+        cartManagerDB.saveCartDB(request);
+
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
 
         /* - tổng sp, tổng giá của cart
            - tổng tiền của 1 sp
          */
-        response.getWriter().write("{\"TotalQuantity\":" + c.getTotalQuantity() + ", \"Total\":" + c.getTotal() + ", \"TotalCt\":" + ct.getTotalCt() + "}");
+        response.getWriter().write("{\"TotalQuantity\":" + c.getTotalQuantity() + ", \"Total\":" + c.getTotal() +
+                ", \"TotalCt\":" + ct.getTotalCt() + "}");
 
     }
 
