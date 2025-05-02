@@ -1,11 +1,9 @@
 package controller.cartcontrol;
 
-import dao.CartDAO;
 import dao.ProductDAO;
 import entity.Cart;
-import entity.CartItem;
-import entity.Customer;
 import entity.Product;
+import helper.CartManagerDB;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
@@ -23,7 +21,6 @@ public class AddCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String pID = (request.getParameter("pID"));
-//        System.out.println(pID);
 
         ProductDAO productDAO = new ProductDAO();
         Product product = productDAO.getProductByID(pID);
@@ -40,6 +37,10 @@ public class AddCart extends HttpServlet {
         if (c == null) c = new Cart();
         c.add(product);
         session.setAttribute("cart", c);
+
+        // ========= SAVE CART DB ========= //
+        CartManagerDB cartManagerDB = new CartManagerDB();
+        cartManagerDB.saveCartDB(request);
 
     }
 

@@ -9,9 +9,7 @@ import java.util.Scanner;
 
 import dao.CartDAO;
 import dao.CustomerDAO;
-import entity.Cart;
-import entity.CartItem;
-import entity.Customer;
+import entity.*;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -28,6 +26,27 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String code = request.getParameter("code");
+        if (code != null) {
+            String accessToken = GoogleLogin.getToken(code);
+            GoogleAccount googleAcc = GoogleLogin.getUserInfo(accessToken);
+
+            CustomerDAO dao = new CustomerDAO();
+            Customer cus = dao.getUserByEmail(googleAcc.getEmail());
+
+            if (cus == null) {
+                cus = new Customer();
+                cus.setEmail(googleAcc.getEmail());
+                cus.setName(googleAcc.getName());
+                dao.insertCustomerFromGoogle(cus);
+                cus = dao.getUserByEmail(googleAcc.getEmail());
+            }
+
+            HttpSession session = request.getSession();
+            session.setAttribute("customer", cus);
+            response.sendRedirect("home");
+        }
+
 
     }
 

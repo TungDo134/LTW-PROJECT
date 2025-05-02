@@ -207,6 +207,7 @@ padding: 16px 8px;
                         </span>
                             <div>
                                 <span class="quantity-bag">
+                                <%--  Filer CartFilter --%>
                                     <c:out value="${cartSize}"/>
                                 </span>
                             </div>
@@ -271,20 +272,5 @@ padding: 16px 8px;
         loadLogo();
     });
 </script>
-<script>
-    let url = "${pageContext.request.contextPath}" + '/update-cart-db'
-    setInterval(() => {
-        fetch(url, {
-            method: 'GET'
-        })
-            .then(response => {
-                if (!response.ok) {
-                    console.error('Lỗi khi gọi servlet:', response.status);
-                }
-            })
-            .catch(error => {
-                console.error('Fetch lỗi:', error);
-            });
-    }, 10000); // 10 giây
-</script>
+
 

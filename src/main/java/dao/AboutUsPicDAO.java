@@ -35,7 +35,7 @@ public class AboutUsPicDAO {
 
     public static void main(String[] args) {
         AboutUsPicDAO dao = new AboutUsPicDAO();
-        dao.updateImg("member1", "test_img.jpg");
+        System.out.println(dao.getAboutUsPic());
     }
 
 }

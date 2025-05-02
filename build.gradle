@@ -81,6 +81,7 @@ task docker_app_start  {
         ssh.run {
             session(remotes.host) {
                 execute 'docker stop tomcat10', ignoreError: true
+                execute 'docker start mysql8'
                 execute 'docker run -it --rm -d ' +
                         '--name tomcat10 ' +
                         '-v /usr/deploy:/usr/local/tomcat/webapps ' +
