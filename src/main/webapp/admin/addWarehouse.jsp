@@ -57,121 +57,58 @@
 <main id="main-content">
     <div class="main-container">
         <div class="container">
-            <h1>Nhập Hàng Mới</h1>
+            <h1>Nhập kho sản phẩm</h1>
             <span class="text-info" id="message"></span>
 
-            <form id="productForm">
+            <form id="inventoryForm" action="<%= request.getContextPath() %>/admin/add-stock" method="POST">
+            <!-- ID sản phẩm (ẩn) -->
+                <input type="hidden" name="productID" value="${productID}" readonly />
 
                 <label for="productName">Tên sản phẩm</label>
-                <input type="text" id="productName" name="productName"
-                       value="<%= productName == null ? "" : productName %>"
-                       placeholder="Nhập tên sản phẩm" required>
+                <input type="text" id="productName" value="${productName}" readonly />
 
-                <label for="category">Danh mục</label>
-                <input type="text" id="category" name="category"
-                       value="<%= category == null ? "" : category %>"
-                       placeholder="Nhập danh mục sản phẩm" required>
-
-                <label for="price">Giá</label>
-                <input type="text" id="price" name="price"
-                       value="<%= price == 0.0 ? "" : price %>"
-                       placeholder="Nhập giá sản phẩm" required>
-
-                <label for="quantityInStock">Số lượng trong kho</label>
-                <input type="text" id="quantityInStock" name="quantityInStock"
-                       value="<%= quantityInStock == 0 ? "" : quantityInStock %>"
-                       placeholder="Nhập số lượng trong kho" required>
+                <label for="quantityInStock">Số lượng muốn nhập thêm</label>
+                <input type="number" id="quantityInStock" name="quantityInStock" required placeholder="Nhập số lượng nhập kho" />
 
                 <label for="reorderLevel">Mức đề xuất nhập kho</label>
-                <input type="text" id="reorderLevel" name="reorderLevel"
-                       value="<%= reorderLevel == 0 ? "" : reorderLevel %>"
-                       placeholder="Nhập mức đề xuất nhập kho" required>
+                <input type="number" id="reorderLevel" name="reorderLevel" value="${reorderLevel}" required />
 
-                <label for="description">Mô tả sản phẩm</label>
-                <textarea id="description" name="description" placeholder="Nhập mô tả sản phẩm"><%= description == null ? "" : description %></textarea>
-
-                <label for="imageUrl">Hình ảnh sản phẩm</label>
-                <input type="text" id="imageUrl" name="imageUrl"
-                       value="<%= imageUrl == null ? "" : imageUrl %>"
-                       placeholder="Nhập URL hình ảnh sản phẩm">
-
-                <label for="manuID">Nhà sản xuất</label>
-                <select id="manuID" name="manuID" required>
-                    <option value="">Chọn nhà sản xuất</option>
-                    <!-- Bạn có thể thay đổi danh sách nhà sản xuất tại đây -->
-                    <option value="1" <%= manuID == 1 ? "selected" : "" %>>Thiên Long</option>
-                    <option value="2" <%= manuID == 2 ? "selected" : "" %>>Hải Tiến</option>
-                    <!-- Thêm các nhà sản xuất khác -->
-                </select>
-
-                <button type="submit">Thêm sản phẩm</button>
-                <a href="<%=request.getContextPath()%>/admin/all-product" id="btnAddProduct" class="text-decoration-none text-white p-2 text-center bg-success mt-2 rounded" hidden>
-                    Quay lại
-                </a>
-
+                <button type="submit" class="btn btn-primary mt-3 mb-10">Xác nhận nhập kho</button>
+                <a href="<%=request.getContextPath()%>/admin/list-warehouse" class="btn btn-secondary">Quay lại</a>
             </form>
-
         </div>
     </div>
 </main>
 
 <script>
-    // Add product (ajax)
-    document.querySelector('#productForm').addEventListener('submit', async function (e) {
-        e.preventDefault()
+    document.querySelector('#inventoryForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-        // lấy data từ form
-        let formData = new URLSearchParams(new FormData(this))
-        let url = '<%= request.getContextPath() %>/admin/AddProduct';
+        let formData = new URLSearchParams(new FormData(this));
+        let url = '<%= request.getContextPath() %>/admin/add-stock';
 
 
         try {
-            let response = await fetch(url, {
+            let res = await fetch(url, {
                 method: 'POST',
-                headers: {
-                    'Content-type': 'application/x-www-form-urlencoded'
-                },
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: formData
-            })
+            });
 
-            // xử lý logic
-            let rs = await response.json();
+            let rs = await res.json();
             if (rs.isSuccess) {
-                notify(rs.isSuccess, this)
-            } else {
-                notify(rs.isSuccess, rs.msg, this)
-            }
-        } catch (error) {
-            console.log(error)
-        }
-
-    })
-
-    // hàm thông báo trạng thái cập nhật
-    function notify(valid, msg, form) {
-        if (valid) {
-            document.getElementById("message").textContent = 'Thêm sản phẩm thành công'
-            toggleHidden()
-            form.addEventListener('focus', function () {
-                document.getElementById("message").textContent = "";
-            }, true)
-        } else {
-            document.getElementById("message").classList.replace("text-info", "text-danger");
-            document.getElementById("message").textContent = msg
-            form.addEventListener('focus', function () {
+                document.getElementById("message").textContent = "Nhập kho thành công!";
                 document.getElementById("message").classList.replace("text-danger", "text-info");
-                document.getElementById("message").textContent = "";
-            }, true)
+            } else {
+                document.getElementById("message").textContent = rs.msg;
+                document.getElementById("message").classList.replace("text-info", "text-danger");
+            }
+        } catch (err) {
+            console.error(err);
         }
-    }
-
-    // ẩn hiển thẻ quay lại
-    function toggleHidden() {
-        let link = document.getElementById("btnAddProduct");
-        link.hidden = !link.hidden; // Đảo ngược trạng thái hidden
-    }
-
+    });
 </script>
+
 
 </body>
 </html>

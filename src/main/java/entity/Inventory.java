@@ -11,13 +11,14 @@ public class Inventory {
     private LocalDateTime lastUpdated;
     private String productName;  // Thêm thuộc tính productName
 
-    public Inventory(int productID, int quantityInStock, int quantitySold, int quantityReserved, int reorderLevel, LocalDateTime lastUpdated) {
+    public Inventory(int productID, int quantityInStock, int quantitySold, int quantityReserved, int reorderLevel, LocalDateTime lastUpdated, String productName) {
         this.productID = productID;
         this.quantityInStock = quantityInStock;
         this.quantitySold = quantitySold;
         this.quantityReserved = quantityReserved;
         this.reorderLevel = reorderLevel;
         this.lastUpdated = lastUpdated;
+        this.productName = productName;
     }
 
     public Inventory() {

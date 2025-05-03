@@ -50,6 +50,7 @@ select {
 
 button {
     margin-top: 20px;
+    margin-bottom: 20px;
     padding: 10px;
     font-size: 18px;
     color: #fff;

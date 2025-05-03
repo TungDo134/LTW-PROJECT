@@ -62,8 +62,9 @@
                         <td>${in.lastUpdated}</td>
 
                         <td>
-                            <a class="btn btn-success btn-sm" href="<%=request.getContextPath()%>/admin/edit-manufacturer?manuID=${m.manuID}">Sửa</a>
-                            <a class="btn btn-danger btn-sm" href="<%=request.getContextPath()%>/admin/delete-manufacturer?manuID=${m.manuID}" onclick="return confirmDelete();">Xoá</a>
+                            <a class="btn btn-warning btn-sm" href="<%=request.getContextPath()%>/admin/add-stock-page?productID=${in.productID}">Nhập kho</a>
+                            <a class="btn btn-success btn-sm" href="<%=request.getContextPath()%>/admin/edit-warehouse?productID=${in.productID}">Sửa</a>
+                            <a class="btn btn-danger btn-sm" href="<%=request.getContextPath()%>/admin/deleteInventoryItem?productID=${in.productID}" onclick="return confirmDelete();">Xoá</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -76,7 +77,7 @@
 
 <script>
     function confirmDelete() {
-        return confirm("Bạn có chắc chắn muốn xoá nhà sản xuất này?");
+        return confirm("Bạn có chắc chắn muốn xoá sản phẩm này ra khỏi kho?");
     }
 </script>
 </body>

@@ -307,9 +307,7 @@ passkey
 
 
                                 </li>
-                                <li class="sub-menu-item">
-                                    <a href="<%= request.getContextPath()%>/admin/addWarehouse.jsp">Nhập hàng</a>
-                                </li>
+
 
                             </ul>
                         </li>
