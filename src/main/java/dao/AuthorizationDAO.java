@@ -87,6 +87,17 @@ public class AuthorizationDAO {
         );
     }
 
+    // THÊM MỚI ROLE
+    public boolean insertRole(String role_name) {
+        int rowsAffected = JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate("INSERT INTO roles (name) VALUES (:name)")
+                        .bind("name", role_name)
+                        .execute()
+        );
+
+        return rowsAffected > 0;
+    }
+
     public static void main(String[] args) {
         AuthorizationDAO dao = new AuthorizationDAO();
         System.out.println(dao.getPermissionsByRole(3));

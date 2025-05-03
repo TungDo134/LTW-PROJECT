@@ -18,8 +18,6 @@ import java.util.Set;
 public class ShowAuthorization extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         AuthorizationDAO auth = new AuthorizationDAO();
         CustomerDAO cus = new CustomerDAO();
 
@@ -48,19 +46,7 @@ public class ShowAuthorization extends HttpServlet {
             }
         }
 
-//        Set<Integer> assignedPermissionIDs = new HashSet<>();
-//        for (Permission p : assignedPermissions) {
-//            assignedPermissionIDs.add(p.getPermissionID());
-//        }
-//        request.setAttribute("assignedPermissionIDs", assignedPermissionIDs);
-
-        StringBuilder idList = new StringBuilder(",");
-        for (Permission p : assignedPermissions) {
-            idList.append(p.getPermissionID()).append(",");
-        }
-        request.setAttribute("assignedPermissionIDString", idList.toString());
-
-        // Handle selected customer (if needed)
+        // Handle selected customer
         String customerIdRaw = request.getParameter("customerID");
         List<Role> assignedRoles = new ArrayList<>();
         if (customerIdRaw != null && !customerIdRaw.isEmpty()) {
@@ -78,10 +64,10 @@ public class ShowAuthorization extends HttpServlet {
         request.setAttribute("roles", roles);
         request.setAttribute("customers", customers);
         request.setAttribute("functions", functions);
+        request.setAttribute("actions", actions);
         request.setAttribute("allPermissions", allPermissions);
         request.setAttribute("assignedPermissions", assignedPermissions);
         request.setAttribute("assignedRoles", assignedRoles);
-        request.setAttribute("actions", actions);
 
         request.getRequestDispatcher("/admin/Authorization.jsp").forward(request, response);
     }
