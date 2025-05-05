@@ -86,6 +86,10 @@
         [role="tabpanel"] {
             padding: 1.2rem;
         }
+
+        input[name="roleIDs"] {
+            margin-left: -1.5em;
+        }
     </style>
 </head>
 <jsp:include page="header-admin.jsp"></jsp:include>
@@ -119,7 +123,8 @@
                             <form method="post" action="<%=request.getContextPath()%>/admin/show-auth">
                                 <div class="mb-3">
                                     <label>Chọn vai trò:</label>
-                                    <select name="roleID" class="form-select w-50" id="roleSelect">
+                                    <select name="roleID" class="form-select w-50" id="roleSelect"
+                                            onchange="handleSelectChange(this)">
                                         <option value="" disabled selected hidden>-- Chọn vai trò --</option>
                                         <c:forEach var="r" items="${roles}">
                                             <option value="${r.roleID}" ${r.roleID == selectedRoleID ? 'selected' : ''}>${r.name}</option>
@@ -134,6 +139,7 @@
                                         <c:forEach var="act" items="${actions}">
                                             <th>${act.name}</th>
                                         </c:forEach>
+                                        <th>All</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -160,6 +166,10 @@
                                                            <c:if test="${isChecked}">checked</c:if> />
                                                 </td>
                                             </c:forEach>
+                                            <td>
+                                                <input type="checkbox" name="check-all" id="check-all"
+                                                       onclick="allPermissionByFunction(this)"/>
+                                            </td>
                                         </tr>
                                     </c:forEach>
 
@@ -183,10 +193,12 @@
                     <!-- GÁN ROLE CHO USER -->
                     <div class="col-md-4 ps-4">
                         <div class="" id="user-role" role="tabpanel">
-                            <form method="post" action="<%=request.getContextPath()%>/admin/show-auth">
+                            <form method="post" action="<%=request.getContextPath()%>/admin/show-auth"
+                                  id="add-user-role">
                                 <div class="mb-3">
                                     <label>Chọn người dùng:</label>
-                                    <select name="customerID" class="form-select w-50" id="customerSelect">
+                                    <select name="customerID" class="form-select w-50" id="customerSelect"
+                                            onchange="handleSelectChange(this)">
                                         <option value="" disabled selected hidden>-- Chọn người dùng --</option>
                                         <c:forEach var="cus" items="${customers}">
                                             <option value="${cus.id}" ${cus.id == selectedCustomerID ? 'selected' : ''}>${cus.name}</option>
@@ -205,7 +217,7 @@
                                         </c:forEach>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="roleIDs"
+                                            <input type="checkbox" name="roleIDs"
                                                    value="${r.roleID}"
                                                    <c:if test="${isChecked}">checked</c:if> />
                                             <label class="form-check-label">${r.name}</label>
@@ -218,25 +230,18 @@
                             </form>
                             <form class="row g-3 mt-2 flex-column" id="add-role" style="display:none">
                                 <div class="col-auto">
-                                    <label for="staticEmail2" class="visually-hidden">Email</label>
-                                    <input type="text" readonly class="form-control-plaintext text-white"
-                                           id="staticEmail2"
-                                           value="Nhập tên vai trò">
-                                </div>
-                                <div class="col-auto">
                                     <label for="inputPassword2" class="visually-hidden">Tên vai
                                         trò</label>
                                     <input type="text" class="form-control" id="inputPassword2" name="role-name"
                                            style="width: 45%" placeholder="Tên vai trò">
                                 </div>
                                 <div class="col-auto">
-                                    <button type="submit" class="btn btn-primary mb-3" style="width: 45%">Lưu thay đổi
+                                    <button type="submit" class="btn btn-primary mb-3" style="width: 45%">Lưu vai trò
                                     </button>
                                 </div>
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -254,38 +259,38 @@
     function checkAll(checked) {
         document.querySelectorAll('#role-permission input[type="checkbox"]').forEach(cb => cb.checked = checked);
     }
+
+    function allPermissionByFunction(checkbox) {
+        const isChecked = checkbox.checked;
+        const row = checkbox.closest("tr");
+        const checkboxes = row.querySelectorAll('input[type="checkbox"]:not(.manage-checkbox)');
+
+        checkboxes.forEach(cb => {
+            cb.checked = isChecked;
+        });
+    }
+
 </script>
 <script>
     <%-- Handle summit form, loading  --%>
-    $(document).ready(function () {
-        const loading = document.getElementById("loadingOverlay");
-        // Khởi tạo Select2
-        $('#roleSelect, #customerSelect').select2({
-            allowClear: true,
-            width: '35%'
-        });
-
-        // Khi thay đổi select -> delay rồi submit
-        const roleSelect = document.getElementById("roleSelect");
-        const customerSelect = document.getElementById("customerSelect");
-
-        function handleSelectChange(selectId) {
-            const selectElement = document.getElementById(selectId);
-            if (selectElement) {
-                $('#' + selectId).on('change', function () {
-                    loading.style.display = "flex";
-                    setTimeout(() => {
-                        selectElement.form.submit();
-                    }, 500); // 0.5 giây
-                });
-            }
-        }
-
-        handleSelectChange(roleSelect)
-        handleSelectChange(customerSelect)
+    const loading = document.getElementById("loadingOverlay");
+    // Khởi tạo Select2
+    $('#roleSelect, #customerSelect').select2({
+        allowClear: true,
+        width: '35%'
     });
 
-    <!-- Display/ Hidden form add role -->
+
+    // Khi thay đổi select -> delay rồi submit
+    function handleSelectChange(selectEle) {
+        const loading = document.getElementById("loadingOverlay");
+        loading.style.display = "flex";
+        setTimeout(() => {
+            selectEle.form.submit();
+        }, 500); // 0.5 giây
+    }
+
+
     function addRole(btn) {
         let formAdd = document.getElementById('add-role')
         let display = window.getComputedStyle(formAdd).display;
@@ -298,15 +303,59 @@
         }
     }
 </script>
-
 <script>
+    // static variable
+
+
     <%-- Send form data --%>
-    // add
+    // ADD ROLE
     document.getElementById('add-role').addEventListener('submit', async function (e) {
         e.preventDefault();
+        const loading = document.getElementById("loadingOverlay");
         let url = `${pageContext.request.contextPath}/admin/add-role`
         let formData = new URLSearchParams(new FormData(this))
+        let value = formData.get("role-name").trim()
+        let isValidRoleName = /^[A-Za-z\s]+$/.test(value);
 
+        if (isValidRoleName) {
+            try {
+                let response = await fetch(url, {
+                    method: 'Post',
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: formData
+                })
+
+                let result = await response.json();
+
+                if (result.isSuccess) {
+                    loading.style.display = "flex";
+                    setTimeout(() => {
+                        location.reload(); // hoặc window.location.reload()
+                        alert("Thao tác thành công!");
+                    }, 500);
+                } else {
+                    loading.style.display = "flex";
+                    setTimeout(() => {
+                        location.reload(); // hoặc window.location.reload()
+                        alert("Thao tác thất bại!");
+                    }, 500);
+
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        } else {
+            alert('data format is wrong')
+        }
+    })
+
+    // ADD USER_ROLE
+    document.getElementById('add-user-role').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        let url = `${pageContext.request.contextPath}/admin/add-user-role`
+        let formData = new URLSearchParams(new FormData(this))
         try {
             let response = await fetch(url, {
                 method: 'Post',
@@ -316,12 +365,24 @@
                 body: formData
             })
 
-            // let result = await response.json();
-            // if (result.isSuccess) {
-            //     alert('Th')
-            // }
-        } catch (error) {
+            let result = await response.json();
 
+            if (result.isSuccess) {
+                loading.style.display = "flex";
+                setTimeout(() => {
+                    location.reload(); // hoặc window.location.reload()
+                    alert("Thao tác thành công!");
+                }, 500);
+            } else {
+                loading.style.display = "flex";
+                setTimeout(() => {
+                    location.reload(); // hoặc window.location.reload()
+                    alert("Thao tác thất bại!");
+                }, 500);
+
+            }
+        } catch (error) {
+            console.log(error)
         }
     })
 </script>

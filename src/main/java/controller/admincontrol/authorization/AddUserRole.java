@@ -9,13 +9,15 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "AddRole", value = "/admin/add-role")
-public class AddRole extends HttpServlet {
+@WebServlet(name = "AddUserRole", value = "/admin/add-user-role")
+public class AddUserRole extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String role_name = request.getParameter("role-name");
-        AuthorizationDAO dao = new AuthorizationDAO();
-        boolean isSuccess = dao.insertRole(role_name.toUpperCase());
+        String roleIDs = request.getParameter("roleIDs");
+        String customerID = request.getParameter("customerID");
+
+        AuthorizationDAO auth = new AuthorizationDAO();
+        boolean isSuccess = auth.insertUserRole(customerID, roleIDs);
 
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("isSuccess", isSuccess);

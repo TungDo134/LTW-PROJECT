@@ -87,6 +87,16 @@ public class AuthorizationDAO {
         );
     }
 
+    // LẤY ROLE THEO USER
+    public List<String> getRoleNamesByCustomerID(int customerID) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT name FROM roles r JOIN user_role ur ON ur.roleID = r.roleID WHERE ur.customerID = :customerID")
+                        .bind("customerID", customerID)
+                        .mapTo(String.class)
+                        .list()
+        );
+    }
+
     // THÊM MỚI ROLE
     public boolean insertRole(String role_name) {
         int rowsAffected = JDBIContext.getJdbi().withHandle(handle ->
@@ -94,12 +104,23 @@ public class AuthorizationDAO {
                         .bind("name", role_name)
                         .execute()
         );
-
         return rowsAffected > 0;
     }
 
+    // THÊM MỚI USER-ROLE
+    public boolean insertUserRole(String customerID, String roleID) {
+        int rowsAffected = JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate("INSERT INTO user_role (roleID,customerID) VALUES (:roleID, :customerID)")
+                        .bind("roleID", roleID)
+                        .bind("customerID", customerID)
+                        .execute()
+        );
+        return rowsAffected > 0;
+    }
+
+
     public static void main(String[] args) {
         AuthorizationDAO dao = new AuthorizationDAO();
-        System.out.println(dao.getPermissionsByRole(3));
+        System.out.println(dao.getRoleNamesByCustomerID(73));
     }
 }
