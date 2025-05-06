@@ -1,8 +1,8 @@
 package dao;
 
 import context.JDBIContext;
-import entity.*;
 import entity.authorization.*;
+import org.jdbi.v3.core.statement.PreparedBatch;
 
 import java.util.List;
 import java.util.Optional;
@@ -118,9 +118,41 @@ public class AuthorizationDAO {
         return rowsAffected > 0;
     }
 
+    // GÁN QUYỀN CHO ROLE
+    public boolean insertRolePermissions(String roleID, String[] permissionIDs) {
+        return JDBIContext.getJdbi().withHandle(handle -> {
+            String sql = "INSERT INTO role_permission (roleID, permissionID) " +
+                    "VALUES (:roleID, :permissionID) " +
+                    "ON DUPLICATE KEY UPDATE permissionID = permissionID";
 
-    public static void main(String[] args) {
-        AuthorizationDAO dao = new AuthorizationDAO();
-        System.out.println(dao.getRoleNamesByCustomerID(73));
+            PreparedBatch batch = handle.prepareBatch(sql);
+            if (permissionIDs != null) {
+                for (String permissionID : permissionIDs) {
+                    batch.bind("roleID", roleID)
+                            .bind("permissionID", permissionID)
+                            .add();
+                }
+            }
+            int[] results = batch.execute();
+
+            // Kiểm tra nếu ít nhất 1 dòng có ảnh hưởng (INSERT mới hoặc bị trùng cũng tính)
+            for (int result : results) {
+                if (result > 0) {
+                    return true;
+                }
+            }
+            return false;
+        });
     }
+
+    // GỠ QUYỀN KHỎI ROLE
+    public void deleteRolePermission(String roleID, String permissionID) {
+        JDBIContext.getJdbi().useHandle(handle -> {
+            handle.createUpdate("DELETE FROM role_permission WHERE roleID = :roleID AND permissionID = :permissionID")
+                    .bind("roleID", roleID)
+                    .bind("permissionID", permissionID)
+                    .execute();
+        });
+    }
+
 }

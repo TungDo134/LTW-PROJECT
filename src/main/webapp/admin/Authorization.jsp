@@ -120,7 +120,8 @@
                     <!-- GÁN QUYỀN CHO ROLE -->
                     <div class="col-md-8 border-end pe-4">
                         <div class="" id="role-permission" role="tabpanel">
-                            <form method="post" action="<%=request.getContextPath()%>/admin/show-auth">
+                            <form method="post" id="assign-role-per"
+                                  action="<%=request.getContextPath()%>/admin/show-auth">
                                 <div class="mb-3">
                                     <label>Chọn vai trò:</label>
                                     <select name="roleID" class="form-select w-50" id="roleSelect"
@@ -167,25 +168,14 @@
                                                 </td>
                                             </c:forEach>
                                             <td>
-                                                <input type="checkbox" name="check-all" id="check-all"
+                                                <input type="checkbox" name="check-all"
                                                        onclick="allPermissionByFunction(this)"/>
                                             </td>
                                         </tr>
                                     </c:forEach>
-
                                     </tbody>
                                 </table>
-
-                                <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                                <div class="my-3">
-                                    <button type="button" class="btn btn-outline-secondary btn-sm"
-                                            onclick="checkAll(true)">Chọn
-                                        tất cả
-                                    </button>
-                                    <button type="button" class="btn btn-outline-secondary btn-sm"
-                                            onclick="checkAll(false)">Bỏ chọn tất cả
-                                    </button>
-                                </div>
+                                <button type="submit" id="btn-assign-per" class="btn btn-primary">Lưu thay đổi</button>
                             </form>
                         </div>
                     </div>
@@ -225,7 +215,8 @@
                                     </c:forEach>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-                                <button type="button" class="btn btn-success" onclick="addRole(this)">Thêm vai trò mới
+                                <button type="button" class="btn btn-success" onclick="ChangeAddRoleBtn(this)">Thêm vai
+                                    trò mới
                                 </button>
                             </form>
                             <form class="row g-3 mt-2 flex-column" id="add-role" style="display:none">
@@ -260,6 +251,7 @@
         document.querySelectorAll('#role-permission input[type="checkbox"]').forEach(cb => cb.checked = checked);
     }
 
+    // Check all function name
     function allPermissionByFunction(checkbox) {
         const isChecked = checkbox.checked;
         const row = checkbox.closest("tr");
@@ -270,16 +262,29 @@
         });
     }
 
+    // Check all nếu các checkbox đã checked hết
+    document.addEventListener("DOMContentLoaded", function () {
+        const rows = document.querySelectorAll("tbody tr");
+
+        rows.forEach(row => {
+            const checkboxes = row.querySelectorAll('input[type="checkbox"][name="permissions"]');
+            const checkAll = row.querySelector('input[type="checkbox"][name="check-all"]');
+
+            if (!checkAll || checkboxes.length === 0) return;
+
+            // Nếu tất cả checkbox con đã được check → check check-all
+            checkAll.checked = Array.from(checkboxes).every(cb => cb.checked);
+        });
+    });
 </script>
 <script>
-    <%-- Handle summit form, loading  --%>
+    // Handle summit form, loading
     const loading = document.getElementById("loadingOverlay");
     // Khởi tạo Select2
     $('#roleSelect, #customerSelect').select2({
         allowClear: true,
         width: '35%'
     });
-
 
     // Khi thay đổi select -> delay rồi submit
     function handleSelectChange(selectEle) {
@@ -290,8 +295,8 @@
         }, 500); // 0.5 giây
     }
 
-
-    function addRole(btn) {
+    // Ẩn hiển form nhập role mới
+    function ChangeAddRoleBtn(btn) {
         let formAdd = document.getElementById('add-role')
         let display = window.getComputedStyle(formAdd).display;
         if (display === 'flex') {
@@ -304,14 +309,10 @@
     }
 </script>
 <script>
-    // static variable
-
-
     <%-- Send form data --%>
     // ADD ROLE
     document.getElementById('add-role').addEventListener('submit', async function (e) {
         e.preventDefault();
-        const loading = document.getElementById("loadingOverlay");
         let url = `${pageContext.request.contextPath}/admin/add-role`
         let formData = new URLSearchParams(new FormData(this))
         let value = formData.get("role-name").trim()
@@ -378,6 +379,45 @@
                 setTimeout(() => {
                     location.reload(); // hoặc window.location.reload()
                     alert("Thao tác thất bại!");
+                }, 500);
+
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    })
+
+    // ASSIGN ROLE WITH PERMISSION
+    document.getElementById('assign-role-per').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        let url = `${pageContext.request.contextPath}/admin/assign-role-per`
+        let formData = new URLSearchParams(new FormData(this))
+
+        console.log(formData.getAll('permissions'));
+        console.log(formData.get('roleID'));
+
+        try {
+            let response = await fetch(url, {
+                method: 'Post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: formData
+            })
+
+            let result = await response.json();
+
+            if (result.isSuccessAdd || result.isSuccessDelete) {
+                loading.style.display = "flex";
+                setTimeout(() => {
+                    location.reload(); // hoặc window.location.reload()
+                    alert("Thao tác thành công!");
+                }, 500);
+            } else {
+                loading.style.display = "flex";
+                setTimeout(() => {
+                    location.reload(); // hoặc window.location.reload()
+                    // alert("Thao tác thất bại!");
                 }, 500);
 
             }
