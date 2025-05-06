@@ -219,8 +219,8 @@
                     <button class="new">MỚI</button>
                     <%= product.getProductName() %>
                 </h2>
-                <p>Nhà cung cấp: <strong>Branbuil Co., Ltd</strong></p>
-                <p>Xuất xứ: <strong>Thương Hiệu Hàn Quốc</strong></p>
+                <p>Nhà cung cấp: <strong>${manufacturer.manuName}</strong></p>
+                <p>Xuất xứ: <strong>${manufacturer.brandOrigin}</strong></p>
                 <div class="frameRatingSell">
                     <div class="rating">
                         <p><i class="fa-regular fa-star"></i></p>
@@ -327,27 +327,6 @@
 
                 <h3>Thông tin nhà sản xuất</h3>
 
-<%--                --%>
-<%--                    <table class="product-table">--%>
-<%--                        <tr><th>Mã hàng</th><td>${manufacturer.id}</td></tr>--%>
-<%--                        <tr><th>Tên Nhà Cung Cấp</th><td>${manufacturer.supplierName}</td></tr>--%>
-<%--                        <tr><th>Thương Hiệu</th><td>${manufacturer.brand}</td></tr>--%>
-<%--                        <tr><th>Xuất Xứ Thương Hiệu</th><td>${manufacturer.brandOrigin}</td></tr>--%>
-<%--                        <tr><th>Nơi Gia Công & Sản Xuất</th><td>${manufacturer.manufactureLocation}</td></tr>--%>
-<%--                        <tr><th>Màu sắc</th><td>${manufacturer.color}</td></tr>--%>
-<%--                        <tr><th>Chất liệu</th><td>${manufacturer.material}</td></tr>--%>
-<%--                        <tr><th>Trọng lượng (gr)</th><td>${manufacturer.weight}</td></tr>--%>
-<%--                        <tr><th>Kích Thước Bao Bì</th><td>${manufacturer.dimensions}</td></tr>--%>
-<%--                        <tr><th>Sản phẩm bán chạy nhất</th>--%>
-<%--                            <td>--%>
-<%--                                <c:choose>--%>
-<%--                                    <c:when test="${manufacturer.bestSeller}">Top 100 sản phẩm Sổ Các Loại bán chạy của tháng</c:when>--%>
-<%--                                    <c:otherwise>Không nổi bật</c:otherwise>--%>
-<%--                                </c:choose>--%>
-<%--                            </td>--%>
-<%--                        </tr>--%>
-<%--                    </table>--%>
-
 
                 <c:if test="${not empty detail}">
                     <table class="product-table">
@@ -422,94 +401,6 @@
             </div>
         </div>
     </div>
-
-    <%--    <div class="rating-container">--%>
-    <%--        <div class="left_rate">--%>
-    <%--            <h2>Đánh giá sản phẩm</h2>--%>
-    <%--            <div class="score_rating">--%>
-    <%--                <div class="rating-score"><%= request.getAttribute("averageRating") %><span>/5</span></div>--%>
-    <%--                <div class="stars">--%>
-    <%--                    <% int avgRating = (int) Math.round((double) request.getAttribute("averageRating")); %>--%>
-    <%--                    <% for(int i = 0; i < avgRating; i++) { %>--%>
-    <%--                    ★--%>
-    <%--                    <% } %>--%>
-    <%--                    <% for(int i = avgRating; i < 5; i++) { %>--%>
-    <%--                    ☆--%>
-    <%--                    <% } %>--%>
-    <%--                    <span>(<%= request.getAttribute("totalReviews") %> đánh giá)</span>--%>
-    <%--                </div>--%>
-    <%--            </div>--%>
-    <%--        </div>--%>
-    <%--        <div class="right_rating">--%>
-    <%--            <div class="rating-bars">--%>
-    <%--                <% double[] ratingPercentages = (double[]) request.getAttribute("ratingPercentages"); %>--%>
-    <%--                <% int[] ratingCounts = (int[]) request.getAttribute("ratingCounts"); %>--%>
-    <%--                <% for(int i = 5; i >= 1; i--) { %>--%>
-    <%--                <div class="rating-bar">--%>
-    <%--                    <span><%= i %> sao</span>--%>
-    <%--                    <div class="bar">--%>
-    <%--                        <div class="bar-filled" style="width: <%= ratingPercentages[i - 1] %>%"></div>--%>
-    <%--                    </div>--%>
-    <%--                    <span><%= ratingCounts[i - 1] %></span>--%>
-    <%--                </div>--%>
-    <%--                <% } %>--%>
-    <%--            </div>--%>
-    <%--        </div>--%>
-    <%--        <div class="review-comment">--%>
-    <%--            <form action="add-review" method="post">--%>
-    <%--                <input type="hidden" name="productID" value="${detail.productID}" required/>--%>
-    <%--                <input type="text" name="customerName" placeholder="Tên" required/>--%>
-    <%--                <input type="text" name="comment" placeholder="Đánh giá của bạn" required/>--%>
-    <%--                <div class="rating">--%>
-    <%--                    <h2>Xếp hạng</h2>--%>
-    <%--                    <div class="rating-stars">--%>
-    <%--                        <% for(int i = 1; i <= 5; i++) { %>--%>
-    <%--                        <input type="radio" id="star<%= i %>" name="rating" value="<%= i %>"/>--%>
-    <%--                        <label for="star<%= i %>"><i class="fa-solid fa-star color-star"></i></label>--%>
-    <%--                        <% } %>--%>
-    <%--                    </div>--%>
-    <%--                </div>--%>
-    <%--                <button type="submit" class="btn btn-primary">Gửi đánh giá</button>--%>
-    <%--            </form>--%>
-    <%--        </div>--%>
-    <%--        <div class="login-message">--%>
-    <%--            &lt;%&ndash;            Chỉ có thành viên mới có thể viết nhận xét. Vui lòng <a href="#">đăng nhập</a> hoặc <a href="#">đăng ký</a>.&ndash;%&gt;--%>
-    <%--        </div>--%>
-    <%--        <div class="review-list">--%>
-    <%--            <c:forEach items="${reviews}" var="o">--%>
-    <%--                <div class="review-item">--%>
-    <%--                    <div class="review-header">--%>
-    <%--                        <div class="item-details">--%>
-    <%--                            <p>${o.customerName}</p>--%>
-    <%--                            <p>${o.date}</p>--%>
-    <%--                        </div>--%>
-    <%--                    </div>--%>
-    <%--                    <div class="review-content">--%>
-    <%--                        <c:choose>--%>
-    <%--                            <c:when test="${o.display == 0}">--%>
-    <%--                                <p>Bình luận đang được kiểm duyệt</p>--%>
-    <%--                            </c:when>--%>
-    <%--                            <c:otherwise>--%>
-    <%--                                <p>${o.comment}</p>--%>
-    <%--                                <div class="review-stars">--%>
-    <%--                                    <c:forEach var="i" begin="1" end="5">--%>
-    <%--                                        <c:choose>--%>
-    <%--                                            <c:when test="${i <= o.rating}">--%>
-    <%--                                                <span class="star">★</span>--%>
-    <%--                                            </c:when>--%>
-    <%--                                            <c:otherwise>--%>
-    <%--                                                <span class="star">☆</span>--%>
-    <%--                                            </c:otherwise>--%>
-    <%--                                        </c:choose>--%>
-    <%--                                    </c:forEach>--%>
-    <%--                                </div>--%>
-    <%--                            </c:otherwise>--%>
-    <%--                        </c:choose>--%>
-    <%--                    </div>--%>
-    <%--                </div>--%>
-    <%--            </c:forEach>--%>
-    <%--        </div>--%>
-    <%--    </div>--%>
 
     <div class="rating-container">
         <!-- Hàng 1: 3 cột -->

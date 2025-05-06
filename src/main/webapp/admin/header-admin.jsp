@@ -256,9 +256,9 @@
                         </li>
                         <li class="item item-dropdown">
                             <div class="d-flex">
-                    <span class="material-symbols-outlined pr-10">
-warehouse
-</span>
+                                <span class="material-symbols-outlined pr-10">
+                                    warehouse
+                                    </span>
                                 <a href="#">Nhà sản xuất</a>
                             </div>
                             <ul class="sub-menu">
@@ -289,6 +289,25 @@ passkey
                                     <%--  <a href="<%= request.getContextPath()%>/admin/addManufacturer.jsp">Phân quyền</a>--%>
                                     <a href="<%= request.getContextPath()%>/admin/show-auth">Phân quyền</a>
                                 </li>
+
+                            </ul>
+                        </li>
+                        <li class="item item-dropdown">
+                            <div class="d-flex">
+                                <span class="material-symbols-outlined pr-10">
+                                     inventory_2
+                                </span>
+                                <a href="#">Kho</a>
+                            </div>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+
+                                    <%-- getAllManuController--%>
+                                    <a href="<%= request.getContextPath()%>/admin/list-warehouse">Danh sách kho hàng</a>
+
+
+                                </li>
+
 
                             </ul>
                         </li>
