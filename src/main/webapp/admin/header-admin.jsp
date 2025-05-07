@@ -226,6 +226,25 @@
                         </li>
                         <li class="item item-dropdown">
                             <div class="d-flex">
+                                <span class="material-symbols-outlined pr-10">
+                                     inventory_2
+                                </span>
+                                <a href="#">Kho hàng</a>
+                            </div>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+
+                                    <%-- getAllManuController--%>
+                                    <a href="<%= request.getContextPath()%>/admin/list-warehouse">Danh sách kho hàng</a>
+
+
+                                </li>
+
+
+                            </ul>
+                        </li>
+                        <li class="item item-dropdown">
+                            <div class="d-flex">
                     <span class="material-symbols-outlined pr-10">
                       edit_document
                     </span>
@@ -292,25 +311,7 @@ passkey
 
                             </ul>
                         </li>
-                        <li class="item item-dropdown">
-                            <div class="d-flex">
-                                <span class="material-symbols-outlined pr-10">
-                                     inventory_2
-                                </span>
-                                <a href="#">Kho</a>
-                            </div>
-                            <ul class="sub-menu">
-                                <li class="sub-menu-item">
 
-                                    <%-- getAllManuController--%>
-                                    <a href="<%= request.getContextPath()%>/admin/list-warehouse">Danh sách kho hàng</a>
-
-
-                                </li>
-
-
-                            </ul>
-                        </li>
                     </ul>
                 </nav>
                 <div class="container_social">

@@ -1,11 +1,8 @@
-package controller;
+package controller.usercontrol.order;
 
 import dao.OrderDetailDAO;
-import dao.ShippingDAO;
 import entity.Cart;
 import entity.CartItem;
-import entity.OrderDetail;
-import entity.Shipping;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;

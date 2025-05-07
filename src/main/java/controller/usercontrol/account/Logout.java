@@ -1,9 +1,5 @@
-package controller;
+package controller.usercontrol.account;
 
-import dao.CartDAO;
-import entity.Cart;
-import entity.CartItem;
-import entity.Customer;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;

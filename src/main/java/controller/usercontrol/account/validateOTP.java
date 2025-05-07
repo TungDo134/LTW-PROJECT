@@ -1,4 +1,4 @@
-package controller;
+package controller.usercontrol.account;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;

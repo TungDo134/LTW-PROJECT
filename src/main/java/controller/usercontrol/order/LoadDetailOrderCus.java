@@ -1,4 +1,4 @@
-package controller;
+package controller.usercontrol.order;
 
 import dao.OrderDAO;
 import dao.OrderDetailDAO;

@@ -1,4 +1,4 @@
-package controller;
+package controller.usercontrol.account;
 
 import dao.CustomerDAO;
 import entity.Customer;

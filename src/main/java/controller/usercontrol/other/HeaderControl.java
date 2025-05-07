@@ -1,4 +1,4 @@
-package controller;
+package controller.usercontrol.other;
 
 import dao.CategoryDAO;
 import dao.HomePictureDAO;

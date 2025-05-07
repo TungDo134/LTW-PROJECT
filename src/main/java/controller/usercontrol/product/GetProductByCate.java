@@ -1,4 +1,4 @@
-package controller;
+package controller.usercontrol.product;
 
 import dao.ProductDAO;
 import entity.Product;

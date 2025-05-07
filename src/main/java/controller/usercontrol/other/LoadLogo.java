@@ -1,4 +1,4 @@
-package controller;
+package controller.usercontrol.other;
 
 import dao.HomePictureDAO;
 import entity.HomePicture;
@@ -7,7 +7,6 @@ import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(name = "LoadLogo", value = "/load-logo")
 public class LoadLogo extends HttpServlet {

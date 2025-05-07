@@ -1,11 +1,7 @@
 //AddReviews
-package controller;
+package controller.usercontrol.review;
 
-import dao.FeedbackDAO;
 import dao.ReviewDAO;
-import entity.Customer;
-import entity.Feedback;
-import entity.Product;
 import entity.Review;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
