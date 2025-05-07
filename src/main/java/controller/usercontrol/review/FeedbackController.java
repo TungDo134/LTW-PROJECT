@@ -1,4 +1,4 @@
-package controller;
+package controller.usercontrol.review;
 
 import dao.FeedbackDAO;
 import entity.Feedback;

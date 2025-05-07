@@ -1,4 +1,4 @@
-package controller;
+package controller.usercontrol.discount;
 
 import dao.CouponDAO;
 import entity.Cart;

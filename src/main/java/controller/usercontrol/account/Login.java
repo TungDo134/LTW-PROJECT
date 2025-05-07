@@ -1,4 +1,4 @@
-package controller;
+package controller.usercontrol.account;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -15,10 +15,6 @@ import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
 import helper.MaHoaMK;
 import org.json.JSONObject;
-
-import java.io.IOException;
-
-import static javax.crypto.Cipher.SECRET_KEY;
 
 @WebServlet(name = "LoginControl", value = "/login")
 public class Login extends HttpServlet {

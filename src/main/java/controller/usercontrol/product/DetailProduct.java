@@ -1,5 +1,5 @@
 //detail
-package controller;
+package controller.usercontrol.product;
 
 import dao.ManufacturerDAO;
 import dao.ProductDAO;

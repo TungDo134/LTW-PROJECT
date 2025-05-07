@@ -1,13 +1,8 @@
-package controller;
+package controller.usercontrol.account;
 
-import dao.CustomerDAO;
 import dao.OrderDAO;
-import dao.OrderDetailDAO;
-import dao.PaymentDAO;
 import entity.Customer;
 import entity.Order;
-import entity.OrderDetail;
-import entity.Payment;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;

@@ -1,4 +1,4 @@
-package controller;
+package controller.usercontrol.account;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
