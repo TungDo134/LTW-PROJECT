@@ -98,8 +98,8 @@ public class CartDAO {
     }
 
     // Xóa cart-item
-    public void deleteCartByCartIDAndPID(int cartID, int productID) {
-            JDBIContext.getJdbi().useHandle(handle -> {
+    public void deleteCartByCartItemIDAndPID(int cartID, int productID) {
+        JDBIContext.getJdbi().useHandle(handle -> {
             handle.createUpdate("DELETE FROM cartitems WHERE cartID = :cartID and productID= :productID")
                     .bind("cartID", cartID)
                     .bind("productID", productID)
@@ -107,10 +107,29 @@ public class CartDAO {
         });
     }
 
-    public static void main(String[] args) {
-        CartDAO cartDAO = new CartDAO();
-        System.out.println(cartDAO.getCartIDByCusID(1));
+    // Đánh dấu cart đã checkout
+    public void deleteCart(int customerID) {
+        JDBIContext.getJdbi().useHandle(handle -> {
+            handle.createUpdate("Delete from carts WHERE customerID = :customerID")
+                    .bind("customerID", customerID)
+                    .execute();
+        });
+    }
+
+    public int getCartIDByCusIDAndIsCheckout(int cusId) {
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createQuery("SELECT cartID FROM carts WHERE customerID = :customerID " +
+                                "AND isCheckedOut=0")
+                        .bind("customerID", cusId)
+                        .mapTo(Integer.class)
+                        .findOne()
+                        .orElse(-1)
+        );
     }
 
 
+    public static void main(String[] args) {
+        CartDAO cartDAO = new CartDAO();
+        System.out.println(cartDAO.getCartIDByCusIDAndIsCheckout(74));
+    }
 }

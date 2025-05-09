@@ -162,7 +162,7 @@
                     <h1 class="product-title"><%= product.getProductName() %>
                     </h1>
                     <p class="price">
-                        Giá ne:
+                        Giá:
                         <f:setLocale value="vi_VN"/>
                         <c:choose>
                             <c:when test="<%= product.getIsDiscount()==1 %>">
@@ -176,7 +176,7 @@
 
                             </c:when>
                             <c:otherwise>
-                                                <span class="text-dark fw-bold">
+                                                <span class=" fw-bold">
                                             <f:formatNumber value="<%= product.getProductPrice() %>"
                                                             type="currency"/></span>
                             </c:otherwise>
@@ -231,7 +231,7 @@
                         <p>Đánh giá</p>
                     </div>
                     <div class="sell">
-                        Đã bán: <%= product.getProductOrder() %>
+                        Đã bán: ${soldQuantity}
                     </div>
                 </div>
                 <p class="price">
@@ -248,7 +248,7 @@
 
                         </c:when>
                         <c:otherwise>
-                                                <span class="text-dark fw-bold">
+                                                <span class=" fw-bold">
                                             <f:formatNumber value="<%= product.getProductPrice() %>"
                                                             type="currency"/></span>
                         </c:otherwise>
@@ -301,23 +301,23 @@
                         </ul>
                     </div>
                 </div>
-                <c:if test="${detail.productStock >0}">
-                    <form id="add-to-cart-form" class="quantity">
-                        <div><strong>Số lượng:</strong></div>
-                        <div class="change_quantity">
-                            <button class="decrease">-</button>
-                            <input
-                                    type="text"
-                                    name=""
-                                    id="quantity-input"
-                                    class="p-quantity"
-                                    value="1"
-                            />
 
-                            <button class="increase">+</button>
-                        </div>
-                    </form>
-                </c:if>
+                <form id="add-to-cart-form" class="quantity">
+                    <div><strong>Số lượng:</strong></div>
+                    <div class="change_quantity">
+                        <button class="decrease">-</button>
+                        <input
+                                type="text"
+                                name=""
+                                id="quantity-input"
+                                class="p-quantity"
+                                value="1"
+                        />
+
+                        <button class="increase">+</button>
+                    </div>
+                </form>
+
             </div>
             <div class="detailInfo">
                 <!-- Thông tin sản phẩm -->
@@ -383,9 +383,6 @@
                         </tbody>
                     </table>
                 </c:if>
-
-
-
 
 
                 <p>Giá sản phẩm trên Fahasa.com đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm,

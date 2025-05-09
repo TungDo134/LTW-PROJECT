@@ -2,6 +2,7 @@ package controller.cartcontrol;
 
 import dao.ProductDAO;
 import entity.Cart;
+import entity.Customer;
 import entity.Product;
 import helper.CartManagerDB;
 import jakarta.servlet.*;
@@ -34,8 +35,11 @@ public class AddCartDetailP extends HttpServlet {
         session.setAttribute("cart", c);
 
         // ========= SAVE CART DB ========= //
-        CartManagerDB cartManagerDB = new CartManagerDB();
-        cartManagerDB.saveCartDB(request);
+        Customer customer = (Customer) session.getAttribute("customer");
+        if (customer != null) {
+            CartManagerDB cartManagerDB = new CartManagerDB();
+            cartManagerDB.saveCartDB(request, customer);
+        }
 
     }
 

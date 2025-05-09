@@ -38,7 +38,7 @@
             <table id="myTable" class="">
                 <thead>
                 <tr>
-                    <th>STT</th>
+                    <th>ID sản phẩm</th>
                     <th>Sản phẩm</th>
                     <th>Hàng tồn kho</th>
                     <th>Đã Bán</th>
@@ -53,7 +53,7 @@
                 <!-- Lặp qua danh sách nhà sản xuất -->
                 <c:forEach items="${inventories}" var="in" varStatus="i">
                     <tr>
-                        <td>${i.index + 1}</td>
+                        <td>${in.productID}</td>
                         <td>${in.productName}</td>
                         <td>${in.quantityInStock}</td>
                         <td>${in.quantitySold}</td>

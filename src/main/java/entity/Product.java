@@ -7,9 +7,7 @@ public class Product implements Serializable {
     public String productName;
     public String productDes;
     public double productPrice;
-    public int productInventory;
-    public int productOrder;
-    public int productStock;
+
     public String productImage;
     public int cateID;
     public String shortDes;
@@ -26,15 +24,12 @@ public class Product implements Serializable {
     public String dimensions;
     public boolean bestSeller;
 
-    public Product(int productID, String productName, String productDes, double productPrice, int productInventory, int productOrder, int productStock, String productImage, int cateID, String shortDes, double discountPrice,
+    public Product(int productID, String productName, String productDes, double productPrice, String productImage, int cateID, String shortDes, double discountPrice,
                    byte isDiscount, int manuID, String brand,  String color, String material, String weight, String dimensions, boolean bestSeller) {
         this.productID = productID;
         this.productName = productName;
         this.productDes = productDes;
         this.productPrice = productPrice;
-        this.productInventory = productInventory;
-        this.productOrder = productOrder;
-        this.productStock = productStock;
         this.productImage = productImage;
         this.cateID = cateID;
         this.shortDes = shortDes;
@@ -84,29 +79,6 @@ public class Product implements Serializable {
         this.productPrice = productPrice;
     }
 
-    public int getProductInventory() {
-        return productInventory;
-    }
-
-    public void setProductInventory(int productInventory) {
-        this.productInventory = productInventory;
-    }
-
-    public int getProductOrder() {
-        return productOrder;
-    }
-
-    public void setProductOrder(int productOrder) {
-        this.productOrder = productOrder;
-    }
-
-    public int getProductStock() {
-        return productStock;
-    }
-
-    public void setProductStock(int productStock) {
-        this.productStock = productStock;
-    }
 
     public String getProductImage() {
         return productImage;
@@ -212,9 +184,6 @@ public class Product implements Serializable {
                 ", productName='" + productName + '\'' +
                 ", productDes='" + productDes + '\'' +
                 ", productPrice=" + productPrice +
-                ", productInventory=" + productInventory +
-                ", productOrder=" + productOrder +
-                ", productStock=" + productStock +
                 ", productImage='" + productImage + '\'' +
                 ", cateID=" + cateID +
                 ", shortDes='" + shortDes + '\'' +
