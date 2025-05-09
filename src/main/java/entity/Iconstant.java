@@ -5,7 +5,7 @@ public class Iconstant {
 
     public static final String GOOGLE_CLIENT_SECRET = "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";
 
-    public static final String GOOGLE_REDIRECT_URI = "http://localhost:8080/LTW_Project/login";
+    public static final String GOOGLE_REDIRECT_URI = "http://localhost:8080/Gradle___org_example___Project_LTW_1_0_SNAPSHOT_war/login";
 
     public static final String GOOGLE_GRANT_TYPE = "authorization_code";
 
