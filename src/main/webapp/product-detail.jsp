@@ -755,6 +755,7 @@
                         const button = document.querySelector('.icon-p');
                         if (button) {
                             button.click(); // Kích hoạt sự kiện click
+                            updateDetailQuantity(quantity);
                         }
                     },
                     error: function (xhr) {
@@ -766,7 +767,7 @@
     });
 
 </script>
-
+<script src="assets/js/cart.js"></script>
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <!-- Khởi tạo Swiper -->

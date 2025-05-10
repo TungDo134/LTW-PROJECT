@@ -383,31 +383,8 @@
     });
 </script>
 
-<%--AJAX add to cart--%>
-<script>
-    function getIdProduct(form) {
-        const pID = form.querySelector('[name="pID"]').value;
-        console.log(pID)
-        $.ajax({
-            url: 'add-cart', // Servlet URL
-            type: 'GET',
-            data: {
-                pID: pID
-            },
-            success: function (response) {
-                const button = document.querySelector('.icon-p');
-                if (button) {
-                    button.click(); // Kích hoạt sự kiện click
-                    increaseQuantity();
-                }
-            },
-            error: function (xhr, status, error) {
-                console.log(xhr.responseText)
-                alert('Error: ' + xhr.responseText);
-            }
-        });
-    }
+<%--AJAX CART--%>
+<script src="assets/js/cart.js">
 </script>
-<script src="assets/js/UpdateCartQuantitySession.js"></script>
 </body>
 </html>
