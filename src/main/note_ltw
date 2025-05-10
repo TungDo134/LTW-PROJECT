@@ -1,0 +1,3 @@
+=== Vấn đề về kho (table inventory)
+- Chưa cập nhật slg sản phẩm đã được bán (sẽ cập nhật trong chức năng vận chuyển)
+  ==> khi trạng thái vận chuyển = đã giao || đã nhận hàng ==> quantitySold sẽ được cập nhật

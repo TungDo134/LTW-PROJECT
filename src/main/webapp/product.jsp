@@ -213,22 +213,27 @@
                                     <div class="add-to-cart">
                                         <form onsubmit="getIdProduct(this); return false">
                                             <input type="hidden" value="${o.productID}" name="pID">
-                                            <c:if test="${o.productStock == 0}">
-                                                <p class="card-text fs-5 fw-medium text-justify text-secondary">
-                                                    Hết hàng
-                                                </p>
-                                            </c:if>
 
-                                            <c:if test="${o.productStock > 0}">
-                                                <button class="btn" type="submit"
-                                                        data-bs-toggle="tooltip"
-                                                        data-bs-placement="top"
-                                                        data-bs-custom-class="custom-tooltip"
-                                                        data-bs-title="Thêm vào giỏ hàng.">
-                                                    <img src="assets/pic/shopping_cart_icon.svg" alt="ảnh"/>
-                                                </button>
-                                            </c:if>
+                                            <c:set var="pid" value="${o.productID}"/>
+                                            <c:set var="stock" value="${inventoryMap[pid].quantityInStock}"/>
 
+                                            <c:choose>
+                                                <c:when test="${stock > 0}">
+                                                    <button class="btn" type="submit"
+                                                            data-bs-toggle="tooltip"
+                                                            data-bs-placement="top"
+                                                            data-bs-custom-class="custom-tooltip"
+                                                            data-bs-title="Thêm vào giỏ hàng.">
+                                                        <img src="assets/pic/shopping_cart_icon.svg" alt="ảnh"/>
+                                                    </button>
+                                                </c:when>
+
+                                                <c:otherwise>
+                                                    <p class="card-text fs-6 fw-medium text-justify text-danger">
+                                                        Hết hàng
+                                                    </p>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </form>
                                     </div>
                                 </a>
@@ -378,31 +383,8 @@
     });
 </script>
 
-<%--AJAX add to cart--%>
-<script>
-    function getIdProduct(form) {
-        const pID = form.querySelector('[name="pID"]').value;
-        $.ajax({
-            url: 'add-cart', // Servlet URL
-            type: 'GET',
-            data: {
-                pID: pID
-            },
-            success: function (response) {
-                const button = document.querySelector('.icon-p');
-                if (button) {
-                    button.click(); // Kích hoạt sự kiện click
-                    increaseQuantity();
-
-                }
-            },
-            error: function (xhr, status, error) {
-                console.log(xhr.responseText)
-                alert('Error: ' + xhr.responseText);
-            }
-        });
-    }
+<%--AJAX CART--%>
+<script src="assets/js/cart.js">
 </script>
-<script src="assets/js/UpdateCartQuantitySession.js"></script>
 </body>
 </html>

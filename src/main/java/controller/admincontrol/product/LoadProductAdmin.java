@@ -1,6 +1,7 @@
 package controller.admincontrol.product;
 
 import dao.ProductDAO;
+import entity.Inventory;
 import entity.Product;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
@@ -8,6 +9,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "LoadProductAdmin", value = "/admin/load-pAdmin")
 public class LoadProductAdmin extends HttpServlet {
@@ -15,8 +17,8 @@ public class LoadProductAdmin extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProductDAO proDao = new ProductDAO();
         List<Product> products= proDao.getProduct();
-
         request.setAttribute("products", products);
+
         request.getRequestDispatcher("listProduct.jsp").forward(request, response);
     }
 

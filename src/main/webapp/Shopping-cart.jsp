@@ -43,14 +43,24 @@
 
         <div class="cart-table left">
             <div class="cart-header">
+                <div class="d-flex gap-1">
+                    <input type="checkbox" onclick="checkAll(this)">Chọn tất cả
+                </div>
                 <span>Sản phẩm</span>
                 <span>Số lượng</span>
                 <span>Tổng tiền (VND)</span>
-                <span>Hành động</span>
             </div>
             <c:forEach items="${sessionScope.cart.list}" var="cp">
                 <!-- Product Rows -->
+
                 <div class="cart-item" data-id="${cp.productID}">
+                    <div>
+                        <input type="checkbox" class="check-item"
+                               value="${cp.productID}"
+                               data-quantity="${cp.quantity}"
+                               data-price="${cp.totalCt}"
+                        >
+                    </div>
                     <div class="product-info">
                         <a href="detail?pid=${cp.productID}">
                             <img src="<%=request.getContextPath()%>/assets/pic/products/${cp.img}" alt="Sản phẩm 1"></a>
@@ -76,8 +86,9 @@
 
                     <div class="remove-item">
                         <div class="i-container">
-                            <a id="remove-cart" data-id="${cp.productID}" onclick="removeCart(this)"><i
-                                    class="fa fa-times"></i></a>
+                            <a id="remove-cart" data-id="${cp.productID}" onclick="removeCart(this)">
+                                <i class="fa fa-times"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -90,7 +101,7 @@
         </div>
 
         <%--Tổng giỏ hàng (số lượng + giá)--%>
-        <form action="check-out.jsp.jsp" class="form-checkout">
+        <form action="check-out.jsp" class="form-checkout">
             <div class="cart-summary">
                 <h2>Tổng đơn</h2>
 
@@ -105,9 +116,9 @@
                 <div class="cart-total-row">
                     <span>Tổng tiền:</span>
                     <span class="total-cart">
-                         <c:set var="balance" value="<%= c == null ? 0 : c.getTotal() %>"/>
-                         <f:setLocale value="vi_VN"/>
-                         <f:formatNumber value="${balance}" type="currency"/>
+<%--                         <c:set var="balance" value="<%= c == null ? 0 : c.getTotal() %>"/>--%>
+<%--                         <f:setLocale value="vi_VN"/>--%>
+<%--                         <f:formatNumber value="${balance}" type="currency"/>--%>
                     </span>
                 </div>
                 <%String msgP = (String) request.getAttribute("msgP");%>
@@ -126,10 +137,46 @@
 
 </main>
 <jsp:include page="footer.jsp"></jsp:include>
-<%--Update cart--%>
-<script src="assets/js/update_cart.js"></script>
-<script src="assets/js/remove_cart.js"></script>
-<script src="assets/js/UpdateCartQuantitySession.js"></script>
+
+<%--AJAX CART--%>
+<script src="assets/js/cart.js"></script>
+<script>
+    function updateSummary() {
+        const checkboxes = document.querySelectorAll('.check-item');
+        let totalQuantity = 0;
+        let totalPrice = 0;
+
+        checkboxes.forEach(cb => {
+            if (cb.checked) {
+                const quantity = parseInt(cb.getAttribute('data-quantity'));
+                const price = parseFloat(cb.getAttribute('data-price'));
+                totalQuantity += quantity;
+                totalPrice += price;
+            }
+        });
+
+        // Gán lại vào thẻ hiển thị
+        document.querySelector('.subtotalQuantity').innerText = totalQuantity;
+        document.querySelector('.total-cart').innerText = totalPrice.toLocaleString('vi-VN') + " ₫";
+    }
+
+    // Gắn sự kiện change cho tất cả checkbox
+    document.querySelectorAll('.check-item').forEach(cb => {
+        cb.addEventListener('change', updateSummary);
+    });
+
+    // Gắn cho "chọn tất cả"
+    function checkAll(source) {
+        const checkboxes = document.querySelectorAll('.check-item');
+        checkboxes.forEach(cb => {
+            cb.checked = source.checked;
+        });
+        updateSummary();
+    }
+
+    // Khởi động tính tổng ban đầu (nếu cần)
+    updateSummary();
+</script>
 
 </body>
 </html>

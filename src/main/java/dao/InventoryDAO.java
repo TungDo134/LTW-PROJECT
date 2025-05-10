@@ -11,17 +11,17 @@ public class InventoryDAO {
     public List<Inventory> getAllInventory() {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createQuery("""
-                SELECT
-                    i.productID,
-                    p.productName,
-                    i.quantityInStock,
-                    i.quantitySold,
-                    i.quantityReserved,
-                    i.reorderLevel,
-                    i.lastUpdated
-                FROM inventory i
-                JOIN products p ON i.productID = p.productID
-            """)
+                                    SELECT
+                                        i.productID,
+                                        p.productName,
+                                        i.quantityInStock,
+                                        i.quantitySold,
+                                        i.quantityReserved,
+                                        i.reorderLevel,
+                                        i.lastUpdated
+                                    FROM inventory i
+                                    JOIN products p ON i.productID = p.productID
+                                """)
                         .map((row, ctx) -> {
                             Inventory inv = new Inventory();
                             inv.setProductID(row.getInt("productID"));
@@ -42,21 +42,22 @@ public class InventoryDAO {
                         .list()
         );
     }
+
     public Inventory getInventoryByProductID(String productID) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createQuery("""
-                SELECT
-                    i.productID,
-                    p.productName,
-                    i.quantityInStock,
-                    i.quantitySold,
-                    i.quantityReserved,
-                    i.reorderLevel,
-                    i.lastUpdated
-                FROM inventory i
-                JOIN products p ON i.productID = p.productID
-                WHERE i.productID = :productID
-            """)
+                                    SELECT
+                                        i.productID,
+                                        p.productName,
+                                        i.quantityInStock,
+                                        i.quantitySold,
+                                        i.quantityReserved,
+                                        i.reorderLevel,
+                                        i.lastUpdated
+                                    FROM inventory i
+                                    JOIN products p ON i.productID = p.productID
+                                    WHERE i.productID = :productID
+                                """)
                         .bind("productID", productID)
                         .map((row, ctx) -> {
                             Inventory inv = new Inventory();
@@ -82,15 +83,15 @@ public class InventoryDAO {
     public boolean updateInventory(Inventory inventory) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createUpdate("""
-            UPDATE inventory
-            SET 
-                quantityInStock = :quantityInStock,
-                quantitySold = :quantitySold,
-                quantityReserved = :quantityReserved,
-                reorderLevel = :reorderLevel,
-                lastUpdated = CURRENT_TIMESTAMP
-            WHERE productID = :productID
-        """)
+                                    UPDATE inventory
+                                    SET 
+                                        quantityInStock = :quantityInStock,
+                                        quantitySold = :quantitySold,
+                                        quantityReserved = :quantityReserved,
+                                        reorderLevel = :reorderLevel,
+                                        lastUpdated = CURRENT_TIMESTAMP
+                                    WHERE productID = :productID
+                                """)
                         .bind("quantityInStock", inventory.getQuantityInStock())
                         .bind("quantitySold", inventory.getQuantitySold())
                         .bind("quantityReserved", inventory.getQuantityReserved())
@@ -103,10 +104,10 @@ public class InventoryDAO {
     public boolean addStock(int productID, int addedQuantity, Integer reorderLevel) {
         return JDBIContext.getJdbi().withHandle(handle -> {
             StringBuilder query = new StringBuilder("""
-            UPDATE inventory
-            SET quantityInStock = quantityInStock + :addedQuantity,
-                lastUpdated = CURRENT_TIMESTAMP
-        """);
+                        UPDATE inventory
+                        SET quantityInStock = quantityInStock + :addedQuantity,
+                            lastUpdated = CURRENT_TIMESTAMP
+                    """);
 
             if (reorderLevel != null) {
                 query.append(", reorderLevel = :reorderLevel");
@@ -140,6 +141,25 @@ public class InventoryDAO {
         });
     }
 
+    // Cập nhật số lượng bán và tồn kho khi tạo đơn hàng
+    public void UpdateQuantityProduct(int productID, int quantity) {
+        String sql = "UPDATE inventory SET quantitySold=quantitySold + ? WHERE productID = ?";
+        JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, quantity)
+                        .bind(1, productID)
+                        .execute());
+    }
 
-
+    // Tăng slg sp chờ xử lý và giảm slg tồn kho (còn hàng)
+    public void UpdateQuantityReservedProduct(int productID, int quantity) {
+        String sql = "UPDATE inventory SET quantityReserved = quantityReserved + ?, " +
+                "quantityInStock = quantityInStock - ?  WHERE productID = ?";
+        JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate(sql)
+                        .bind(0, quantity)
+                        .bind(1, quantity)
+                        .bind(2, productID)
+                        .execute());
+    }
 }

@@ -10,6 +10,7 @@ import java.util.Scanner;
 import dao.CartDAO;
 import dao.CustomerDAO;
 import entity.*;
+import helper.CartManagerDB;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -66,7 +67,6 @@ public class Login extends HttpServlet {
             cus = cusDao.getUserByEmailPass(cus);
 
             if (cus == null) {
-//          response.sendRedirect("forms/signup-login.jsp");
                 request.setAttribute("error", "Sai tài khoản hoặc mật khẩu");
                 request.getRequestDispatcher("forms/login.jsp").forward(request, response);
             } else {
@@ -74,20 +74,34 @@ public class Login extends HttpServlet {
                 session.setAttribute("customer", cus);
                 cus.setPass("");
 
-                // LOAD USER CART
+                // LOAD USER CART || INSERT NEW CART
                 CartDAO cartDao = new CartDAO();
-                int cartId = cartDao.getCartIDByCusID(cus.getId());
-
+                int cartId = cartDao.getCartIDByCusIDAndIsCheckout(cus.getId());
+                Cart c;
                 if (cartId != -1) {
-                    Cart c = new Cart();
+                    c = new Cart();
                     List<CartItem> cartItem = cartDao.getCartItemByCartID(cartId);
                     for (CartItem item : cartItem) {
                         c.addCT(item);
                     }
                     session.setAttribute("cart", c);
+                    response.sendRedirect("home");
+                } else {
+                    // ========= SAVE CART DB ========= //
+                    /*
+                        - Nếu trước đó mà user đã thêm sp vào cart mà không login
+                        - Thì khi login sẽ lấy cart từ session của trình duyệt lúc đó
+                          và lưu xuống db theo id của user
+                     */
+                    Cart cart = (Cart) session.getAttribute("cart");
+                    if (cart == null) {
+                        response.sendRedirect("home");
+                        return;
+                    }
+                    CartManagerDB cartManagerDB = new CartManagerDB();
+                    cartManagerDB.saveCartDB(request, cus);
+                    response.sendRedirect("home");
                 }
-
-                response.sendRedirect("home");
             }
         } else {
             request.setAttribute("error", "Chưa tích vào captcha");

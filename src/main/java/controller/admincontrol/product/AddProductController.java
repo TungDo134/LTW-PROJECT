@@ -1,5 +1,6 @@
 package controller.admincontrol.product;
 
+import dao.InventoryDAO;
 import dao.ProductDAO;
 import entity.Product;
 import entity.SubImgProduct;
@@ -26,21 +27,18 @@ public class AddProductController extends HttpServlet {
         String productName = request.getParameter("productName");
         String productDes = request.getParameter("productDes");
         double productPrice = Double.parseDouble(request.getParameter("productPrice").replaceAll("[^0-9]", ""));
-        int productInventory = Integer.parseInt(request.getParameter("productInventory").replaceAll("[^0-9]", ""));
         int cateID = Integer.parseInt(request.getParameter("cateID"));
         String shortDes = request.getParameter("shortDes");
         String productImage = request.getParameter("productImage");
 
 
         ProductDAO productDAO = new ProductDAO();
+        InventoryDAO inventoryDAO = new InventoryDAO();
         // Tạo đối tượng Product
         Product product = new Product();
         product.setProductName(productName);
         product.setProductDes(productDes);
         product.setProductPrice(productPrice);
-        product.setProductInventory(productInventory);
-        product.setProductOrder(0);
-        product.setProductStock(productInventory);
         product.setCateID(cateID);
         product.setShortDes(shortDes);
         product.setProductImage(productImage);
@@ -72,6 +70,7 @@ public class AddProductController extends HttpServlet {
 
         }
 
+        // tạo kho cho sản
 
         // Kiểm tra kết quả và chuyển hướng
         if (result > 0) {

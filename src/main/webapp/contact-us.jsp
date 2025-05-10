@@ -71,14 +71,14 @@
                         <%=request.getAttribute("msg") != null ? request.getAttribute("msg") : ""  %>
                     </h5></div>
                     <div class="contact_form">
-                        <form action="feedback" method="post">
+                        <form action="feedback" method="post" id="contact-form">
                             <div class="row_second">
                                 <div class="col_contact_3">
-                                    <input type="text" name="customerName" placeholder="Tên của bạn" required=""/>
-                                    <input type="text" name="email" placeholder="Email" required=""/>
+                                    <input type="text" name="customerName" id="customerName" placeholder="Tên của bạn" required=""/>
+                                    <input type="text" name="email" id="email" placeholder="Email" required=""/>
                                 </div>
                                 <div class="col_contact_5">
-                                    <textarea name="fContent" placeholder="Bạn muốn nói gì với chúng tôi"
+                                    <textarea name="fContent" id="fContent" placeholder="Bạn muốn nói gì với chúng tôi"
                                               required=""></textarea>
                                     <button type="submit" class="site-btn">
                                         Gửi tin nhắn
@@ -86,7 +86,6 @@
                                 </div>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -180,7 +179,18 @@
     </div>
 </main>
 <jsp:include page="footer.jsp"></jsp:include>
-
 <script src="assets/js/main.js"></script>
+<script>
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+        e.preventDefault(); // Không gửi form đi
+        const name = document.getElementById("customerName").value;
+        const userEmail = document.getElementById("email").value;
+        const message = document.getElementById("fContent").value;
+        const subject = encodeURIComponent("Phản hồi từ: " + name);
+        const body = encodeURIComponent("Tên: " + name + "\nEmail: " + userEmail + "\nNội dung:\n" + message);
+
+        window.location.href = "mailto:supportTVK_TTLTW@gmail.com?subject=" + subject + "&body=" + body;
+    });
+</script>
 </body>
 </html>

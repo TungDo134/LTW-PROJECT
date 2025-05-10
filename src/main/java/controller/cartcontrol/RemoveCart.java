@@ -2,6 +2,7 @@ package controller.cartcontrol;
 
 import entity.Cart;
 import entity.CartItem;
+import entity.Customer;
 import helper.CartManagerDB;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
@@ -26,8 +27,12 @@ public class RemoveCart extends HttpServlet {
         isSuccess = true;
 
         // ========= DELETE CART ITEM DB ========= //
-        CartManagerDB cartManagerDB = new CartManagerDB();
-        cartManagerDB.deleteCartDB(request, proID);
+        Customer customer = (Customer) session.getAttribute("customer");
+        if (customer != null) {
+            CartManagerDB cartManagerDB = new CartManagerDB();
+            cartManagerDB.deleteCartItemDB(request, proID);
+        }
+
 
         response.setContentType("application/json");
         response.getWriter().write("{\"isSuccess\":" + isSuccess + ", \"TotalQuantity\":"

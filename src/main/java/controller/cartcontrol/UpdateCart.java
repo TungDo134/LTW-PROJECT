@@ -2,6 +2,7 @@ package controller.cartcontrol;
 
 import entity.Cart;
 import entity.CartItem;
+import entity.Customer;
 import helper.CartManagerDB;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
@@ -29,8 +30,11 @@ public class UpdateCart extends HttpServlet {
         CartItem ct = c.getData().get(id);
 
         // ========= SAVE CART DB ========= //
-        CartManagerDB cartManagerDB = new CartManagerDB();
-        cartManagerDB.saveCartDB(request);
+        Customer customer = (Customer) session.getAttribute("customer");
+        if (customer != null) {
+            CartManagerDB cartManagerDB = new CartManagerDB();
+            cartManagerDB.saveCartDB(request, customer);
+        }
 
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();

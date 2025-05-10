@@ -1,6 +1,7 @@
 package controller.usercontrol.product;
 
 import dao.ProductDAO;
+import entity.Inventory;
 import entity.Product;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
@@ -8,6 +9,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "getProductController", value = "/products")
 public class GetAllProduct extends HttpServlet{
@@ -25,7 +27,9 @@ public class GetAllProduct extends HttpServlet{
             products = productDAO.getProduct();
         }
 
-
+        // lấy ra số lượng của product từ kho
+        Map<Integer, Inventory> inventoryMap = productDAO.getInventoryMap();
+        request.setAttribute("inventoryMap", inventoryMap);
         request.setAttribute("products", products);
         request.setAttribute("txt", searchQuery);
         request.getRequestDispatcher("product.jsp").forward(request, response);

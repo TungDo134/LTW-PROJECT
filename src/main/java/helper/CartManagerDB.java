@@ -8,15 +8,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 public class CartManagerDB {
-    public void saveCartDB(HttpServletRequest request) {
+    public void saveCartDB(HttpServletRequest request, Customer customer) {
         HttpSession session = request.getSession();
         Cart c = (Cart) session.getAttribute("cart");
-        Customer customer = (Customer) session.getAttribute("customer");
 
         // ========= SAVE CART DB ========= //
         CartDAO cartDAO = new CartDAO();
         boolean isCartCheckedOutOrExist = cartDAO.getCartCheckedOutOrExistByCusId(customer.getId()) != null;
-
 
         if (!isCartCheckedOutOrExist) {
             // tạo cart mới ==> lấy cartId trả về ==> thêm cart item
@@ -46,11 +44,16 @@ public class CartManagerDB {
         }
     }
 
-    public void deleteCartDB(HttpServletRequest request, int productID) {
+    public void deleteCartItemDB(HttpServletRequest request, int productID) {
         CartDAO cartDAO = new CartDAO();
         HttpSession session = request.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
         int cartID = cartDAO.getCartIDByCusID(customer.getId());
-        cartDAO.deleteCartByCartIDAndPID(cartID, productID);
+        cartDAO.deleteCartByCartItemIDAndPID(cartID, productID);
+    }
+
+    public void deleteCartDB(int customerID) {
+        CartDAO cartDAO = new CartDAO();
+        cartDAO.deleteCart(customerID);
     }
 }

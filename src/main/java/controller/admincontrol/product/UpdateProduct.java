@@ -57,9 +57,6 @@ public class UpdateProduct extends HttpServlet {
         product.setProductName(productName);
         product.setProductDes(productDes);
         product.setProductPrice(productPrice);
-        product.setProductInventory(productInventory);
-        product.setProductOrder(productOrder);
-        product.setProductStock(productStock);
         product.setCateID(cateID);
         product.setShortDes(shortDes);
         product.setProductImage(imgUpdate);

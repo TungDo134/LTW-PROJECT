@@ -58,7 +58,9 @@ public class CreateOrder extends HttpServlet {
         // giỏ hàng
         // Cập nhật số lượng sp trong kho
         ProductDAO pDao = new ProductDAO();
+        InventoryDAO inventoryDao = new InventoryDAO();
         int productStock;
+
         int order;
         int cartId;
 
@@ -68,19 +70,15 @@ public class CreateOrder extends HttpServlet {
             cartId = cartItem.getProductID();
 
             // kiểm tra xem slg hàng ng dùng mua có nhỏ hơn slg tồn kho không
-            productStock = pDao.getProductByID(cartId + "").getProductStock();
+            productStock = inventoryDao.getInventoryByProductID(cartId + "").getQuantityInStock();
             order = cartItem.getQuantity();
 
-            if (order <= productStock) {
-                pDao.UpdateQuantity(cartId, order);
-            } else {
+            if (order >= productStock) {
                 request.setAttribute("error", "Sản phẩm đã hết hàng hoặc vượt quá số lượng tồn kho");
                 request.getRequestDispatcher("check-out.jsp").forward(request, response);
                 return;
             }
         }
-
-
         int total = cart.getTotalQuantity();
 
         // lấy giá sau khi giảm nếu có
