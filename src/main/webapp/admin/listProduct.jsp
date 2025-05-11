@@ -61,35 +61,37 @@
                 <table id="myTable" class="display" style="width:100%">
                     <thead>
                     <tr>
+                        <th>ID sản phẩm</th>
                         <th>Ảnh</th>
                         <th>Sản phẩm</th>
-                        <th>ID sản phẩm</th>
-                        <th>Giá</th>
-                        <th>Tổng kho</th>
-                        <th>Bán ra</th>
-                        <th>Tồn kho</th>
+                        <th>Giá gốc</th>
+                        <th>Giá khuyến mãi (nếu có)</th>
                         <th>Hành động</th>
                     </tr>
                     </thead>
                     <tbody>
                     <c:forEach items="${products}" var="o">
                         <tr>
+                            <td>${o.productID}</td>
                             <td><img src="<%=request.getContextPath()%>/assets/pic/products/${o.productImage}"></td>
                             <td>${o.productName}</td>
-                            <td>${o.productID}</td>
                             <td>
                                 <f:setLocale value="vi_VN"/>
                                 <f:formatNumber value="${o.productPrice}" type="currency"/>
                             </td>
-                            <td>${o.productInventory}</td>
-                            <td>${o.productOrder}</td>
-                            <td>${o.productStock}</td>
+                            <td>
+                                <f:setLocale value="vi_VN"/>
+                                <f:formatNumber value="${o.discountPrice}" type="currency"/>
+                            </td>
                             <td>
 
                                     <%--  ShowPageEditP --%>
-                                <a class="btn btn-success btn-customize" href="<%=request.getContextPath()%>/admin/show-product-edit?id=${o.productID}"
+                                <a class="btn btn-success btn-customize"
+                                   href="<%=request.getContextPath()%>/admin/show-product-edit?id=${o.productID}"
                                    role="button">Chỉnh sửa</a>
-                                        <a class="btn btn-success btn-customize" href="<%=request.getContextPath()%>/admin/edit-sub-img?id=${o.productID}" role="button">Chỉnh sửa ảnh ct</a>
+                                <a class="btn btn-success btn-customize"
+                                   href="<%=request.getContextPath()%>/admin/edit-sub-img?id=${o.productID}"
+                                   role="button">Chỉnh sửa ảnh ct</a>
 
                                 <a class="btn btn-danger btn-customize"
                                    onclick="confirmDelete(this)"

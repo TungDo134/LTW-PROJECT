@@ -10,18 +10,18 @@ html {
 
 #shopping-cart-container {
     padding: 12rem 0px 4rem 0;
-    background-color: #faf7f0;
+    background-color: #f0f0f0;
 }
 
 /*giỏ hàng chính*/
 #shopping-cart-container .main-cart {
     display: grid;
     grid-template-columns: 70% 30%;
-    gap: 2rem;
-    width: 1200px;
+    /*gap: 2rem;*/
+    width: 1400px;
     margin: auto;
     padding: 20px;
-    background-color: #faf7f0;
+    background-color: #fff;
     border-radius: 8px;
 }
 
@@ -29,9 +29,11 @@ html {
 #shopping-cart-container .cart-header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 10px;
+    align-items: center;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
     font-weight: bold;
     text-transform: uppercase;
-    /* color: #333; */
     border-bottom: 2px solid #eee;
     padding: 15px 0;
     text-align: left;
@@ -39,8 +41,10 @@ html {
 
 /*các item*/
 #shopping-cart-container .cart-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /*display: grid;*/
+    /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 15px 0;
     border-bottom: 1px solid #eee;
@@ -56,7 +60,7 @@ html {
 
 #shopping-cart-container .product-info > a {
     max-height: 80px;
-    background-color: #f4eee0;
+    background-color: #fff;
     border-radius: 4px;
 }
 
@@ -92,7 +96,7 @@ html {
 
 /*phiếu thanh toán*/
 #shopping-cart-container .cart-summary {
-    background-color: #fffefa;
+    background-color: #fff;
     padding: 2rem;
     text-align: left;
     border-radius: 4px;
@@ -244,7 +248,7 @@ html {
     align-items: center;
     width: 35px;
     height: 35px;
-    background-color: #f3f2ee;
+    background-color: #f0f0f0;
     /* background-color: rgba(0, 0, 0, 0.2); */
     border-radius: 50%;
     text-align: center;
@@ -271,4 +275,9 @@ html {
 
 #shopping-cart-container .form-checkout {
     margin-top: 3rem;
+}
+
+input[type='checkbox']{
+    width: 20px;
+    height: 20px;
 }
