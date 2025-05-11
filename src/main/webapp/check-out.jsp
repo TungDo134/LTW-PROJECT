@@ -103,11 +103,11 @@
                         <label for="atm"> Thanh toán thẻ (ATM, Visa) </label>
                     </div>
                     <div class="method">
-                        <input type="radio" id="momo" name="payment" value="MoMo"/>
+                        <input type="radio" id="VNPay" name="payment" value="VNPay"/>
                         <div class="icon-pay">
-                            <img src="assets/pic/momo.webp" alt="MoMo icon"/>
+                            <img src="assets/pic/vnpay.jpg" alt="Vnpay icon"/>
                         </div>
-                        <label for="momo"> Thanh toán bằng MoMo </label>
+                        <label for="VNPay"> Thanh toán bằng VNPay </label>
                     </div>
                     <div class="method">
                         <input type="radio" id="cod" name="payment" value="COD"/>
@@ -182,11 +182,14 @@
                     <span>Tổng cộng</span>
                     <span class="priceDiscount">
                         <c:set var="balance" value="<%= c == null ? 0 : c.getTotal() %>"/>
-                         <f:setLocale value="vi_VN"/>
-                         <f:formatNumber value="${balance}" type="currency"/></span
-                    >
+                        <f:setLocale value="vi_VN"/>
+                        <f:formatNumber value="${balance}" type="currency"/>
+                    </span>
+
+                    <input type="hidden" name="amount" value="<%= c == null ? 0 : c.getTotal() %>">
                     <input type="hidden" name="priceDiscount" value="noV">
                 </div>
+
             </div>
             <div class="finish">
                 <a
@@ -257,9 +260,18 @@
         const selectedPayment = document.querySelector('input[name="payment"]:checked');
         if (!selectedPayment) {
             alert("Vui lòng chọn phương thức thanh toán.");
-            e.preventDefault(); // Ngăn gửi form
+            e.preventDefault();
+            return;
+        }
+
+        // Chuyển hướng action nếu chọn VNPay
+        if (selectedPayment.value === "VNPay") {
+            this.action = "create-vnpay-order"; // Servlet xử lý VNPay
+        } else {
+            this.action = "create-order"; // Servlet xử lý COD/ATM
         }
     });
+
 </script>
 
 <%--Áp mã giảm giá--%>
