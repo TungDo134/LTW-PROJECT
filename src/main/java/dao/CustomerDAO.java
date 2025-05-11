@@ -10,6 +10,7 @@ import helper.MaHoaMK;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.UUID;
 
 public class CustomerDAO {
 
@@ -170,15 +171,37 @@ public class CustomerDAO {
         return rowsAffected > 0;
     }
     public int insertCustomerFromGoogle(Customer cus) {
+        String randomPassword = UUID.randomUUID().toString();
+
         return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createUpdate("INSERT INTO customers (customerName, email)\n" +
-                                "VALUES (:customerName, :email);")
+                handle.createUpdate(
+                                "INSERT INTO customers (customerName, email, pass, role) " +
+                                        "VALUES (:customerName, :email, :pass, :role);"
+                        )
                         .bind("customerName", cus.getName())
                         .bind("email", cus.getEmail())
+                        .bind("pass", randomPassword)
+                        .bind("role", 0)
                         .execute()
-
         );
     }
+    public int insertCustomerFromFacebook(Customer cus) {
+        String randomPassword = UUID.randomUUID().toString();
+        return JDBIContext.getJdbi().withHandle(handle ->
+                handle.createUpdate(
+                                "INSERT INTO customers (customerName, email, pass, role) " +
+                                        "VALUES (:customerName, :email, :pass, :role);"
+                        )
+                        .bind("customerName", cus.getName())
+                        .bind("email", cus.getEmail())
+                        .bind("pass", randomPassword)
+                        .bind("role", 0)
+                        .execute()
+        );
+    }
+
+
+
 
 
 }

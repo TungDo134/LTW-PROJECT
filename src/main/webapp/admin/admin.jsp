@@ -180,6 +180,10 @@
         <!--  Start Content  -->
     </div>
 </div>
-
+<c:if test="${noPermission}">
+    <script>
+        alert('Không có quyền')
+    </script>
+</c:if>
 </body>
 </html>

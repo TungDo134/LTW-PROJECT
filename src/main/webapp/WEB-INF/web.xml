@@ -1,25 +1,25 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  <!-- setting run file servlet Homecontrol for load data  -->
-  <servlet>
-    <servlet-name>HomeController</servlet-name>
-    <servlet-class>controller.HomeController</servlet-class>
-  </servlet>
+    <display-name>Archetype Created Web Application</display-name>
+    <!-- setting run file servlet Homecontrol for load data  -->
+    <servlet>
+        <servlet-name>HomeController</servlet-name>
+        <servlet-class>controller.HomeController</servlet-class>
+    </servlet>
 
-  <servlet-mapping>
-    <servlet-name>HomeController</servlet-name>
-    <url-pattern>/home</url-pattern>
-  </servlet-mapping>
-  <!-- setting run file servlet Homecontrol for load data  -->
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <!-- setting run file servlet Homecontrol for load data  -->
 
-  <welcome-file-list>
-    <welcome-file>home</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-  </welcome-file-list>
+    <welcome-file-list>
+        <welcome-file>home</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+    </welcome-file-list>
 </web-app>
