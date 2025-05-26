@@ -87,7 +87,7 @@ body {
     font-weight: bold;
 }
 .price {
-    color: red;
+    color: red !important;
     font-size: 22px;
     font-weight: bold;
     margin: 10px 0;

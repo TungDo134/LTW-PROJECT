@@ -1,6 +1,7 @@
 package controller.usercontrol.product;
 
 import dao.ProductDAO;
+import entity.Inventory;
 import entity.Product;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
@@ -8,6 +9,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "FilterProByPrice", value = "/filter-product")
 public class FilterProByPrice extends HttpServlet {
@@ -49,6 +51,10 @@ public class FilterProByPrice extends HttpServlet {
             // Không có tiêu chí lọc, trả về tất cả sản phẩm
             filteredProducts = productDAO.getProduct();
         }
+
+        // lấy ra số lượng của product từ kho
+        Map<Integer, Inventory> inventoryMap = productDAO.getInventoryMap();
+        request.setAttribute("inventoryMap", inventoryMap);
 
         // Đưa danh sách sản phẩm vào request
         request.setAttribute("products", filteredProducts);

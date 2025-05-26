@@ -4,10 +4,13 @@ package dao;
 import context.JDBIContext;
 import entity.Product;
 import entity.SubImgProduct;
+import entity.Inventory;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.mapper.reflect.BeanMapper;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class ProductDAO {
     public List<Product> getProduct() {
@@ -34,9 +37,16 @@ public class ProductDAO {
 
     public List<Product> getProductByCateLimit(int CateID) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                (handle.createQuery("select * from products where cateID = :cateID  order by productOrder desc limit 8")
+                handle.createQuery(
+                                "SELECT p.*, i.quantityInStock " +
+                                        "FROM products p " +
+                                        "JOIN inventory i ON p.productID = i.productID " +
+                                        "WHERE p.cateID = :cateID " +
+                                        "ORDER BY i.quantitySold DESC " +
+                                        "LIMIT 8")
+
                         .bind("cateID", CateID)
-                        .mapToBean(Product.class).list())
+                        .mapToBean(Product.class).list()
         );
     }
 
@@ -69,7 +79,11 @@ public class ProductDAO {
 
     public List<Product> getBestSeller() {
         try (Handle handle = JDBIContext.getJdbi().open()) {
-            return handle.createQuery("SELECT * FROM products ORDER BY productOrder DESC LIMIT 10;")
+            return handle.createQuery("SELECT p.*, i.quantityInStock\n" +
+                            "FROM products p\n" +
+                            "JOIN inventory i ON p.productID = i.productID\n" +
+                            "ORDER BY i.quantitySold DESC\n" +
+                            "LIMIT 10;\n")
                     .mapToBean(Product.class).list();
         }
     }
@@ -93,16 +107,13 @@ public class ProductDAO {
 
     public int addProduct(Product product) {
         return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createUpdate("INSERT INTO products (productName, productDes, productPrice, productInventory, productOrder, " +
-                                "productStock, productImage, cateID, shortDes) " +
-                                "VALUES (:productName, :productDes, :productPrice, :productInventory, :productOrder, " +
-                                ":productStock, :productImage, :cateID, :shortDes)")
+                handle.createUpdate("INSERT INTO products (productName, productDes, productPrice, " +
+                                " productImage, cateID, shortDes) " +
+                                "VALUES (:productName, :productDes, :productPrice, " +
+                                ":productImage, :cateID, :shortDes)")
                         .bind("productName", product.getProductName())
                         .bind("productDes", product.getProductDes())
                         .bind("productPrice", product.getProductPrice())
-                        .bind("productInventory", product.getProductInventory())
-                        .bind("productOrder", product.getProductOrder())
-                        .bind("productStock", product.getProductStock())
                         .bind("productImage", product.getProductImage())
                         .bind("cateID", product.getCateID())
                         .bind("shortDes", product.getShortDes())
@@ -128,9 +139,7 @@ public class ProductDAO {
                         .bind("productName", product.getProductName())
                         .bind("productDes", product.getProductDes())
                         .bind("productPrice", product.getProductPrice())
-                        .bind("productInventory", product.getProductInventory())
-                        .bind("productOrder", product.getProductOrder())
-                        .bind("productStock", product.getProductStock())
+
                         .bind("productImage", product.getProductImage())
                         .bind("cateID", product.getCateID())
                         .bind("shortDes", product.getShortDes())
@@ -159,17 +168,6 @@ public class ProductDAO {
                         .list()
         );
     }
-
-    public int UpdateQuantity(int productID, int quantity) {
-        String sql = "UPDATE products SET productStock = productStock - ?, productOrder=productOrder + ? WHERE productID = ?";
-        return JDBIContext.getJdbi().withHandle(handle ->
-                handle.createUpdate(sql)
-                        .bind(0, quantity)
-                        .bind(1, quantity)
-                        .bind(2, productID)
-                        .execute());
-    }
-
 
     // lấy ra ds ảnh phụ
     public SubImgProduct getListSubImg(int pid) {
@@ -246,6 +244,7 @@ public class ProductDAO {
                         .execute()
         );
     }
+
     public List<Product> getProductsByManufacturer(int manuID) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createQuery("SELECT * FROM products WHERE manuID = :manuID")
@@ -253,6 +252,19 @@ public class ProductDAO {
                         .mapTo(Product.class)
                         .list()
         );
+    }
+
+    public Map<Integer, Inventory> getInventoryMap() {
+        return new InventoryDAO().getAllInventory().stream()
+                .collect(Collectors.toMap(Inventory::getProductID, inv -> inv));
+    }
+
+    public static void main(String[] args) {
+        ProductDAO dao = new ProductDAO();
+        Map<Integer, Inventory> inventoryMap = dao.getInventoryMap();
+        for (Inventory inventory : inventoryMap.values()) {
+            System.out.println(inventory.getQuantityInStock());
+        }
     }
 }
 

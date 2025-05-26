@@ -1,6 +1,7 @@
 //detail
 package controller.usercontrol.product;
 
+import dao.InventoryDAO;
 import dao.ManufacturerDAO;
 import dao.ProductDAO;
 import dao.ReviewDAO;
@@ -79,11 +80,13 @@ public class DetailProduct extends HttpServlet {
         request.setAttribute("ratingPercentages", ratingPercentages);  // Truyền tỷ lệ phần trăm
         request.setAttribute("totalReviews", totalReviews);  // Truyền tổng số đánh giá
 
+        // lấy số lượng sp đã bán
+        InventoryDAO inventoryDAO = new InventoryDAO();
+        int soldQuantity = inventoryDAO.getInventoryByProductID(pid).getQuantityInStock();
+        request.setAttribute("soldQuantity", soldQuantity);
         // Chuyển tiếp đến trang JSP
         request.getRequestDispatcher("product-detail.jsp").forward(request, response);
     }
-
-
 
 
     @Override

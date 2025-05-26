@@ -151,21 +151,7 @@
                                     </div>
                                 </fieldset>
                                 <div class="cols">
-                                    <fieldset class="name">
-                                        <div class="body-title">
-                                            Thêm số lượng tổng sản phẩm trong kho <span>*</span>
-                                        </div>
 
-                                        <div class="select">
-                                            <input
-                                                    required=""
-                                                    type="number"
-                                                    name="productInventory"
-                                                    id=""
-                                                    placeholder="Vd: 100"
-                                            />
-                                        </div>
-                                    </fieldset>
                                     <fieldset class="name">
                                         <div class="body-title" style="margin-bottom: 28px">
                                             Miêu tả ngắn về sản phẩm <span>*</span>
