@@ -239,6 +239,27 @@
 
 
                                 </li>
+                                <li class="sub-menu-item">
+
+                                    <%-- getAllManuController--%>
+                                    <a href="<%= request.getContextPath()%>/admin/listBatches">Lô hàng</a>
+
+
+                                </li>
+                                <li class="sub-menu-item">
+
+                                    <%-- getAllManuController--%>
+                                    <a href="<%= request.getContextPath()%>/admin/supliers.jsp">Danh sách nhà cung cấp</a>
+
+
+                                </li>
+                                <li class="sub-menu-item">
+
+                                    <%-- getAllManuController--%>
+                                    <a href="<%= request.getContextPath()%>/admin/inventory_transaction.jsp">Danh sách giao dịch</a>
+
+
+                                </li>
 
 
                             </ul>
