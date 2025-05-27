@@ -8,10 +8,10 @@ public class Batch {
     private int productID;
     private String batchNumber;
     private int quantity;
-    private Date importDate;
-    private Date expiryDate;
+    private String importDate;
     private Integer supplierID;
-    private Timestamp createdAt;
+    private String createdAt;
+    private boolean isDeleted;
     private String productName; // Thêm để hiển thị tên sản phẩm
     private String supplierName; // Thêm để hiển thị tên nhà cung cấp
 
@@ -21,48 +21,99 @@ public class Batch {
 
     // Constructor đầy đủ (bao gồm productName và supplierName)
     public Batch(int batchID, int productID, String batchNumber, int quantity,
-                 Date importDate, Date expiryDate, Integer supplierID,
-                 Timestamp createdAt, String productName, String supplierName) {
+                 String importDate, Integer supplierID,
+                 String createdAt, boolean isDeleted, String productName, String supplierName) {
         this.batchID = batchID;
         this.productID = productID;
         this.batchNumber = batchNumber;
         this.quantity = quantity;
         this.importDate = importDate;
-        this.expiryDate = expiryDate;
         this.supplierID = supplierID;
         this.createdAt = createdAt;
+        this.isDeleted = isDeleted;
         this.productName = productName;
         this.supplierName = supplierName;
     }
 
     // Getters and Setters
-    public int getBatchID() { return batchID; }
-    public void setBatchID(int batchID) { this.batchID = batchID; }
+    public int getBatchID() {
+        return batchID;
+    }
 
-    public int getProductID() { return productID; }
-    public void setProductID(int productID) { this.productID = productID; }
+    public void setBatchID(int batchID) {
+        this.batchID = batchID;
+    }
 
-    public String getBatchNumber() { return batchNumber; }
-    public void setBatchNumber(String batchNumber) { this.batchNumber = batchNumber; }
+    public int getProductID() {
+        return productID;
+    }
 
-    public int getQuantity() { return quantity; }
-    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public void setProductID(int productID) {
+        this.productID = productID;
+    }
 
-    public Date getImportDate() { return importDate; }
-    public void setImportDate(Date importDate) { this.importDate = importDate; }
+    public String getBatchNumber() {
+        return batchNumber;
+    }
 
-    public Date getExpiryDate() { return expiryDate; }
-    public void setExpiryDate(Date expiryDate) { this.expiryDate = expiryDate; }
+    public void setBatchNumber(String batchNumber) {
+        this.batchNumber = batchNumber;
+    }
 
-    public Integer getSupplierID() { return supplierID; }
-    public void setSupplierID(Integer supplierID) { this.supplierID = supplierID; }
+    public int getQuantity() {
+        return quantity;
+    }
 
-    public Timestamp getCreatedAt() { return createdAt; }
-    public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-    public String getProductName() { return productName; }
-    public void setProductName(String productName) { this.productName = productName; }
+    public String getImportDate() {
+        return importDate;
+    }
 
-    public String getSupplierName() { return supplierName; }
-    public void setSupplierName(String supplierName) { this.supplierName = supplierName; }
+    public void setImportDate(String importDate) {
+        this.importDate = importDate;
+    }
+
+
+    public Integer getSupplierID() {
+        return supplierID;
+    }
+
+    public void setSupplierID(Integer supplierID) {
+        this.supplierID = supplierID;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getSupplierName() {
+        return supplierName;
+    }
+
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
+    }
 }

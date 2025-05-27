@@ -13,12 +13,13 @@ public class BatchDAO {
     public List<Batch> getAllBatches() {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createQuery("""
-                        SELECT b.*, p.productName, s.supplierName
-                        FROM batches b
-                        JOIN products p ON b.productID = p.productID
-                        LEFT JOIN suppliers s ON b.supplierID = s.supplierID
-                        ORDER BY b.createdAt DESC
-                        """)
+                                SELECT b.*, p.productName, s.supplierName
+                                FROM batches b
+                                JOIN products p ON b.productID = p.productID
+                                LEFT JOIN suppliers s ON b.supplierID = s.supplierID
+                                WHERE b.isDeleted = 0
+                                ORDER BY b.createdAt DESC
+                                """)
                         .mapToBean(Batch.class)
                         .list()
         );
@@ -28,12 +29,12 @@ public class BatchDAO {
     public Optional<Batch> getBatchByID(int batchID) {
         return JDBIContext.getJdbi().withHandle(handle ->
                 handle.createQuery("""
-                        SELECT b.*, p.productName, s.supplierName
-                        FROM batches b
-                        JOIN products p ON b.productID = p.productID
-                        LEFT JOIN suppliers s ON b.supplierID = s.supplierID
-                        WHERE b.batchID = :batchID
-                        """)
+                                SELECT b.*, p.productName, s.supplierName
+                                FROM batches b
+                                JOIN products p ON b.productID = p.productID
+                                LEFT JOIN suppliers s ON b.supplierID = s.supplierID
+                                WHERE b.batchID = :batchID
+                                """)
                         .bind("batchID", batchID)
                         .mapToBean(Batch.class)
                         .findOne()
@@ -44,15 +45,16 @@ public class BatchDAO {
     public boolean addBatch(Batch batch) {
         int rowsAffected = JDBIContext.getJdbi().withHandle(handle ->
                 handle.createUpdate("""
-                        INSERT INTO batches (productID, batchNumber, quantity, importDate, expiryDate, supplierID)
-                        VALUES (:productID, :batchNumber, :quantity, :importDate, :expiryDate, :supplierID)
-                        """)
+                                INSERT INTO batches (productID, batchNumber, quantity, importDate, supplierID, createdAt, isDeleted)
+                                VALUES (:productID, :batchNumber, :quantity, :importDate, :supplierID, :createdAt, :isDeleted)
+                                """)
                         .bind("productID", batch.getProductID())
                         .bind("batchNumber", batch.getBatchNumber())
                         .bind("quantity", batch.getQuantity())
                         .bind("importDate", batch.getImportDate())
-                        .bind("expiryDate", batch.getExpiryDate())
                         .bind("supplierID", batch.getSupplierID())
+                        .bind("createdAt", batch.getCreatedAt())
+                        .bind("isDeleted", batch.isDeleted())
                         .execute()
         );
         return rowsAffected > 0;
@@ -62,27 +64,24 @@ public class BatchDAO {
     public boolean updateBatch(Batch batch) {
         int rowsAffected = JDBIContext.getJdbi().withHandle(handle ->
                 handle.createUpdate("""
-                        UPDATE batches
-                        SET productID = :productID, batchNumber = :batchNumber, quantity = :quantity,
-                            importDate = :importDate, expiryDate = :expiryDate, supplierID = :supplierID
-                        WHERE batchID = :batchID
-                        """)
+                                UPDATE batches
+                                SET productID = :productID, quantity = :quantity,
+                                  supplierID = :supplierID
+                                WHERE batchID = :batchID
+                                """)
                         .bind("batchID", batch.getBatchID())
                         .bind("productID", batch.getProductID())
-                        .bind("batchNumber", batch.getBatchNumber())
                         .bind("quantity", batch.getQuantity())
-                        .bind("importDate", batch.getImportDate())
-                        .bind("expiryDate", batch.getExpiryDate())
                         .bind("supplierID", batch.getSupplierID())
                         .execute()
         );
         return rowsAffected > 0;
     }
 
-    // Xóa lô hàng
-    public boolean deleteBatch(int batchID) {
+    // Xóa (lưu trữ) lô hàng
+    public boolean deleteBatch(String batchID) {
         int rowsAffected = JDBIContext.getJdbi().withHandle(handle ->
-                handle.createUpdate("DELETE FROM batches WHERE batchID = :batchID")
+                handle.createUpdate("UPDATE batches SET isDeleted = 1 WHERE batchID = :batchID")
                         .bind("batchID", batchID)
                         .execute()
         );
