@@ -8,10 +8,12 @@ public class Batch {
     private int productID;
     private String batchNumber;
     private int quantity;
+    private Double price;
     private String importDate;
     private Integer supplierID;
     private String createdAt;
-    private boolean isDeleted;
+    private byte isDeleted;
+    private byte isUsed;
     private String productName; // Thêm để hiển thị tên sản phẩm
     private String supplierName; // Thêm để hiển thị tên nhà cung cấp
 
@@ -20,20 +22,38 @@ public class Batch {
     }
 
     // Constructor đầy đủ (bao gồm productName và supplierName)
-    public Batch(int batchID, int productID, String batchNumber, int quantity,
+    public Batch(int batchID, int productID, String batchNumber, int quantity, double price,
                  String importDate, Integer supplierID,
-                 String createdAt, boolean isDeleted, String productName, String supplierName) {
+                 String createdAt, byte isDeleted, byte isUsed, String productName, String supplierName) {
         this.batchID = batchID;
         this.productID = productID;
         this.batchNumber = batchNumber;
         this.quantity = quantity;
+        this.price = price;
         this.importDate = importDate;
         this.supplierID = supplierID;
         this.createdAt = createdAt;
         this.isDeleted = isDeleted;
+        this.isUsed = isUsed;
         this.productName = productName;
         this.supplierName = supplierName;
     }
+
+    // Constructor cho nghiệp vụ đọc qua file excel để thêm lô
+    public Batch( int productID, String batchNumber, int quantity, double price,
+                 String importDate, Integer supplierID,
+                 String createdAt, byte isDeleted, byte isUsed) {
+        this.productID = productID;
+        this.batchNumber = batchNumber;
+        this.quantity = quantity;
+        this.price = price;
+        this.importDate = importDate;
+        this.supplierID = supplierID;
+        this.createdAt = createdAt;
+        this.isDeleted = isDeleted;
+        this.isUsed = isUsed;
+    }
+
 
     // Getters and Setters
     public int getBatchID() {
@@ -93,12 +113,20 @@ public class Batch {
         this.createdAt = createdAt;
     }
 
-    public boolean isDeleted() {
+    public byte getIsDeleted() {
         return isDeleted;
     }
 
-    public void setDeleted(boolean deleted) {
-        isDeleted = deleted;
+    public void setIsDeleted(byte isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+    public byte getIsUsed() {
+        return isUsed;
+    }
+
+    public void setIsUsed(byte isUsed) {
+        this.isUsed = isUsed;
     }
 
     public String getProductName() {
@@ -115,5 +143,31 @@ public class Batch {
 
     public void setSupplierName(String supplierName) {
         this.supplierName = supplierName;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Batch{" +
+                "batchID=" + batchID +
+                ", productID=" + productID +
+                ", batchNumber='" + batchNumber + '\'' +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                ", importDate='" + importDate + '\'' +
+                ", supplierID=" + supplierID +
+                ", createdAt='" + createdAt + '\'' +
+                ", isDeleted=" + isDeleted +
+                ", isUsed=" + isUsed +
+                ", productName='" + productName + '\'' +
+                ", supplierName='" + supplierName + '\'' +
+                '}';
     }
 }

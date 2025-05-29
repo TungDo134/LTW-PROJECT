@@ -22,8 +22,10 @@ public class ListBatchController extends HttpServlet {
             ProductDAO productDAO = new ProductDAO();
 
             request.setAttribute("batches", batchDAO.getAllBatches());
+            request.setAttribute("archiveBatches", batchDAO.getArchiveBatch());
             request.setAttribute("suppliers", supplierDAO.getAllSuppliers());
             request.setAttribute("products", productDAO.getProduct());
+            request.setAttribute("batchesNum", batchDAO.getBatchesNum());
 
             request.getRequestDispatcher("/admin/batches.jsp").forward(request, response);
 

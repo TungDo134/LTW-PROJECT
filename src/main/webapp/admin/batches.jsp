@@ -110,6 +110,13 @@
             margin-right: 10px;
         }
 
+        #archive-batches {
+            display: none;
+        }
+
+        #uploadForm {
+            display: none;
+        }
     </style>
 </head>
 <body class="dark-theme">
@@ -121,9 +128,13 @@
             <h1>Danh sách lô hàng</h1>
         </div>
         <div id="all-user-container">
-            <a class="btn btn-primary btn-customize px-5 py-2 mb-2"
+            <a class="btn btn-primary btn-customize py-2 mb-2"
             <%--  Todo: Thêm lô hàng  --%>
                href="#" role="button" onclick="showBatchesAddForm()">Thêm lô hàng</a>
+
+            <%--  Todo: Danh sách các lô hàng đã lưu trữ --%>
+            <a class="btn btn-primary btn-customize py-2 mb-2"
+               href="#" role="button" onclick="openTableArchive()">Các lô hàng lưu trữ</a>
 
             <table class="myTable display">
                 <thead>
@@ -132,9 +143,11 @@
                     <th>Mã lô</th>
                     <th>Sản phẩm</th>
                     <th>Số lượng</th>
+                    <th>Giá</th>
                     <th>Ngày nhập</th>
                     <th>Nhà cung cấp</th>
                     <th>Thời gian tạo</th>
+                    <th>Trạng thái</th>
                     <th>Thao tác</th>
                 </tr>
                 </thead>
@@ -145,21 +158,48 @@
                         <td>${batch.batchNumber}</td>
                         <td>${batch.productName}</td>
                         <td>${batch.quantity}</td>
+                        <td>${batch.price}</td>
                         <td>${batch.importDate}</td>
                         <td>${batch.supplierName != null ? batch.supplierName : 'N/A'}</td>
                         <td>${batch.createdAt}</td>
                         <td>
-                            <button
-                                    class="btn btn-success btn-sm"
-                                    onclick="showBatchesEditForm('${batch.batchID}', '${batch.batchNumber}','${batch.productID}',
-                                            '${batch.quantity}', '${batch.importDate}',
-                                            '${batch.supplierID}', '${batch.createdAt}')">
-                                Chỉnh Sửa
-                            </button>
+                            <label>
+                                <select onchange="changeUsedStatus(${batch.batchID},this)" name="usedStatus"
+                                        style="background-color: white !important;">
+                                    <option value="0" <c:if test="${batch.isUsed == 0}">selected</c:if>>Không sử
+                                        dụng
+                                    </option>
+                                    <option value="1" <c:if test="${batch.isUsed == 1}">selected</c:if>>Sử dụng
+                                    </option>
+                                </select>
+                            </label>
+
+                        </td>
+                        <td>
+                            <c:if test="${batch.isUsed == 1}">
+                                <button
+                                        class="btn btn-success btn-sm"
+                                        onclick="showBatchesEditForm('${batch.batchID}', '${batch.batchNumber}','${batch.productID}',
+                                                '${batch.quantity}', '${batch.price}','${batch.importDate}',
+                                                '${batch.supplierID}', '${batch.createdAt}')">
+                                    Tạo phiếu chỉnh Sửa
+                                </button>
+                            </c:if>
+
+                            <c:if test="${batch.isUsed == 0}">
+                                <button
+                                        class="btn btn-success btn-sm"
+                                        onclick="showBatchesEditForm('${batch.batchID}', '${batch.batchNumber}','${batch.productID}',
+                                                '${batch.quantity}', '${batch.price}','${batch.importDate}',
+                                                '${batch.supplierID}', '${batch.createdAt}')">
+                                    Chỉnh Sửa
+                                </button>
+                            </c:if>
 
                             <button onclick="confirmDelete()" type="button" class="btn btn-danger btn-sm">
                                 <a class="text-white"
-                                   href="<%=request.getContextPath()%>/admin/deleteBatch?batchID=${batch.batchID}"> Lưu
+                                   href="<%=request.getContextPath()%>/admin/deleteBatch?batchID=${batch.batchID}&&option=1">
+                                    Lưu
                                     trữ</a>
                             </button>
                         </td>
@@ -190,6 +230,9 @@
                     <label for="quantity">Số lượng</label>
                     <input type="text" id="quantity" name="quantity" required/>
 
+                    <label for="price">Giá</label>
+                    <input type="number" id="price" name="price" required/>
+
                     <label for="importDate">Ngày nhập</label>
                     <input type="text" id="importDate" name="importDate" readonly>
 
@@ -212,14 +255,11 @@
         </div>
         <!-- Batches Edit Modal -->
 
-
         <!-- Batches Add Modal -->
         <div class="modal" id="batchesAddModal">
             <div class="modal-content">
                 <h3>Nhập lô hàng</h3>
                 <form id="batchesAddForm">
-                    <label for="addBatchesNumber">Số lô hàng</label>
-                    <input type="text" id="addBatchesNumber" name="batchesNumber" required/>
 
                     <label for="addProductId">Sản phẩm</label>
                     <select id="addProductId" name="productId">
@@ -231,6 +271,9 @@
 
                     <label for="addQuantity">Số lượng</label>
                     <input type="text" id="addQuantity" name="quantity" required/>
+
+                    <label for="addPrice">Giá</label>
+                    <input type="text" id="addPrice" name="price" required/>
 
                     <label for="addSupplierID">Nhà cung cấp</label>
                     <select id="addSupplierID" name="supplierID">
@@ -244,10 +287,64 @@
                     <button type="button" class="btn btn-danger btn-sm" onclick="closeModals(this)">
                         Hủy
                     </button>
+                    <button type="button" class="float-end btn btn-success btn-sm m-0" onclick="openFileInput()">
+                        Import file
+                    </button>
                 </form>
+                <div id="uploadForm" class="my-3">
+                    <input class="form-control" type="file" id="formFile" name="fileName">
+                    <button type="button" class="btn btn-info btn-sm m-0" onclick="uploadFile()">Upload</button>
+                </div>
             </div>
         </div>
         <!-- Batches Add Modal -->
+
+
+        <!-- Archive Batches -->
+        <div id="archive-batches">
+            <div class="header">
+                <h1>Danh sách các lô hàng đang lưu trữ</h1>
+            </div>
+            <table class="myTable display">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Mã lô</th>
+                    <th>Sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Tình trạng</th>
+                    <th>Thao tác</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${archiveBatches}" var="ar">
+                    <tr>
+                        <td>${ar.batchID}</td>
+                        <td>${ar.batchNumber}</td>
+                        <td>${ar.productName}</td>
+                        <td>${ar.quantity}</td>
+                        <td>
+                            <p class="text-danger m-0">Đang lưu trữ</p>
+                        </td>
+                        <td>
+                            <button class="btn btn-success btn-sm">
+                                <a class="text-white"
+                                   href="<%=request.getContextPath()%>/admin/deleteBatch?batchID=${ar.batchID}&&option=0">
+                                    Bỏ lưu trữ </a>
+                            </button>
+                            <button class="btn btn-danger btn-sm">
+                                Xóa vĩnh viễn
+                            </button>
+                        </td>
+
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+        <!-- Archive Batches -->
+
+
     </div>
 </div>
 <!-- Loading Overlay -->
@@ -256,12 +353,14 @@
         <span class="visually-hidden">Loading...</span>
     </div>
 </div>
+
 <script>
     // Show form 'EDIT' batches
-    function showBatchesEditForm(batchesId, batchesNumber, productID, quantity, importDate, supplierID, createAt) {
+    function showBatchesEditForm(batchesId, batchesNumber, productID, quantity, price, importDate, supplierID, createAt) {
         document.getElementById("batchesId").value = batchesId;
         document.getElementById("batchesNumber").value = batchesNumber;
         document.getElementById("quantity").value = quantity;
+        document.getElementById("price").value = price;
         document.getElementById("importDate").value = importDate;
         document.getElementById("createAt").value = createAt
 
@@ -326,7 +425,7 @@
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
                 },
-                body: formData,
+                body: formData
             })
 
             let result = await response.json();
@@ -341,14 +440,95 @@
         }
     })
 
+    // Change used status
+    async function changeUsedStatus(batchID, selectBox) {
+        const originalValue = selectBox.getAttribute('data-original'); // giữ trạng thái ban đầu
+        const selectedValue = selectBox.value; // value status
+
+        let url = `${pageContext.request.contextPath}/admin/status-used`
+        try {
+            let response = await fetch(url, {
+                method: 'Post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: "batchID=" + encodeURIComponent(batchID) + "&usedStatus=" + encodeURIComponent(selectedValue)
+            })
+
+            let result = await response.json();
+            if (result.isSuccess) {
+                alert('Cập nhật thành công');
+                window.location.reload();
+            } else {
+                alert('Cập nhật thất bại');
+                selectBox.value = originalValue;
+                window.location.reload();
+            }
+        } catch (error) {
+        }
+    }
+
+    // upload file to import batches
+    function uploadFile() {
+        let fileName = document.getElementById("formFile").files[0].name;
+        console.log(fileName);
+
+        let formData = new URLSearchParams();
+        formData.append("fileName", fileName);
+
+        let url = `${pageContext.request.contextPath}/admin/add-batch-excel`;
+
+        try {
+            let response = fetch(url, {
+                method: 'Post',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: formData,
+            })
+
+            let result = response.json();
+            if (result.isSuccess) {
+                alert('Thêm thành công')
+                window.location.reload()
+            } else {
+                alert('Thêm thất bại')
+                window.location.reload()
+            }
+        } catch (error) {
+            alert(error)
+        }
+    }
+
 
     // Helper function
     function confirmDelete() {
         return confirm("Bạn có chắc chắn muốn lưu trữ lô hàng này?");
     }
 
+    function openTableArchive() {
+        let element = document.getElementById('archive-batches');
+        let currentDisplay = element.style.display;
+
+        if (currentDisplay === 'none' || currentDisplay === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+
+    function openFileInput() {
+        let element = document.getElementById('uploadForm');
+        let currentDisplay = element.style.display;
+
+        if (currentDisplay === 'none' || currentDisplay === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+
     function closeModals(btnCancel) {
-        // document.getElementById("batchesEditModal").style.display = "none";
         let target = btnCancel.form.parentElement.parentElement;
         target.style.display = "none";
     }

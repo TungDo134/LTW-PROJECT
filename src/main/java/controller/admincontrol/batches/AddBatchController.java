@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import dao.BatchDAO;
 import entity.Batch;
+import helper.GenerateBatchesNum;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -26,9 +27,16 @@ public class AddBatchController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Batch batch = new Batch();
+
+        // tạo số lô (example: LO-20250529) nếu không chọn số lô
+        GenerateBatchesNum gen = new GenerateBatchesNum();
+        String batchesNumber = gen.generateBatchesNumber();
+
         batch.setProductID(Integer.parseInt(request.getParameter("productId")));
-        batch.setBatchNumber(request.getParameter("batchesNumber"));
+        batch.setBatchNumber(batchesNumber);
+        batch.setBatchNumber(batchesNumber);
         batch.setQuantity(Integer.parseInt(request.getParameter("quantity")));
+        batch.setPrice(Double.parseDouble(request.getParameter("price")));
         batch.setSupplierID(Integer.parseInt(request.getParameter("supplierID")));
 
         // Get date and time

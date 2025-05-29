@@ -29,6 +29,7 @@ public class EditBatchController extends HttpServlet {
         batch.setBatchID(Integer.parseInt(request.getParameter("batchesId")));
         batch.setProductID(Integer.parseInt(request.getParameter("productId")));
         batch.setQuantity(Integer.parseInt(request.getParameter("quantity")));
+        batch.setPrice(Double.parseDouble(request.getParameter("price")));
         String supplierID = request.getParameter("supplierID");
         if (supplierID != null && !supplierID.trim().isEmpty()) {
             batch.setSupplierID(Integer.parseInt(supplierID));
