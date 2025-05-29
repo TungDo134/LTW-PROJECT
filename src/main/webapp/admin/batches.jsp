@@ -299,7 +299,6 @@
         </div>
         <!-- Batches Add Modal -->
 
-
         <!-- Archive Batches -->
         <div id="archive-batches">
             <div class="header">
@@ -469,7 +468,7 @@
     }
 
     // upload file to import batches
-    function uploadFile() {
+   async function uploadFile() {
         let fileName = document.getElementById("formFile").files[0].name;
         console.log(fileName);
 
@@ -479,7 +478,7 @@
         let url = `${pageContext.request.contextPath}/admin/add-batch-excel`;
 
         try {
-            let response = fetch(url, {
+            let response = await fetch(url, {
                 method: 'Post',
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
@@ -487,7 +486,7 @@
                 body: formData,
             })
 
-            let result = response.json();
+            let result = await response.json();
             if (result.isSuccess) {
                 alert('Thêm thành công')
                 window.location.reload()
@@ -496,10 +495,9 @@
                 window.location.reload()
             }
         } catch (error) {
-            alert(error)
+            console.log(error)
         }
     }
-
 
     // Helper function
     function confirmDelete() {

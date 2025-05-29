@@ -247,15 +247,11 @@
 
                                 </li>
                                 <li class="sub-menu-item">
-
-                                    <%-- getAllManuController--%>
-                                    <a href="<%= request.getContextPath()%>/admin/supplier.jsp">Danh sách nhà cung cấp</a>
+                                    <a href="<%= request.getContextPath()%>/admin/list-supplier">Danh sách nhà cung cấp</a>
 
 
                                 </li>
                                 <li class="sub-menu-item">
-
-                                    <%-- getAllManuController--%>
                                     <a href="<%= request.getContextPath()%>/admin/inventory_transaction.jsp">Danh sách giao dịch</a>
 
 

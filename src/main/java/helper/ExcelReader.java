@@ -58,14 +58,13 @@ public class ExcelReader {
 
                 // Tự sinh importDate và createdAt bằng LocalDateTime.now()
                 String importDate = String.valueOf(LocalDateTime.now().toLocalDate());
-                String createdAt = String.valueOf(LocalDateTime.now()); // 2025-05-29 06:09 PM +07
 
                 // Giá trị mặc định cho isDeleted và isUsed
                 byte isDeleted = 0;
                 byte isUsed = 0;
 
                 // Tạo Batch
-                Batch batch = new Batch(productID, batchNumber, quantity, price, importDate, supplierID, createdAt, isDeleted, isUsed);
+                Batch batch = new Batch(productID, batchNumber, quantity, price, importDate, supplierID, isDeleted, isUsed);
                 batches.add(batch);
                 System.out.println("Read batch: " + batch); // Debug
             }

@@ -41,7 +41,6 @@ public class AddBatchController extends HttpServlet {
 
         // Get date and time
         LocalDateTime dateTime = LocalDateTime.now();
-        batch.setCreatedAt(String.valueOf(dateTime));
         batch.setImportDate(String.valueOf(dateTime.toLocalDate()));
 
         // Call addBatch function

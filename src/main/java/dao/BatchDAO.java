@@ -62,8 +62,8 @@ public class BatchDAO {
     public boolean addBatch(Batch batch) {
         int rowsAffected = JDBIContext.getJdbi().withHandle(handle ->
                 handle.createUpdate("""
-                                INSERT INTO batches (productID, batchNumber, quantity, price, importDate, supplierID, createdAt, isDeleted)
-                                VALUES (:productID, :batchNumber, :quantity, :price, :importDate, :supplierID, :createdAt, :isDeleted)
+                                INSERT INTO batches (productID, batchNumber, quantity, price, importDate, supplierID, isDeleted)
+                                VALUES (:productID, :batchNumber, :quantity, :price, :importDate, :supplierID, :isDeleted)
                                 """)
                         .bind("productID", batch.getProductID())
                         .bind("batchNumber", batch.getBatchNumber())
@@ -71,7 +71,6 @@ public class BatchDAO {
                         .bind("price", batch.getPrice())
                         .bind("importDate", batch.getImportDate())
                         .bind("supplierID", batch.getSupplierID())
-                        .bind("createdAt", batch.getCreatedAt())
                         .bind("isDeleted", batch.getIsDeleted())
                         .execute()
         );
