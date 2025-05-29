@@ -7,8 +7,9 @@ public class Supplier {
     private String supplierName;
     private String contactInfo;
     private String address;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private String createdAt;
+    private String updatedAt;
+    private byte isDeleted;
 
     // Constructor mặc định
     public Supplier() {
@@ -16,31 +17,70 @@ public class Supplier {
 
     // Constructor đầy đủ để
     public Supplier(int supplierID, String supplierName, String contactInfo, String address,
-                    Timestamp createdAt, Timestamp updatedAt) {
+                    String createdAt, String updatedAt, byte isDeleted) {
         this.supplierID = supplierID;
         this.supplierName = supplierName;
         this.contactInfo = contactInfo;
         this.address = address;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.isDeleted = isDeleted;
     }
 
     // Getters và Setters
-    public int getSupplierID() { return supplierID; }
-    public void setSupplierID(int supplierID) { this.supplierID = supplierID; }
+    public int getSupplierID() {
+        return supplierID;
+    }
 
-    public String getSupplierName() { return supplierName; }
-    public void setSupplierName(String supplierName) { this.supplierName = supplierName; }
+    public void setSupplierID(int supplierID) {
+        this.supplierID = supplierID;
+    }
 
-    public String getContactInfo() { return contactInfo; }
-    public void setContactInfo(String contactInfo) { this.contactInfo = contactInfo; }
+    public String getSupplierName() {
+        return supplierName;
+    }
 
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
+    }
 
-    public Timestamp getCreatedAt() { return createdAt; }
-    public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
+    public String getContactInfo() {
+        return contactInfo;
+    }
 
-    public Timestamp getUpdatedAt() { return updatedAt; }
-    public void setUpdatedAt(Timestamp updatedAt) { this.updatedAt = updatedAt;}
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public byte getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(byte isDeleted) {
+        this.isDeleted = isDeleted;
+    }
 }

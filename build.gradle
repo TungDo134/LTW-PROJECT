@@ -72,6 +72,10 @@ dependencies {
     compileOnly libs.jakarta.el.jakarta.el.api
     compileOnly libs.jakarta.websocket.jakarta.websocket.api
     compileOnly libs.jakarta.security.enterprise.jakarta.security.enterprise.api
+
+    // Apache POI để đọc Excel
+    implementation 'org.apache.poi:poi:5.2.3'
+    implementation 'org.apache.poi:poi-ooxml:5.2.3'
 }
 
 
